@@ -13,9 +13,54 @@ define printc
     set $retval = $arg0
 end
 
-set $utest_base = 0x1B000000
+set $utest_base     = 0x1B000000
+set $sbaf_version   = 0x4039C020
+set $hse_gpr_3_addr = 0x4039C028
 
 printf "UTEST_HEADER: %08X %08X\n", *($utest_base), *($utest_base + 4)
+set $sbaf1 = *($sbaf_version)
+set $sbaf2 = *($sbaf_version + 4)
+printf "SBAF_SOC_TYPE_ID: %01X\n", (($sbaf1 >> 8) & 0xFF)
+printf "SBAF_FW_TYPE: %02X\n", (($sbaf1 >> 16) & 0xFFFF)
+printf "SBAF_BASELINE_NUMBER: %02X\n", (($sbaf2 >> 8) & 0xFF)
+printf "SBAF_INCREMENTAL_NUMBER: %02X\n", (($sbaf2 >> 16) & 0xFF)
+printf "SBAF_RC_NUMBER: %02X\n", (($sbaf2 >> 24) & 0xFF)
+
+set $hse_gpr_3 = *($hse_gpr_3_addr)
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "App should not access flash block 4\n" "App can access flash block 4\n"
+printc $hse_gpr_3&0x00000000 "App should not access flash block 3\n" "App can access flash block 3\n"
+printc $hse_gpr_3&0x00000000 "App should not access flash block 2\n" "App can access flash block 2\n"
+printc $hse_gpr_3&0x00000000 "App should not access flash block 1\n" "App can access flash block 1\n"
+printc $hse_gpr_3&0x00000000 "App should not access flash block 0\n" "App can access flash block 0\n"
+printc $hse_gpr_3&0x00000000 "App should not access UTEST\n" "App can access flash UTEST\n"
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "App should not erase flash block 4\n" "App can erase flash block 4\n"
+printc $hse_gpr_3&0x00000000 "App should not erase flash block 3\n" "App can erase flash block 3\n"
+printc $hse_gpr_3&0x00000000 "App should not erase flash block 2\n" "App can erase flash block 2\n"
+printc $hse_gpr_3&0x00000000 "App should not erase flash block 1\n" "App can erase flash block 1\n"
+printc $hse_gpr_3&0x00000000 "App should not erase flash block 0\n" "App can erase flash block 0\n"
+printc $hse_gpr_3&0x00000000 "App should not erase UTEST\n" "App can erase UTEST\n"
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "Reserved" "Reserved"
+printc $hse_gpr_3&0x00000000 "SBAF verifies IVT recovery image with random IV" "SBAF verifies IVT recovery image with fixed IV"
+printc $hse_gpr_3&0x00000000 "Reserved for HSE" "Reserved for HSE"
+printc $hse_gpr_3&0x00000000 "App core boot in Recovery mode by SBAF" ""
+printc $hse_gpr_3&0x00000000 "SBAF Handshake erased HSE Firmware" ""
+printc $hse_gpr_3&0x00000000 "SBAF Handshake erased HSE Firmware in data flash" ""
+printc $hse_gpr_3&0x00000000 "SBAF Handshake erased HSE Firmware in code flash" ""
+printc $hse_gpr_3&0x00000000 "MU_IF is enabled for install HSE Firmware" ""
+printc $hse_gpr_3&0x00000000 "HSE FW present SBAF boot HSE FW" ""
+
+# HSE-B RM Page 247
 
 set $mcme_base = 0x402DC000
 
