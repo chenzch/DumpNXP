@@ -1,87 +1,10 @@
-set pagination off
-set logging file S32K312.dump
-set logging enabled on
-
-set $retval = 0
-
-define printc
-    if $arg0
-        printf $arg1
-    else
-        printf $arg2
-    end
-    set $retval = $arg0
-end
-
-set $utest_base = 0x1B000000
-printf "UTEST_HEADER: %08X %08X\n", *($utest_base), *($utest_base + 4)
-
-set $sbaf_version = 0x4039C020
-set $sbaf1 = *($sbaf_version)
-set $sbaf2 = *($sbaf_version + 4)
-# SOC_TYPE_ID
-# 05 - S32K344, S32K324, S32K314
-# 0C - S32K311, S32K310
-# 0D - S32K312, S32K342, S32K322, S32K314
-# 0E - S32K358, S32K348, S32K338, S32K328, S32K336, S32K356
-# 0F - S32K396, S32K376, S32K394, S32K374
-# 10 - S32K388
-printf "SBAF_SOC_TYPE_ID: %02X\n", (($sbaf1 >> 8) & 0xFF)
-printf "SBAF_FW_TYPE: %02X\n", (($sbaf1 >> 16) & 0xFFFF)
-printf "SBAF_BASELINE_NUMBER: %02X\n", (($sbaf2 >> 8) & 0xFF)
-printf "SBAF_INCREMENTAL_NUMBER: %02X\n", (($sbaf2 >> 16) & 0xFF)
-printf "SBAF_RC_NUMBER: %02X\n", (($sbaf2 >> 24) & 0xFF)
-
-set $hse_gpr_3_addr = 0x4039C028
-set $hse_gpr_3 = *($hse_gpr_3_addr)
-printc $hse_gpr_3&0x80000000 "Reserved" ""
-printc $hse_gpr_3&0x40000000 "Reserved" ""
-printc $hse_gpr_3&0x20000000 "App should not access flash block 4\n" "App can access flash block 4\n"
-printc $hse_gpr_3&0x10000000 "App should not access flash block 3\n" "App can access flash block 3\n"
-printc $hse_gpr_3&0x08000000 "App should not access flash block 2\n" "App can access flash block 2\n"
-printc $hse_gpr_3&0x04000000 "App should not access flash block 1\n" "App can access flash block 1\n"
-printc $hse_gpr_3&0x02000000 "App should not access flash block 0\n" "App can access flash block 0\n"
-printc $hse_gpr_3&0x01000000 "App should not access UTEST\n" "App can access flash UTEST\n"
-printc $hse_gpr_3&0x00800000 "Reserved" ""
-printc $hse_gpr_3&0x00400000 "Reserved" ""
-printc $hse_gpr_3&0x00200000 "App should not erase flash block 4\n" "App can erase flash block 4\n"
-printc $hse_gpr_3&0x00100000 "App should not erase flash block 3\n" "App can erase flash block 3\n"
-printc $hse_gpr_3&0x00080000 "App should not erase flash block 2\n" "App can erase flash block 2\n"
-printc $hse_gpr_3&0x00040000 "App should not erase flash block 1\n" "App can erase flash block 1\n"
-printc $hse_gpr_3&0x00020000 "App should not erase flash block 0\n" "App can erase flash block 0\n"
-printc $hse_gpr_3&0x00010000 "App should not erase UTEST\n" "App can erase UTEST\n"
-printc $hse_gpr_3&0x00008000 "Reserved" ""
-printc $hse_gpr_3&0x00004000 "Reserved" ""
-printc $hse_gpr_3&0x00002000 "Reserved" ""
-printc $hse_gpr_3&0x00001000 "Reserved" ""
-printc $hse_gpr_3&0x00000800 "Reserved" ""
-printc $hse_gpr_3&0x00000400 "Reserved" ""
-printc $hse_gpr_3&0x00000200 "Reserved" ""
-printc $hse_gpr_3&0x00000100 "Reserved" ""
-printc $hse_gpr_3&0x00000080 "SBAF verifies IVT recovery image with random IV" "SBAF verifies IVT recovery image with fixed IV"
-printc $hse_gpr_3&0x00000040 "Reserved for HSE" "Reserved for HSE"
-printc $hse_gpr_3&0x00000020 "App core boot in Recovery mode by SBAF" ""
-printc $hse_gpr_3&0x00000010 "SBAF Handshake erased HSE Firmware" ""
-printc $hse_gpr_3&0x00000008 "SBAF Handshake erased HSE Firmware in data flash" ""
-printc $hse_gpr_3&0x00000004 "SBAF Handshake erased HSE Firmware in code flash" ""
-printc $hse_gpr_3&0x00000002 "MU_IF is enabled for install HSE Firmware" ""
-printc $hse_gpr_3&0x00000001 "HSE FW present SBAF boot HSE FW" "No HSE FW"
-
-set $config_rampr_addr = 0x4039C038
-set $config_cfprl_addr = 0x4039C03C
-set $config_cfprh_addr = 0x4039C040
-set $config_dfpr_addr  = 0x4039C044
-
-printf "CONFIG_RAMPR: %08X\n", *($config_rampr_addr)
-printf "CONFIG_CFPRL: %08X\n", *($config_cfprl_addr)
-printf "CONFIG_CFPRH: %08X\n", *($config_cfprh_addr)
-printf "CONFIG_DFPR : %08X\n", *($config_dfpr_addr)
-
 # MC_ME
 set $mcme_base = 0x402DC000
 
 # MC_ME_PARTITION_0
 set $mcme_prtn0_stat = *($mcme_base + 0x108)
+
+set $mcme_prtn0_cofb1_stat = 0
 
 printc $mcme_prtn0_stat&0x01 "Partition 0\tclock is active\n" "Partition 0\tclock is inactive\n"
 
@@ -123,6 +46,11 @@ end
 
 # MC_ME_PARTITION_1
 set $mcme_prtn1_stat = *($mcme_base + 0x308)
+
+set $mcme_prtn1_cofb0_stat = 0
+set $mcme_prtn1_cofb1_stat = 0
+set $mcme_prtn1_cofb2_stat = 0
+set $mcme_prtn1_cofb3_stat = 0
 
 printc $mcme_prtn1_stat&0x01 "Partition 1\tclock is active\n" "Partition 1\tclock is inactive\n"
 
@@ -264,73 +192,3 @@ if $retval
     printc $mcme_prtn1_cofb3_stat&0x00000001 "CRC\tin Partition 1 clock is running\n" "CRC\tin Partition 1 clock is not running\n"
 
 end
-
-# SIRC
-set $sirc_base = 0x402C8000
-printc (*($sirc_base+0x04))&0x1 "SIRC is ON\n" "SIRC is OFF\n"
-printc (*($sirc_base+0x0C))&0x100 "SIRC enabled in standby\n" "SIRC disabled in standby\n"
-
-# FIRC
-set $firc_base = 0x402D0000
-printc (*($firc_base+0x04))&0x1 "FIRC is ON\n" "FIRC is OFF\n"
-printc (*($firc_base+0x08))&0x1 "FIRC enabled in standby\n" "FIRC disabled in standby\n"
-
-# SXOSC
-set $sxosc_base = 0x402CC000
-printc (*($sxosc_base+0x04))&0x80000000 "SXOSC is ON\n" "SXOSC is OFF\n"
-
-# FXOSC
-set $fxosc_base = 0x402D4000
-printc (*($fxosc_base+0x04))&0x80000000 "FXOSC is ON\n" "FXOSC is OFF\n"
-
-if $retval
-    # PLL
-    set $pll_base = 0x402E0000
-    set $pll_sr = *($pll_base + 0x04)
-    printc $pll_sr&0x8 "Loss of lock detected\n" ""
-    printc $pll_sr&0x4 "PLL locked\n" "PLL unlocked\n"
-    set $pll_dv = *($pll_base + 0x08)
-    printf "PLL_RDIV: %X\n", ($pll_dv >> 12) & 0x7
-    printf "PLL_MFI: %X\n", $pll_dv & 0xFF
-    printf "PLL_ODIV2: %X\n", ($pll_dv >> 25) & 0x3F
-end
-
-# MC_CGM
-set $mc_cgm_base = 0x402D8000
-
-# MC_CGM_MUX_0
-set $mc_cgm_mux_0_css = *($mc_cgm_base + 0x304)
-printf "MUX_0_SEL: %01X\n", ($mc_cgm_mux_0_css >> 24) & 0xF
-printf "MUL_0_SWTRG: %01X\n", ($mc_cgm_mux_0_css >> 17) & 0x7
-printc $mc_cgm_mux_0_css&0x00010000 "Clock switching\n" "Clock switched\n"
-printc $mc_cgm_mux_0_css&0x00000008 "Safe clock switch requested\n" ""
-printc $mc_cgm_mux_0_css&0x00000004 "Clock switch requested\n" ""
-printc $mc_cgm_mux_0_css&0x00000002 "Ramp-down requested\n" ""
-printc $mc_cgm_mux_0_css&0x00000001 "Ramp-up requested\n" ""
-
-set $mc_cgm_mux_0_dc_0 = *($mc_cgm_base + 0x308)
-if $mc_cgm_mux_0_dc_0&0x80000000
-    printf "MUX_0_DC0: %01X\n", ($mc_cgm_mux_0_dc_0 >> 16) & 0x7
-end
-
-set $mc_cgm_mux_0_dc_1 = *($mc_cgm_base + 0x30C)
-if $mc_cgm_mux_0_dc_1&0x80000000
-    printf "MUX_0_DC1: %01X\n", ($mc_cgm_mux_0_dc_1 >> 16) & 0x7
-end
-
-set $mc_cgm_mux_0_dc_2 = *($mc_cgm_base + 0x310)
-if $mc_cgm_mux_0_dc_2&0x80000000
-    printf "MUX_0_DC2: %01X\n", ($mc_cgm_mux_0_dc_2 >> 16) & 0x7
-end
-
-set $mc_cgm_mux_0_dc_3 = *($mc_cgm_base + 0x314)
-if $mc_cgm_mux_0_dc_3&0x80000000
-    printf "MUX_0_DC3: %01X\n", ($mc_cgm_mux_0_dc_3 >> 16) & 0x7
-end
-
-set $mc_cgm_mux_0_dc_4 = *($mc_cgm_base + 0x318)
-if $mc_cgm_mux_0_dc_4&0x80000000
-    printf "MUX_0_DC4: %01X\n", ($mc_cgm_mux_0_dc_4 >> 16) & 0x7
-end
-
-set logging enabled off
