@@ -74,6 +74,23 @@ if $mcme_prtn1_cofb3_stat&0x00000008
     printc $mu_fsr&0x00000001 "Service channel 0 in progress\n" ""
 end
 
+if $mcme_prtn1_cofb1_stat&0x00000800
+    # DCM
+    set $dcm_base_addr = 0x402AC000
+    set $dcm_stat = *($dcm_base_addr)
+    printc $dcm_stat&0x00000001 "DCM Scanning Done\n" "DCM Scanning Running\n"
+    if $retval
+        printc $dcm_stat&0x00040000 "Partial ABSWAP Active\n" "Partial ABSWAP Inactive\n"
+        printc $dcm_stat&0x00020000 "ABSWAP High Address\n" "ABSWAP Low Address\n"
+        printc $dcm_stat&0x00010000 "ABSWAP Active\n" "ABSWAP Inactive\n"
+        printc $dcm_stat&0x00000400 "Debug Password Success\n" "Debug Password Error\n"
+        printc $dcm_stat&0x00000200 "ABSWAP Success\n" "ABSWAP Error\n"
+        printc $dcm_stat&0x00000100 "UTEST Success\n" "UTEST Error\n"
+        printc $dcm_stat&0x00000010 "LC Success\n" "LC Error\n"
+        printc $dcm_stat&0x00000002 "DCM Error\n" "DCM Success\n"
+    end
+end
+
 set $config_rampr_addr = 0x4039C038
 set $config_cfprl_addr = 0x4039C03C
 set $config_cfprh_addr = 0x4039C040
