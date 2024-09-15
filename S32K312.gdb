@@ -1,8 +1,6 @@
 set pagination off
 set logging file S32K312.dump
-set logging enabled on
-
-#include common.gdb
+set logging on
 
 #include S32K3\sbaf.gdb
 
@@ -18,4 +16,4 @@ end
 
 #include S32K3\hse.gdb
 
-set logging enabled off
+set logging off
