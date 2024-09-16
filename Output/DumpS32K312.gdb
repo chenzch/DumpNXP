@@ -2,7 +2,6 @@ set pagination off
 set logging file S32K312.dump
 set logging on
 
-
 # SBAF
 set $sbaf_version = 0x4039C020
 printf "VAL/%08X/%08X\n", $sbaf_version, *($sbaf_version)
