@@ -2,6 +2,8 @@ import openpyxl
 import re
 from openpyxl.styles import Alignment
 from IDevice import IDevice
+from typing import List
+from IParseItem import IParseItem
 
 def ReadFile(filename: str) -> list:
     result = []
@@ -58,3 +60,9 @@ def Parse(input_filename: str, excel_filename: str, device: IDevice):
 
     # 保存Excel文件
     workbook.save(excel_filename)
+
+def ProcessArray(array: List[IParseItem], value: int, sheet: openpyxl.worksheet.worksheet.Worksheet, start_row: int, start_column: int) -> int:
+    backrow = start_row
+    for item in array:
+        start_row = start_row +item.ParseItem(value, sheet, start_row, start_column)
+    return start_row - backrow
