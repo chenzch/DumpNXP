@@ -50,13 +50,18 @@ def Parse(input_filename: str, excel_filename: str, device: IDevice):
         # 调用UpdateSheet方法更新工作表
         module.UpdateSheet(result, module_sheet)
 
-        # 设置 B 列所有单元格对齐
-        for row in module_sheet['B']:
-            row.alignment = alignment
+        if len(module_sheet['B']) > 1:
 
-        # 自动调整列宽度
-        for column in ['A', 'B', 'C']:
-            module_sheet.column_dimensions[column].width = max(module_sheet.column_dimensions[column].width, max(len(str(cell.value)) for cell in module_sheet[column])) + 2
+            # 设置 B 列所有单元格对齐
+            for row in module_sheet['B']:
+                row.alignment = alignment
+
+            # 自动调整列宽度
+            for column in ['A', 'B', 'C']:
+                module_sheet.column_dimensions[column].width = max(module_sheet.column_dimensions[column].width, max(len(str(cell.value)) for cell in module_sheet[column])) + 2
+
+        else:
+            workbook.remove(module_sheet)
 
     # 保存Excel文件
     workbook.save(excel_filename)
