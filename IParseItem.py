@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
+
 import openpyxl
+
 
 class IParseItem(ABC):
     @abstractmethod

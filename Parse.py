@@ -1,9 +1,12 @@
-import openpyxl
 import re
-from openpyxl.styles import Alignment
-from IDevice import IDevice
 from typing import List
+
+import openpyxl
+from openpyxl.styles import Alignment
+
+from IDevice import IDevice
 from IParseItem import IParseItem
+
 
 def ReadFile(filename: str) -> list:
     result = []

@@ -1,10 +1,11 @@
-from IModule import IModule
 from typing import List, Tuple
+
 import openpyxl
+
 from IModule import IModule
-from typing import List, Tuple
-from Parse import ProcessArray
 from IntItem import IntItem
+from Parse import ProcessArray
+
 
 class SBAF(IModule):
     def GetModuleName(self) -> str:

@@ -1,7 +1,10 @@
-import openpyxl
-from IParseItem import IParseItem
-from openpyxl.styles import Alignment
 from typing import List
+
+import openpyxl
+from openpyxl.styles import Alignment
+
+from IParseItem import IParseItem
+
 
 class IntItem(IParseItem):
     def __init__(self, name: str, offset: int, width: int, enumStr: List = None):

@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import List, Tuple
+
 import openpyxl
+
 
 class IModule(ABC):
     @abstractmethod

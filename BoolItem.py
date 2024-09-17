@@ -1,6 +1,8 @@
 import openpyxl
-from IParseItem import IParseItem
 from openpyxl.styles import Alignment
+
+from IParseItem import IParseItem
+
 
 class BoolItem(IParseItem):
     def __init__(self, offset: int, true_meaning: str, false_meaning: str):

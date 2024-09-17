@@ -1,8 +1,11 @@
-import openpyxl
-from IModule import IModule
 from typing import List, Tuple
-from Parse import ProcessArray
+
+import openpyxl
+
 from BoolItem import BoolItem
+from IModule import IModule
+from Parse import ProcessArray
+
 
 class HSE(IModule):
     def GetModuleName(self) -> str:

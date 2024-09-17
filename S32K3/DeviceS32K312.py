@@ -1,12 +1,15 @@
+from typing import List
+
 from IDevice import IDevice
 from IModule import IModule
+
 from .clock import Clock
 from .hse import HSE
-from .sbaf import SBAF
-from .pll import PLL
-from .mc_me import MC_ME
 from .mc_cgm import MC_CGM
-from typing import List
+from .mc_me import MC_ME
+from .pll import PLL
+from .sbaf import SBAF
+
 
 class DeviceS32K312(IDevice):
     def GetDeviceName(self) -> str:

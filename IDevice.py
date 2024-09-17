@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List, Tuple
 
+
 class IDevice(ABC):
     @abstractmethod
     def GetDeviceName(self) -> str:

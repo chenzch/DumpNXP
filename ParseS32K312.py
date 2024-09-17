@@ -1,6 +1,8 @@
 import sys
-from S32K3.DeviceS32K312 import DeviceS32K312
+
 from Parse import Parse
+from S32K3.DeviceS32K312 import DeviceS32K312
+
 
 def main():
     if len(sys.argv) != 3:
