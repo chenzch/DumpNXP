@@ -16,4 +16,6 @@ end
 
 #include S32K3\hse.gdb
 
+#include S32K3\nvic.gdb
+
 set logging off

@@ -163,3 +163,4 @@ cython_debug/
 
 *.dump
 *.xlsx
+.vscode/BROWSE.*

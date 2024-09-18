@@ -9,6 +9,8 @@ from .mc_cgm import MC_CGM
 from .mc_me import MC_ME
 from .pll import PLL
 from .sbaf import SBAF
+from .nvic import NVIC
+
 
 
 class DeviceS32K312(IDevice):
@@ -16,4 +18,4 @@ class DeviceS32K312(IDevice):
         return "S32K312"
 
     def GetModuleList(self) -> List[IModule]:
-        return [Clock(), HSE(), SBAF(), PLL(), MC_ME(), MC_CGM()]
+        return [Clock(), HSE(), SBAF(), PLL(), MC_ME(), MC_CGM(), NVIC()]
