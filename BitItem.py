@@ -4,8 +4,9 @@ from openpyxl.styles import Alignment
 from IParseItem import IParseItem
 
 
-class BoolItem(IParseItem):
-    def __init__(self, offset: int, true_meaning: str, false_meaning: str):
+class BitItem(IParseItem):
+    def __init__(self, name: str, offset: int, true_meaning: str, false_meaning: str):
+        self.name = name
         self.offset = offset
         self.true_meaning = true_meaning
         self.false_meaning = false_meaning
@@ -17,7 +18,7 @@ class BoolItem(IParseItem):
         result = bool(value & (1 << self.offset))
         text = self.true_meaning if result else self.false_meaning
         if (len(text) > 0):
-            sheet.cell(row=start_row, column=start_column, value=f"{(1 << self.offset):08X}")
+            sheet.cell(row=start_row, column=start_column, value=self.name)
             sheet.cell(row=start_row, column=start_column).alignment = alignment
             sheet.cell(row=start_row, column=start_column + 1, value=(value >> self.offset) & 1)
             sheet.cell(row=start_row, column=start_column + 2, value=text)

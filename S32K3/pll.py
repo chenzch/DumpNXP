@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 import openpyxl
 
-from BoolItem import BoolItem
+from BitItem import BitItem
 from IModule import IModule
 from IntItem import IntItem
 from Parse import ProcessArray
@@ -23,8 +23,8 @@ class PLL(IModule):
                 sheet.cell(row=row, column=1, value="PLL Status")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
-                    BoolItem(offset=2, true_meaning="PLL locked", false_meaning="PLL unlocked"),
-                    BoolItem(offset=3, true_meaning="Loss of lock detected", false_meaning="")
+                    BitItem(name="LOCK", offset=2, true_meaning="PLL locked", false_meaning="PLL unlocked"),
+                    BitItem(name="LOL",offset=3, true_meaning="Loss of lock detected", false_meaning="")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
             elif (addr == pll_base + 0x08):
                 sheet.cell(row=row, column=1, value="PLL Divider")
