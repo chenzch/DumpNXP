@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Debugger: Current File with Arguments",
+            "name": "Python Debugger: ParseS32K312 with Arguments",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/ParseS32K312.py",
             "console": "integratedTerminal",
-            "args": ["S32K312.dump", "output.xlsx"]
+            "args": ["S32K312.dump"]
         }
     ]
 }
