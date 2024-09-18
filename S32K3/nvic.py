@@ -506,12 +506,12 @@ class NVIC(IModule):
 
     def UpdateSheet(self, data: List[Tuple[str, str]], sheet: openpyxl.worksheet.worksheet.Worksheet) -> None:
         row = 1
-        nvic_base = 0xE000E000
+        scb_base = 0xE000E000
         for item in data:
             row += 1
             addr = int(item[0], 16)
             value = int(item[1], 16)
-            if (addr == nvic_base + 0x100):
+            if (addr == scb_base + 0x100):
                 sheet.cell(row=row, column=1, value="ISER0")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -548,7 +548,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[30], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[31], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x104):
+            elif (addr == scb_base + 0x104):
                 sheet.cell(row=row, column=1, value="ISER1")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -585,7 +585,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[62], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[63], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x108):
+            elif (addr == scb_base + 0x108):
                 sheet.cell(row=row, column=1, value="ISER2")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -622,7 +622,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[94], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[95], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x10C):
+            elif (addr == scb_base + 0x10C):
                 sheet.cell(row=row, column=1, value="ISER3")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -659,7 +659,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[126], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[127], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x110):
+            elif (addr == scb_base + 0x110):
                 sheet.cell(row=row, column=1, value="ISER4")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -696,7 +696,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[158], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[159], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x114):
+            elif (addr == scb_base + 0x114):
                 sheet.cell(row=row, column=1, value="ISER5")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -733,7 +733,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[190], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[191], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x118):
+            elif (addr == scb_base + 0x118):
                 sheet.cell(row=row, column=1, value="ISER6")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -770,7 +770,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[222], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[223], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x11C):
+            elif (addr == scb_base + 0x11C):
                 sheet.cell(row=row, column=1, value="ISER7")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -791,7 +791,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[238], offset=14, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[239], offset=15, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x180):
+            elif (addr == scb_base + 0x180):
                 sheet.cell(row=row, column=1, value="ICER0")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -828,7 +828,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[30], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[31], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x184):
+            elif (addr == scb_base + 0x184):
                 sheet.cell(row=row, column=1, value="ICER1")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -865,7 +865,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[62], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[63], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x188):
+            elif (addr == scb_base + 0x188):
                 sheet.cell(row=row, column=1, value="ICER2")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -902,7 +902,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[94], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[95], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x18C):
+            elif (addr == scb_base + 0x18C):
                 sheet.cell(row=row, column=1, value="ICER3")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -939,7 +939,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[126], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[127], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x190):
+            elif (addr == scb_base + 0x190):
                 sheet.cell(row=row, column=1, value="ICER4")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -976,7 +976,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[158], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[159], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x194):
+            elif (addr == scb_base + 0x194):
                 sheet.cell(row=row, column=1, value="ICER5")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1013,7 +1013,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[190], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[191], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x198):
+            elif (addr == scb_base + 0x198):
                 sheet.cell(row=row, column=1, value="ICER6")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1050,7 +1050,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[222], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[223], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x19C):
+            elif (addr == scb_base + 0x19C):
                 sheet.cell(row=row, column=1, value="ICER7")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1071,7 +1071,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[238], offset=14, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[239], offset=15, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x200):
+            elif (addr == scb_base + 0x200):
                 sheet.cell(row=row, column=1, value="ISPR0")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1108,7 +1108,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[30], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[31], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x204):
+            elif (addr == scb_base + 0x204):
                 sheet.cell(row=row, column=1, value="ISPR1")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1145,7 +1145,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[62], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[63], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x208):
+            elif (addr == scb_base + 0x208):
                 sheet.cell(row=row, column=1, value="ISPR2")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1182,7 +1182,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[94], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[95], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x20C):
+            elif (addr == scb_base + 0x20C):
                 sheet.cell(row=row, column=1, value="ISPR3")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1219,7 +1219,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[126], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[127], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x210):
+            elif (addr == scb_base + 0x210):
                 sheet.cell(row=row, column=1, value="ISPR4")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1256,7 +1256,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[158], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[159], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x214):
+            elif (addr == scb_base + 0x214):
                 sheet.cell(row=row, column=1, value="ISPR5")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1293,7 +1293,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[190], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[191], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x218):
+            elif (addr == scb_base + 0x218):
                 sheet.cell(row=row, column=1, value="ISPR6")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1330,7 +1330,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[222], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[223], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x21C):
+            elif (addr == scb_base + 0x21C):
                 sheet.cell(row=row, column=1, value="ISPR7")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1351,7 +1351,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[238], offset=14, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[239], offset=15, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x280):
+            elif (addr == scb_base + 0x280):
                 sheet.cell(row=row, column=1, value="ICPR0")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1388,7 +1388,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[30], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[31], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x284):
+            elif (addr == scb_base + 0x284):
                 sheet.cell(row=row, column=1, value="ICPR1")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1425,7 +1425,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[62], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[63], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x288):
+            elif (addr == scb_base + 0x288):
                 sheet.cell(row=row, column=1, value="ICPR2")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1462,7 +1462,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[94], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[95], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x28C):
+            elif (addr == scb_base + 0x28C):
                 sheet.cell(row=row, column=1, value="ICPR3")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1499,7 +1499,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[126], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[127], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x290):
+            elif (addr == scb_base + 0x290):
                 sheet.cell(row=row, column=1, value="ICPR4")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1536,7 +1536,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[158], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[159], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x294):
+            elif (addr == scb_base + 0x294):
                 sheet.cell(row=row, column=1, value="ICPR5")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1573,7 +1573,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[190], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[191], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x298):
+            elif (addr == scb_base + 0x298):
                 sheet.cell(row=row, column=1, value="ICPR6")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1610,7 +1610,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[222], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[223], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x29C):
+            elif (addr == scb_base + 0x29C):
                 sheet.cell(row=row, column=1, value="ICPR7")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1631,7 +1631,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[238], offset=14, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[239], offset=15, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x300):
+            elif (addr == scb_base + 0x300):
                 sheet.cell(row=row, column=1, value="IABR0")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1668,7 +1668,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[30], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[31], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x304):
+            elif (addr == scb_base + 0x304):
                 sheet.cell(row=row, column=1, value="IABR1")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1705,7 +1705,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[62], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[63], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x308):
+            elif (addr == scb_base + 0x308):
                 sheet.cell(row=row, column=1, value="IABR2")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1742,7 +1742,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[94], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[95], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x30C):
+            elif (addr == scb_base + 0x30C):
                 sheet.cell(row=row, column=1, value="IABR3")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1779,7 +1779,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[126], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[127], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x310):
+            elif (addr == scb_base + 0x310):
                 sheet.cell(row=row, column=1, value="IABR4")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1816,7 +1816,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[158], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[159], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x314):
+            elif (addr == scb_base + 0x314):
                 sheet.cell(row=row, column=1, value="IABR5")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1853,7 +1853,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[190], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[191], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x318):
+            elif (addr == scb_base + 0x318):
                 sheet.cell(row=row, column=1, value="IABR6")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1890,7 +1890,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[222], offset=30, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[223], offset=31, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x31C):
+            elif (addr == scb_base + 0x31C):
                 sheet.cell(row=row, column=1, value="IABR7")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1911,7 +1911,7 @@ class NVIC(IModule):
                     BitItem(name=self.NameList[238], offset=14, true_meaning="Enable", false_meaning="Disable"),
                     BitItem(name=self.NameList[239], offset=15, true_meaning="Enable", false_meaning="Disable")
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x400):
+            elif (addr == scb_base + 0x400):
                 sheet.cell(row=row, column=1, value="IP0")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1920,7 +1920,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[2], offset=16, width=8),
                     IntItem(name=self.NameList[3], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x404):
+            elif (addr == scb_base + 0x404):
                 sheet.cell(row=row, column=1, value="IP1")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1929,7 +1929,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[6], offset=16, width=8),
                     IntItem(name=self.NameList[7], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x408):
+            elif (addr == scb_base + 0x408):
                 sheet.cell(row=row, column=1, value="IP2")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1938,7 +1938,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[10], offset=16, width=8),
                     IntItem(name=self.NameList[11], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x40C):
+            elif (addr == scb_base + 0x40C):
                 sheet.cell(row=row, column=1, value="IP3")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1947,7 +1947,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[14], offset=16, width=8),
                     IntItem(name=self.NameList[15], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x410):
+            elif (addr == scb_base + 0x410):
                 sheet.cell(row=row, column=1, value="IP4")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1956,7 +1956,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[18], offset=16, width=8),
                     IntItem(name=self.NameList[19], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x414):
+            elif (addr == scb_base + 0x414):
                 sheet.cell(row=row, column=1, value="IP5")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1965,7 +1965,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[22], offset=16, width=8),
                     IntItem(name=self.NameList[23], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x418):
+            elif (addr == scb_base + 0x418):
                 sheet.cell(row=row, column=1, value="IP6")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1974,7 +1974,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[26], offset=16, width=8),
                     IntItem(name=self.NameList[27], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x41C):
+            elif (addr == scb_base + 0x41C):
                 sheet.cell(row=row, column=1, value="IP7")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1983,7 +1983,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[30], offset=16, width=8),
                     IntItem(name=self.NameList[31], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x420):
+            elif (addr == scb_base + 0x420):
                 sheet.cell(row=row, column=1, value="IP8")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -1992,7 +1992,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[34], offset=16, width=8),
                     IntItem(name=self.NameList[35], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x424):
+            elif (addr == scb_base + 0x424):
                 sheet.cell(row=row, column=1, value="IP9")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2001,7 +2001,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[38], offset=16, width=8),
                     IntItem(name=self.NameList[39], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x428):
+            elif (addr == scb_base + 0x428):
                 sheet.cell(row=row, column=1, value="IP10")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2010,7 +2010,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[42], offset=16, width=8),
                     IntItem(name=self.NameList[43], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x42C):
+            elif (addr == scb_base + 0x42C):
                 sheet.cell(row=row, column=1, value="IP11")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2019,7 +2019,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[46], offset=16, width=8),
                     IntItem(name=self.NameList[47], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x430):
+            elif (addr == scb_base + 0x430):
                 sheet.cell(row=row, column=1, value="IP12")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2028,7 +2028,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[50], offset=16, width=8),
                     IntItem(name=self.NameList[51], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x434):
+            elif (addr == scb_base + 0x434):
                 sheet.cell(row=row, column=1, value="IP13")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2037,7 +2037,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[54], offset=16, width=8),
                     IntItem(name=self.NameList[55], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x438):
+            elif (addr == scb_base + 0x438):
                 sheet.cell(row=row, column=1, value="IP14")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2046,7 +2046,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[58], offset=16, width=8),
                     IntItem(name=self.NameList[59], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x43C):
+            elif (addr == scb_base + 0x43C):
                 sheet.cell(row=row, column=1, value="IP15")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2055,7 +2055,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[62], offset=16, width=8),
                     IntItem(name=self.NameList[63], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x440):
+            elif (addr == scb_base + 0x440):
                 sheet.cell(row=row, column=1, value="IP16")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2064,7 +2064,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[66], offset=16, width=8),
                     IntItem(name=self.NameList[67], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x444):
+            elif (addr == scb_base + 0x444):
                 sheet.cell(row=row, column=1, value="IP17")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2073,7 +2073,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[70], offset=16, width=8),
                     IntItem(name=self.NameList[71], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x448):
+            elif (addr == scb_base + 0x448):
                 sheet.cell(row=row, column=1, value="IP18")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2082,7 +2082,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[74], offset=16, width=8),
                     IntItem(name=self.NameList[75], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x44C):
+            elif (addr == scb_base + 0x44C):
                 sheet.cell(row=row, column=1, value="IP19")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2091,7 +2091,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[78], offset=16, width=8),
                     IntItem(name=self.NameList[79], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x450):
+            elif (addr == scb_base + 0x450):
                 sheet.cell(row=row, column=1, value="IP20")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2100,7 +2100,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[82], offset=16, width=8),
                     IntItem(name=self.NameList[83], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x454):
+            elif (addr == scb_base + 0x454):
                 sheet.cell(row=row, column=1, value="IP21")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2109,7 +2109,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[86], offset=16, width=8),
                     IntItem(name=self.NameList[87], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x458):
+            elif (addr == scb_base + 0x458):
                 sheet.cell(row=row, column=1, value="IP22")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2118,7 +2118,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[90], offset=16, width=8),
                     IntItem(name=self.NameList[91], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x45C):
+            elif (addr == scb_base + 0x45C):
                 sheet.cell(row=row, column=1, value="IP23")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2127,7 +2127,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[94], offset=16, width=8),
                     IntItem(name=self.NameList[95], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x460):
+            elif (addr == scb_base + 0x460):
                 sheet.cell(row=row, column=1, value="IP24")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2136,7 +2136,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[98], offset=16, width=8),
                     IntItem(name=self.NameList[99], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x464):
+            elif (addr == scb_base + 0x464):
                 sheet.cell(row=row, column=1, value="IP25")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2145,7 +2145,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[102], offset=16, width=8),
                     IntItem(name=self.NameList[103], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x468):
+            elif (addr == scb_base + 0x468):
                 sheet.cell(row=row, column=1, value="IP26")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2154,7 +2154,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[106], offset=16, width=8),
                     IntItem(name=self.NameList[107], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x46C):
+            elif (addr == scb_base + 0x46C):
                 sheet.cell(row=row, column=1, value="IP27")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2163,7 +2163,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[110], offset=16, width=8),
                     IntItem(name=self.NameList[111], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x470):
+            elif (addr == scb_base + 0x470):
                 sheet.cell(row=row, column=1, value="IP28")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2172,7 +2172,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[114], offset=16, width=8),
                     IntItem(name=self.NameList[115], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x474):
+            elif (addr == scb_base + 0x474):
                 sheet.cell(row=row, column=1, value="IP29")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2181,7 +2181,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[118], offset=16, width=8),
                     IntItem(name=self.NameList[119], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x478):
+            elif (addr == scb_base + 0x478):
                 sheet.cell(row=row, column=1, value="IP30")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2190,7 +2190,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[122], offset=16, width=8),
                     IntItem(name=self.NameList[123], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x47C):
+            elif (addr == scb_base + 0x47C):
                 sheet.cell(row=row, column=1, value="IP31")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2199,7 +2199,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[126], offset=16, width=8),
                     IntItem(name=self.NameList[127], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x480):
+            elif (addr == scb_base + 0x480):
                 sheet.cell(row=row, column=1, value="IP32")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2208,7 +2208,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[130], offset=16, width=8),
                     IntItem(name=self.NameList[131], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x484):
+            elif (addr == scb_base + 0x484):
                 sheet.cell(row=row, column=1, value="IP33")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2217,7 +2217,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[134], offset=16, width=8),
                     IntItem(name=self.NameList[135], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x488):
+            elif (addr == scb_base + 0x488):
                 sheet.cell(row=row, column=1, value="IP34")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2226,7 +2226,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[138], offset=16, width=8),
                     IntItem(name=self.NameList[139], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x48C):
+            elif (addr == scb_base + 0x48C):
                 sheet.cell(row=row, column=1, value="IP35")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2235,7 +2235,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[142], offset=16, width=8),
                     IntItem(name=self.NameList[143], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x490):
+            elif (addr == scb_base + 0x490):
                 sheet.cell(row=row, column=1, value="IP36")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2244,7 +2244,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[146], offset=16, width=8),
                     IntItem(name=self.NameList[147], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x494):
+            elif (addr == scb_base + 0x494):
                 sheet.cell(row=row, column=1, value="IP37")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2253,7 +2253,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[150], offset=16, width=8),
                     IntItem(name=self.NameList[151], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x498):
+            elif (addr == scb_base + 0x498):
                 sheet.cell(row=row, column=1, value="IP38")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2262,7 +2262,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[154], offset=16, width=8),
                     IntItem(name=self.NameList[155], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x49C):
+            elif (addr == scb_base + 0x49C):
                 sheet.cell(row=row, column=1, value="IP39")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2271,7 +2271,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[158], offset=16, width=8),
                     IntItem(name=self.NameList[159], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4A0):
+            elif (addr == scb_base + 0x4A0):
                 sheet.cell(row=row, column=1, value="IP40")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2280,7 +2280,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[162], offset=16, width=8),
                     IntItem(name=self.NameList[163], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4A4):
+            elif (addr == scb_base + 0x4A4):
                 sheet.cell(row=row, column=1, value="IP41")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2289,7 +2289,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[166], offset=16, width=8),
                     IntItem(name=self.NameList[167], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4A8):
+            elif (addr == scb_base + 0x4A8):
                 sheet.cell(row=row, column=1, value="IP42")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2298,7 +2298,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[170], offset=16, width=8),
                     IntItem(name=self.NameList[171], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4AC):
+            elif (addr == scb_base + 0x4AC):
                 sheet.cell(row=row, column=1, value="IP43")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2307,7 +2307,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[174], offset=16, width=8),
                     IntItem(name=self.NameList[175], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4B0):
+            elif (addr == scb_base + 0x4B0):
                 sheet.cell(row=row, column=1, value="IP44")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2316,7 +2316,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[178], offset=16, width=8),
                     IntItem(name=self.NameList[179], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4B4):
+            elif (addr == scb_base + 0x4B4):
                 sheet.cell(row=row, column=1, value="IP45")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2325,7 +2325,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[182], offset=16, width=8),
                     IntItem(name=self.NameList[183], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4B8):
+            elif (addr == scb_base + 0x4B8):
                 sheet.cell(row=row, column=1, value="IP46")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2334,7 +2334,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[186], offset=16, width=8),
                     IntItem(name=self.NameList[187], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4BC):
+            elif (addr == scb_base + 0x4BC):
                 sheet.cell(row=row, column=1, value="IP47")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2343,7 +2343,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[190], offset=16, width=8),
                     IntItem(name=self.NameList[191], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4C0):
+            elif (addr == scb_base + 0x4C0):
                 sheet.cell(row=row, column=1, value="IP48")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2352,7 +2352,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[194], offset=16, width=8),
                     IntItem(name=self.NameList[195], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4C4):
+            elif (addr == scb_base + 0x4C4):
                 sheet.cell(row=row, column=1, value="IP49")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2361,7 +2361,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[198], offset=16, width=8),
                     IntItem(name=self.NameList[199], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4C8):
+            elif (addr == scb_base + 0x4C8):
                 sheet.cell(row=row, column=1, value="IP50")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2370,7 +2370,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[202], offset=16, width=8),
                     IntItem(name=self.NameList[203], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4CC):
+            elif (addr == scb_base + 0x4CC):
                 sheet.cell(row=row, column=1, value="IP51")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2379,7 +2379,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[206], offset=16, width=8),
                     IntItem(name=self.NameList[207], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4D0):
+            elif (addr == scb_base + 0x4D0):
                 sheet.cell(row=row, column=1, value="IP52")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2388,7 +2388,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[210], offset=16, width=8),
                     IntItem(name=self.NameList[211], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4D4):
+            elif (addr == scb_base + 0x4D4):
                 sheet.cell(row=row, column=1, value="IP53")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2397,7 +2397,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[214], offset=16, width=8),
                     IntItem(name=self.NameList[215], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4D8):
+            elif (addr == scb_base + 0x4D8):
                 sheet.cell(row=row, column=1, value="IP54")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2406,7 +2406,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[218], offset=16, width=8),
                     IntItem(name=self.NameList[219], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4DC):
+            elif (addr == scb_base + 0x4DC):
                 sheet.cell(row=row, column=1, value="IP55")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2415,7 +2415,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[222], offset=16, width=8),
                     IntItem(name=self.NameList[223], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4E0):
+            elif (addr == scb_base + 0x4E0):
                 sheet.cell(row=row, column=1, value="IP56")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2424,7 +2424,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[226], offset=16, width=8),
                     IntItem(name=self.NameList[227], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4E4):
+            elif (addr == scb_base + 0x4E4):
                 sheet.cell(row=row, column=1, value="IP57")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2433,7 +2433,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[230], offset=16, width=8),
                     IntItem(name=self.NameList[231], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4E8):
+            elif (addr == scb_base + 0x4E8):
                 sheet.cell(row=row, column=1, value="IP58")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2442,7 +2442,7 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[234], offset=16, width=8),
                     IntItem(name=self.NameList[235], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == nvic_base + 0x4EC):
+            elif (addr == scb_base + 0x4EC):
                 sheet.cell(row=row, column=1, value="IP59")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
@@ -2451,7 +2451,25 @@ class NVIC(IModule):
                     IntItem(name=self.NameList[238], offset=16, width=8),
                     IntItem(name=self.NameList[239], offset=32, width=8)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
+            elif (addr == scb_base + 0xD04):
+                sheet.cell(row=row, column=1, value="ICSR")
+                sheet.cell(row=row, column=2, value=f"{value:08X}")
+                SysIntName = [
+                    "Thread mode", "", "NMI", "HardFault",
+                    "MemManage", "BusFault", "UsageFault", "",
+                    "", "", "", "SVCall",
+                    "DebugMonitor", "", "PendSV", "SysTick"]
+                row = row + ProcessArray(array=[
+                    IntItem(name="VECTACTIVE", offset=0, width=8, List=SysIntName + self.NameList),
+                    BitItem(name="RETTOBASE", offset=11, true_meaning="no preempted exceptions", false_meaning="preempted active exceptions"),
+                    IntItem(name="VECTPENDING", offset=12, width=8, List=SysIntName + self.NameList),
+                    BitItem(name="ISRPENDING", offset=22, true_meaning="Interrupt pending", false_meaning="Interrupt not pending"),
+                    BitItem(name="PENDSTSET", offset=26, true_meaning="SysTick pending", false_meaning="SysTick not pending"),
+                    BitItem(name="PENDSVSET", offset=28, true_meaning="PendSV pending", false_meaning="PendSV not pending"),
+                    BitItem(name="NMIPENDSET", offset=31, true_meaning="NMI pending", false_meaning="NMI not pending")
+                ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
+            elif (addr == scb_base + 0xD08):
+                sheet.cell(row=row, column=1, value="VTOR")
+                sheet.cell(row=row, column=2, value=f"{value:08X}")
             else:
                 row -= 1
-
-# TODO: Add Current Active Interrupt Register
