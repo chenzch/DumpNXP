@@ -112,3 +112,5 @@ printf "VAL/%08X/%08X\n", $nvic_base+0x4E0, *($nvic_base+0x4E0)
 printf "VAL/%08X/%08X\n", $nvic_base+0x4E4, *($nvic_base+0x4E4)
 printf "VAL/%08X/%08X\n", $nvic_base+0x4E8, *($nvic_base+0x4E8)
 printf "VAL/%08X/%08X\n", $nvic_base+0x4EC, *($nvic_base+0x4EC)
+
+# TODO: Add Current Active Interrupt Register
