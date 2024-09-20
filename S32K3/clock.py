@@ -8,15 +8,19 @@ from Parse import ProcessArray
 
 
 class Clock(IModule):
+    def __init__(self, name: str, address: int) -> None:
+        self.Name = name
+        self.Address = address
+
     def GetModuleName(self) -> str:
-        return "Clock"
+        return self.Name
 
     def UpdateSheet(self, data: List[Tuple[str, str]], sheet: openpyxl.worksheet.worksheet.Worksheet) -> None:
         row = 1
-        sirc_base = 0x402C8000
-        firc_base = 0x402D0000
-        sxosc_base = 0x402CC000
-        fxosc_base = 0x402D4000
+        sirc_base = self.Address
+        sxosc_base = sirc_base + 0x00004000
+        firc_base = sxosc_base + 0x00004000
+        fxosc_base = firc_base + 0x00004000
         for item in data:
             row += 1
             addr = int(item[0], 16)

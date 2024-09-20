@@ -8,19 +8,18 @@ from Parse import ProcessArray
 
 
 class HSE(IModule):
+    def __init__(self, name: str) -> None:
+        self.Name = name
+
     def GetModuleName(self) -> str:
-        return "HSE"
+        return self.Name
 
     def UpdateSheet(self, data: List[Tuple[str, str]], sheet: openpyxl.worksheet.worksheet.Worksheet) -> None:
         row = 1
         utest_base = 0x1B000000
-        hse_gpr_3_addr = 0x4039C028
-        mu_fsr_addr = 0x4038C104
         dcm_stat_addr = 0x402AC000
-        config_rampr_addr = 0x4039C038
-        config_cfprl_addr = 0x4039C03C
-        config_cfprh_addr = 0x4039C040
-        config_dfpr_addr = 0x4039C044
+        MU_0_addr = 0x4038C000
+        Cfg_GPR_addr = 0x4039C000
         for item in data:
             row += 1
             addr = int(item[0], 16)
@@ -33,7 +32,7 @@ class HSE(IModule):
                 sheet.cell(row=row, column=1, value="UTEST_HEADER2")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 sheet.cell(row=row, column=3, value="HSE Enabled" if value == 0xAABBCCDD else "HSE Disabled")
-            elif (addr == hse_gpr_3_addr):
+            elif (addr == Cfg_GPR_addr + 0x28):
                 sheet.cell(row=row, column=1, value="HSE_GPR3")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 sheet.cell(row=row, column=3, value="")
@@ -71,7 +70,7 @@ class HSE(IModule):
                     BitItem(name="Bit30", offset=30, true_meaning="Reserved", false_meaning=""),
                     BitItem(name="Bit31", offset=31, true_meaning="Reserved", false_meaning="")
                     ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == mu_fsr_addr):
+            elif (addr == MU_0_addr + 0x104):
                 sheet.cell(row=row, column=1, value="MU_FSR")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 sheet.cell(row=row, column=3, value="")
@@ -127,19 +126,19 @@ class HSE(IModule):
                         BitItem(name="DCMOTAR",offset=17, true_meaning="ABSWAP High Address", false_meaning="ABSWAP Low Address"),
                         BitItem(name="DCMOTAA_EX", offset=18, true_meaning="Partial ABSWAP Active", false_meaning="Partial ABSWAP Inactive")
                         ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
-            elif (addr == config_rampr_addr):
+            elif (addr == Cfg_GPR_addr + 0x38):
                 sheet.cell(row=row, column=1, value="CONFIG_RAMPR")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 sheet.cell(row=row, column=3, value="")
-            elif (addr == config_cfprl_addr):
+            elif (addr == Cfg_GPR_addr + 0x3C):
                 sheet.cell(row=row, column=1, value="CONFIG_CFPRL")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 sheet.cell(row=row, column=3, value="")
-            elif (addr == config_cfprh_addr):
+            elif (addr == Cfg_GPR_addr + 0x40):
                 sheet.cell(row=row, column=1, value="CONFIG_CFPRH")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 sheet.cell(row=row, column=3, value="")
-            elif (addr == config_dfpr_addr):
+            elif (addr == Cfg_GPR_addr + 0x44):
                 sheet.cell(row=row, column=1, value="CONFIG_DFPR")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 sheet.cell(row=row, column=3, value="")

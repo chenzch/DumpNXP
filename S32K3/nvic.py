@@ -13,7 +13,9 @@ class NVICType(Enum):
     S32K3E = 2
 
 class NVIC(IModule):
-    def __init__(self, Type: NVICType):
+    def __init__(self, name: str, address: int, Type: NVICType):
+        self.Name = name
+        self.Address = address
         if (Type == NVICType.S32K3E):
             self.NameList = [
                 "INT0",
@@ -502,11 +504,11 @@ class NVIC(IModule):
             ]
 
     def GetModuleName(self) -> str:
-        return "NVIC"
+        return self.Name
 
     def UpdateSheet(self, data: List[Tuple[str, str]], sheet: openpyxl.worksheet.worksheet.Worksheet) -> None:
         row = 1
-        scb_base = 0xE000E000
+        scb_base = self.Address
         for item in data:
             row += 1
             addr = int(item[0], 16)

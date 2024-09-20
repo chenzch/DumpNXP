@@ -9,12 +9,17 @@ from Parse import ProcessArray
 
 
 class PLL(IModule):
+
+    def __init__(self, name: str, address: int) -> None:
+        self.Name = name
+        self.Address = address
+
     def GetModuleName(self) -> str:
-        return "PLL"
+        return self.Name
 
     def UpdateSheet(self, data: List[Tuple[str, str]], sheet: openpyxl.worksheet.worksheet.Worksheet) -> None:
         row = 1
-        pll_base = 0x402E0000
+        pll_base = self.Address
         for item in data:
             row += 1
             addr = int(item[0], 16)

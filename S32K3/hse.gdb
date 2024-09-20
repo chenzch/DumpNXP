@@ -20,12 +20,9 @@ if $mcme_prtn1_cofb1_stat&0x00000800
     printf "VAL/%08X/%08X\n", $dcm_base_addr, $dcm_stat
 end
 
-set $config_rampr_addr = 0x4039C038
-set $config_cfprl_addr = 0x4039C03C
-set $config_cfprh_addr = 0x4039C040
-set $config_dfpr_addr  = 0x4039C044
+set $cfg_gpr_addr = 0x4039C000
 
-printf "VAL/%08X/%08X\n", $config_rampr_addr, *($config_rampr_addr)
-printf "VAL/%08X/%08X\n", $config_cfprl_addr, *($config_cfprl_addr)
-printf "VAL/%08X/%08X\n", $config_cfprh_addr, *($config_cfprh_addr)
-printf "VAL/%08X/%08X\n", $config_dfpr_addr, *($config_dfpr_addr)
+printf "VAL/%08X/%08X\n", $cfg_gpr_addr + 0x38, *($cfg_gpr_addr + 0x38)
+printf "VAL/%08X/%08X\n", $cfg_gpr_addr + 0x3C, *($cfg_gpr_addr + 0x3C)
+printf "VAL/%08X/%08X\n", $cfg_gpr_addr + 0x40, *($cfg_gpr_addr + 0x40)
+printf "VAL/%08X/%08X\n", $cfg_gpr_addr + 0x44, *($cfg_gpr_addr + 0x44)

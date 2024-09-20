@@ -9,12 +9,16 @@ from Parse import ProcessArray
 
 
 class MC_CGM(IModule):
+    def __init__(self, name: str, address: int) -> None:
+        self.Name = name
+        self.Address = address
+
     def GetModuleName(self) -> str:
-        return "MC_CGM"
+        return self.Name
 
     def UpdateSheet(self, data: List[Tuple[str, str]], sheet: openpyxl.worksheet.worksheet.Worksheet) -> None:
         row = 1
-        mc_cgm_base = 0x402D8000
+        mc_cgm_base = self.Address
         for item in data:
             row += 1
             addr = int(item[0], 16)

@@ -8,12 +8,16 @@ from Parse import ProcessArray
 
 
 class SBAF(IModule):
+    def __init__(self, name: str, address: int) -> None:
+        self.Name = name
+        self.Address = address
+
     def GetModuleName(self) -> str:
-        return "sBAF"
+        return self.Name
 
     def UpdateSheet(self, data: List[Tuple[str, str]], sheet: openpyxl.worksheet.worksheet.Worksheet) -> None:
         row = 1
-        sbaf_version_base = 0x4039C020
+        sbaf_version_base = self.Address
         for item in data:
             row += 1
             addr = int(item[0], 16)
@@ -24,9 +28,9 @@ class SBAF(IModule):
                 row = row + ProcessArray(array=[
                     IntItem(name="SBAF_IN_ABSWAP", offset=0, width=8),
                     IntItem(name="SBAF_SOC_TYPE_ID", offset=8, width=8, enumStr=[
-                        "", "", "", "", "", "S32K344, S32K324, S32K314", "", "", "", "", "", "",
-                        "S32K311, S32K310", "S32K312, S32K342, S32K322, S32K314", "S32K358, S32K348, S32K338, S32K328, S32K336, S32K356",
-                        "S32K396, S32K376, S32K394, S32K374", "S32K388"
+                        "", "", "", "", "", "S32K344, S32K324, S32K314", "", "", "", "", "", "S32K310",
+                        "S32K311, S32K341", "S32K312, S32K322, S32K342", "S32K358, S32K348, S32K338, S32K328",
+                        "S32K396, S32K376, S32K394, S32K374", "S32K388", "S32K389"
                     ]),
                     IntItem(name="SBAF_FW_TYPE", offset=16, width=16)
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)

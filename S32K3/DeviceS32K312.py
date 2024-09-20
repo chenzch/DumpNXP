@@ -11,11 +11,17 @@ from .pll import PLL
 from .sbaf import SBAF
 from .nvic import NVIC, NVICType
 
-
-
 class DeviceS32K312(IDevice):
     def GetDeviceName(self) -> str:
         return "S32K312"
 
     def GetModuleList(self) -> List[IModule]:
-        return [Clock(), HSE(), SBAF(), PLL(), MC_ME(), MC_CGM(), NVIC(NVICType.S32K3)]
+        return [
+            Clock(name="Clock", address=0x402C8000),
+            HSE(name="HSE"),
+            SBAF(name="SBAF", address=0x4039C020),
+            PLL(name="PLL", address=0x402E0000),
+            MC_ME(name="MC_ME", address=0x402DC000),
+            MC_CGM(name="MC_CGM", address=0x402D8000),
+            NVIC(name="NVIC", address=0xE000E000, Type=NVICType.S32K3)
+        ]
