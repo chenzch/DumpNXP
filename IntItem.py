@@ -7,11 +7,12 @@ from IParseItem import IParseItem
 
 
 class IntItem(IParseItem):
-    def __init__(self, name: str, offset: int, width: int, enumStr: List = None):
+    def __init__(self, name: str, offset: int, width: int, enumStr: List = None, description: str = None):
         self.name = name
         self.offset = offset
         self.width = width
         self.enumStr = enumStr
+        self.description = description
 
     def ParseItem(self, value: int, sheet: openpyxl.worksheet.worksheet.Worksheet, start_row: int, start_column: int) -> int:
         # 设置对齐方式
@@ -24,4 +25,6 @@ class IntItem(IParseItem):
         sheet.cell(row=start_row, column=start_column + 1, value=value)
         if self.enumStr is not None:
             sheet.cell(row=start_row, column=start_column + 2, value=self.enumStr[value])
+        elif self.description is not None:
+            sheet.cell(row=start_row, column=start_column + 2, value=self.description)
         return 1
