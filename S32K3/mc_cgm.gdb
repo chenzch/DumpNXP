@@ -1,6 +1,3 @@
-# MC_CGM
-set $mc_cgm_base = 0x402D8000
-
 # MC_CGM_MUX_0
 printf "VAL/%08X/%08X\n", $mc_cgm_base+0x304, *($mc_cgm_base+0x304)
 

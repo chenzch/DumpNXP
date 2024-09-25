@@ -72,5 +72,6 @@ def Parse(input_filename: str, excel_filename: str, device: IDevice):
 def ProcessArray(array: List[IParseItem], value: int, sheet: openpyxl.worksheet.worksheet.Worksheet, start_row: int, start_column: int) -> int:
     backrow = start_row
     for item in array:
-        start_row = start_row +item.ParseItem(value, sheet, start_row, start_column)
+        if item is not None and len(item.name) > 0:
+            start_row = start_row + item.ParseItem(value, sheet, start_row, start_column)
     return start_row - backrow

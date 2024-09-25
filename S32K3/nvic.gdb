@@ -1,6 +1,3 @@
-# NVIC
-set $scb_base = 0xE000E000
-
 #ISER
 printf "VAL/%08X/%08X\n", $scb_base+0x100, *($scb_base+0x100)
 printf "VAL/%08X/%08X\n", $scb_base+0x104, *($scb_base+0x104)

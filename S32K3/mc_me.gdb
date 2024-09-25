@@ -1,6 +1,3 @@
-# MC_ME
-set $mcme_base = 0x402DC000
-
 # MC_ME_PARTITION_0
 printf "VAL/%08X/%08X\n", $mcme_base+0x108, *($mcme_base+0x108)
 

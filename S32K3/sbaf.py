@@ -26,21 +26,21 @@ class SBAF(IModule):
                 sheet.cell(row=row, column=1, value="SBAF_VERSION")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
-                    IntItem(name="SBAF_IN_ABSWAP", offset=0, width=8),
+                    IntItem(name="SBAF_FW_TYPE", offset=16, width=16),
                     IntItem(name="SBAF_SOC_TYPE_ID", offset=8, width=8, enumStr=[
                         "", "", "", "", "", "S32K344, S32K324, S32K314", "", "", "", "", "", "S32K310",
                         "S32K311, S32K341", "S32K312, S32K322, S32K342", "S32K358, S32K348, S32K338, S32K328",
                         "S32K396, S32K376, S32K394, S32K374", "S32K388", "S32K389"
                     ]),
-                    IntItem(name="SBAF_FW_TYPE", offset=16, width=16)
+                    IntItem(name="SBAF_IN_ABSWAP", offset=0, width=8),
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
             elif (addr == sbaf_version_base + 0x04):
                 sheet.cell(row=row, column=1, value="SBAF_VERSION")
                 sheet.cell(row=row, column=2, value=f"{value:08X}")
                 row = row + ProcessArray(array=[
-                    IntItem(name="SBAF_BASELINE_NUMBER", offset=8, width=8),
+                    IntItem(name="SBAF_RC_NUMBER", offset=24, width=8),
                     IntItem(name="SBAF_INCREMENTAL_NUMBER", offset=16, width=8),
-                    IntItem(name="SBAF_RC_NUMBER", offset=24, width=8)
+                    IntItem(name="SBAF_BASELINE_NUMBER", offset=8, width=8),
                 ], value=value, sheet=sheet, start_row=row + 1, start_column=1)
             else:
                 row -= 1

@@ -10,6 +10,7 @@ from .mc_me import MC_ME
 from .pll import PLL
 from .sbaf import SBAF
 from .nvic import NVIC, NVICType
+from .can import CAN
 
 class DeviceS32K312(IDevice):
     def GetDeviceName(self) -> str:
@@ -23,5 +24,9 @@ class DeviceS32K312(IDevice):
             PLL(name="PLL", address=0x402E0000),
             MC_ME(name="MC_ME", address=0x402DC000),
             MC_CGM(name="MC_CGM", address=0x402D8000),
-            NVIC(name="NVIC", address=0xE000E000, Type=NVICType.S32K3)
+            NVIC(name="NVIC", address=0xE000E000, Type=NVICType.S32K3),
+            CAN(name="CAN_0", address=0x40304000),
+            CAN(name="CAN_1", address=0x40308000),
+            CAN(name="CAN_2", address=0x4030C000),
+
         ]

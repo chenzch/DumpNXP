@@ -17,11 +17,8 @@ class BitItem(IParseItem):
 
         result = bool(value & (1 << self.offset))
         text = self.true_meaning if result else self.false_meaning
-        if (len(text) > 0):
-            sheet.cell(row=start_row, column=start_column, value=self.name)
-            sheet.cell(row=start_row, column=start_column).alignment = alignment
-            sheet.cell(row=start_row, column=start_column + 1, value=(value >> self.offset) & 1)
-            sheet.cell(row=start_row, column=start_column + 2, value=text)
-            return 1
-        else:
-            return 0
+        sheet.cell(row=start_row, column=start_column, value=self.name)
+        sheet.cell(row=start_row, column=start_column).alignment = alignment
+        sheet.cell(row=start_row, column=start_column + 1, value=(value >> self.offset) & 1)
+        sheet.cell(row=start_row, column=start_column + 2, value=text)
+        return 1
