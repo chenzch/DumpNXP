@@ -51,4 +51,12 @@ set $can_base = 0x4030C000
 #rem CAN_10 base address: 4057_8000h
 #rem CAN_11 base address: 4057_C000h
 
+# MPU @0xE000E000
+set $mpu_base = 0xE000E000
+#include S32K3\mpu.gdb
+
+#MC_RGM
+
+#Clock Gate
+
 set logging off

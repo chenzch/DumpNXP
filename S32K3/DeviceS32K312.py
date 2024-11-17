@@ -11,6 +11,7 @@ from .pll import PLL
 from .sbaf import SBAF
 from .nvic import NVIC, NVICType
 from .can import CAN
+from .mpu import MPU
 
 class DeviceS32K312(IDevice):
     def GetDeviceName(self) -> str:
@@ -28,5 +29,5 @@ class DeviceS32K312(IDevice):
             CAN(name="CAN_0", address=0x40304000),
             CAN(name="CAN_1", address=0x40308000),
             CAN(name="CAN_2", address=0x4030C000),
-
+            MPU(name="MPU", address=0xE000E000),
         ]
