@@ -6,10 +6,14 @@
         {
             "label": "build",
             "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "command": "powershell",
             "args": [
                 "-File",
-                "build.ps1"
+                "gendump.ps1"
             ],
             "problemMatcher":"$gcc"
         }

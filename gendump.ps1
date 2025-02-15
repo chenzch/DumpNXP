@@ -17,6 +17,6 @@ if (-not $svdFileName.EndsWith(".SVD", [StringComparison]::OrdinalIgnoreCase)) {
 }
 
 # 运行 SaxonHE
-java -cp $saxonPath net.sf.saxon.Transform -t -s:$svdFileName -xsl:$xsltFilenName -o:$gdbFileName
+jre\bin\java -cp $saxonPath net.sf.saxon.Transform -t -s:$svdFileName -xsl:$xsltFilenName -o:$gdbFileName
 
 Write-Host "处理完成：$svdFileName -> $gdbFileName"
