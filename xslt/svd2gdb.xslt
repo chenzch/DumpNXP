@@ -2,7 +2,9 @@
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:fn="http://example.com/my-functions">
+    xmlns:fn="http://www.wtmec.com/my-functions"
+    xmlns:math="http://www.w3.org/2005/xpath-functions/math"
+    exclude-result-prefixes="math">
     <xsl:output method="text" encoding="UTF-8" />
 
     <xsl:template match="/">
@@ -27,7 +29,7 @@
         <xsl:text> @</xsl:text>
         <xsl:value-of select="baseAddress" />
         <xsl:text>&#10;</xsl:text>
-        <xsl:variable name="baseAddr" select="fn:HexToDec(baseAddress, 0)" />
+        <xsl:variable name="baseAddr" select="fn:HexToDec(baseAddress)" />
         <xsl:choose>
             <xsl:when test="registers/register">
                 <xsl:for-each select="registers/register">
@@ -58,7 +60,7 @@
                         <node>
                             <baseAddr>
                                 <xsl:value-of
-                                    select="fn:DecToHex($baseAddr + fn:HexToDec($currentItem/addressOffset, 0) +  (. - 1) * fn:HexToDec($currentItem/dimIncrement, 0))" />
+                                    select="fn:DecToHex($baseAddr + fn:HexToDec($currentItem/addressOffset) +  (. - 1) * fn:HexToDec($currentItem/dimIncrement))" />
                             </baseAddr>
                             <name>
                                 <xsl:value-of
@@ -78,7 +80,7 @@
                     <node>
                         <baseAddr>
                             <xsl:value-of
-                                select="fn:DecToHex($baseAddr + fn:HexToDec($currentItem/addressOffset, 0))" />
+                                select="fn:DecToHex($baseAddr + fn:HexToDec($currentItem/addressOffset))" />
                         </baseAddr>
                         <name>
                             <xsl:value-of select="$currentItem/name" />
@@ -109,32 +111,27 @@
         <xsl:param name="size" />
         <xsl:param name="offset" />
         <xsl:choose>
-            <xsl:when test="$size = 8">
-                <xsl:text>printf "V/%08X/%02X\n", </xsl:text>
-            </xsl:when>
-            <xsl:when test="$size = 16">
-                <xsl:text>printf "V/%08X/%04X\n", </xsl:text>
-            </xsl:when>
-            <xsl:when test="$size = 32">
-                <xsl:text>printf "V/%08X/%08X\n", </xsl:text>
+            <xsl:when test="($size = 8 or $size = 16 or $size = 32)">
+                <xsl:text>printf "V/</xsl:text>
+                <xsl:value-of select="substring($baseAddr, 3)" />
+                <xsl:text>/%08X\n", </xsl:text>
+                <xsl:text>(*(</xsl:text>
+                <xsl:value-of select="$baseAddr" />
+                <xsl:text>))</xsl:text>
+                <xsl:choose>
+                    <xsl:when test="$size = 8">
+                        <xsl:text> &amp; 0xFF</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="$size = 16">
+                        <xsl:text> &amp; 0xFFFF</xsl:text>
+                    </xsl:when>
+                </xsl:choose>
+                <xsl:text> # </xsl:text>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:text>#error </xsl:text>
             </xsl:otherwise>
         </xsl:choose>
-        <xsl:value-of select="$baseAddr" />
-        <xsl:text>, (*(</xsl:text>
-        <xsl:value-of select="$baseAddr" />
-        <xsl:text>))</xsl:text>
-        <xsl:choose>
-            <xsl:when test="$size = 8">
-                <xsl:text> &amp; 0xFF</xsl:text>
-            </xsl:when>
-            <xsl:when test="$size = 16">
-                <xsl:text> &amp; 0xFFFF</xsl:text>
-            </xsl:when>
-        </xsl:choose>
-        <xsl:text> # </xsl:text>
         <xsl:value-of select="$name" />
         <xsl:text> @</xsl:text>
         <xsl:value-of select="$offset" />
@@ -160,7 +157,6 @@
 
     <xsl:function name="fn:HexToDec">
         <xsl:param name="hex" />
-        <xsl:param name="lastValue" />
         <xsl:variable name="normHex"
             select="if (starts-with($hex, '0x')) then substring($hex, 3) else $hex" />
         <xsl:choose>
@@ -169,12 +165,12 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:variable name="dec"
-                    select="$lastValue * 16 + string-length(substring-before('0123456789ABCDEF', substring($normHex, 1, 1)))" />
+                    select="string-length(substring-before('0123456789ABCDEF', substring($normHex, 1, 1)))" />
                 <xsl:variable name="remaining" select="substring($normHex, 2)" />
                 <xsl:sequence
                     select="if (string-length($remaining) = 0)
                     then $dec
-                    else fn:HexToDec($remaining, $dec)" />
+                    else $dec * math:pow(16, string-length($remaining)) + fn:HexToDec($remaining)" />
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
