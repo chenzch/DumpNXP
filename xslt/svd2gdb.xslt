@@ -106,6 +106,11 @@
         <xsl:param name="name" />
         <xsl:param name="size" />
         <xsl:param name="offset" />
+        <xsl:text># </xsl:text>
+        <xsl:value-of select="$name" />
+        <xsl:text> @</xsl:text>
+        <xsl:value-of select="$offset" />
+        <xsl:text>&#10;</xsl:text>
         <xsl:if test="$base = 0">
             <xsl:text># error no base address </xsl:text>
         </xsl:if>
@@ -132,15 +137,21 @@
                         <xsl:text>)</xsl:text>
                     </xsl:otherwise>
                 </xsl:choose>
-                <xsl:text> # </xsl:text>
+            </xsl:when>
+            <xsl:when test="($size = 64)">
+                <xsl:text>printf "V/</xsl:text>
+                <xsl:value-of select="substring($baseAddr, 3)" />
+                <xsl:text>/%08X%08X\n", </xsl:text>
+                <xsl:text>*(</xsl:text>
+                <xsl:value-of select="fn:DecToHex(((fn:HexToDec($baseAddr) idiv 4) + 1) * 4)" />
+                <xsl:text>), *(</xsl:text>
+                <xsl:value-of select="fn:DecToHex((fn:HexToDec($baseAddr) idiv 4) * 4)" />
+                <xsl:text>)</xsl:text>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:text># error unknown size </xsl:text>
             </xsl:otherwise>
         </xsl:choose>
-        <xsl:value-of select="$name" />
-        <xsl:text> @</xsl:text>
-        <xsl:value-of select="$offset" />
         <xsl:text>&#10;</xsl:text>
     </xsl:template>
 

@@ -2,10 +2,10 @@
 SVD_DIR="./svd"
 DUMP_DIR="./dump"
 
-# 创建 dump 目录（如果不存在）
+# Create dump directory if it doesn't exist
 mkdir -p "$DUMP_DIR"
 
-# 遍历所有 .svd 文件
+# Iterate over all .svd files
 for svdFile in "$SVD_DIR"/*.svd; do
     base=$(basename "$svdFile" .svd)
     gdbFile="$DUMP_DIR/$base.gdb"
@@ -13,9 +13,13 @@ for svdFile in "$SVD_DIR"/*.svd; do
 
     echo "Processing $svdFile"
 
-    # 调用 java 命令生成 gdb 文件
+    # Call java command to generate gdb file
     java -cp "./bin/xmlresolver-5.2.2.jar:./bin/saxon-he-12.5.jar" net.sf.saxon.Transform -t -s:"$svdFile" -xsl:./xslt/svd2gdb.xslt -o:"$gdbFile"
 
-    # 调用 java 命令生成 py 文件
+    # Call java command to generate py file
     java -cp "./bin/xmlresolver-5.2.2.jar:./bin/saxon-he-12.5.jar" net.sf.saxon.Transform -t -s:"$svdFile" -xsl:./xslt/svd2py.xslt -o:"$pyFile"
 done
+
+# java -cp "./bin/xmlresolver-5.2.2.jar:./bin/saxon-he-12.5.jar" net.sf.saxon.Transform -t -s:./svd/S32K388_M7.svd -xsl:./xslt/svd2gdb.xslt -o:./dump/S32K388_M7.gdb
+
+# java -cp "./bin/xmlresolver-5.2.2.jar:./bin/saxon-he-12.5.jar" net.sf.saxon.Transform -t -s:./svd/S32K388_M7.svd -xsl:./xslt/svd2py.xslt -o:./dump/S32K388_M7.py
