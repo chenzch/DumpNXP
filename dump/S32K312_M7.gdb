@@ -1408,24 +1408,24 @@ printf "V/402AC708/%08X\n", (*(0x402AC708)) # DCMROPP3 @0x708
 printf "V/402AC70C/%08X\n", (*(0x402AC70C)) # DCMROPP4 @0x70C
 
 # DMAMUX_0 @0x40280000
-printf "V/40280000/%08X\n", (*(0x40280000)) & 0xFF # CHCFG0 @0 + 0 * 0x1
-printf "V/40280001/%08X\n", (*(0x40280001)) & 0xFF # CHCFG1 @0 + 1 * 0x1
-printf "V/40280002/%08X\n", (*(0x40280002)) & 0xFF # CHCFG2 @0 + 2 * 0x1
-printf "V/40280003/%08X\n", (*(0x40280003)) & 0xFF # CHCFG3 @0 + 3 * 0x1
-printf "V/40280004/%08X\n", (*(0x40280004)) & 0xFF # CHCFG4 @0 + 4 * 0x1
-printf "V/40280005/%08X\n", (*(0x40280005)) & 0xFF # CHCFG5 @0 + 5 * 0x1
-printf "V/40280006/%08X\n", (*(0x40280006)) & 0xFF # CHCFG6 @0 + 6 * 0x1
-printf "V/40280007/%08X\n", (*(0x40280007)) & 0xFF # CHCFG7 @0 + 7 * 0x1
+printf "V/40280000/%08X\n", (*(0x40280000) >> 0) & 0xFF # CHCFG0 @0 + 0 * 0x1
+printf "V/40280001/%08X\n", (*(0x40280000) >> 8) & 0xFF # CHCFG1 @0 + 1 * 0x1
+printf "V/40280002/%08X\n", (*(0x40280000) >> 16) & 0xFF # CHCFG2 @0 + 2 * 0x1
+printf "V/40280003/%08X\n", (*(0x40280000) >> 24) & 0xFF # CHCFG3 @0 + 3 * 0x1
+printf "V/40280004/%08X\n", (*(0x40280004) >> 0) & 0xFF # CHCFG4 @0 + 4 * 0x1
+printf "V/40280005/%08X\n", (*(0x40280004) >> 8) & 0xFF # CHCFG5 @0 + 5 * 0x1
+printf "V/40280006/%08X\n", (*(0x40280004) >> 16) & 0xFF # CHCFG6 @0 + 6 * 0x1
+printf "V/40280007/%08X\n", (*(0x40280004) >> 24) & 0xFF # CHCFG7 @0 + 7 * 0x1
 
 # DMAMUX_1 @0x40284000
-printf "V/40284000/%08X\n", (*(0x40284000)) & 0xFF # CHCFG0 @0 + 0 * 0x1
-printf "V/40284001/%08X\n", (*(0x40284001)) & 0xFF # CHCFG1 @0 + 1 * 0x1
-printf "V/40284002/%08X\n", (*(0x40284002)) & 0xFF # CHCFG2 @0 + 2 * 0x1
-printf "V/40284003/%08X\n", (*(0x40284003)) & 0xFF # CHCFG3 @0 + 3 * 0x1
-printf "V/40284004/%08X\n", (*(0x40284004)) & 0xFF # CHCFG4 @0 + 4 * 0x1
-printf "V/40284005/%08X\n", (*(0x40284005)) & 0xFF # CHCFG5 @0 + 5 * 0x1
-printf "V/40284006/%08X\n", (*(0x40284006)) & 0xFF # CHCFG6 @0 + 6 * 0x1
-printf "V/40284007/%08X\n", (*(0x40284007)) & 0xFF # CHCFG7 @0 + 7 * 0x1
+printf "V/40284000/%08X\n", (*(0x40284000) >> 0) & 0xFF # CHCFG0 @0 + 0 * 0x1
+printf "V/40284001/%08X\n", (*(0x40284000) >> 8) & 0xFF # CHCFG1 @0 + 1 * 0x1
+printf "V/40284002/%08X\n", (*(0x40284000) >> 16) & 0xFF # CHCFG2 @0 + 2 * 0x1
+printf "V/40284003/%08X\n", (*(0x40284000) >> 24) & 0xFF # CHCFG3 @0 + 3 * 0x1
+printf "V/40284004/%08X\n", (*(0x40284004) >> 0) & 0xFF # CHCFG4 @0 + 4 * 0x1
+printf "V/40284005/%08X\n", (*(0x40284004) >> 8) & 0xFF # CHCFG5 @0 + 5 * 0x1
+printf "V/40284006/%08X\n", (*(0x40284004) >> 16) & 0xFF # CHCFG6 @0 + 6 * 0x1
+printf "V/40284007/%08X\n", (*(0x40284004) >> 24) & 0xFF # CHCFG7 @0 + 7 * 0x1
 
 # EDMA @0x4020C000
 printf "V/4020C000/%08X\n", (*(0x4020C000)) # CSR @0
@@ -3532,8 +3532,8 @@ printf "V/4034402C/%08X\n", (*(0x4034402C)) # WATER @0x2C
 printf "V/40344030/%08X\n", (*(0x40344030)) # DATARO @0x30
 
 # MCM_0_CM7 @0xE0080000
-printf "V/E0080000/%08X\n", (*(0xE0080000)) & 0xFFFF # PLREV @0
-printf "V/E0080002/%08X\n", (*(0xE0080002)) & 0xFFFF # PCT @0x2
+printf "V/E0080000/%08X\n", (*(0xE0080000) >> 0) & 0xFFFF # PLREV @0
+printf "V/E0080002/%08X\n", (*(0xE0080000) >> 16) & 0xFFFF # PCT @0x2
 printf "V/E008000C/%08X\n", (*(0xE008000C)) # CPCR @0xC
 printf "V/E0080010/%08X\n", (*(0xE0080010)) # ISCR @0x10
 printf "V/E0080400/%08X\n", (*(0xE0080400)) # LMEM_DESC_0 @0x400
@@ -3674,246 +3674,246 @@ printf "V/40260400/%08X\n", (*(0x40260400)) # IRCPCFG @0x400
 printf "V/40260500/%08X\n", (*(0x40260500)) # XN_CTRL @0x500
 printf "V/40260600/%08X\n", (*(0x40260600)) # ENEDC @0x600
 printf "V/40260700/%08X\n", (*(0x40260700)) # IAHBCFGREG @0x700
-printf "V/40260880/%08X\n", (*(0x40260880)) & 0xFFFF # IRSPRC[0] @0x880 + 0 * 0x2
-printf "V/40260882/%08X\n", (*(0x40260882)) & 0xFFFF # IRSPRC[1] @0x880 + 1 * 0x2
-printf "V/40260884/%08X\n", (*(0x40260884)) & 0xFFFF # IRSPRC[2] @0x880 + 2 * 0x2
-printf "V/40260886/%08X\n", (*(0x40260886)) & 0xFFFF # IRSPRC[3] @0x880 + 3 * 0x2
-printf "V/40260888/%08X\n", (*(0x40260888)) & 0xFFFF # IRSPRC[4] @0x880 + 4 * 0x2
-printf "V/4026088A/%08X\n", (*(0x4026088A)) & 0xFFFF # IRSPRC[5] @0x880 + 5 * 0x2
-printf "V/4026088C/%08X\n", (*(0x4026088C)) & 0xFFFF # IRSPRC[6] @0x880 + 6 * 0x2
-printf "V/4026088E/%08X\n", (*(0x4026088E)) & 0xFFFF # IRSPRC[7] @0x880 + 7 * 0x2
-printf "V/40260890/%08X\n", (*(0x40260890)) & 0xFFFF # IRSPRC[8] @0x880 + 8 * 0x2
-printf "V/40260892/%08X\n", (*(0x40260892)) & 0xFFFF # IRSPRC[9] @0x880 + 9 * 0x2
-printf "V/40260894/%08X\n", (*(0x40260894)) & 0xFFFF # IRSPRC[10] @0x880 + 10 * 0x2
-printf "V/40260896/%08X\n", (*(0x40260896)) & 0xFFFF # IRSPRC[11] @0x880 + 11 * 0x2
-printf "V/40260898/%08X\n", (*(0x40260898)) & 0xFFFF # IRSPRC[12] @0x880 + 12 * 0x2
-printf "V/4026089A/%08X\n", (*(0x4026089A)) & 0xFFFF # IRSPRC[13] @0x880 + 13 * 0x2
-printf "V/4026089C/%08X\n", (*(0x4026089C)) & 0xFFFF # IRSPRC[14] @0x880 + 14 * 0x2
-printf "V/4026089E/%08X\n", (*(0x4026089E)) & 0xFFFF # IRSPRC[15] @0x880 + 15 * 0x2
-printf "V/402608A0/%08X\n", (*(0x402608A0)) & 0xFFFF # IRSPRC[16] @0x880 + 16 * 0x2
-printf "V/402608A2/%08X\n", (*(0x402608A2)) & 0xFFFF # IRSPRC[17] @0x880 + 17 * 0x2
-printf "V/402608A4/%08X\n", (*(0x402608A4)) & 0xFFFF # IRSPRC[18] @0x880 + 18 * 0x2
-printf "V/402608A6/%08X\n", (*(0x402608A6)) & 0xFFFF # IRSPRC[19] @0x880 + 19 * 0x2
-printf "V/402608A8/%08X\n", (*(0x402608A8)) & 0xFFFF # IRSPRC[20] @0x880 + 20 * 0x2
-printf "V/402608AA/%08X\n", (*(0x402608AA)) & 0xFFFF # IRSPRC[21] @0x880 + 21 * 0x2
-printf "V/402608AC/%08X\n", (*(0x402608AC)) & 0xFFFF # IRSPRC[22] @0x880 + 22 * 0x2
-printf "V/402608AE/%08X\n", (*(0x402608AE)) & 0xFFFF # IRSPRC[23] @0x880 + 23 * 0x2
-printf "V/402608B0/%08X\n", (*(0x402608B0)) & 0xFFFF # IRSPRC[24] @0x880 + 24 * 0x2
-printf "V/402608B2/%08X\n", (*(0x402608B2)) & 0xFFFF # IRSPRC[25] @0x880 + 25 * 0x2
-printf "V/402608B4/%08X\n", (*(0x402608B4)) & 0xFFFF # IRSPRC[26] @0x880 + 26 * 0x2
-printf "V/402608B6/%08X\n", (*(0x402608B6)) & 0xFFFF # IRSPRC[27] @0x880 + 27 * 0x2
-printf "V/402608B8/%08X\n", (*(0x402608B8)) & 0xFFFF # IRSPRC[28] @0x880 + 28 * 0x2
-printf "V/402608BA/%08X\n", (*(0x402608BA)) & 0xFFFF # IRSPRC[29] @0x880 + 29 * 0x2
-printf "V/402608BC/%08X\n", (*(0x402608BC)) & 0xFFFF # IRSPRC[30] @0x880 + 30 * 0x2
-printf "V/402608BE/%08X\n", (*(0x402608BE)) & 0xFFFF # IRSPRC[31] @0x880 + 31 * 0x2
-printf "V/402608C0/%08X\n", (*(0x402608C0)) & 0xFFFF # IRSPRC[32] @0x880 + 32 * 0x2
-printf "V/402608C2/%08X\n", (*(0x402608C2)) & 0xFFFF # IRSPRC[33] @0x880 + 33 * 0x2
-printf "V/402608C4/%08X\n", (*(0x402608C4)) & 0xFFFF # IRSPRC[34] @0x880 + 34 * 0x2
-printf "V/402608C6/%08X\n", (*(0x402608C6)) & 0xFFFF # IRSPRC[35] @0x880 + 35 * 0x2
-printf "V/402608C8/%08X\n", (*(0x402608C8)) & 0xFFFF # IRSPRC[36] @0x880 + 36 * 0x2
-printf "V/402608CA/%08X\n", (*(0x402608CA)) & 0xFFFF # IRSPRC[37] @0x880 + 37 * 0x2
-printf "V/402608CC/%08X\n", (*(0x402608CC)) & 0xFFFF # IRSPRC[38] @0x880 + 38 * 0x2
-printf "V/402608CE/%08X\n", (*(0x402608CE)) & 0xFFFF # IRSPRC[39] @0x880 + 39 * 0x2
-printf "V/402608D0/%08X\n", (*(0x402608D0)) & 0xFFFF # IRSPRC[40] @0x880 + 40 * 0x2
-printf "V/402608D2/%08X\n", (*(0x402608D2)) & 0xFFFF # IRSPRC[41] @0x880 + 41 * 0x2
-printf "V/402608D4/%08X\n", (*(0x402608D4)) & 0xFFFF # IRSPRC[42] @0x880 + 42 * 0x2
-printf "V/402608D6/%08X\n", (*(0x402608D6)) & 0xFFFF # IRSPRC[43] @0x880 + 43 * 0x2
-printf "V/402608D8/%08X\n", (*(0x402608D8)) & 0xFFFF # IRSPRC[44] @0x880 + 44 * 0x2
-printf "V/402608DA/%08X\n", (*(0x402608DA)) & 0xFFFF # IRSPRC[45] @0x880 + 45 * 0x2
-printf "V/402608DC/%08X\n", (*(0x402608DC)) & 0xFFFF # IRSPRC[46] @0x880 + 46 * 0x2
-printf "V/402608DE/%08X\n", (*(0x402608DE)) & 0xFFFF # IRSPRC[47] @0x880 + 47 * 0x2
-printf "V/402608E0/%08X\n", (*(0x402608E0)) & 0xFFFF # IRSPRC[48] @0x880 + 48 * 0x2
-printf "V/402608E2/%08X\n", (*(0x402608E2)) & 0xFFFF # IRSPRC[49] @0x880 + 49 * 0x2
-printf "V/402608E4/%08X\n", (*(0x402608E4)) & 0xFFFF # IRSPRC[50] @0x880 + 50 * 0x2
-printf "V/402608E6/%08X\n", (*(0x402608E6)) & 0xFFFF # IRSPRC[51] @0x880 + 51 * 0x2
-printf "V/402608E8/%08X\n", (*(0x402608E8)) & 0xFFFF # IRSPRC[52] @0x880 + 52 * 0x2
-printf "V/402608EA/%08X\n", (*(0x402608EA)) & 0xFFFF # IRSPRC[53] @0x880 + 53 * 0x2
-printf "V/402608EC/%08X\n", (*(0x402608EC)) & 0xFFFF # IRSPRC[54] @0x880 + 54 * 0x2
-printf "V/402608EE/%08X\n", (*(0x402608EE)) & 0xFFFF # IRSPRC[55] @0x880 + 55 * 0x2
-printf "V/402608F0/%08X\n", (*(0x402608F0)) & 0xFFFF # IRSPRC[56] @0x880 + 56 * 0x2
-printf "V/402608F2/%08X\n", (*(0x402608F2)) & 0xFFFF # IRSPRC[57] @0x880 + 57 * 0x2
-printf "V/402608F4/%08X\n", (*(0x402608F4)) & 0xFFFF # IRSPRC[58] @0x880 + 58 * 0x2
-printf "V/402608F6/%08X\n", (*(0x402608F6)) & 0xFFFF # IRSPRC[59] @0x880 + 59 * 0x2
-printf "V/402608F8/%08X\n", (*(0x402608F8)) & 0xFFFF # IRSPRC[60] @0x880 + 60 * 0x2
-printf "V/402608FA/%08X\n", (*(0x402608FA)) & 0xFFFF # IRSPRC[61] @0x880 + 61 * 0x2
-printf "V/402608FC/%08X\n", (*(0x402608FC)) & 0xFFFF # IRSPRC[62] @0x880 + 62 * 0x2
-printf "V/402608FE/%08X\n", (*(0x402608FE)) & 0xFFFF # IRSPRC[63] @0x880 + 63 * 0x2
-printf "V/40260900/%08X\n", (*(0x40260900)) & 0xFFFF # IRSPRC[64] @0x880 + 64 * 0x2
-printf "V/40260902/%08X\n", (*(0x40260902)) & 0xFFFF # IRSPRC[65] @0x880 + 65 * 0x2
-printf "V/40260904/%08X\n", (*(0x40260904)) & 0xFFFF # IRSPRC[66] @0x880 + 66 * 0x2
-printf "V/40260906/%08X\n", (*(0x40260906)) & 0xFFFF # IRSPRC[67] @0x880 + 67 * 0x2
-printf "V/40260908/%08X\n", (*(0x40260908)) & 0xFFFF # IRSPRC[68] @0x880 + 68 * 0x2
-printf "V/4026090A/%08X\n", (*(0x4026090A)) & 0xFFFF # IRSPRC[69] @0x880 + 69 * 0x2
-printf "V/4026090C/%08X\n", (*(0x4026090C)) & 0xFFFF # IRSPRC[70] @0x880 + 70 * 0x2
-printf "V/4026090E/%08X\n", (*(0x4026090E)) & 0xFFFF # IRSPRC[71] @0x880 + 71 * 0x2
-printf "V/40260910/%08X\n", (*(0x40260910)) & 0xFFFF # IRSPRC[72] @0x880 + 72 * 0x2
-printf "V/40260912/%08X\n", (*(0x40260912)) & 0xFFFF # IRSPRC[73] @0x880 + 73 * 0x2
-printf "V/40260914/%08X\n", (*(0x40260914)) & 0xFFFF # IRSPRC[74] @0x880 + 74 * 0x2
-printf "V/40260916/%08X\n", (*(0x40260916)) & 0xFFFF # IRSPRC[75] @0x880 + 75 * 0x2
-printf "V/40260918/%08X\n", (*(0x40260918)) & 0xFFFF # IRSPRC[76] @0x880 + 76 * 0x2
-printf "V/4026091A/%08X\n", (*(0x4026091A)) & 0xFFFF # IRSPRC[77] @0x880 + 77 * 0x2
-printf "V/4026091C/%08X\n", (*(0x4026091C)) & 0xFFFF # IRSPRC[78] @0x880 + 78 * 0x2
-printf "V/4026091E/%08X\n", (*(0x4026091E)) & 0xFFFF # IRSPRC[79] @0x880 + 79 * 0x2
-printf "V/40260920/%08X\n", (*(0x40260920)) & 0xFFFF # IRSPRC[80] @0x880 + 80 * 0x2
-printf "V/40260922/%08X\n", (*(0x40260922)) & 0xFFFF # IRSPRC[81] @0x880 + 81 * 0x2
-printf "V/40260924/%08X\n", (*(0x40260924)) & 0xFFFF # IRSPRC[82] @0x880 + 82 * 0x2
-printf "V/40260926/%08X\n", (*(0x40260926)) & 0xFFFF # IRSPRC[83] @0x880 + 83 * 0x2
-printf "V/40260928/%08X\n", (*(0x40260928)) & 0xFFFF # IRSPRC[84] @0x880 + 84 * 0x2
-printf "V/4026092A/%08X\n", (*(0x4026092A)) & 0xFFFF # IRSPRC[85] @0x880 + 85 * 0x2
-printf "V/4026092C/%08X\n", (*(0x4026092C)) & 0xFFFF # IRSPRC[86] @0x880 + 86 * 0x2
-printf "V/4026092E/%08X\n", (*(0x4026092E)) & 0xFFFF # IRSPRC[87] @0x880 + 87 * 0x2
-printf "V/40260930/%08X\n", (*(0x40260930)) & 0xFFFF # IRSPRC[88] @0x880 + 88 * 0x2
-printf "V/40260932/%08X\n", (*(0x40260932)) & 0xFFFF # IRSPRC[89] @0x880 + 89 * 0x2
-printf "V/40260934/%08X\n", (*(0x40260934)) & 0xFFFF # IRSPRC[90] @0x880 + 90 * 0x2
-printf "V/40260936/%08X\n", (*(0x40260936)) & 0xFFFF # IRSPRC[91] @0x880 + 91 * 0x2
-printf "V/40260938/%08X\n", (*(0x40260938)) & 0xFFFF # IRSPRC[92] @0x880 + 92 * 0x2
-printf "V/4026093A/%08X\n", (*(0x4026093A)) & 0xFFFF # IRSPRC[93] @0x880 + 93 * 0x2
-printf "V/4026093C/%08X\n", (*(0x4026093C)) & 0xFFFF # IRSPRC[94] @0x880 + 94 * 0x2
-printf "V/4026093E/%08X\n", (*(0x4026093E)) & 0xFFFF # IRSPRC[95] @0x880 + 95 * 0x2
-printf "V/40260940/%08X\n", (*(0x40260940)) & 0xFFFF # IRSPRC[96] @0x880 + 96 * 0x2
-printf "V/40260942/%08X\n", (*(0x40260942)) & 0xFFFF # IRSPRC[97] @0x880 + 97 * 0x2
-printf "V/40260944/%08X\n", (*(0x40260944)) & 0xFFFF # IRSPRC[98] @0x880 + 98 * 0x2
-printf "V/40260946/%08X\n", (*(0x40260946)) & 0xFFFF # IRSPRC[99] @0x880 + 99 * 0x2
-printf "V/40260948/%08X\n", (*(0x40260948)) & 0xFFFF # IRSPRC[100] @0x880 + 100 * 0x2
-printf "V/4026094A/%08X\n", (*(0x4026094A)) & 0xFFFF # IRSPRC[101] @0x880 + 101 * 0x2
-printf "V/4026094C/%08X\n", (*(0x4026094C)) & 0xFFFF # IRSPRC[102] @0x880 + 102 * 0x2
-printf "V/4026094E/%08X\n", (*(0x4026094E)) & 0xFFFF # IRSPRC[103] @0x880 + 103 * 0x2
-printf "V/40260950/%08X\n", (*(0x40260950)) & 0xFFFF # IRSPRC[104] @0x880 + 104 * 0x2
-printf "V/40260952/%08X\n", (*(0x40260952)) & 0xFFFF # IRSPRC[105] @0x880 + 105 * 0x2
-printf "V/40260954/%08X\n", (*(0x40260954)) & 0xFFFF # IRSPRC[106] @0x880 + 106 * 0x2
-printf "V/40260956/%08X\n", (*(0x40260956)) & 0xFFFF # IRSPRC[107] @0x880 + 107 * 0x2
-printf "V/40260958/%08X\n", (*(0x40260958)) & 0xFFFF # IRSPRC[108] @0x880 + 108 * 0x2
-printf "V/4026095A/%08X\n", (*(0x4026095A)) & 0xFFFF # IRSPRC[109] @0x880 + 109 * 0x2
-printf "V/4026095C/%08X\n", (*(0x4026095C)) & 0xFFFF # IRSPRC[110] @0x880 + 110 * 0x2
-printf "V/4026095E/%08X\n", (*(0x4026095E)) & 0xFFFF # IRSPRC[111] @0x880 + 111 * 0x2
-printf "V/40260960/%08X\n", (*(0x40260960)) & 0xFFFF # IRSPRC[112] @0x880 + 112 * 0x2
-printf "V/40260962/%08X\n", (*(0x40260962)) & 0xFFFF # IRSPRC[113] @0x880 + 113 * 0x2
-printf "V/40260964/%08X\n", (*(0x40260964)) & 0xFFFF # IRSPRC[114] @0x880 + 114 * 0x2
-printf "V/40260966/%08X\n", (*(0x40260966)) & 0xFFFF # IRSPRC[115] @0x880 + 115 * 0x2
-printf "V/40260968/%08X\n", (*(0x40260968)) & 0xFFFF # IRSPRC[116] @0x880 + 116 * 0x2
-printf "V/4026096A/%08X\n", (*(0x4026096A)) & 0xFFFF # IRSPRC[117] @0x880 + 117 * 0x2
-printf "V/4026096C/%08X\n", (*(0x4026096C)) & 0xFFFF # IRSPRC[118] @0x880 + 118 * 0x2
-printf "V/4026096E/%08X\n", (*(0x4026096E)) & 0xFFFF # IRSPRC[119] @0x880 + 119 * 0x2
-printf "V/40260970/%08X\n", (*(0x40260970)) & 0xFFFF # IRSPRC[120] @0x880 + 120 * 0x2
-printf "V/40260972/%08X\n", (*(0x40260972)) & 0xFFFF # IRSPRC[121] @0x880 + 121 * 0x2
-printf "V/40260974/%08X\n", (*(0x40260974)) & 0xFFFF # IRSPRC[122] @0x880 + 122 * 0x2
-printf "V/40260976/%08X\n", (*(0x40260976)) & 0xFFFF # IRSPRC[123] @0x880 + 123 * 0x2
-printf "V/40260978/%08X\n", (*(0x40260978)) & 0xFFFF # IRSPRC[124] @0x880 + 124 * 0x2
-printf "V/4026097A/%08X\n", (*(0x4026097A)) & 0xFFFF # IRSPRC[125] @0x880 + 125 * 0x2
-printf "V/4026097C/%08X\n", (*(0x4026097C)) & 0xFFFF # IRSPRC[126] @0x880 + 126 * 0x2
-printf "V/4026097E/%08X\n", (*(0x4026097E)) & 0xFFFF # IRSPRC[127] @0x880 + 127 * 0x2
-printf "V/40260980/%08X\n", (*(0x40260980)) & 0xFFFF # IRSPRC[128] @0x880 + 128 * 0x2
-printf "V/40260982/%08X\n", (*(0x40260982)) & 0xFFFF # IRSPRC[129] @0x880 + 129 * 0x2
-printf "V/40260984/%08X\n", (*(0x40260984)) & 0xFFFF # IRSPRC[130] @0x880 + 130 * 0x2
-printf "V/40260986/%08X\n", (*(0x40260986)) & 0xFFFF # IRSPRC[131] @0x880 + 131 * 0x2
-printf "V/40260988/%08X\n", (*(0x40260988)) & 0xFFFF # IRSPRC[132] @0x880 + 132 * 0x2
-printf "V/4026098A/%08X\n", (*(0x4026098A)) & 0xFFFF # IRSPRC[133] @0x880 + 133 * 0x2
-printf "V/4026098C/%08X\n", (*(0x4026098C)) & 0xFFFF # IRSPRC[134] @0x880 + 134 * 0x2
-printf "V/4026098E/%08X\n", (*(0x4026098E)) & 0xFFFF # IRSPRC[135] @0x880 + 135 * 0x2
-printf "V/40260990/%08X\n", (*(0x40260990)) & 0xFFFF # IRSPRC[136] @0x880 + 136 * 0x2
-printf "V/40260992/%08X\n", (*(0x40260992)) & 0xFFFF # IRSPRC[137] @0x880 + 137 * 0x2
-printf "V/40260994/%08X\n", (*(0x40260994)) & 0xFFFF # IRSPRC[138] @0x880 + 138 * 0x2
-printf "V/40260996/%08X\n", (*(0x40260996)) & 0xFFFF # IRSPRC[139] @0x880 + 139 * 0x2
-printf "V/40260998/%08X\n", (*(0x40260998)) & 0xFFFF # IRSPRC[140] @0x880 + 140 * 0x2
-printf "V/4026099A/%08X\n", (*(0x4026099A)) & 0xFFFF # IRSPRC[141] @0x880 + 141 * 0x2
-printf "V/4026099C/%08X\n", (*(0x4026099C)) & 0xFFFF # IRSPRC[142] @0x880 + 142 * 0x2
-printf "V/4026099E/%08X\n", (*(0x4026099E)) & 0xFFFF # IRSPRC[143] @0x880 + 143 * 0x2
-printf "V/402609A0/%08X\n", (*(0x402609A0)) & 0xFFFF # IRSPRC[144] @0x880 + 144 * 0x2
-printf "V/402609A2/%08X\n", (*(0x402609A2)) & 0xFFFF # IRSPRC[145] @0x880 + 145 * 0x2
-printf "V/402609A4/%08X\n", (*(0x402609A4)) & 0xFFFF # IRSPRC[146] @0x880 + 146 * 0x2
-printf "V/402609A6/%08X\n", (*(0x402609A6)) & 0xFFFF # IRSPRC[147] @0x880 + 147 * 0x2
-printf "V/402609A8/%08X\n", (*(0x402609A8)) & 0xFFFF # IRSPRC[148] @0x880 + 148 * 0x2
-printf "V/402609AA/%08X\n", (*(0x402609AA)) & 0xFFFF # IRSPRC[149] @0x880 + 149 * 0x2
-printf "V/402609AC/%08X\n", (*(0x402609AC)) & 0xFFFF # IRSPRC[150] @0x880 + 150 * 0x2
-printf "V/402609AE/%08X\n", (*(0x402609AE)) & 0xFFFF # IRSPRC[151] @0x880 + 151 * 0x2
-printf "V/402609B0/%08X\n", (*(0x402609B0)) & 0xFFFF # IRSPRC[152] @0x880 + 152 * 0x2
-printf "V/402609B2/%08X\n", (*(0x402609B2)) & 0xFFFF # IRSPRC[153] @0x880 + 153 * 0x2
-printf "V/402609B4/%08X\n", (*(0x402609B4)) & 0xFFFF # IRSPRC[154] @0x880 + 154 * 0x2
-printf "V/402609B6/%08X\n", (*(0x402609B6)) & 0xFFFF # IRSPRC[155] @0x880 + 155 * 0x2
-printf "V/402609B8/%08X\n", (*(0x402609B8)) & 0xFFFF # IRSPRC[156] @0x880 + 156 * 0x2
-printf "V/402609BA/%08X\n", (*(0x402609BA)) & 0xFFFF # IRSPRC[157] @0x880 + 157 * 0x2
-printf "V/402609BC/%08X\n", (*(0x402609BC)) & 0xFFFF # IRSPRC[158] @0x880 + 158 * 0x2
-printf "V/402609BE/%08X\n", (*(0x402609BE)) & 0xFFFF # IRSPRC[159] @0x880 + 159 * 0x2
-printf "V/402609C0/%08X\n", (*(0x402609C0)) & 0xFFFF # IRSPRC[160] @0x880 + 160 * 0x2
-printf "V/402609C2/%08X\n", (*(0x402609C2)) & 0xFFFF # IRSPRC[161] @0x880 + 161 * 0x2
-printf "V/402609C4/%08X\n", (*(0x402609C4)) & 0xFFFF # IRSPRC[162] @0x880 + 162 * 0x2
-printf "V/402609C6/%08X\n", (*(0x402609C6)) & 0xFFFF # IRSPRC[163] @0x880 + 163 * 0x2
-printf "V/402609C8/%08X\n", (*(0x402609C8)) & 0xFFFF # IRSPRC[164] @0x880 + 164 * 0x2
-printf "V/402609CA/%08X\n", (*(0x402609CA)) & 0xFFFF # IRSPRC[165] @0x880 + 165 * 0x2
-printf "V/402609CC/%08X\n", (*(0x402609CC)) & 0xFFFF # IRSPRC[166] @0x880 + 166 * 0x2
-printf "V/402609CE/%08X\n", (*(0x402609CE)) & 0xFFFF # IRSPRC[167] @0x880 + 167 * 0x2
-printf "V/402609D0/%08X\n", (*(0x402609D0)) & 0xFFFF # IRSPRC[168] @0x880 + 168 * 0x2
-printf "V/402609D2/%08X\n", (*(0x402609D2)) & 0xFFFF # IRSPRC[169] @0x880 + 169 * 0x2
-printf "V/402609D4/%08X\n", (*(0x402609D4)) & 0xFFFF # IRSPRC[170] @0x880 + 170 * 0x2
-printf "V/402609D6/%08X\n", (*(0x402609D6)) & 0xFFFF # IRSPRC[171] @0x880 + 171 * 0x2
-printf "V/402609D8/%08X\n", (*(0x402609D8)) & 0xFFFF # IRSPRC[172] @0x880 + 172 * 0x2
-printf "V/402609DA/%08X\n", (*(0x402609DA)) & 0xFFFF # IRSPRC[173] @0x880 + 173 * 0x2
-printf "V/402609DC/%08X\n", (*(0x402609DC)) & 0xFFFF # IRSPRC[174] @0x880 + 174 * 0x2
-printf "V/402609DE/%08X\n", (*(0x402609DE)) & 0xFFFF # IRSPRC[175] @0x880 + 175 * 0x2
-printf "V/402609E0/%08X\n", (*(0x402609E0)) & 0xFFFF # IRSPRC[176] @0x880 + 176 * 0x2
-printf "V/402609E2/%08X\n", (*(0x402609E2)) & 0xFFFF # IRSPRC[177] @0x880 + 177 * 0x2
-printf "V/402609E4/%08X\n", (*(0x402609E4)) & 0xFFFF # IRSPRC[178] @0x880 + 178 * 0x2
-printf "V/402609E6/%08X\n", (*(0x402609E6)) & 0xFFFF # IRSPRC[179] @0x880 + 179 * 0x2
-printf "V/402609E8/%08X\n", (*(0x402609E8)) & 0xFFFF # IRSPRC[180] @0x880 + 180 * 0x2
-printf "V/402609EA/%08X\n", (*(0x402609EA)) & 0xFFFF # IRSPRC[181] @0x880 + 181 * 0x2
-printf "V/402609EC/%08X\n", (*(0x402609EC)) & 0xFFFF # IRSPRC[182] @0x880 + 182 * 0x2
-printf "V/402609EE/%08X\n", (*(0x402609EE)) & 0xFFFF # IRSPRC[183] @0x880 + 183 * 0x2
-printf "V/402609F0/%08X\n", (*(0x402609F0)) & 0xFFFF # IRSPRC[184] @0x880 + 184 * 0x2
-printf "V/402609F2/%08X\n", (*(0x402609F2)) & 0xFFFF # IRSPRC[185] @0x880 + 185 * 0x2
-printf "V/402609F4/%08X\n", (*(0x402609F4)) & 0xFFFF # IRSPRC[186] @0x880 + 186 * 0x2
-printf "V/402609F6/%08X\n", (*(0x402609F6)) & 0xFFFF # IRSPRC[187] @0x880 + 187 * 0x2
-printf "V/402609F8/%08X\n", (*(0x402609F8)) & 0xFFFF # IRSPRC[188] @0x880 + 188 * 0x2
-printf "V/402609FA/%08X\n", (*(0x402609FA)) & 0xFFFF # IRSPRC[189] @0x880 + 189 * 0x2
-printf "V/402609FC/%08X\n", (*(0x402609FC)) & 0xFFFF # IRSPRC[190] @0x880 + 190 * 0x2
-printf "V/402609FE/%08X\n", (*(0x402609FE)) & 0xFFFF # IRSPRC[191] @0x880 + 191 * 0x2
-printf "V/40260A00/%08X\n", (*(0x40260A00)) & 0xFFFF # IRSPRC[192] @0x880 + 192 * 0x2
-printf "V/40260A02/%08X\n", (*(0x40260A02)) & 0xFFFF # IRSPRC[193] @0x880 + 193 * 0x2
-printf "V/40260A04/%08X\n", (*(0x40260A04)) & 0xFFFF # IRSPRC[194] @0x880 + 194 * 0x2
-printf "V/40260A06/%08X\n", (*(0x40260A06)) & 0xFFFF # IRSPRC[195] @0x880 + 195 * 0x2
-printf "V/40260A08/%08X\n", (*(0x40260A08)) & 0xFFFF # IRSPRC[196] @0x880 + 196 * 0x2
-printf "V/40260A0A/%08X\n", (*(0x40260A0A)) & 0xFFFF # IRSPRC[197] @0x880 + 197 * 0x2
-printf "V/40260A0C/%08X\n", (*(0x40260A0C)) & 0xFFFF # IRSPRC[198] @0x880 + 198 * 0x2
-printf "V/40260A0E/%08X\n", (*(0x40260A0E)) & 0xFFFF # IRSPRC[199] @0x880 + 199 * 0x2
-printf "V/40260A10/%08X\n", (*(0x40260A10)) & 0xFFFF # IRSPRC[200] @0x880 + 200 * 0x2
-printf "V/40260A12/%08X\n", (*(0x40260A12)) & 0xFFFF # IRSPRC[201] @0x880 + 201 * 0x2
-printf "V/40260A14/%08X\n", (*(0x40260A14)) & 0xFFFF # IRSPRC[202] @0x880 + 202 * 0x2
-printf "V/40260A16/%08X\n", (*(0x40260A16)) & 0xFFFF # IRSPRC[203] @0x880 + 203 * 0x2
-printf "V/40260A18/%08X\n", (*(0x40260A18)) & 0xFFFF # IRSPRC[204] @0x880 + 204 * 0x2
-printf "V/40260A1A/%08X\n", (*(0x40260A1A)) & 0xFFFF # IRSPRC[205] @0x880 + 205 * 0x2
-printf "V/40260A1C/%08X\n", (*(0x40260A1C)) & 0xFFFF # IRSPRC[206] @0x880 + 206 * 0x2
-printf "V/40260A1E/%08X\n", (*(0x40260A1E)) & 0xFFFF # IRSPRC[207] @0x880 + 207 * 0x2
-printf "V/40260A20/%08X\n", (*(0x40260A20)) & 0xFFFF # IRSPRC[208] @0x880 + 208 * 0x2
-printf "V/40260A22/%08X\n", (*(0x40260A22)) & 0xFFFF # IRSPRC[209] @0x880 + 209 * 0x2
-printf "V/40260A24/%08X\n", (*(0x40260A24)) & 0xFFFF # IRSPRC[210] @0x880 + 210 * 0x2
-printf "V/40260A26/%08X\n", (*(0x40260A26)) & 0xFFFF # IRSPRC[211] @0x880 + 211 * 0x2
-printf "V/40260A28/%08X\n", (*(0x40260A28)) & 0xFFFF # IRSPRC[212] @0x880 + 212 * 0x2
-printf "V/40260A2A/%08X\n", (*(0x40260A2A)) & 0xFFFF # IRSPRC[213] @0x880 + 213 * 0x2
-printf "V/40260A2C/%08X\n", (*(0x40260A2C)) & 0xFFFF # IRSPRC[214] @0x880 + 214 * 0x2
-printf "V/40260A2E/%08X\n", (*(0x40260A2E)) & 0xFFFF # IRSPRC[215] @0x880 + 215 * 0x2
-printf "V/40260A30/%08X\n", (*(0x40260A30)) & 0xFFFF # IRSPRC[216] @0x880 + 216 * 0x2
-printf "V/40260A32/%08X\n", (*(0x40260A32)) & 0xFFFF # IRSPRC[217] @0x880 + 217 * 0x2
-printf "V/40260A34/%08X\n", (*(0x40260A34)) & 0xFFFF # IRSPRC[218] @0x880 + 218 * 0x2
-printf "V/40260A36/%08X\n", (*(0x40260A36)) & 0xFFFF # IRSPRC[219] @0x880 + 219 * 0x2
-printf "V/40260A38/%08X\n", (*(0x40260A38)) & 0xFFFF # IRSPRC[220] @0x880 + 220 * 0x2
-printf "V/40260A3A/%08X\n", (*(0x40260A3A)) & 0xFFFF # IRSPRC[221] @0x880 + 221 * 0x2
-printf "V/40260A3C/%08X\n", (*(0x40260A3C)) & 0xFFFF # IRSPRC[222] @0x880 + 222 * 0x2
-printf "V/40260A3E/%08X\n", (*(0x40260A3E)) & 0xFFFF # IRSPRC[223] @0x880 + 223 * 0x2
-printf "V/40260A40/%08X\n", (*(0x40260A40)) & 0xFFFF # IRSPRC[224] @0x880 + 224 * 0x2
-printf "V/40260A42/%08X\n", (*(0x40260A42)) & 0xFFFF # IRSPRC[225] @0x880 + 225 * 0x2
-printf "V/40260A44/%08X\n", (*(0x40260A44)) & 0xFFFF # IRSPRC[226] @0x880 + 226 * 0x2
-printf "V/40260A46/%08X\n", (*(0x40260A46)) & 0xFFFF # IRSPRC[227] @0x880 + 227 * 0x2
-printf "V/40260A48/%08X\n", (*(0x40260A48)) & 0xFFFF # IRSPRC[228] @0x880 + 228 * 0x2
-printf "V/40260A4A/%08X\n", (*(0x40260A4A)) & 0xFFFF # IRSPRC[229] @0x880 + 229 * 0x2
-printf "V/40260A4C/%08X\n", (*(0x40260A4C)) & 0xFFFF # IRSPRC[230] @0x880 + 230 * 0x2
-printf "V/40260A4E/%08X\n", (*(0x40260A4E)) & 0xFFFF # IRSPRC[231] @0x880 + 231 * 0x2
-printf "V/40260A50/%08X\n", (*(0x40260A50)) & 0xFFFF # IRSPRC[232] @0x880 + 232 * 0x2
-printf "V/40260A52/%08X\n", (*(0x40260A52)) & 0xFFFF # IRSPRC[233] @0x880 + 233 * 0x2
-printf "V/40260A54/%08X\n", (*(0x40260A54)) & 0xFFFF # IRSPRC[234] @0x880 + 234 * 0x2
-printf "V/40260A56/%08X\n", (*(0x40260A56)) & 0xFFFF # IRSPRC[235] @0x880 + 235 * 0x2
-printf "V/40260A58/%08X\n", (*(0x40260A58)) & 0xFFFF # IRSPRC[236] @0x880 + 236 * 0x2
-printf "V/40260A5A/%08X\n", (*(0x40260A5A)) & 0xFFFF # IRSPRC[237] @0x880 + 237 * 0x2
-printf "V/40260A5C/%08X\n", (*(0x40260A5C)) & 0xFFFF # IRSPRC[238] @0x880 + 238 * 0x2
-printf "V/40260A5E/%08X\n", (*(0x40260A5E)) & 0xFFFF # IRSPRC[239] @0x880 + 239 * 0x2
+printf "V/40260880/%08X\n", (*(0x40260880) >> 0) & 0xFFFF # IRSPRC[0] @0x880 + 0 * 0x2
+printf "V/40260882/%08X\n", (*(0x40260880) >> 16) & 0xFFFF # IRSPRC[1] @0x880 + 1 * 0x2
+printf "V/40260884/%08X\n", (*(0x40260884) >> 0) & 0xFFFF # IRSPRC[2] @0x880 + 2 * 0x2
+printf "V/40260886/%08X\n", (*(0x40260884) >> 16) & 0xFFFF # IRSPRC[3] @0x880 + 3 * 0x2
+printf "V/40260888/%08X\n", (*(0x40260888) >> 0) & 0xFFFF # IRSPRC[4] @0x880 + 4 * 0x2
+printf "V/4026088A/%08X\n", (*(0x40260888) >> 16) & 0xFFFF # IRSPRC[5] @0x880 + 5 * 0x2
+printf "V/4026088C/%08X\n", (*(0x4026088C) >> 0) & 0xFFFF # IRSPRC[6] @0x880 + 6 * 0x2
+printf "V/4026088E/%08X\n", (*(0x4026088C) >> 16) & 0xFFFF # IRSPRC[7] @0x880 + 7 * 0x2
+printf "V/40260890/%08X\n", (*(0x40260890) >> 0) & 0xFFFF # IRSPRC[8] @0x880 + 8 * 0x2
+printf "V/40260892/%08X\n", (*(0x40260890) >> 16) & 0xFFFF # IRSPRC[9] @0x880 + 9 * 0x2
+printf "V/40260894/%08X\n", (*(0x40260894) >> 0) & 0xFFFF # IRSPRC[10] @0x880 + 10 * 0x2
+printf "V/40260896/%08X\n", (*(0x40260894) >> 16) & 0xFFFF # IRSPRC[11] @0x880 + 11 * 0x2
+printf "V/40260898/%08X\n", (*(0x40260898) >> 0) & 0xFFFF # IRSPRC[12] @0x880 + 12 * 0x2
+printf "V/4026089A/%08X\n", (*(0x40260898) >> 16) & 0xFFFF # IRSPRC[13] @0x880 + 13 * 0x2
+printf "V/4026089C/%08X\n", (*(0x4026089C) >> 0) & 0xFFFF # IRSPRC[14] @0x880 + 14 * 0x2
+printf "V/4026089E/%08X\n", (*(0x4026089C) >> 16) & 0xFFFF # IRSPRC[15] @0x880 + 15 * 0x2
+printf "V/402608A0/%08X\n", (*(0x402608A0) >> 0) & 0xFFFF # IRSPRC[16] @0x880 + 16 * 0x2
+printf "V/402608A2/%08X\n", (*(0x402608A0) >> 16) & 0xFFFF # IRSPRC[17] @0x880 + 17 * 0x2
+printf "V/402608A4/%08X\n", (*(0x402608A4) >> 0) & 0xFFFF # IRSPRC[18] @0x880 + 18 * 0x2
+printf "V/402608A6/%08X\n", (*(0x402608A4) >> 16) & 0xFFFF # IRSPRC[19] @0x880 + 19 * 0x2
+printf "V/402608A8/%08X\n", (*(0x402608A8) >> 0) & 0xFFFF # IRSPRC[20] @0x880 + 20 * 0x2
+printf "V/402608AA/%08X\n", (*(0x402608A8) >> 16) & 0xFFFF # IRSPRC[21] @0x880 + 21 * 0x2
+printf "V/402608AC/%08X\n", (*(0x402608AC) >> 0) & 0xFFFF # IRSPRC[22] @0x880 + 22 * 0x2
+printf "V/402608AE/%08X\n", (*(0x402608AC) >> 16) & 0xFFFF # IRSPRC[23] @0x880 + 23 * 0x2
+printf "V/402608B0/%08X\n", (*(0x402608B0) >> 0) & 0xFFFF # IRSPRC[24] @0x880 + 24 * 0x2
+printf "V/402608B2/%08X\n", (*(0x402608B0) >> 16) & 0xFFFF # IRSPRC[25] @0x880 + 25 * 0x2
+printf "V/402608B4/%08X\n", (*(0x402608B4) >> 0) & 0xFFFF # IRSPRC[26] @0x880 + 26 * 0x2
+printf "V/402608B6/%08X\n", (*(0x402608B4) >> 16) & 0xFFFF # IRSPRC[27] @0x880 + 27 * 0x2
+printf "V/402608B8/%08X\n", (*(0x402608B8) >> 0) & 0xFFFF # IRSPRC[28] @0x880 + 28 * 0x2
+printf "V/402608BA/%08X\n", (*(0x402608B8) >> 16) & 0xFFFF # IRSPRC[29] @0x880 + 29 * 0x2
+printf "V/402608BC/%08X\n", (*(0x402608BC) >> 0) & 0xFFFF # IRSPRC[30] @0x880 + 30 * 0x2
+printf "V/402608BE/%08X\n", (*(0x402608BC) >> 16) & 0xFFFF # IRSPRC[31] @0x880 + 31 * 0x2
+printf "V/402608C0/%08X\n", (*(0x402608C0) >> 0) & 0xFFFF # IRSPRC[32] @0x880 + 32 * 0x2
+printf "V/402608C2/%08X\n", (*(0x402608C0) >> 16) & 0xFFFF # IRSPRC[33] @0x880 + 33 * 0x2
+printf "V/402608C4/%08X\n", (*(0x402608C4) >> 0) & 0xFFFF # IRSPRC[34] @0x880 + 34 * 0x2
+printf "V/402608C6/%08X\n", (*(0x402608C4) >> 16) & 0xFFFF # IRSPRC[35] @0x880 + 35 * 0x2
+printf "V/402608C8/%08X\n", (*(0x402608C8) >> 0) & 0xFFFF # IRSPRC[36] @0x880 + 36 * 0x2
+printf "V/402608CA/%08X\n", (*(0x402608C8) >> 16) & 0xFFFF # IRSPRC[37] @0x880 + 37 * 0x2
+printf "V/402608CC/%08X\n", (*(0x402608CC) >> 0) & 0xFFFF # IRSPRC[38] @0x880 + 38 * 0x2
+printf "V/402608CE/%08X\n", (*(0x402608CC) >> 16) & 0xFFFF # IRSPRC[39] @0x880 + 39 * 0x2
+printf "V/402608D0/%08X\n", (*(0x402608D0) >> 0) & 0xFFFF # IRSPRC[40] @0x880 + 40 * 0x2
+printf "V/402608D2/%08X\n", (*(0x402608D0) >> 16) & 0xFFFF # IRSPRC[41] @0x880 + 41 * 0x2
+printf "V/402608D4/%08X\n", (*(0x402608D4) >> 0) & 0xFFFF # IRSPRC[42] @0x880 + 42 * 0x2
+printf "V/402608D6/%08X\n", (*(0x402608D4) >> 16) & 0xFFFF # IRSPRC[43] @0x880 + 43 * 0x2
+printf "V/402608D8/%08X\n", (*(0x402608D8) >> 0) & 0xFFFF # IRSPRC[44] @0x880 + 44 * 0x2
+printf "V/402608DA/%08X\n", (*(0x402608D8) >> 16) & 0xFFFF # IRSPRC[45] @0x880 + 45 * 0x2
+printf "V/402608DC/%08X\n", (*(0x402608DC) >> 0) & 0xFFFF # IRSPRC[46] @0x880 + 46 * 0x2
+printf "V/402608DE/%08X\n", (*(0x402608DC) >> 16) & 0xFFFF # IRSPRC[47] @0x880 + 47 * 0x2
+printf "V/402608E0/%08X\n", (*(0x402608E0) >> 0) & 0xFFFF # IRSPRC[48] @0x880 + 48 * 0x2
+printf "V/402608E2/%08X\n", (*(0x402608E0) >> 16) & 0xFFFF # IRSPRC[49] @0x880 + 49 * 0x2
+printf "V/402608E4/%08X\n", (*(0x402608E4) >> 0) & 0xFFFF # IRSPRC[50] @0x880 + 50 * 0x2
+printf "V/402608E6/%08X\n", (*(0x402608E4) >> 16) & 0xFFFF # IRSPRC[51] @0x880 + 51 * 0x2
+printf "V/402608E8/%08X\n", (*(0x402608E8) >> 0) & 0xFFFF # IRSPRC[52] @0x880 + 52 * 0x2
+printf "V/402608EA/%08X\n", (*(0x402608E8) >> 16) & 0xFFFF # IRSPRC[53] @0x880 + 53 * 0x2
+printf "V/402608EC/%08X\n", (*(0x402608EC) >> 0) & 0xFFFF # IRSPRC[54] @0x880 + 54 * 0x2
+printf "V/402608EE/%08X\n", (*(0x402608EC) >> 16) & 0xFFFF # IRSPRC[55] @0x880 + 55 * 0x2
+printf "V/402608F0/%08X\n", (*(0x402608F0) >> 0) & 0xFFFF # IRSPRC[56] @0x880 + 56 * 0x2
+printf "V/402608F2/%08X\n", (*(0x402608F0) >> 16) & 0xFFFF # IRSPRC[57] @0x880 + 57 * 0x2
+printf "V/402608F4/%08X\n", (*(0x402608F4) >> 0) & 0xFFFF # IRSPRC[58] @0x880 + 58 * 0x2
+printf "V/402608F6/%08X\n", (*(0x402608F4) >> 16) & 0xFFFF # IRSPRC[59] @0x880 + 59 * 0x2
+printf "V/402608F8/%08X\n", (*(0x402608F8) >> 0) & 0xFFFF # IRSPRC[60] @0x880 + 60 * 0x2
+printf "V/402608FA/%08X\n", (*(0x402608F8) >> 16) & 0xFFFF # IRSPRC[61] @0x880 + 61 * 0x2
+printf "V/402608FC/%08X\n", (*(0x402608FC) >> 0) & 0xFFFF # IRSPRC[62] @0x880 + 62 * 0x2
+printf "V/402608FE/%08X\n", (*(0x402608FC) >> 16) & 0xFFFF # IRSPRC[63] @0x880 + 63 * 0x2
+printf "V/40260900/%08X\n", (*(0x40260900) >> 0) & 0xFFFF # IRSPRC[64] @0x880 + 64 * 0x2
+printf "V/40260902/%08X\n", (*(0x40260900) >> 16) & 0xFFFF # IRSPRC[65] @0x880 + 65 * 0x2
+printf "V/40260904/%08X\n", (*(0x40260904) >> 0) & 0xFFFF # IRSPRC[66] @0x880 + 66 * 0x2
+printf "V/40260906/%08X\n", (*(0x40260904) >> 16) & 0xFFFF # IRSPRC[67] @0x880 + 67 * 0x2
+printf "V/40260908/%08X\n", (*(0x40260908) >> 0) & 0xFFFF # IRSPRC[68] @0x880 + 68 * 0x2
+printf "V/4026090A/%08X\n", (*(0x40260908) >> 16) & 0xFFFF # IRSPRC[69] @0x880 + 69 * 0x2
+printf "V/4026090C/%08X\n", (*(0x4026090C) >> 0) & 0xFFFF # IRSPRC[70] @0x880 + 70 * 0x2
+printf "V/4026090E/%08X\n", (*(0x4026090C) >> 16) & 0xFFFF # IRSPRC[71] @0x880 + 71 * 0x2
+printf "V/40260910/%08X\n", (*(0x40260910) >> 0) & 0xFFFF # IRSPRC[72] @0x880 + 72 * 0x2
+printf "V/40260912/%08X\n", (*(0x40260910) >> 16) & 0xFFFF # IRSPRC[73] @0x880 + 73 * 0x2
+printf "V/40260914/%08X\n", (*(0x40260914) >> 0) & 0xFFFF # IRSPRC[74] @0x880 + 74 * 0x2
+printf "V/40260916/%08X\n", (*(0x40260914) >> 16) & 0xFFFF # IRSPRC[75] @0x880 + 75 * 0x2
+printf "V/40260918/%08X\n", (*(0x40260918) >> 0) & 0xFFFF # IRSPRC[76] @0x880 + 76 * 0x2
+printf "V/4026091A/%08X\n", (*(0x40260918) >> 16) & 0xFFFF # IRSPRC[77] @0x880 + 77 * 0x2
+printf "V/4026091C/%08X\n", (*(0x4026091C) >> 0) & 0xFFFF # IRSPRC[78] @0x880 + 78 * 0x2
+printf "V/4026091E/%08X\n", (*(0x4026091C) >> 16) & 0xFFFF # IRSPRC[79] @0x880 + 79 * 0x2
+printf "V/40260920/%08X\n", (*(0x40260920) >> 0) & 0xFFFF # IRSPRC[80] @0x880 + 80 * 0x2
+printf "V/40260922/%08X\n", (*(0x40260920) >> 16) & 0xFFFF # IRSPRC[81] @0x880 + 81 * 0x2
+printf "V/40260924/%08X\n", (*(0x40260924) >> 0) & 0xFFFF # IRSPRC[82] @0x880 + 82 * 0x2
+printf "V/40260926/%08X\n", (*(0x40260924) >> 16) & 0xFFFF # IRSPRC[83] @0x880 + 83 * 0x2
+printf "V/40260928/%08X\n", (*(0x40260928) >> 0) & 0xFFFF # IRSPRC[84] @0x880 + 84 * 0x2
+printf "V/4026092A/%08X\n", (*(0x40260928) >> 16) & 0xFFFF # IRSPRC[85] @0x880 + 85 * 0x2
+printf "V/4026092C/%08X\n", (*(0x4026092C) >> 0) & 0xFFFF # IRSPRC[86] @0x880 + 86 * 0x2
+printf "V/4026092E/%08X\n", (*(0x4026092C) >> 16) & 0xFFFF # IRSPRC[87] @0x880 + 87 * 0x2
+printf "V/40260930/%08X\n", (*(0x40260930) >> 0) & 0xFFFF # IRSPRC[88] @0x880 + 88 * 0x2
+printf "V/40260932/%08X\n", (*(0x40260930) >> 16) & 0xFFFF # IRSPRC[89] @0x880 + 89 * 0x2
+printf "V/40260934/%08X\n", (*(0x40260934) >> 0) & 0xFFFF # IRSPRC[90] @0x880 + 90 * 0x2
+printf "V/40260936/%08X\n", (*(0x40260934) >> 16) & 0xFFFF # IRSPRC[91] @0x880 + 91 * 0x2
+printf "V/40260938/%08X\n", (*(0x40260938) >> 0) & 0xFFFF # IRSPRC[92] @0x880 + 92 * 0x2
+printf "V/4026093A/%08X\n", (*(0x40260938) >> 16) & 0xFFFF # IRSPRC[93] @0x880 + 93 * 0x2
+printf "V/4026093C/%08X\n", (*(0x4026093C) >> 0) & 0xFFFF # IRSPRC[94] @0x880 + 94 * 0x2
+printf "V/4026093E/%08X\n", (*(0x4026093C) >> 16) & 0xFFFF # IRSPRC[95] @0x880 + 95 * 0x2
+printf "V/40260940/%08X\n", (*(0x40260940) >> 0) & 0xFFFF # IRSPRC[96] @0x880 + 96 * 0x2
+printf "V/40260942/%08X\n", (*(0x40260940) >> 16) & 0xFFFF # IRSPRC[97] @0x880 + 97 * 0x2
+printf "V/40260944/%08X\n", (*(0x40260944) >> 0) & 0xFFFF # IRSPRC[98] @0x880 + 98 * 0x2
+printf "V/40260946/%08X\n", (*(0x40260944) >> 16) & 0xFFFF # IRSPRC[99] @0x880 + 99 * 0x2
+printf "V/40260948/%08X\n", (*(0x40260948) >> 0) & 0xFFFF # IRSPRC[100] @0x880 + 100 * 0x2
+printf "V/4026094A/%08X\n", (*(0x40260948) >> 16) & 0xFFFF # IRSPRC[101] @0x880 + 101 * 0x2
+printf "V/4026094C/%08X\n", (*(0x4026094C) >> 0) & 0xFFFF # IRSPRC[102] @0x880 + 102 * 0x2
+printf "V/4026094E/%08X\n", (*(0x4026094C) >> 16) & 0xFFFF # IRSPRC[103] @0x880 + 103 * 0x2
+printf "V/40260950/%08X\n", (*(0x40260950) >> 0) & 0xFFFF # IRSPRC[104] @0x880 + 104 * 0x2
+printf "V/40260952/%08X\n", (*(0x40260950) >> 16) & 0xFFFF # IRSPRC[105] @0x880 + 105 * 0x2
+printf "V/40260954/%08X\n", (*(0x40260954) >> 0) & 0xFFFF # IRSPRC[106] @0x880 + 106 * 0x2
+printf "V/40260956/%08X\n", (*(0x40260954) >> 16) & 0xFFFF # IRSPRC[107] @0x880 + 107 * 0x2
+printf "V/40260958/%08X\n", (*(0x40260958) >> 0) & 0xFFFF # IRSPRC[108] @0x880 + 108 * 0x2
+printf "V/4026095A/%08X\n", (*(0x40260958) >> 16) & 0xFFFF # IRSPRC[109] @0x880 + 109 * 0x2
+printf "V/4026095C/%08X\n", (*(0x4026095C) >> 0) & 0xFFFF # IRSPRC[110] @0x880 + 110 * 0x2
+printf "V/4026095E/%08X\n", (*(0x4026095C) >> 16) & 0xFFFF # IRSPRC[111] @0x880 + 111 * 0x2
+printf "V/40260960/%08X\n", (*(0x40260960) >> 0) & 0xFFFF # IRSPRC[112] @0x880 + 112 * 0x2
+printf "V/40260962/%08X\n", (*(0x40260960) >> 16) & 0xFFFF # IRSPRC[113] @0x880 + 113 * 0x2
+printf "V/40260964/%08X\n", (*(0x40260964) >> 0) & 0xFFFF # IRSPRC[114] @0x880 + 114 * 0x2
+printf "V/40260966/%08X\n", (*(0x40260964) >> 16) & 0xFFFF # IRSPRC[115] @0x880 + 115 * 0x2
+printf "V/40260968/%08X\n", (*(0x40260968) >> 0) & 0xFFFF # IRSPRC[116] @0x880 + 116 * 0x2
+printf "V/4026096A/%08X\n", (*(0x40260968) >> 16) & 0xFFFF # IRSPRC[117] @0x880 + 117 * 0x2
+printf "V/4026096C/%08X\n", (*(0x4026096C) >> 0) & 0xFFFF # IRSPRC[118] @0x880 + 118 * 0x2
+printf "V/4026096E/%08X\n", (*(0x4026096C) >> 16) & 0xFFFF # IRSPRC[119] @0x880 + 119 * 0x2
+printf "V/40260970/%08X\n", (*(0x40260970) >> 0) & 0xFFFF # IRSPRC[120] @0x880 + 120 * 0x2
+printf "V/40260972/%08X\n", (*(0x40260970) >> 16) & 0xFFFF # IRSPRC[121] @0x880 + 121 * 0x2
+printf "V/40260974/%08X\n", (*(0x40260974) >> 0) & 0xFFFF # IRSPRC[122] @0x880 + 122 * 0x2
+printf "V/40260976/%08X\n", (*(0x40260974) >> 16) & 0xFFFF # IRSPRC[123] @0x880 + 123 * 0x2
+printf "V/40260978/%08X\n", (*(0x40260978) >> 0) & 0xFFFF # IRSPRC[124] @0x880 + 124 * 0x2
+printf "V/4026097A/%08X\n", (*(0x40260978) >> 16) & 0xFFFF # IRSPRC[125] @0x880 + 125 * 0x2
+printf "V/4026097C/%08X\n", (*(0x4026097C) >> 0) & 0xFFFF # IRSPRC[126] @0x880 + 126 * 0x2
+printf "V/4026097E/%08X\n", (*(0x4026097C) >> 16) & 0xFFFF # IRSPRC[127] @0x880 + 127 * 0x2
+printf "V/40260980/%08X\n", (*(0x40260980) >> 0) & 0xFFFF # IRSPRC[128] @0x880 + 128 * 0x2
+printf "V/40260982/%08X\n", (*(0x40260980) >> 16) & 0xFFFF # IRSPRC[129] @0x880 + 129 * 0x2
+printf "V/40260984/%08X\n", (*(0x40260984) >> 0) & 0xFFFF # IRSPRC[130] @0x880 + 130 * 0x2
+printf "V/40260986/%08X\n", (*(0x40260984) >> 16) & 0xFFFF # IRSPRC[131] @0x880 + 131 * 0x2
+printf "V/40260988/%08X\n", (*(0x40260988) >> 0) & 0xFFFF # IRSPRC[132] @0x880 + 132 * 0x2
+printf "V/4026098A/%08X\n", (*(0x40260988) >> 16) & 0xFFFF # IRSPRC[133] @0x880 + 133 * 0x2
+printf "V/4026098C/%08X\n", (*(0x4026098C) >> 0) & 0xFFFF # IRSPRC[134] @0x880 + 134 * 0x2
+printf "V/4026098E/%08X\n", (*(0x4026098C) >> 16) & 0xFFFF # IRSPRC[135] @0x880 + 135 * 0x2
+printf "V/40260990/%08X\n", (*(0x40260990) >> 0) & 0xFFFF # IRSPRC[136] @0x880 + 136 * 0x2
+printf "V/40260992/%08X\n", (*(0x40260990) >> 16) & 0xFFFF # IRSPRC[137] @0x880 + 137 * 0x2
+printf "V/40260994/%08X\n", (*(0x40260994) >> 0) & 0xFFFF # IRSPRC[138] @0x880 + 138 * 0x2
+printf "V/40260996/%08X\n", (*(0x40260994) >> 16) & 0xFFFF # IRSPRC[139] @0x880 + 139 * 0x2
+printf "V/40260998/%08X\n", (*(0x40260998) >> 0) & 0xFFFF # IRSPRC[140] @0x880 + 140 * 0x2
+printf "V/4026099A/%08X\n", (*(0x40260998) >> 16) & 0xFFFF # IRSPRC[141] @0x880 + 141 * 0x2
+printf "V/4026099C/%08X\n", (*(0x4026099C) >> 0) & 0xFFFF # IRSPRC[142] @0x880 + 142 * 0x2
+printf "V/4026099E/%08X\n", (*(0x4026099C) >> 16) & 0xFFFF # IRSPRC[143] @0x880 + 143 * 0x2
+printf "V/402609A0/%08X\n", (*(0x402609A0) >> 0) & 0xFFFF # IRSPRC[144] @0x880 + 144 * 0x2
+printf "V/402609A2/%08X\n", (*(0x402609A0) >> 16) & 0xFFFF # IRSPRC[145] @0x880 + 145 * 0x2
+printf "V/402609A4/%08X\n", (*(0x402609A4) >> 0) & 0xFFFF # IRSPRC[146] @0x880 + 146 * 0x2
+printf "V/402609A6/%08X\n", (*(0x402609A4) >> 16) & 0xFFFF # IRSPRC[147] @0x880 + 147 * 0x2
+printf "V/402609A8/%08X\n", (*(0x402609A8) >> 0) & 0xFFFF # IRSPRC[148] @0x880 + 148 * 0x2
+printf "V/402609AA/%08X\n", (*(0x402609A8) >> 16) & 0xFFFF # IRSPRC[149] @0x880 + 149 * 0x2
+printf "V/402609AC/%08X\n", (*(0x402609AC) >> 0) & 0xFFFF # IRSPRC[150] @0x880 + 150 * 0x2
+printf "V/402609AE/%08X\n", (*(0x402609AC) >> 16) & 0xFFFF # IRSPRC[151] @0x880 + 151 * 0x2
+printf "V/402609B0/%08X\n", (*(0x402609B0) >> 0) & 0xFFFF # IRSPRC[152] @0x880 + 152 * 0x2
+printf "V/402609B2/%08X\n", (*(0x402609B0) >> 16) & 0xFFFF # IRSPRC[153] @0x880 + 153 * 0x2
+printf "V/402609B4/%08X\n", (*(0x402609B4) >> 0) & 0xFFFF # IRSPRC[154] @0x880 + 154 * 0x2
+printf "V/402609B6/%08X\n", (*(0x402609B4) >> 16) & 0xFFFF # IRSPRC[155] @0x880 + 155 * 0x2
+printf "V/402609B8/%08X\n", (*(0x402609B8) >> 0) & 0xFFFF # IRSPRC[156] @0x880 + 156 * 0x2
+printf "V/402609BA/%08X\n", (*(0x402609B8) >> 16) & 0xFFFF # IRSPRC[157] @0x880 + 157 * 0x2
+printf "V/402609BC/%08X\n", (*(0x402609BC) >> 0) & 0xFFFF # IRSPRC[158] @0x880 + 158 * 0x2
+printf "V/402609BE/%08X\n", (*(0x402609BC) >> 16) & 0xFFFF # IRSPRC[159] @0x880 + 159 * 0x2
+printf "V/402609C0/%08X\n", (*(0x402609C0) >> 0) & 0xFFFF # IRSPRC[160] @0x880 + 160 * 0x2
+printf "V/402609C2/%08X\n", (*(0x402609C0) >> 16) & 0xFFFF # IRSPRC[161] @0x880 + 161 * 0x2
+printf "V/402609C4/%08X\n", (*(0x402609C4) >> 0) & 0xFFFF # IRSPRC[162] @0x880 + 162 * 0x2
+printf "V/402609C6/%08X\n", (*(0x402609C4) >> 16) & 0xFFFF # IRSPRC[163] @0x880 + 163 * 0x2
+printf "V/402609C8/%08X\n", (*(0x402609C8) >> 0) & 0xFFFF # IRSPRC[164] @0x880 + 164 * 0x2
+printf "V/402609CA/%08X\n", (*(0x402609C8) >> 16) & 0xFFFF # IRSPRC[165] @0x880 + 165 * 0x2
+printf "V/402609CC/%08X\n", (*(0x402609CC) >> 0) & 0xFFFF # IRSPRC[166] @0x880 + 166 * 0x2
+printf "V/402609CE/%08X\n", (*(0x402609CC) >> 16) & 0xFFFF # IRSPRC[167] @0x880 + 167 * 0x2
+printf "V/402609D0/%08X\n", (*(0x402609D0) >> 0) & 0xFFFF # IRSPRC[168] @0x880 + 168 * 0x2
+printf "V/402609D2/%08X\n", (*(0x402609D0) >> 16) & 0xFFFF # IRSPRC[169] @0x880 + 169 * 0x2
+printf "V/402609D4/%08X\n", (*(0x402609D4) >> 0) & 0xFFFF # IRSPRC[170] @0x880 + 170 * 0x2
+printf "V/402609D6/%08X\n", (*(0x402609D4) >> 16) & 0xFFFF # IRSPRC[171] @0x880 + 171 * 0x2
+printf "V/402609D8/%08X\n", (*(0x402609D8) >> 0) & 0xFFFF # IRSPRC[172] @0x880 + 172 * 0x2
+printf "V/402609DA/%08X\n", (*(0x402609D8) >> 16) & 0xFFFF # IRSPRC[173] @0x880 + 173 * 0x2
+printf "V/402609DC/%08X\n", (*(0x402609DC) >> 0) & 0xFFFF # IRSPRC[174] @0x880 + 174 * 0x2
+printf "V/402609DE/%08X\n", (*(0x402609DC) >> 16) & 0xFFFF # IRSPRC[175] @0x880 + 175 * 0x2
+printf "V/402609E0/%08X\n", (*(0x402609E0) >> 0) & 0xFFFF # IRSPRC[176] @0x880 + 176 * 0x2
+printf "V/402609E2/%08X\n", (*(0x402609E0) >> 16) & 0xFFFF # IRSPRC[177] @0x880 + 177 * 0x2
+printf "V/402609E4/%08X\n", (*(0x402609E4) >> 0) & 0xFFFF # IRSPRC[178] @0x880 + 178 * 0x2
+printf "V/402609E6/%08X\n", (*(0x402609E4) >> 16) & 0xFFFF # IRSPRC[179] @0x880 + 179 * 0x2
+printf "V/402609E8/%08X\n", (*(0x402609E8) >> 0) & 0xFFFF # IRSPRC[180] @0x880 + 180 * 0x2
+printf "V/402609EA/%08X\n", (*(0x402609E8) >> 16) & 0xFFFF # IRSPRC[181] @0x880 + 181 * 0x2
+printf "V/402609EC/%08X\n", (*(0x402609EC) >> 0) & 0xFFFF # IRSPRC[182] @0x880 + 182 * 0x2
+printf "V/402609EE/%08X\n", (*(0x402609EC) >> 16) & 0xFFFF # IRSPRC[183] @0x880 + 183 * 0x2
+printf "V/402609F0/%08X\n", (*(0x402609F0) >> 0) & 0xFFFF # IRSPRC[184] @0x880 + 184 * 0x2
+printf "V/402609F2/%08X\n", (*(0x402609F0) >> 16) & 0xFFFF # IRSPRC[185] @0x880 + 185 * 0x2
+printf "V/402609F4/%08X\n", (*(0x402609F4) >> 0) & 0xFFFF # IRSPRC[186] @0x880 + 186 * 0x2
+printf "V/402609F6/%08X\n", (*(0x402609F4) >> 16) & 0xFFFF # IRSPRC[187] @0x880 + 187 * 0x2
+printf "V/402609F8/%08X\n", (*(0x402609F8) >> 0) & 0xFFFF # IRSPRC[188] @0x880 + 188 * 0x2
+printf "V/402609FA/%08X\n", (*(0x402609F8) >> 16) & 0xFFFF # IRSPRC[189] @0x880 + 189 * 0x2
+printf "V/402609FC/%08X\n", (*(0x402609FC) >> 0) & 0xFFFF # IRSPRC[190] @0x880 + 190 * 0x2
+printf "V/402609FE/%08X\n", (*(0x402609FC) >> 16) & 0xFFFF # IRSPRC[191] @0x880 + 191 * 0x2
+printf "V/40260A00/%08X\n", (*(0x40260A00) >> 0) & 0xFFFF # IRSPRC[192] @0x880 + 192 * 0x2
+printf "V/40260A02/%08X\n", (*(0x40260A00) >> 16) & 0xFFFF # IRSPRC[193] @0x880 + 193 * 0x2
+printf "V/40260A04/%08X\n", (*(0x40260A04) >> 0) & 0xFFFF # IRSPRC[194] @0x880 + 194 * 0x2
+printf "V/40260A06/%08X\n", (*(0x40260A04) >> 16) & 0xFFFF # IRSPRC[195] @0x880 + 195 * 0x2
+printf "V/40260A08/%08X\n", (*(0x40260A08) >> 0) & 0xFFFF # IRSPRC[196] @0x880 + 196 * 0x2
+printf "V/40260A0A/%08X\n", (*(0x40260A08) >> 16) & 0xFFFF # IRSPRC[197] @0x880 + 197 * 0x2
+printf "V/40260A0C/%08X\n", (*(0x40260A0C) >> 0) & 0xFFFF # IRSPRC[198] @0x880 + 198 * 0x2
+printf "V/40260A0E/%08X\n", (*(0x40260A0C) >> 16) & 0xFFFF # IRSPRC[199] @0x880 + 199 * 0x2
+printf "V/40260A10/%08X\n", (*(0x40260A10) >> 0) & 0xFFFF # IRSPRC[200] @0x880 + 200 * 0x2
+printf "V/40260A12/%08X\n", (*(0x40260A10) >> 16) & 0xFFFF # IRSPRC[201] @0x880 + 201 * 0x2
+printf "V/40260A14/%08X\n", (*(0x40260A14) >> 0) & 0xFFFF # IRSPRC[202] @0x880 + 202 * 0x2
+printf "V/40260A16/%08X\n", (*(0x40260A14) >> 16) & 0xFFFF # IRSPRC[203] @0x880 + 203 * 0x2
+printf "V/40260A18/%08X\n", (*(0x40260A18) >> 0) & 0xFFFF # IRSPRC[204] @0x880 + 204 * 0x2
+printf "V/40260A1A/%08X\n", (*(0x40260A18) >> 16) & 0xFFFF # IRSPRC[205] @0x880 + 205 * 0x2
+printf "V/40260A1C/%08X\n", (*(0x40260A1C) >> 0) & 0xFFFF # IRSPRC[206] @0x880 + 206 * 0x2
+printf "V/40260A1E/%08X\n", (*(0x40260A1C) >> 16) & 0xFFFF # IRSPRC[207] @0x880 + 207 * 0x2
+printf "V/40260A20/%08X\n", (*(0x40260A20) >> 0) & 0xFFFF # IRSPRC[208] @0x880 + 208 * 0x2
+printf "V/40260A22/%08X\n", (*(0x40260A20) >> 16) & 0xFFFF # IRSPRC[209] @0x880 + 209 * 0x2
+printf "V/40260A24/%08X\n", (*(0x40260A24) >> 0) & 0xFFFF # IRSPRC[210] @0x880 + 210 * 0x2
+printf "V/40260A26/%08X\n", (*(0x40260A24) >> 16) & 0xFFFF # IRSPRC[211] @0x880 + 211 * 0x2
+printf "V/40260A28/%08X\n", (*(0x40260A28) >> 0) & 0xFFFF # IRSPRC[212] @0x880 + 212 * 0x2
+printf "V/40260A2A/%08X\n", (*(0x40260A28) >> 16) & 0xFFFF # IRSPRC[213] @0x880 + 213 * 0x2
+printf "V/40260A2C/%08X\n", (*(0x40260A2C) >> 0) & 0xFFFF # IRSPRC[214] @0x880 + 214 * 0x2
+printf "V/40260A2E/%08X\n", (*(0x40260A2C) >> 16) & 0xFFFF # IRSPRC[215] @0x880 + 215 * 0x2
+printf "V/40260A30/%08X\n", (*(0x40260A30) >> 0) & 0xFFFF # IRSPRC[216] @0x880 + 216 * 0x2
+printf "V/40260A32/%08X\n", (*(0x40260A30) >> 16) & 0xFFFF # IRSPRC[217] @0x880 + 217 * 0x2
+printf "V/40260A34/%08X\n", (*(0x40260A34) >> 0) & 0xFFFF # IRSPRC[218] @0x880 + 218 * 0x2
+printf "V/40260A36/%08X\n", (*(0x40260A34) >> 16) & 0xFFFF # IRSPRC[219] @0x880 + 219 * 0x2
+printf "V/40260A38/%08X\n", (*(0x40260A38) >> 0) & 0xFFFF # IRSPRC[220] @0x880 + 220 * 0x2
+printf "V/40260A3A/%08X\n", (*(0x40260A38) >> 16) & 0xFFFF # IRSPRC[221] @0x880 + 221 * 0x2
+printf "V/40260A3C/%08X\n", (*(0x40260A3C) >> 0) & 0xFFFF # IRSPRC[222] @0x880 + 222 * 0x2
+printf "V/40260A3E/%08X\n", (*(0x40260A3C) >> 16) & 0xFFFF # IRSPRC[223] @0x880 + 223 * 0x2
+printf "V/40260A40/%08X\n", (*(0x40260A40) >> 0) & 0xFFFF # IRSPRC[224] @0x880 + 224 * 0x2
+printf "V/40260A42/%08X\n", (*(0x40260A40) >> 16) & 0xFFFF # IRSPRC[225] @0x880 + 225 * 0x2
+printf "V/40260A44/%08X\n", (*(0x40260A44) >> 0) & 0xFFFF # IRSPRC[226] @0x880 + 226 * 0x2
+printf "V/40260A46/%08X\n", (*(0x40260A44) >> 16) & 0xFFFF # IRSPRC[227] @0x880 + 227 * 0x2
+printf "V/40260A48/%08X\n", (*(0x40260A48) >> 0) & 0xFFFF # IRSPRC[228] @0x880 + 228 * 0x2
+printf "V/40260A4A/%08X\n", (*(0x40260A48) >> 16) & 0xFFFF # IRSPRC[229] @0x880 + 229 * 0x2
+printf "V/40260A4C/%08X\n", (*(0x40260A4C) >> 0) & 0xFFFF # IRSPRC[230] @0x880 + 230 * 0x2
+printf "V/40260A4E/%08X\n", (*(0x40260A4C) >> 16) & 0xFFFF # IRSPRC[231] @0x880 + 231 * 0x2
+printf "V/40260A50/%08X\n", (*(0x40260A50) >> 0) & 0xFFFF # IRSPRC[232] @0x880 + 232 * 0x2
+printf "V/40260A52/%08X\n", (*(0x40260A50) >> 16) & 0xFFFF # IRSPRC[233] @0x880 + 233 * 0x2
+printf "V/40260A54/%08X\n", (*(0x40260A54) >> 0) & 0xFFFF # IRSPRC[234] @0x880 + 234 * 0x2
+printf "V/40260A56/%08X\n", (*(0x40260A54) >> 16) & 0xFFFF # IRSPRC[235] @0x880 + 235 * 0x2
+printf "V/40260A58/%08X\n", (*(0x40260A58) >> 0) & 0xFFFF # IRSPRC[236] @0x880 + 236 * 0x2
+printf "V/40260A5A/%08X\n", (*(0x40260A58) >> 16) & 0xFFFF # IRSPRC[237] @0x880 + 237 * 0x2
+printf "V/40260A5C/%08X\n", (*(0x40260A5C) >> 0) & 0xFFFF # IRSPRC[238] @0x880 + 238 * 0x2
+printf "V/40260A5E/%08X\n", (*(0x40260A5C) >> 16) & 0xFFFF # IRSPRC[239] @0x880 + 239 * 0x2
 
 # MU_0__MUB @0x4038C000
 printf "V/4038C000/%08X\n", (*(0x4038C000)) # VER @0
@@ -4479,318 +4479,318 @@ printf "V/40291094/%08X\n", (*(0x40291094)) # IMCR405 @0x1094
 printf "V/40291098/%08X\n", (*(0x40291098)) # IMCR406 @0x1098
 printf "V/4029109C/%08X\n", (*(0x4029109C)) # IMCR407 @0x109C
 printf "V/402910A0/%08X\n", (*(0x402910A0)) # IMCR408 @0x10A0
-printf "V/40291300/%08X\n", (*(0x40291300)) & 0xFF # GPDO3 @0x1300
-printf "V/40291301/%08X\n", (*(0x40291301)) & 0xFF # GPDO2 @0x1301
-printf "V/40291302/%08X\n", (*(0x40291302)) & 0xFF # GPDO1 @0x1302
-printf "V/40291303/%08X\n", (*(0x40291303)) & 0xFF # GPDO0 @0x1303
-printf "V/40291304/%08X\n", (*(0x40291304)) & 0xFF # GPDO7 @0x1304
-printf "V/40291305/%08X\n", (*(0x40291305)) & 0xFF # GPDO6 @0x1305
-printf "V/40291306/%08X\n", (*(0x40291306)) & 0xFF # GPDO5 @0x1306
-printf "V/40291307/%08X\n", (*(0x40291307)) & 0xFF # GPDO4 @0x1307
-printf "V/40291308/%08X\n", (*(0x40291308)) & 0xFF # GPDO11 @0x1308
-printf "V/40291309/%08X\n", (*(0x40291309)) & 0xFF # GPDO10 @0x1309
-printf "V/4029130A/%08X\n", (*(0x4029130A)) & 0xFF # GPDO9 @0x130A
-printf "V/4029130B/%08X\n", (*(0x4029130B)) & 0xFF # GPDO8 @0x130B
-printf "V/4029130C/%08X\n", (*(0x4029130C)) & 0xFF # GPDO15 @0x130C
-printf "V/4029130D/%08X\n", (*(0x4029130D)) & 0xFF # GPDO14 @0x130D
-printf "V/4029130E/%08X\n", (*(0x4029130E)) & 0xFF # GPDO13 @0x130E
-printf "V/4029130F/%08X\n", (*(0x4029130F)) & 0xFF # GPDO12 @0x130F
-printf "V/40291310/%08X\n", (*(0x40291310)) & 0xFF # GPDO19 @0x1310
-printf "V/40291311/%08X\n", (*(0x40291311)) & 0xFF # GPDO18 @0x1311
-printf "V/40291312/%08X\n", (*(0x40291312)) & 0xFF # GPDO17 @0x1312
-printf "V/40291313/%08X\n", (*(0x40291313)) & 0xFF # GPDO16 @0x1313
-printf "V/40291316/%08X\n", (*(0x40291316)) & 0xFF # GPDO21 @0x1316
-printf "V/40291317/%08X\n", (*(0x40291317)) & 0xFF # GPDO20 @0x1317
-printf "V/40291318/%08X\n", (*(0x40291318)) & 0xFF # GPDO27 @0x1318
-printf "V/40291319/%08X\n", (*(0x40291319)) & 0xFF # GPDO26 @0x1319
-printf "V/4029131A/%08X\n", (*(0x4029131A)) & 0xFF # GPDO25 @0x131A
-printf "V/4029131B/%08X\n", (*(0x4029131B)) & 0xFF # GPDO24 @0x131B
-printf "V/4029131C/%08X\n", (*(0x4029131C)) & 0xFF # GPDO31 @0x131C
-printf "V/4029131D/%08X\n", (*(0x4029131D)) & 0xFF # GPDO30 @0x131D
-printf "V/4029131E/%08X\n", (*(0x4029131E)) & 0xFF # GPDO29 @0x131E
-printf "V/4029131F/%08X\n", (*(0x4029131F)) & 0xFF # GPDO28 @0x131F
-printf "V/40291320/%08X\n", (*(0x40291320)) & 0xFF # GPDO35 @0x1320
-printf "V/40291321/%08X\n", (*(0x40291321)) & 0xFF # GPDO34 @0x1321
-printf "V/40291322/%08X\n", (*(0x40291322)) & 0xFF # GPDO33 @0x1322
-printf "V/40291323/%08X\n", (*(0x40291323)) & 0xFF # GPDO32 @0x1323
-printf "V/40291326/%08X\n", (*(0x40291326)) & 0xFF # GPDO37 @0x1326
-printf "V/40291327/%08X\n", (*(0x40291327)) & 0xFF # GPDO36 @0x1327
-printf "V/40291328/%08X\n", (*(0x40291328)) & 0xFF # GPDO43 @0x1328
-printf "V/40291329/%08X\n", (*(0x40291329)) & 0xFF # GPDO42 @0x1329
-printf "V/4029132A/%08X\n", (*(0x4029132A)) & 0xFF # GPDO41 @0x132A
-printf "V/4029132B/%08X\n", (*(0x4029132B)) & 0xFF # GPDO40 @0x132B
-printf "V/4029132C/%08X\n", (*(0x4029132C)) & 0xFF # GPDO47 @0x132C
-printf "V/4029132D/%08X\n", (*(0x4029132D)) & 0xFF # GPDO46 @0x132D
-printf "V/4029132E/%08X\n", (*(0x4029132E)) & 0xFF # GPDO45 @0x132E
-printf "V/4029132F/%08X\n", (*(0x4029132F)) & 0xFF # GPDO44 @0x132F
-printf "V/40291330/%08X\n", (*(0x40291330)) & 0xFF # GPDO51 @0x1330
-printf "V/40291331/%08X\n", (*(0x40291331)) & 0xFF # GPDO50 @0x1331
-printf "V/40291332/%08X\n", (*(0x40291332)) & 0xFF # GPDO49 @0x1332
-printf "V/40291333/%08X\n", (*(0x40291333)) & 0xFF # GPDO48 @0x1333
-printf "V/40291334/%08X\n", (*(0x40291334)) & 0xFF # GPDO55 @0x1334
-printf "V/40291335/%08X\n", (*(0x40291335)) & 0xFF # GPDO54 @0x1335
-printf "V/40291336/%08X\n", (*(0x40291336)) & 0xFF # GPDO53 @0x1336
-printf "V/40291337/%08X\n", (*(0x40291337)) & 0xFF # GPDO52 @0x1337
-printf "V/40291338/%08X\n", (*(0x40291338)) & 0xFF # GPDO59 @0x1338
-printf "V/40291339/%08X\n", (*(0x40291339)) & 0xFF # GPDO58 @0x1339
-printf "V/4029133A/%08X\n", (*(0x4029133A)) & 0xFF # GPDO57 @0x133A
-printf "V/4029133B/%08X\n", (*(0x4029133B)) & 0xFF # GPDO56 @0x133B
-printf "V/4029133D/%08X\n", (*(0x4029133D)) & 0xFF # GPDO62 @0x133D
-printf "V/4029133E/%08X\n", (*(0x4029133E)) & 0xFF # GPDO61 @0x133E
-printf "V/4029133F/%08X\n", (*(0x4029133F)) & 0xFF # GPDO60 @0x133F
-printf "V/40291340/%08X\n", (*(0x40291340)) & 0xFF # GPDO67 @0x1340
-printf "V/40291341/%08X\n", (*(0x40291341)) & 0xFF # GPDO66 @0x1341
-printf "V/40291342/%08X\n", (*(0x40291342)) & 0xFF # GPDO65 @0x1342
-printf "V/40291343/%08X\n", (*(0x40291343)) & 0xFF # GPDO64 @0x1343
-printf "V/40291344/%08X\n", (*(0x40291344)) & 0xFF # GPDO71 @0x1344
-printf "V/40291345/%08X\n", (*(0x40291345)) & 0xFF # GPDO70 @0x1345
-printf "V/40291346/%08X\n", (*(0x40291346)) & 0xFF # GPDO69 @0x1346
-printf "V/40291347/%08X\n", (*(0x40291347)) & 0xFF # GPDO68 @0x1347
-printf "V/40291348/%08X\n", (*(0x40291348)) & 0xFF # GPDO75 @0x1348
-printf "V/40291349/%08X\n", (*(0x40291349)) & 0xFF # GPDO74 @0x1349
-printf "V/4029134A/%08X\n", (*(0x4029134A)) & 0xFF # GPDO73 @0x134A
-printf "V/4029134B/%08X\n", (*(0x4029134B)) & 0xFF # GPDO72 @0x134B
-printf "V/4029134C/%08X\n", (*(0x4029134C)) & 0xFF # GPDO79 @0x134C
-printf "V/4029134D/%08X\n", (*(0x4029134D)) & 0xFF # GPDO78 @0x134D
-printf "V/4029134E/%08X\n", (*(0x4029134E)) & 0xFF # GPDO77 @0x134E
-printf "V/4029134F/%08X\n", (*(0x4029134F)) & 0xFF # GPDO76 @0x134F
-printf "V/40291350/%08X\n", (*(0x40291350)) & 0xFF # GPDO83 @0x1350
-printf "V/40291351/%08X\n", (*(0x40291351)) & 0xFF # GPDO82 @0x1351
-printf "V/40291352/%08X\n", (*(0x40291352)) & 0xFF # GPDO81 @0x1352
-printf "V/40291353/%08X\n", (*(0x40291353)) & 0xFF # GPDO80 @0x1353
-printf "V/40291354/%08X\n", (*(0x40291354)) & 0xFF # GPDO87 @0x1354
-printf "V/40291356/%08X\n", (*(0x40291356)) & 0xFF # GPDO85 @0x1356
-printf "V/40291357/%08X\n", (*(0x40291357)) & 0xFF # GPDO84 @0x1357
-printf "V/40291358/%08X\n", (*(0x40291358)) & 0xFF # GPDO91 @0x1358
-printf "V/40291359/%08X\n", (*(0x40291359)) & 0xFF # GPDO90 @0x1359
-printf "V/4029135A/%08X\n", (*(0x4029135A)) & 0xFF # GPDO89 @0x135A
-printf "V/4029135B/%08X\n", (*(0x4029135B)) & 0xFF # GPDO88 @0x135B
-printf "V/4029135C/%08X\n", (*(0x4029135C)) & 0xFF # GPDO95 @0x135C
-printf "V/4029135D/%08X\n", (*(0x4029135D)) & 0xFF # GPDO94 @0x135D
-printf "V/4029135E/%08X\n", (*(0x4029135E)) & 0xFF # GPDO93 @0x135E
-printf "V/4029135F/%08X\n", (*(0x4029135F)) & 0xFF # GPDO92 @0x135F
-printf "V/40291360/%08X\n", (*(0x40291360)) & 0xFF # GPDO99 @0x1360
-printf "V/40291361/%08X\n", (*(0x40291361)) & 0xFF # GPDO98 @0x1361
-printf "V/40291362/%08X\n", (*(0x40291362)) & 0xFF # GPDO97 @0x1362
-printf "V/40291363/%08X\n", (*(0x40291363)) & 0xFF # GPDO96 @0x1363
-printf "V/40291364/%08X\n", (*(0x40291364)) & 0xFF # GPDO103 @0x1364
-printf "V/40291365/%08X\n", (*(0x40291365)) & 0xFF # GPDO102 @0x1365
-printf "V/40291366/%08X\n", (*(0x40291366)) & 0xFF # GPDO101 @0x1366
-printf "V/40291367/%08X\n", (*(0x40291367)) & 0xFF # GPDO100 @0x1367
-printf "V/40291368/%08X\n", (*(0x40291368)) & 0xFF # GPDO107 @0x1368
-printf "V/40291369/%08X\n", (*(0x40291369)) & 0xFF # GPDO106 @0x1369
-printf "V/4029136A/%08X\n", (*(0x4029136A)) & 0xFF # GPDO105 @0x136A
-printf "V/4029136B/%08X\n", (*(0x4029136B)) & 0xFF # GPDO104 @0x136B
-printf "V/4029136C/%08X\n", (*(0x4029136C)) & 0xFF # GPDO111 @0x136C
-printf "V/4029136D/%08X\n", (*(0x4029136D)) & 0xFF # GPDO110 @0x136D
-printf "V/4029136E/%08X\n", (*(0x4029136E)) & 0xFF # GPDO109 @0x136E
-printf "V/4029136F/%08X\n", (*(0x4029136F)) & 0xFF # GPDO108 @0x136F
-printf "V/40291371/%08X\n", (*(0x40291371)) & 0xFF # GPDO114 @0x1371
-printf "V/40291372/%08X\n", (*(0x40291372)) & 0xFF # GPDO113 @0x1372
-printf "V/40291373/%08X\n", (*(0x40291373)) & 0xFF # GPDO112 @0x1373
-printf "V/40291374/%08X\n", (*(0x40291374)) & 0xFF # GPDO119 @0x1374
-printf "V/40291375/%08X\n", (*(0x40291375)) & 0xFF # GPDO118 @0x1375
-printf "V/40291376/%08X\n", (*(0x40291376)) & 0xFF # GPDO117 @0x1376
-printf "V/40291377/%08X\n", (*(0x40291377)) & 0xFF # GPDO116 @0x1377
-printf "V/40291378/%08X\n", (*(0x40291378)) & 0xFF # GPDO123 @0x1378
-printf "V/40291379/%08X\n", (*(0x40291379)) & 0xFF # GPDO122 @0x1379
-printf "V/4029137B/%08X\n", (*(0x4029137B)) & 0xFF # GPDO120 @0x137B
-printf "V/4029137C/%08X\n", (*(0x4029137C)) & 0xFF # GPDO127 @0x137C
-printf "V/4029137D/%08X\n", (*(0x4029137D)) & 0xFF # GPDO126 @0x137D
-printf "V/4029137E/%08X\n", (*(0x4029137E)) & 0xFF # GPDO125 @0x137E
-printf "V/4029137F/%08X\n", (*(0x4029137F)) & 0xFF # GPDO124 @0x137F
-printf "V/40291380/%08X\n", (*(0x40291380)) & 0xFF # GPDO131 @0x1380
-printf "V/40291381/%08X\n", (*(0x40291381)) & 0xFF # GPDO130 @0x1381
-printf "V/40291382/%08X\n", (*(0x40291382)) & 0xFF # GPDO129 @0x1382
-printf "V/40291383/%08X\n", (*(0x40291383)) & 0xFF # GPDO128 @0x1383
-printf "V/40291384/%08X\n", (*(0x40291384)) & 0xFF # GPDO135 @0x1384
-printf "V/40291385/%08X\n", (*(0x40291385)) & 0xFF # GPDO134 @0x1385
-printf "V/40291386/%08X\n", (*(0x40291386)) & 0xFF # GPDO133 @0x1386
-printf "V/40291387/%08X\n", (*(0x40291387)) & 0xFF # GPDO132 @0x1387
-printf "V/40291388/%08X\n", (*(0x40291388)) & 0xFF # GPDO139 @0x1388
-printf "V/40291389/%08X\n", (*(0x40291389)) & 0xFF # GPDO138 @0x1389
-printf "V/4029138A/%08X\n", (*(0x4029138A)) & 0xFF # GPDO137 @0x138A
-printf "V/4029138B/%08X\n", (*(0x4029138B)) & 0xFF # GPDO136 @0x138B
-printf "V/4029138C/%08X\n", (*(0x4029138C)) & 0xFF # GPDO143 @0x138C
-printf "V/4029138D/%08X\n", (*(0x4029138D)) & 0xFF # GPDO142 @0x138D
-printf "V/4029138E/%08X\n", (*(0x4029138E)) & 0xFF # GPDO141 @0x138E
-printf "V/4029138F/%08X\n", (*(0x4029138F)) & 0xFF # GPDO140 @0x138F
-printf "V/40291390/%08X\n", (*(0x40291390)) & 0xFF # GPDO147 @0x1390
-printf "V/40291391/%08X\n", (*(0x40291391)) & 0xFF # GPDO146 @0x1391
-printf "V/40291392/%08X\n", (*(0x40291392)) & 0xFF # GPDO145 @0x1392
-printf "V/40291393/%08X\n", (*(0x40291393)) & 0xFF # GPDO144 @0x1393
-printf "V/40291394/%08X\n", (*(0x40291394)) & 0xFF # GPDO151 @0x1394
-printf "V/40291395/%08X\n", (*(0x40291395)) & 0xFF # GPDO150 @0x1395
-printf "V/40291396/%08X\n", (*(0x40291396)) & 0xFF # GPDO149 @0x1396
-printf "V/40291399/%08X\n", (*(0x40291399)) & 0xFF # GPDO154 @0x1399
-printf "V/4029139A/%08X\n", (*(0x4029139A)) & 0xFF # GPDO153 @0x139A
-printf "V/4029139B/%08X\n", (*(0x4029139B)) & 0xFF # GPDO152 @0x139B
-printf "V/40291500/%08X\n", (*(0x40291500)) & 0xFF # GPDI3 @0x1500
-printf "V/40291501/%08X\n", (*(0x40291501)) & 0xFF # GPDI2 @0x1501
-printf "V/40291502/%08X\n", (*(0x40291502)) & 0xFF # GPDI1 @0x1502
-printf "V/40291503/%08X\n", (*(0x40291503)) & 0xFF # GPDI0 @0x1503
-printf "V/40291504/%08X\n", (*(0x40291504)) & 0xFF # GPDI7 @0x1504
-printf "V/40291505/%08X\n", (*(0x40291505)) & 0xFF # GPDI6 @0x1505
-printf "V/40291506/%08X\n", (*(0x40291506)) & 0xFF # GPDI5 @0x1506
-printf "V/40291507/%08X\n", (*(0x40291507)) & 0xFF # GPDI4 @0x1507
-printf "V/40291508/%08X\n", (*(0x40291508)) & 0xFF # GPDI11 @0x1508
-printf "V/40291509/%08X\n", (*(0x40291509)) & 0xFF # GPDI10 @0x1509
-printf "V/4029150A/%08X\n", (*(0x4029150A)) & 0xFF # GPDI9 @0x150A
-printf "V/4029150B/%08X\n", (*(0x4029150B)) & 0xFF # GPDI8 @0x150B
-printf "V/4029150C/%08X\n", (*(0x4029150C)) & 0xFF # GPDI15 @0x150C
-printf "V/4029150D/%08X\n", (*(0x4029150D)) & 0xFF # GPDI14 @0x150D
-printf "V/4029150E/%08X\n", (*(0x4029150E)) & 0xFF # GPDI13 @0x150E
-printf "V/4029150F/%08X\n", (*(0x4029150F)) & 0xFF # GPDI12 @0x150F
-printf "V/40291510/%08X\n", (*(0x40291510)) & 0xFF # GPDI19 @0x1510
-printf "V/40291511/%08X\n", (*(0x40291511)) & 0xFF # GPDI18 @0x1511
-printf "V/40291512/%08X\n", (*(0x40291512)) & 0xFF # GPDI17 @0x1512
-printf "V/40291513/%08X\n", (*(0x40291513)) & 0xFF # GPDI16 @0x1513
-printf "V/40291516/%08X\n", (*(0x40291516)) & 0xFF # GPDI21 @0x1516
-printf "V/40291517/%08X\n", (*(0x40291517)) & 0xFF # GPDI20 @0x1517
-printf "V/40291518/%08X\n", (*(0x40291518)) & 0xFF # GPDI27 @0x1518
-printf "V/40291519/%08X\n", (*(0x40291519)) & 0xFF # GPDI26 @0x1519
-printf "V/4029151A/%08X\n", (*(0x4029151A)) & 0xFF # GPDI25 @0x151A
-printf "V/4029151B/%08X\n", (*(0x4029151B)) & 0xFF # GPDI24 @0x151B
-printf "V/4029151C/%08X\n", (*(0x4029151C)) & 0xFF # GPDI31 @0x151C
-printf "V/4029151D/%08X\n", (*(0x4029151D)) & 0xFF # GPDI30 @0x151D
-printf "V/4029151E/%08X\n", (*(0x4029151E)) & 0xFF # GPDI29 @0x151E
-printf "V/4029151F/%08X\n", (*(0x4029151F)) & 0xFF # GPDI28 @0x151F
-printf "V/40291520/%08X\n", (*(0x40291520)) & 0xFF # GPDI35 @0x1520
-printf "V/40291521/%08X\n", (*(0x40291521)) & 0xFF # GPDI34 @0x1521
-printf "V/40291522/%08X\n", (*(0x40291522)) & 0xFF # GPDI33 @0x1522
-printf "V/40291523/%08X\n", (*(0x40291523)) & 0xFF # GPDI32 @0x1523
-printf "V/40291526/%08X\n", (*(0x40291526)) & 0xFF # GPDI37 @0x1526
-printf "V/40291527/%08X\n", (*(0x40291527)) & 0xFF # GPDI36 @0x1527
-printf "V/40291528/%08X\n", (*(0x40291528)) & 0xFF # GPDI43 @0x1528
-printf "V/40291529/%08X\n", (*(0x40291529)) & 0xFF # GPDI42 @0x1529
-printf "V/4029152A/%08X\n", (*(0x4029152A)) & 0xFF # GPDI41 @0x152A
-printf "V/4029152B/%08X\n", (*(0x4029152B)) & 0xFF # GPDI40 @0x152B
-printf "V/4029152C/%08X\n", (*(0x4029152C)) & 0xFF # GPDI47 @0x152C
-printf "V/4029152D/%08X\n", (*(0x4029152D)) & 0xFF # GPDI46 @0x152D
-printf "V/4029152E/%08X\n", (*(0x4029152E)) & 0xFF # GPDI45 @0x152E
-printf "V/4029152F/%08X\n", (*(0x4029152F)) & 0xFF # GPDI44 @0x152F
-printf "V/40291530/%08X\n", (*(0x40291530)) & 0xFF # GPDI51 @0x1530
-printf "V/40291531/%08X\n", (*(0x40291531)) & 0xFF # GPDI50 @0x1531
-printf "V/40291532/%08X\n", (*(0x40291532)) & 0xFF # GPDI49 @0x1532
-printf "V/40291533/%08X\n", (*(0x40291533)) & 0xFF # GPDI48 @0x1533
-printf "V/40291534/%08X\n", (*(0x40291534)) & 0xFF # GPDI55 @0x1534
-printf "V/40291535/%08X\n", (*(0x40291535)) & 0xFF # GPDI54 @0x1535
-printf "V/40291536/%08X\n", (*(0x40291536)) & 0xFF # GPDI53 @0x1536
-printf "V/40291537/%08X\n", (*(0x40291537)) & 0xFF # GPDI52 @0x1537
-printf "V/40291538/%08X\n", (*(0x40291538)) & 0xFF # GPDI59 @0x1538
-printf "V/40291539/%08X\n", (*(0x40291539)) & 0xFF # GPDI58 @0x1539
-printf "V/4029153A/%08X\n", (*(0x4029153A)) & 0xFF # GPDI57 @0x153A
-printf "V/4029153B/%08X\n", (*(0x4029153B)) & 0xFF # GPDI56 @0x153B
-printf "V/4029153D/%08X\n", (*(0x4029153D)) & 0xFF # GPDI62 @0x153D
-printf "V/4029153E/%08X\n", (*(0x4029153E)) & 0xFF # GPDI61 @0x153E
-printf "V/4029153F/%08X\n", (*(0x4029153F)) & 0xFF # GPDI60 @0x153F
-printf "V/40291540/%08X\n", (*(0x40291540)) & 0xFF # GPDI67 @0x1540
-printf "V/40291541/%08X\n", (*(0x40291541)) & 0xFF # GPDI66 @0x1541
-printf "V/40291542/%08X\n", (*(0x40291542)) & 0xFF # GPDI65 @0x1542
-printf "V/40291543/%08X\n", (*(0x40291543)) & 0xFF # GPDI64 @0x1543
-printf "V/40291544/%08X\n", (*(0x40291544)) & 0xFF # GPDI71 @0x1544
-printf "V/40291545/%08X\n", (*(0x40291545)) & 0xFF # GPDI70 @0x1545
-printf "V/40291546/%08X\n", (*(0x40291546)) & 0xFF # GPDI69 @0x1546
-printf "V/40291547/%08X\n", (*(0x40291547)) & 0xFF # GPDI68 @0x1547
-printf "V/40291548/%08X\n", (*(0x40291548)) & 0xFF # GPDI75 @0x1548
-printf "V/40291549/%08X\n", (*(0x40291549)) & 0xFF # GPDI74 @0x1549
-printf "V/4029154A/%08X\n", (*(0x4029154A)) & 0xFF # GPDI73 @0x154A
-printf "V/4029154B/%08X\n", (*(0x4029154B)) & 0xFF # GPDI72 @0x154B
-printf "V/4029154C/%08X\n", (*(0x4029154C)) & 0xFF # GPDI79 @0x154C
-printf "V/4029154D/%08X\n", (*(0x4029154D)) & 0xFF # GPDI78 @0x154D
-printf "V/4029154E/%08X\n", (*(0x4029154E)) & 0xFF # GPDI77 @0x154E
-printf "V/4029154F/%08X\n", (*(0x4029154F)) & 0xFF # GPDI76 @0x154F
-printf "V/40291550/%08X\n", (*(0x40291550)) & 0xFF # GPDI83 @0x1550
-printf "V/40291551/%08X\n", (*(0x40291551)) & 0xFF # GPDI82 @0x1551
-printf "V/40291552/%08X\n", (*(0x40291552)) & 0xFF # GPDI81 @0x1552
-printf "V/40291553/%08X\n", (*(0x40291553)) & 0xFF # GPDI80 @0x1553
-printf "V/40291554/%08X\n", (*(0x40291554)) & 0xFF # GPDI87 @0x1554
-printf "V/40291556/%08X\n", (*(0x40291556)) & 0xFF # GPDI85 @0x1556
-printf "V/40291557/%08X\n", (*(0x40291557)) & 0xFF # GPDI84 @0x1557
-printf "V/40291558/%08X\n", (*(0x40291558)) & 0xFF # GPDI91 @0x1558
-printf "V/40291559/%08X\n", (*(0x40291559)) & 0xFF # GPDI90 @0x1559
-printf "V/4029155A/%08X\n", (*(0x4029155A)) & 0xFF # GPDI89 @0x155A
-printf "V/4029155B/%08X\n", (*(0x4029155B)) & 0xFF # GPDI88 @0x155B
-printf "V/4029155C/%08X\n", (*(0x4029155C)) & 0xFF # GPDI95 @0x155C
-printf "V/4029155D/%08X\n", (*(0x4029155D)) & 0xFF # GPDI94 @0x155D
-printf "V/4029155E/%08X\n", (*(0x4029155E)) & 0xFF # GPDI93 @0x155E
-printf "V/4029155F/%08X\n", (*(0x4029155F)) & 0xFF # GPDI92 @0x155F
-printf "V/40291560/%08X\n", (*(0x40291560)) & 0xFF # GPDI99 @0x1560
-printf "V/40291561/%08X\n", (*(0x40291561)) & 0xFF # GPDI98 @0x1561
-printf "V/40291562/%08X\n", (*(0x40291562)) & 0xFF # GPDI97 @0x1562
-printf "V/40291563/%08X\n", (*(0x40291563)) & 0xFF # GPDI96 @0x1563
-printf "V/40291564/%08X\n", (*(0x40291564)) & 0xFF # GPDI103 @0x1564
-printf "V/40291565/%08X\n", (*(0x40291565)) & 0xFF # GPDI102 @0x1565
-printf "V/40291566/%08X\n", (*(0x40291566)) & 0xFF # GPDI101 @0x1566
-printf "V/40291567/%08X\n", (*(0x40291567)) & 0xFF # GPDI100 @0x1567
-printf "V/40291568/%08X\n", (*(0x40291568)) & 0xFF # GPDI107 @0x1568
-printf "V/40291569/%08X\n", (*(0x40291569)) & 0xFF # GPDI106 @0x1569
-printf "V/4029156A/%08X\n", (*(0x4029156A)) & 0xFF # GPDI105 @0x156A
-printf "V/4029156B/%08X\n", (*(0x4029156B)) & 0xFF # GPDI104 @0x156B
-printf "V/4029156C/%08X\n", (*(0x4029156C)) & 0xFF # GPDI111 @0x156C
-printf "V/4029156D/%08X\n", (*(0x4029156D)) & 0xFF # GPDI110 @0x156D
-printf "V/4029156E/%08X\n", (*(0x4029156E)) & 0xFF # GPDI109 @0x156E
-printf "V/4029156F/%08X\n", (*(0x4029156F)) & 0xFF # GPDI108 @0x156F
-printf "V/40291571/%08X\n", (*(0x40291571)) & 0xFF # GPDI114 @0x1571
-printf "V/40291572/%08X\n", (*(0x40291572)) & 0xFF # GPDI113 @0x1572
-printf "V/40291573/%08X\n", (*(0x40291573)) & 0xFF # GPDI112 @0x1573
-printf "V/40291574/%08X\n", (*(0x40291574)) & 0xFF # GPDI119 @0x1574
-printf "V/40291575/%08X\n", (*(0x40291575)) & 0xFF # GPDI118 @0x1575
-printf "V/40291576/%08X\n", (*(0x40291576)) & 0xFF # GPDI117 @0x1576
-printf "V/40291577/%08X\n", (*(0x40291577)) & 0xFF # GPDI116 @0x1577
-printf "V/40291578/%08X\n", (*(0x40291578)) & 0xFF # GPDI123 @0x1578
-printf "V/40291579/%08X\n", (*(0x40291579)) & 0xFF # GPDI122 @0x1579
-printf "V/4029157B/%08X\n", (*(0x4029157B)) & 0xFF # GPDI120 @0x157B
-printf "V/4029157C/%08X\n", (*(0x4029157C)) & 0xFF # GPDI127 @0x157C
-printf "V/4029157D/%08X\n", (*(0x4029157D)) & 0xFF # GPDI126 @0x157D
-printf "V/4029157E/%08X\n", (*(0x4029157E)) & 0xFF # GPDI125 @0x157E
-printf "V/4029157F/%08X\n", (*(0x4029157F)) & 0xFF # GPDI124 @0x157F
-printf "V/40291580/%08X\n", (*(0x40291580)) & 0xFF # GPDI131 @0x1580
-printf "V/40291581/%08X\n", (*(0x40291581)) & 0xFF # GPDI130 @0x1581
-printf "V/40291582/%08X\n", (*(0x40291582)) & 0xFF # GPDI129 @0x1582
-printf "V/40291583/%08X\n", (*(0x40291583)) & 0xFF # GPDI128 @0x1583
-printf "V/40291584/%08X\n", (*(0x40291584)) & 0xFF # GPDI135 @0x1584
-printf "V/40291585/%08X\n", (*(0x40291585)) & 0xFF # GPDI134 @0x1585
-printf "V/40291586/%08X\n", (*(0x40291586)) & 0xFF # GPDI133 @0x1586
-printf "V/40291587/%08X\n", (*(0x40291587)) & 0xFF # GPDI132 @0x1587
-printf "V/40291588/%08X\n", (*(0x40291588)) & 0xFF # GPDI139 @0x1588
-printf "V/40291589/%08X\n", (*(0x40291589)) & 0xFF # GPDI138 @0x1589
-printf "V/4029158A/%08X\n", (*(0x4029158A)) & 0xFF # GPDI137 @0x158A
-printf "V/4029158B/%08X\n", (*(0x4029158B)) & 0xFF # GPDI136 @0x158B
-printf "V/4029158C/%08X\n", (*(0x4029158C)) & 0xFF # GPDI143 @0x158C
-printf "V/4029158D/%08X\n", (*(0x4029158D)) & 0xFF # GPDI142 @0x158D
-printf "V/4029158E/%08X\n", (*(0x4029158E)) & 0xFF # GPDI141 @0x158E
-printf "V/4029158F/%08X\n", (*(0x4029158F)) & 0xFF # GPDI140 @0x158F
-printf "V/40291590/%08X\n", (*(0x40291590)) & 0xFF # GPDI147 @0x1590
-printf "V/40291591/%08X\n", (*(0x40291591)) & 0xFF # GPDI146 @0x1591
-printf "V/40291592/%08X\n", (*(0x40291592)) & 0xFF # GPDI145 @0x1592
-printf "V/40291593/%08X\n", (*(0x40291593)) & 0xFF # GPDI144 @0x1593
-printf "V/40291594/%08X\n", (*(0x40291594)) & 0xFF # GPDI151 @0x1594
-printf "V/40291595/%08X\n", (*(0x40291595)) & 0xFF # GPDI150 @0x1595
-printf "V/40291596/%08X\n", (*(0x40291596)) & 0xFF # GPDI149 @0x1596
-printf "V/40291599/%08X\n", (*(0x40291599)) & 0xFF # GPDI154 @0x1599
-printf "V/4029159A/%08X\n", (*(0x4029159A)) & 0xFF # GPDI153 @0x159A
-printf "V/4029159B/%08X\n", (*(0x4029159B)) & 0xFF # GPDI152 @0x159B
-printf "V/40291700/%08X\n", (*(0x40291700)) & 0xFFFF # PGPDO1 @0x1700
-printf "V/40291702/%08X\n", (*(0x40291702)) & 0xFFFF # PGPDO0 @0x1702
-printf "V/40291704/%08X\n", (*(0x40291704)) & 0xFFFF # PGPDO3 @0x1704
-printf "V/40291706/%08X\n", (*(0x40291706)) & 0xFFFF # PGPDO2 @0x1706
-printf "V/40291708/%08X\n", (*(0x40291708)) & 0xFFFF # PGPDO5 @0x1708
-printf "V/4029170A/%08X\n", (*(0x4029170A)) & 0xFFFF # PGPDO4 @0x170A
-printf "V/4029170C/%08X\n", (*(0x4029170C)) & 0xFFFF # PGPDO7 @0x170C
-printf "V/4029170E/%08X\n", (*(0x4029170E)) & 0xFFFF # PGPDO6 @0x170E
-printf "V/40291710/%08X\n", (*(0x40291710)) & 0xFFFF # PGPDO9 @0x1710
-printf "V/40291712/%08X\n", (*(0x40291712)) & 0xFFFF # PGPDO8 @0x1712
-printf "V/40291740/%08X\n", (*(0x40291740)) & 0xFFFF # PGPDI1 @0x1740
-printf "V/40291742/%08X\n", (*(0x40291742)) & 0xFFFF # PGPDI0 @0x1742
-printf "V/40291744/%08X\n", (*(0x40291744)) & 0xFFFF # PGPDI3 @0x1744
-printf "V/40291746/%08X\n", (*(0x40291746)) & 0xFFFF # PGPDI2 @0x1746
-printf "V/40291748/%08X\n", (*(0x40291748)) & 0xFFFF # PGPDI5 @0x1748
-printf "V/4029174A/%08X\n", (*(0x4029174A)) & 0xFFFF # PGPDI4 @0x174A
-printf "V/4029174C/%08X\n", (*(0x4029174C)) & 0xFFFF # PGPDI7 @0x174C
-printf "V/4029174E/%08X\n", (*(0x4029174E)) & 0xFFFF # PGPDI6 @0x174E
-printf "V/40291750/%08X\n", (*(0x40291750)) & 0xFFFF # PGPDI9 @0x1750
-printf "V/40291752/%08X\n", (*(0x40291752)) & 0xFFFF # PGPDI8 @0x1752
+printf "V/40291300/%08X\n", (*(0x40291300) >> 0) & 0xFF # GPDO3 @0x1300
+printf "V/40291301/%08X\n", (*(0x40291300) >> 8) & 0xFF # GPDO2 @0x1301
+printf "V/40291302/%08X\n", (*(0x40291300) >> 16) & 0xFF # GPDO1 @0x1302
+printf "V/40291303/%08X\n", (*(0x40291300) >> 24) & 0xFF # GPDO0 @0x1303
+printf "V/40291304/%08X\n", (*(0x40291304) >> 0) & 0xFF # GPDO7 @0x1304
+printf "V/40291305/%08X\n", (*(0x40291304) >> 8) & 0xFF # GPDO6 @0x1305
+printf "V/40291306/%08X\n", (*(0x40291304) >> 16) & 0xFF # GPDO5 @0x1306
+printf "V/40291307/%08X\n", (*(0x40291304) >> 24) & 0xFF # GPDO4 @0x1307
+printf "V/40291308/%08X\n", (*(0x40291308) >> 0) & 0xFF # GPDO11 @0x1308
+printf "V/40291309/%08X\n", (*(0x40291308) >> 8) & 0xFF # GPDO10 @0x1309
+printf "V/4029130A/%08X\n", (*(0x40291308) >> 16) & 0xFF # GPDO9 @0x130A
+printf "V/4029130B/%08X\n", (*(0x40291308) >> 24) & 0xFF # GPDO8 @0x130B
+printf "V/4029130C/%08X\n", (*(0x4029130C) >> 0) & 0xFF # GPDO15 @0x130C
+printf "V/4029130D/%08X\n", (*(0x4029130C) >> 8) & 0xFF # GPDO14 @0x130D
+printf "V/4029130E/%08X\n", (*(0x4029130C) >> 16) & 0xFF # GPDO13 @0x130E
+printf "V/4029130F/%08X\n", (*(0x4029130C) >> 24) & 0xFF # GPDO12 @0x130F
+printf "V/40291310/%08X\n", (*(0x40291310) >> 0) & 0xFF # GPDO19 @0x1310
+printf "V/40291311/%08X\n", (*(0x40291310) >> 8) & 0xFF # GPDO18 @0x1311
+printf "V/40291312/%08X\n", (*(0x40291310) >> 16) & 0xFF # GPDO17 @0x1312
+printf "V/40291313/%08X\n", (*(0x40291310) >> 24) & 0xFF # GPDO16 @0x1313
+printf "V/40291316/%08X\n", (*(0x40291314) >> 16) & 0xFF # GPDO21 @0x1316
+printf "V/40291317/%08X\n", (*(0x40291314) >> 24) & 0xFF # GPDO20 @0x1317
+printf "V/40291318/%08X\n", (*(0x40291318) >> 0) & 0xFF # GPDO27 @0x1318
+printf "V/40291319/%08X\n", (*(0x40291318) >> 8) & 0xFF # GPDO26 @0x1319
+printf "V/4029131A/%08X\n", (*(0x40291318) >> 16) & 0xFF # GPDO25 @0x131A
+printf "V/4029131B/%08X\n", (*(0x40291318) >> 24) & 0xFF # GPDO24 @0x131B
+printf "V/4029131C/%08X\n", (*(0x4029131C) >> 0) & 0xFF # GPDO31 @0x131C
+printf "V/4029131D/%08X\n", (*(0x4029131C) >> 8) & 0xFF # GPDO30 @0x131D
+printf "V/4029131E/%08X\n", (*(0x4029131C) >> 16) & 0xFF # GPDO29 @0x131E
+printf "V/4029131F/%08X\n", (*(0x4029131C) >> 24) & 0xFF # GPDO28 @0x131F
+printf "V/40291320/%08X\n", (*(0x40291320) >> 0) & 0xFF # GPDO35 @0x1320
+printf "V/40291321/%08X\n", (*(0x40291320) >> 8) & 0xFF # GPDO34 @0x1321
+printf "V/40291322/%08X\n", (*(0x40291320) >> 16) & 0xFF # GPDO33 @0x1322
+printf "V/40291323/%08X\n", (*(0x40291320) >> 24) & 0xFF # GPDO32 @0x1323
+printf "V/40291326/%08X\n", (*(0x40291324) >> 16) & 0xFF # GPDO37 @0x1326
+printf "V/40291327/%08X\n", (*(0x40291324) >> 24) & 0xFF # GPDO36 @0x1327
+printf "V/40291328/%08X\n", (*(0x40291328) >> 0) & 0xFF # GPDO43 @0x1328
+printf "V/40291329/%08X\n", (*(0x40291328) >> 8) & 0xFF # GPDO42 @0x1329
+printf "V/4029132A/%08X\n", (*(0x40291328) >> 16) & 0xFF # GPDO41 @0x132A
+printf "V/4029132B/%08X\n", (*(0x40291328) >> 24) & 0xFF # GPDO40 @0x132B
+printf "V/4029132C/%08X\n", (*(0x4029132C) >> 0) & 0xFF # GPDO47 @0x132C
+printf "V/4029132D/%08X\n", (*(0x4029132C) >> 8) & 0xFF # GPDO46 @0x132D
+printf "V/4029132E/%08X\n", (*(0x4029132C) >> 16) & 0xFF # GPDO45 @0x132E
+printf "V/4029132F/%08X\n", (*(0x4029132C) >> 24) & 0xFF # GPDO44 @0x132F
+printf "V/40291330/%08X\n", (*(0x40291330) >> 0) & 0xFF # GPDO51 @0x1330
+printf "V/40291331/%08X\n", (*(0x40291330) >> 8) & 0xFF # GPDO50 @0x1331
+printf "V/40291332/%08X\n", (*(0x40291330) >> 16) & 0xFF # GPDO49 @0x1332
+printf "V/40291333/%08X\n", (*(0x40291330) >> 24) & 0xFF # GPDO48 @0x1333
+printf "V/40291334/%08X\n", (*(0x40291334) >> 0) & 0xFF # GPDO55 @0x1334
+printf "V/40291335/%08X\n", (*(0x40291334) >> 8) & 0xFF # GPDO54 @0x1335
+printf "V/40291336/%08X\n", (*(0x40291334) >> 16) & 0xFF # GPDO53 @0x1336
+printf "V/40291337/%08X\n", (*(0x40291334) >> 24) & 0xFF # GPDO52 @0x1337
+printf "V/40291338/%08X\n", (*(0x40291338) >> 0) & 0xFF # GPDO59 @0x1338
+printf "V/40291339/%08X\n", (*(0x40291338) >> 8) & 0xFF # GPDO58 @0x1339
+printf "V/4029133A/%08X\n", (*(0x40291338) >> 16) & 0xFF # GPDO57 @0x133A
+printf "V/4029133B/%08X\n", (*(0x40291338) >> 24) & 0xFF # GPDO56 @0x133B
+printf "V/4029133D/%08X\n", (*(0x4029133C) >> 8) & 0xFF # GPDO62 @0x133D
+printf "V/4029133E/%08X\n", (*(0x4029133C) >> 16) & 0xFF # GPDO61 @0x133E
+printf "V/4029133F/%08X\n", (*(0x4029133C) >> 24) & 0xFF # GPDO60 @0x133F
+printf "V/40291340/%08X\n", (*(0x40291340) >> 0) & 0xFF # GPDO67 @0x1340
+printf "V/40291341/%08X\n", (*(0x40291340) >> 8) & 0xFF # GPDO66 @0x1341
+printf "V/40291342/%08X\n", (*(0x40291340) >> 16) & 0xFF # GPDO65 @0x1342
+printf "V/40291343/%08X\n", (*(0x40291340) >> 24) & 0xFF # GPDO64 @0x1343
+printf "V/40291344/%08X\n", (*(0x40291344) >> 0) & 0xFF # GPDO71 @0x1344
+printf "V/40291345/%08X\n", (*(0x40291344) >> 8) & 0xFF # GPDO70 @0x1345
+printf "V/40291346/%08X\n", (*(0x40291344) >> 16) & 0xFF # GPDO69 @0x1346
+printf "V/40291347/%08X\n", (*(0x40291344) >> 24) & 0xFF # GPDO68 @0x1347
+printf "V/40291348/%08X\n", (*(0x40291348) >> 0) & 0xFF # GPDO75 @0x1348
+printf "V/40291349/%08X\n", (*(0x40291348) >> 8) & 0xFF # GPDO74 @0x1349
+printf "V/4029134A/%08X\n", (*(0x40291348) >> 16) & 0xFF # GPDO73 @0x134A
+printf "V/4029134B/%08X\n", (*(0x40291348) >> 24) & 0xFF # GPDO72 @0x134B
+printf "V/4029134C/%08X\n", (*(0x4029134C) >> 0) & 0xFF # GPDO79 @0x134C
+printf "V/4029134D/%08X\n", (*(0x4029134C) >> 8) & 0xFF # GPDO78 @0x134D
+printf "V/4029134E/%08X\n", (*(0x4029134C) >> 16) & 0xFF # GPDO77 @0x134E
+printf "V/4029134F/%08X\n", (*(0x4029134C) >> 24) & 0xFF # GPDO76 @0x134F
+printf "V/40291350/%08X\n", (*(0x40291350) >> 0) & 0xFF # GPDO83 @0x1350
+printf "V/40291351/%08X\n", (*(0x40291350) >> 8) & 0xFF # GPDO82 @0x1351
+printf "V/40291352/%08X\n", (*(0x40291350) >> 16) & 0xFF # GPDO81 @0x1352
+printf "V/40291353/%08X\n", (*(0x40291350) >> 24) & 0xFF # GPDO80 @0x1353
+printf "V/40291354/%08X\n", (*(0x40291354) >> 0) & 0xFF # GPDO87 @0x1354
+printf "V/40291356/%08X\n", (*(0x40291354) >> 16) & 0xFF # GPDO85 @0x1356
+printf "V/40291357/%08X\n", (*(0x40291354) >> 24) & 0xFF # GPDO84 @0x1357
+printf "V/40291358/%08X\n", (*(0x40291358) >> 0) & 0xFF # GPDO91 @0x1358
+printf "V/40291359/%08X\n", (*(0x40291358) >> 8) & 0xFF # GPDO90 @0x1359
+printf "V/4029135A/%08X\n", (*(0x40291358) >> 16) & 0xFF # GPDO89 @0x135A
+printf "V/4029135B/%08X\n", (*(0x40291358) >> 24) & 0xFF # GPDO88 @0x135B
+printf "V/4029135C/%08X\n", (*(0x4029135C) >> 0) & 0xFF # GPDO95 @0x135C
+printf "V/4029135D/%08X\n", (*(0x4029135C) >> 8) & 0xFF # GPDO94 @0x135D
+printf "V/4029135E/%08X\n", (*(0x4029135C) >> 16) & 0xFF # GPDO93 @0x135E
+printf "V/4029135F/%08X\n", (*(0x4029135C) >> 24) & 0xFF # GPDO92 @0x135F
+printf "V/40291360/%08X\n", (*(0x40291360) >> 0) & 0xFF # GPDO99 @0x1360
+printf "V/40291361/%08X\n", (*(0x40291360) >> 8) & 0xFF # GPDO98 @0x1361
+printf "V/40291362/%08X\n", (*(0x40291360) >> 16) & 0xFF # GPDO97 @0x1362
+printf "V/40291363/%08X\n", (*(0x40291360) >> 24) & 0xFF # GPDO96 @0x1363
+printf "V/40291364/%08X\n", (*(0x40291364) >> 0) & 0xFF # GPDO103 @0x1364
+printf "V/40291365/%08X\n", (*(0x40291364) >> 8) & 0xFF # GPDO102 @0x1365
+printf "V/40291366/%08X\n", (*(0x40291364) >> 16) & 0xFF # GPDO101 @0x1366
+printf "V/40291367/%08X\n", (*(0x40291364) >> 24) & 0xFF # GPDO100 @0x1367
+printf "V/40291368/%08X\n", (*(0x40291368) >> 0) & 0xFF # GPDO107 @0x1368
+printf "V/40291369/%08X\n", (*(0x40291368) >> 8) & 0xFF # GPDO106 @0x1369
+printf "V/4029136A/%08X\n", (*(0x40291368) >> 16) & 0xFF # GPDO105 @0x136A
+printf "V/4029136B/%08X\n", (*(0x40291368) >> 24) & 0xFF # GPDO104 @0x136B
+printf "V/4029136C/%08X\n", (*(0x4029136C) >> 0) & 0xFF # GPDO111 @0x136C
+printf "V/4029136D/%08X\n", (*(0x4029136C) >> 8) & 0xFF # GPDO110 @0x136D
+printf "V/4029136E/%08X\n", (*(0x4029136C) >> 16) & 0xFF # GPDO109 @0x136E
+printf "V/4029136F/%08X\n", (*(0x4029136C) >> 24) & 0xFF # GPDO108 @0x136F
+printf "V/40291371/%08X\n", (*(0x40291370) >> 8) & 0xFF # GPDO114 @0x1371
+printf "V/40291372/%08X\n", (*(0x40291370) >> 16) & 0xFF # GPDO113 @0x1372
+printf "V/40291373/%08X\n", (*(0x40291370) >> 24) & 0xFF # GPDO112 @0x1373
+printf "V/40291374/%08X\n", (*(0x40291374) >> 0) & 0xFF # GPDO119 @0x1374
+printf "V/40291375/%08X\n", (*(0x40291374) >> 8) & 0xFF # GPDO118 @0x1375
+printf "V/40291376/%08X\n", (*(0x40291374) >> 16) & 0xFF # GPDO117 @0x1376
+printf "V/40291377/%08X\n", (*(0x40291374) >> 24) & 0xFF # GPDO116 @0x1377
+printf "V/40291378/%08X\n", (*(0x40291378) >> 0) & 0xFF # GPDO123 @0x1378
+printf "V/40291379/%08X\n", (*(0x40291378) >> 8) & 0xFF # GPDO122 @0x1379
+printf "V/4029137B/%08X\n", (*(0x40291378) >> 24) & 0xFF # GPDO120 @0x137B
+printf "V/4029137C/%08X\n", (*(0x4029137C) >> 0) & 0xFF # GPDO127 @0x137C
+printf "V/4029137D/%08X\n", (*(0x4029137C) >> 8) & 0xFF # GPDO126 @0x137D
+printf "V/4029137E/%08X\n", (*(0x4029137C) >> 16) & 0xFF # GPDO125 @0x137E
+printf "V/4029137F/%08X\n", (*(0x4029137C) >> 24) & 0xFF # GPDO124 @0x137F
+printf "V/40291380/%08X\n", (*(0x40291380) >> 0) & 0xFF # GPDO131 @0x1380
+printf "V/40291381/%08X\n", (*(0x40291380) >> 8) & 0xFF # GPDO130 @0x1381
+printf "V/40291382/%08X\n", (*(0x40291380) >> 16) & 0xFF # GPDO129 @0x1382
+printf "V/40291383/%08X\n", (*(0x40291380) >> 24) & 0xFF # GPDO128 @0x1383
+printf "V/40291384/%08X\n", (*(0x40291384) >> 0) & 0xFF # GPDO135 @0x1384
+printf "V/40291385/%08X\n", (*(0x40291384) >> 8) & 0xFF # GPDO134 @0x1385
+printf "V/40291386/%08X\n", (*(0x40291384) >> 16) & 0xFF # GPDO133 @0x1386
+printf "V/40291387/%08X\n", (*(0x40291384) >> 24) & 0xFF # GPDO132 @0x1387
+printf "V/40291388/%08X\n", (*(0x40291388) >> 0) & 0xFF # GPDO139 @0x1388
+printf "V/40291389/%08X\n", (*(0x40291388) >> 8) & 0xFF # GPDO138 @0x1389
+printf "V/4029138A/%08X\n", (*(0x40291388) >> 16) & 0xFF # GPDO137 @0x138A
+printf "V/4029138B/%08X\n", (*(0x40291388) >> 24) & 0xFF # GPDO136 @0x138B
+printf "V/4029138C/%08X\n", (*(0x4029138C) >> 0) & 0xFF # GPDO143 @0x138C
+printf "V/4029138D/%08X\n", (*(0x4029138C) >> 8) & 0xFF # GPDO142 @0x138D
+printf "V/4029138E/%08X\n", (*(0x4029138C) >> 16) & 0xFF # GPDO141 @0x138E
+printf "V/4029138F/%08X\n", (*(0x4029138C) >> 24) & 0xFF # GPDO140 @0x138F
+printf "V/40291390/%08X\n", (*(0x40291390) >> 0) & 0xFF # GPDO147 @0x1390
+printf "V/40291391/%08X\n", (*(0x40291390) >> 8) & 0xFF # GPDO146 @0x1391
+printf "V/40291392/%08X\n", (*(0x40291390) >> 16) & 0xFF # GPDO145 @0x1392
+printf "V/40291393/%08X\n", (*(0x40291390) >> 24) & 0xFF # GPDO144 @0x1393
+printf "V/40291394/%08X\n", (*(0x40291394) >> 0) & 0xFF # GPDO151 @0x1394
+printf "V/40291395/%08X\n", (*(0x40291394) >> 8) & 0xFF # GPDO150 @0x1395
+printf "V/40291396/%08X\n", (*(0x40291394) >> 16) & 0xFF # GPDO149 @0x1396
+printf "V/40291399/%08X\n", (*(0x40291398) >> 8) & 0xFF # GPDO154 @0x1399
+printf "V/4029139A/%08X\n", (*(0x40291398) >> 16) & 0xFF # GPDO153 @0x139A
+printf "V/4029139B/%08X\n", (*(0x40291398) >> 24) & 0xFF # GPDO152 @0x139B
+printf "V/40291500/%08X\n", (*(0x40291500) >> 0) & 0xFF # GPDI3 @0x1500
+printf "V/40291501/%08X\n", (*(0x40291500) >> 8) & 0xFF # GPDI2 @0x1501
+printf "V/40291502/%08X\n", (*(0x40291500) >> 16) & 0xFF # GPDI1 @0x1502
+printf "V/40291503/%08X\n", (*(0x40291500) >> 24) & 0xFF # GPDI0 @0x1503
+printf "V/40291504/%08X\n", (*(0x40291504) >> 0) & 0xFF # GPDI7 @0x1504
+printf "V/40291505/%08X\n", (*(0x40291504) >> 8) & 0xFF # GPDI6 @0x1505
+printf "V/40291506/%08X\n", (*(0x40291504) >> 16) & 0xFF # GPDI5 @0x1506
+printf "V/40291507/%08X\n", (*(0x40291504) >> 24) & 0xFF # GPDI4 @0x1507
+printf "V/40291508/%08X\n", (*(0x40291508) >> 0) & 0xFF # GPDI11 @0x1508
+printf "V/40291509/%08X\n", (*(0x40291508) >> 8) & 0xFF # GPDI10 @0x1509
+printf "V/4029150A/%08X\n", (*(0x40291508) >> 16) & 0xFF # GPDI9 @0x150A
+printf "V/4029150B/%08X\n", (*(0x40291508) >> 24) & 0xFF # GPDI8 @0x150B
+printf "V/4029150C/%08X\n", (*(0x4029150C) >> 0) & 0xFF # GPDI15 @0x150C
+printf "V/4029150D/%08X\n", (*(0x4029150C) >> 8) & 0xFF # GPDI14 @0x150D
+printf "V/4029150E/%08X\n", (*(0x4029150C) >> 16) & 0xFF # GPDI13 @0x150E
+printf "V/4029150F/%08X\n", (*(0x4029150C) >> 24) & 0xFF # GPDI12 @0x150F
+printf "V/40291510/%08X\n", (*(0x40291510) >> 0) & 0xFF # GPDI19 @0x1510
+printf "V/40291511/%08X\n", (*(0x40291510) >> 8) & 0xFF # GPDI18 @0x1511
+printf "V/40291512/%08X\n", (*(0x40291510) >> 16) & 0xFF # GPDI17 @0x1512
+printf "V/40291513/%08X\n", (*(0x40291510) >> 24) & 0xFF # GPDI16 @0x1513
+printf "V/40291516/%08X\n", (*(0x40291514) >> 16) & 0xFF # GPDI21 @0x1516
+printf "V/40291517/%08X\n", (*(0x40291514) >> 24) & 0xFF # GPDI20 @0x1517
+printf "V/40291518/%08X\n", (*(0x40291518) >> 0) & 0xFF # GPDI27 @0x1518
+printf "V/40291519/%08X\n", (*(0x40291518) >> 8) & 0xFF # GPDI26 @0x1519
+printf "V/4029151A/%08X\n", (*(0x40291518) >> 16) & 0xFF # GPDI25 @0x151A
+printf "V/4029151B/%08X\n", (*(0x40291518) >> 24) & 0xFF # GPDI24 @0x151B
+printf "V/4029151C/%08X\n", (*(0x4029151C) >> 0) & 0xFF # GPDI31 @0x151C
+printf "V/4029151D/%08X\n", (*(0x4029151C) >> 8) & 0xFF # GPDI30 @0x151D
+printf "V/4029151E/%08X\n", (*(0x4029151C) >> 16) & 0xFF # GPDI29 @0x151E
+printf "V/4029151F/%08X\n", (*(0x4029151C) >> 24) & 0xFF # GPDI28 @0x151F
+printf "V/40291520/%08X\n", (*(0x40291520) >> 0) & 0xFF # GPDI35 @0x1520
+printf "V/40291521/%08X\n", (*(0x40291520) >> 8) & 0xFF # GPDI34 @0x1521
+printf "V/40291522/%08X\n", (*(0x40291520) >> 16) & 0xFF # GPDI33 @0x1522
+printf "V/40291523/%08X\n", (*(0x40291520) >> 24) & 0xFF # GPDI32 @0x1523
+printf "V/40291526/%08X\n", (*(0x40291524) >> 16) & 0xFF # GPDI37 @0x1526
+printf "V/40291527/%08X\n", (*(0x40291524) >> 24) & 0xFF # GPDI36 @0x1527
+printf "V/40291528/%08X\n", (*(0x40291528) >> 0) & 0xFF # GPDI43 @0x1528
+printf "V/40291529/%08X\n", (*(0x40291528) >> 8) & 0xFF # GPDI42 @0x1529
+printf "V/4029152A/%08X\n", (*(0x40291528) >> 16) & 0xFF # GPDI41 @0x152A
+printf "V/4029152B/%08X\n", (*(0x40291528) >> 24) & 0xFF # GPDI40 @0x152B
+printf "V/4029152C/%08X\n", (*(0x4029152C) >> 0) & 0xFF # GPDI47 @0x152C
+printf "V/4029152D/%08X\n", (*(0x4029152C) >> 8) & 0xFF # GPDI46 @0x152D
+printf "V/4029152E/%08X\n", (*(0x4029152C) >> 16) & 0xFF # GPDI45 @0x152E
+printf "V/4029152F/%08X\n", (*(0x4029152C) >> 24) & 0xFF # GPDI44 @0x152F
+printf "V/40291530/%08X\n", (*(0x40291530) >> 0) & 0xFF # GPDI51 @0x1530
+printf "V/40291531/%08X\n", (*(0x40291530) >> 8) & 0xFF # GPDI50 @0x1531
+printf "V/40291532/%08X\n", (*(0x40291530) >> 16) & 0xFF # GPDI49 @0x1532
+printf "V/40291533/%08X\n", (*(0x40291530) >> 24) & 0xFF # GPDI48 @0x1533
+printf "V/40291534/%08X\n", (*(0x40291534) >> 0) & 0xFF # GPDI55 @0x1534
+printf "V/40291535/%08X\n", (*(0x40291534) >> 8) & 0xFF # GPDI54 @0x1535
+printf "V/40291536/%08X\n", (*(0x40291534) >> 16) & 0xFF # GPDI53 @0x1536
+printf "V/40291537/%08X\n", (*(0x40291534) >> 24) & 0xFF # GPDI52 @0x1537
+printf "V/40291538/%08X\n", (*(0x40291538) >> 0) & 0xFF # GPDI59 @0x1538
+printf "V/40291539/%08X\n", (*(0x40291538) >> 8) & 0xFF # GPDI58 @0x1539
+printf "V/4029153A/%08X\n", (*(0x40291538) >> 16) & 0xFF # GPDI57 @0x153A
+printf "V/4029153B/%08X\n", (*(0x40291538) >> 24) & 0xFF # GPDI56 @0x153B
+printf "V/4029153D/%08X\n", (*(0x4029153C) >> 8) & 0xFF # GPDI62 @0x153D
+printf "V/4029153E/%08X\n", (*(0x4029153C) >> 16) & 0xFF # GPDI61 @0x153E
+printf "V/4029153F/%08X\n", (*(0x4029153C) >> 24) & 0xFF # GPDI60 @0x153F
+printf "V/40291540/%08X\n", (*(0x40291540) >> 0) & 0xFF # GPDI67 @0x1540
+printf "V/40291541/%08X\n", (*(0x40291540) >> 8) & 0xFF # GPDI66 @0x1541
+printf "V/40291542/%08X\n", (*(0x40291540) >> 16) & 0xFF # GPDI65 @0x1542
+printf "V/40291543/%08X\n", (*(0x40291540) >> 24) & 0xFF # GPDI64 @0x1543
+printf "V/40291544/%08X\n", (*(0x40291544) >> 0) & 0xFF # GPDI71 @0x1544
+printf "V/40291545/%08X\n", (*(0x40291544) >> 8) & 0xFF # GPDI70 @0x1545
+printf "V/40291546/%08X\n", (*(0x40291544) >> 16) & 0xFF # GPDI69 @0x1546
+printf "V/40291547/%08X\n", (*(0x40291544) >> 24) & 0xFF # GPDI68 @0x1547
+printf "V/40291548/%08X\n", (*(0x40291548) >> 0) & 0xFF # GPDI75 @0x1548
+printf "V/40291549/%08X\n", (*(0x40291548) >> 8) & 0xFF # GPDI74 @0x1549
+printf "V/4029154A/%08X\n", (*(0x40291548) >> 16) & 0xFF # GPDI73 @0x154A
+printf "V/4029154B/%08X\n", (*(0x40291548) >> 24) & 0xFF # GPDI72 @0x154B
+printf "V/4029154C/%08X\n", (*(0x4029154C) >> 0) & 0xFF # GPDI79 @0x154C
+printf "V/4029154D/%08X\n", (*(0x4029154C) >> 8) & 0xFF # GPDI78 @0x154D
+printf "V/4029154E/%08X\n", (*(0x4029154C) >> 16) & 0xFF # GPDI77 @0x154E
+printf "V/4029154F/%08X\n", (*(0x4029154C) >> 24) & 0xFF # GPDI76 @0x154F
+printf "V/40291550/%08X\n", (*(0x40291550) >> 0) & 0xFF # GPDI83 @0x1550
+printf "V/40291551/%08X\n", (*(0x40291550) >> 8) & 0xFF # GPDI82 @0x1551
+printf "V/40291552/%08X\n", (*(0x40291550) >> 16) & 0xFF # GPDI81 @0x1552
+printf "V/40291553/%08X\n", (*(0x40291550) >> 24) & 0xFF # GPDI80 @0x1553
+printf "V/40291554/%08X\n", (*(0x40291554) >> 0) & 0xFF # GPDI87 @0x1554
+printf "V/40291556/%08X\n", (*(0x40291554) >> 16) & 0xFF # GPDI85 @0x1556
+printf "V/40291557/%08X\n", (*(0x40291554) >> 24) & 0xFF # GPDI84 @0x1557
+printf "V/40291558/%08X\n", (*(0x40291558) >> 0) & 0xFF # GPDI91 @0x1558
+printf "V/40291559/%08X\n", (*(0x40291558) >> 8) & 0xFF # GPDI90 @0x1559
+printf "V/4029155A/%08X\n", (*(0x40291558) >> 16) & 0xFF # GPDI89 @0x155A
+printf "V/4029155B/%08X\n", (*(0x40291558) >> 24) & 0xFF # GPDI88 @0x155B
+printf "V/4029155C/%08X\n", (*(0x4029155C) >> 0) & 0xFF # GPDI95 @0x155C
+printf "V/4029155D/%08X\n", (*(0x4029155C) >> 8) & 0xFF # GPDI94 @0x155D
+printf "V/4029155E/%08X\n", (*(0x4029155C) >> 16) & 0xFF # GPDI93 @0x155E
+printf "V/4029155F/%08X\n", (*(0x4029155C) >> 24) & 0xFF # GPDI92 @0x155F
+printf "V/40291560/%08X\n", (*(0x40291560) >> 0) & 0xFF # GPDI99 @0x1560
+printf "V/40291561/%08X\n", (*(0x40291560) >> 8) & 0xFF # GPDI98 @0x1561
+printf "V/40291562/%08X\n", (*(0x40291560) >> 16) & 0xFF # GPDI97 @0x1562
+printf "V/40291563/%08X\n", (*(0x40291560) >> 24) & 0xFF # GPDI96 @0x1563
+printf "V/40291564/%08X\n", (*(0x40291564) >> 0) & 0xFF # GPDI103 @0x1564
+printf "V/40291565/%08X\n", (*(0x40291564) >> 8) & 0xFF # GPDI102 @0x1565
+printf "V/40291566/%08X\n", (*(0x40291564) >> 16) & 0xFF # GPDI101 @0x1566
+printf "V/40291567/%08X\n", (*(0x40291564) >> 24) & 0xFF # GPDI100 @0x1567
+printf "V/40291568/%08X\n", (*(0x40291568) >> 0) & 0xFF # GPDI107 @0x1568
+printf "V/40291569/%08X\n", (*(0x40291568) >> 8) & 0xFF # GPDI106 @0x1569
+printf "V/4029156A/%08X\n", (*(0x40291568) >> 16) & 0xFF # GPDI105 @0x156A
+printf "V/4029156B/%08X\n", (*(0x40291568) >> 24) & 0xFF # GPDI104 @0x156B
+printf "V/4029156C/%08X\n", (*(0x4029156C) >> 0) & 0xFF # GPDI111 @0x156C
+printf "V/4029156D/%08X\n", (*(0x4029156C) >> 8) & 0xFF # GPDI110 @0x156D
+printf "V/4029156E/%08X\n", (*(0x4029156C) >> 16) & 0xFF # GPDI109 @0x156E
+printf "V/4029156F/%08X\n", (*(0x4029156C) >> 24) & 0xFF # GPDI108 @0x156F
+printf "V/40291571/%08X\n", (*(0x40291570) >> 8) & 0xFF # GPDI114 @0x1571
+printf "V/40291572/%08X\n", (*(0x40291570) >> 16) & 0xFF # GPDI113 @0x1572
+printf "V/40291573/%08X\n", (*(0x40291570) >> 24) & 0xFF # GPDI112 @0x1573
+printf "V/40291574/%08X\n", (*(0x40291574) >> 0) & 0xFF # GPDI119 @0x1574
+printf "V/40291575/%08X\n", (*(0x40291574) >> 8) & 0xFF # GPDI118 @0x1575
+printf "V/40291576/%08X\n", (*(0x40291574) >> 16) & 0xFF # GPDI117 @0x1576
+printf "V/40291577/%08X\n", (*(0x40291574) >> 24) & 0xFF # GPDI116 @0x1577
+printf "V/40291578/%08X\n", (*(0x40291578) >> 0) & 0xFF # GPDI123 @0x1578
+printf "V/40291579/%08X\n", (*(0x40291578) >> 8) & 0xFF # GPDI122 @0x1579
+printf "V/4029157B/%08X\n", (*(0x40291578) >> 24) & 0xFF # GPDI120 @0x157B
+printf "V/4029157C/%08X\n", (*(0x4029157C) >> 0) & 0xFF # GPDI127 @0x157C
+printf "V/4029157D/%08X\n", (*(0x4029157C) >> 8) & 0xFF # GPDI126 @0x157D
+printf "V/4029157E/%08X\n", (*(0x4029157C) >> 16) & 0xFF # GPDI125 @0x157E
+printf "V/4029157F/%08X\n", (*(0x4029157C) >> 24) & 0xFF # GPDI124 @0x157F
+printf "V/40291580/%08X\n", (*(0x40291580) >> 0) & 0xFF # GPDI131 @0x1580
+printf "V/40291581/%08X\n", (*(0x40291580) >> 8) & 0xFF # GPDI130 @0x1581
+printf "V/40291582/%08X\n", (*(0x40291580) >> 16) & 0xFF # GPDI129 @0x1582
+printf "V/40291583/%08X\n", (*(0x40291580) >> 24) & 0xFF # GPDI128 @0x1583
+printf "V/40291584/%08X\n", (*(0x40291584) >> 0) & 0xFF # GPDI135 @0x1584
+printf "V/40291585/%08X\n", (*(0x40291584) >> 8) & 0xFF # GPDI134 @0x1585
+printf "V/40291586/%08X\n", (*(0x40291584) >> 16) & 0xFF # GPDI133 @0x1586
+printf "V/40291587/%08X\n", (*(0x40291584) >> 24) & 0xFF # GPDI132 @0x1587
+printf "V/40291588/%08X\n", (*(0x40291588) >> 0) & 0xFF # GPDI139 @0x1588
+printf "V/40291589/%08X\n", (*(0x40291588) >> 8) & 0xFF # GPDI138 @0x1589
+printf "V/4029158A/%08X\n", (*(0x40291588) >> 16) & 0xFF # GPDI137 @0x158A
+printf "V/4029158B/%08X\n", (*(0x40291588) >> 24) & 0xFF # GPDI136 @0x158B
+printf "V/4029158C/%08X\n", (*(0x4029158C) >> 0) & 0xFF # GPDI143 @0x158C
+printf "V/4029158D/%08X\n", (*(0x4029158C) >> 8) & 0xFF # GPDI142 @0x158D
+printf "V/4029158E/%08X\n", (*(0x4029158C) >> 16) & 0xFF # GPDI141 @0x158E
+printf "V/4029158F/%08X\n", (*(0x4029158C) >> 24) & 0xFF # GPDI140 @0x158F
+printf "V/40291590/%08X\n", (*(0x40291590) >> 0) & 0xFF # GPDI147 @0x1590
+printf "V/40291591/%08X\n", (*(0x40291590) >> 8) & 0xFF # GPDI146 @0x1591
+printf "V/40291592/%08X\n", (*(0x40291590) >> 16) & 0xFF # GPDI145 @0x1592
+printf "V/40291593/%08X\n", (*(0x40291590) >> 24) & 0xFF # GPDI144 @0x1593
+printf "V/40291594/%08X\n", (*(0x40291594) >> 0) & 0xFF # GPDI151 @0x1594
+printf "V/40291595/%08X\n", (*(0x40291594) >> 8) & 0xFF # GPDI150 @0x1595
+printf "V/40291596/%08X\n", (*(0x40291594) >> 16) & 0xFF # GPDI149 @0x1596
+printf "V/40291599/%08X\n", (*(0x40291598) >> 8) & 0xFF # GPDI154 @0x1599
+printf "V/4029159A/%08X\n", (*(0x40291598) >> 16) & 0xFF # GPDI153 @0x159A
+printf "V/4029159B/%08X\n", (*(0x40291598) >> 24) & 0xFF # GPDI152 @0x159B
+printf "V/40291700/%08X\n", (*(0x40291700) >> 0) & 0xFFFF # PGPDO1 @0x1700
+printf "V/40291702/%08X\n", (*(0x40291700) >> 16) & 0xFFFF # PGPDO0 @0x1702
+printf "V/40291704/%08X\n", (*(0x40291704) >> 0) & 0xFFFF # PGPDO3 @0x1704
+printf "V/40291706/%08X\n", (*(0x40291704) >> 16) & 0xFFFF # PGPDO2 @0x1706
+printf "V/40291708/%08X\n", (*(0x40291708) >> 0) & 0xFFFF # PGPDO5 @0x1708
+printf "V/4029170A/%08X\n", (*(0x40291708) >> 16) & 0xFFFF # PGPDO4 @0x170A
+printf "V/4029170C/%08X\n", (*(0x4029170C) >> 0) & 0xFFFF # PGPDO7 @0x170C
+printf "V/4029170E/%08X\n", (*(0x4029170C) >> 16) & 0xFFFF # PGPDO6 @0x170E
+printf "V/40291710/%08X\n", (*(0x40291710) >> 0) & 0xFFFF # PGPDO9 @0x1710
+printf "V/40291712/%08X\n", (*(0x40291710) >> 16) & 0xFFFF # PGPDO8 @0x1712
+printf "V/40291740/%08X\n", (*(0x40291740) >> 0) & 0xFFFF # PGPDI1 @0x1740
+printf "V/40291742/%08X\n", (*(0x40291740) >> 16) & 0xFFFF # PGPDI0 @0x1742
+printf "V/40291744/%08X\n", (*(0x40291744) >> 0) & 0xFFFF # PGPDI3 @0x1744
+printf "V/40291746/%08X\n", (*(0x40291744) >> 16) & 0xFFFF # PGPDI2 @0x1746
+printf "V/40291748/%08X\n", (*(0x40291748) >> 0) & 0xFFFF # PGPDI5 @0x1748
+printf "V/4029174A/%08X\n", (*(0x40291748) >> 16) & 0xFFFF # PGPDI4 @0x174A
+printf "V/4029174C/%08X\n", (*(0x4029174C) >> 0) & 0xFFFF # PGPDI7 @0x174C
+printf "V/4029174E/%08X\n", (*(0x4029174C) >> 16) & 0xFFFF # PGPDI6 @0x174E
+printf "V/40291750/%08X\n", (*(0x40291750) >> 0) & 0xFFFF # PGPDI9 @0x1750
+printf "V/40291752/%08X\n", (*(0x40291750) >> 16) & 0xFFFF # PGPDI8 @0x1752
 printf "V/40291780/%08X\n", (*(0x40291780)) # MPGPDO0 @0x1780
 printf "V/40291784/%08X\n", (*(0x40291784)) # MPGPDO1 @0x1784
 printf "V/40291788/%08X\n", (*(0x40291788)) # MPGPDO2 @0x1788
@@ -4863,228 +4863,228 @@ printf "V/40210008/%08X\n", (*(0x40210008)) # CH0_INT @0x8
 printf "V/4021000C/%08X\n", (*(0x4021000C)) # CH0_SBR @0xC
 printf "V/40210010/%08X\n", (*(0x40210010)) # CH0_PRI @0x10
 printf "V/40210020/%08X\n", (*(0x40210020)) # TCD0_SADDR @0x20
-printf "V/40210024/%08X\n", (*(0x40210024)) & 0xFFFF # TCD0_SOFF @0x24
-printf "V/40210026/%08X\n", (*(0x40210026)) & 0xFFFF # TCD0_ATTR @0x26
+printf "V/40210024/%08X\n", (*(0x40210024) >> 0) & 0xFFFF # TCD0_SOFF @0x24
+printf "V/40210026/%08X\n", (*(0x40210024) >> 16) & 0xFFFF # TCD0_ATTR @0x26
 printf "V/40210028/%08X\n", (*(0x40210028)) # TCD0_NBYTES_MLOFFNO @0x28
 printf "V/40210028/%08X\n", (*(0x40210028)) # TCD0_NBYTES_MLOFFYES @0x28
 printf "V/4021002C/%08X\n", (*(0x4021002C)) # TCD0_SLAST_SDA @0x2C
 printf "V/40210030/%08X\n", (*(0x40210030)) # TCD0_DADDR @0x30
-printf "V/40210034/%08X\n", (*(0x40210034)) & 0xFFFF # TCD0_DOFF @0x34
-printf "V/40210036/%08X\n", (*(0x40210036)) & 0xFFFF # TCD0_CITER_ELINKNO @0x36
-printf "V/40210036/%08X\n", (*(0x40210036)) & 0xFFFF # TCD0_CITER_ELINKYES @0x36
+printf "V/40210034/%08X\n", (*(0x40210034) >> 0) & 0xFFFF # TCD0_DOFF @0x34
+printf "V/40210036/%08X\n", (*(0x40210034) >> 16) & 0xFFFF # TCD0_CITER_ELINKNO @0x36
+printf "V/40210036/%08X\n", (*(0x40210034) >> 16) & 0xFFFF # TCD0_CITER_ELINKYES @0x36
 printf "V/40210038/%08X\n", (*(0x40210038)) # TCD0_DLAST_SGA @0x38
-printf "V/4021003C/%08X\n", (*(0x4021003C)) & 0xFFFF # TCD0_CSR @0x3C
-printf "V/4021003E/%08X\n", (*(0x4021003E)) & 0xFFFF # TCD0_BITER_ELINKNO @0x3E
-printf "V/4021003E/%08X\n", (*(0x4021003E)) & 0xFFFF # TCD0_BITER_ELINKYES @0x3E
+printf "V/4021003C/%08X\n", (*(0x4021003C) >> 0) & 0xFFFF # TCD0_CSR @0x3C
+printf "V/4021003E/%08X\n", (*(0x4021003C) >> 16) & 0xFFFF # TCD0_BITER_ELINKNO @0x3E
+printf "V/4021003E/%08X\n", (*(0x4021003C) >> 16) & 0xFFFF # TCD0_BITER_ELINKYES @0x3E
 printf "V/40214000/%08X\n", (*(0x40214000)) # CH1_CSR @0x4000
 printf "V/40214004/%08X\n", (*(0x40214004)) # CH1_ES @0x4004
 printf "V/40214008/%08X\n", (*(0x40214008)) # CH1_INT @0x4008
 printf "V/4021400C/%08X\n", (*(0x4021400C)) # CH1_SBR @0x400C
 printf "V/40214010/%08X\n", (*(0x40214010)) # CH1_PRI @0x4010
 printf "V/40214020/%08X\n", (*(0x40214020)) # TCD1_SADDR @0x4020
-printf "V/40214024/%08X\n", (*(0x40214024)) & 0xFFFF # TCD1_SOFF @0x4024
-printf "V/40214026/%08X\n", (*(0x40214026)) & 0xFFFF # TCD1_ATTR @0x4026
+printf "V/40214024/%08X\n", (*(0x40214024) >> 0) & 0xFFFF # TCD1_SOFF @0x4024
+printf "V/40214026/%08X\n", (*(0x40214024) >> 16) & 0xFFFF # TCD1_ATTR @0x4026
 printf "V/40214028/%08X\n", (*(0x40214028)) # TCD1_NBYTES_MLOFFNO @0x4028
 printf "V/40214028/%08X\n", (*(0x40214028)) # TCD1_NBYTES_MLOFFYES @0x4028
 printf "V/4021402C/%08X\n", (*(0x4021402C)) # TCD1_SLAST_SDA @0x402C
 printf "V/40214030/%08X\n", (*(0x40214030)) # TCD1_DADDR @0x4030
-printf "V/40214034/%08X\n", (*(0x40214034)) & 0xFFFF # TCD1_DOFF @0x4034
-printf "V/40214036/%08X\n", (*(0x40214036)) & 0xFFFF # TCD1_CITER_ELINKNO @0x4036
-printf "V/40214036/%08X\n", (*(0x40214036)) & 0xFFFF # TCD1_CITER_ELINKYES @0x4036
+printf "V/40214034/%08X\n", (*(0x40214034) >> 0) & 0xFFFF # TCD1_DOFF @0x4034
+printf "V/40214036/%08X\n", (*(0x40214034) >> 16) & 0xFFFF # TCD1_CITER_ELINKNO @0x4036
+printf "V/40214036/%08X\n", (*(0x40214034) >> 16) & 0xFFFF # TCD1_CITER_ELINKYES @0x4036
 printf "V/40214038/%08X\n", (*(0x40214038)) # TCD1_DLAST_SGA @0x4038
-printf "V/4021403C/%08X\n", (*(0x4021403C)) & 0xFFFF # TCD1_CSR @0x403C
-printf "V/4021403E/%08X\n", (*(0x4021403E)) & 0xFFFF # TCD1_BITER_ELINKNO @0x403E
-printf "V/4021403E/%08X\n", (*(0x4021403E)) & 0xFFFF # TCD1_BITER_ELINKYES @0x403E
+printf "V/4021403C/%08X\n", (*(0x4021403C) >> 0) & 0xFFFF # TCD1_CSR @0x403C
+printf "V/4021403E/%08X\n", (*(0x4021403C) >> 16) & 0xFFFF # TCD1_BITER_ELINKNO @0x403E
+printf "V/4021403E/%08X\n", (*(0x4021403C) >> 16) & 0xFFFF # TCD1_BITER_ELINKYES @0x403E
 printf "V/40218000/%08X\n", (*(0x40218000)) # CH2_CSR @0x8000
 printf "V/40218004/%08X\n", (*(0x40218004)) # CH2_ES @0x8004
 printf "V/40218008/%08X\n", (*(0x40218008)) # CH2_INT @0x8008
 printf "V/4021800C/%08X\n", (*(0x4021800C)) # CH2_SBR @0x800C
 printf "V/40218010/%08X\n", (*(0x40218010)) # CH2_PRI @0x8010
 printf "V/40218020/%08X\n", (*(0x40218020)) # TCD2_SADDR @0x8020
-printf "V/40218024/%08X\n", (*(0x40218024)) & 0xFFFF # TCD2_SOFF @0x8024
-printf "V/40218026/%08X\n", (*(0x40218026)) & 0xFFFF # TCD2_ATTR @0x8026
+printf "V/40218024/%08X\n", (*(0x40218024) >> 0) & 0xFFFF # TCD2_SOFF @0x8024
+printf "V/40218026/%08X\n", (*(0x40218024) >> 16) & 0xFFFF # TCD2_ATTR @0x8026
 printf "V/40218028/%08X\n", (*(0x40218028)) # TCD2_NBYTES_MLOFFNO @0x8028
 printf "V/40218028/%08X\n", (*(0x40218028)) # TCD2_NBYTES_MLOFFYES @0x8028
 printf "V/4021802C/%08X\n", (*(0x4021802C)) # TCD2_SLAST_SDA @0x802C
 printf "V/40218030/%08X\n", (*(0x40218030)) # TCD2_DADDR @0x8030
-printf "V/40218034/%08X\n", (*(0x40218034)) & 0xFFFF # TCD2_DOFF @0x8034
-printf "V/40218036/%08X\n", (*(0x40218036)) & 0xFFFF # TCD2_CITER_ELINKNO @0x8036
-printf "V/40218036/%08X\n", (*(0x40218036)) & 0xFFFF # TCD2_CITER_ELINKYES @0x8036
+printf "V/40218034/%08X\n", (*(0x40218034) >> 0) & 0xFFFF # TCD2_DOFF @0x8034
+printf "V/40218036/%08X\n", (*(0x40218034) >> 16) & 0xFFFF # TCD2_CITER_ELINKNO @0x8036
+printf "V/40218036/%08X\n", (*(0x40218034) >> 16) & 0xFFFF # TCD2_CITER_ELINKYES @0x8036
 printf "V/40218038/%08X\n", (*(0x40218038)) # TCD2_DLAST_SGA @0x8038
-printf "V/4021803C/%08X\n", (*(0x4021803C)) & 0xFFFF # TCD2_CSR @0x803C
-printf "V/4021803E/%08X\n", (*(0x4021803E)) & 0xFFFF # TCD2_BITER_ELINKNO @0x803E
-printf "V/4021803E/%08X\n", (*(0x4021803E)) & 0xFFFF # TCD2_BITER_ELINKYES @0x803E
+printf "V/4021803C/%08X\n", (*(0x4021803C) >> 0) & 0xFFFF # TCD2_CSR @0x803C
+printf "V/4021803E/%08X\n", (*(0x4021803C) >> 16) & 0xFFFF # TCD2_BITER_ELINKNO @0x803E
+printf "V/4021803E/%08X\n", (*(0x4021803C) >> 16) & 0xFFFF # TCD2_BITER_ELINKYES @0x803E
 printf "V/4021C000/%08X\n", (*(0x4021C000)) # CH3_CSR @0xC000
 printf "V/4021C004/%08X\n", (*(0x4021C004)) # CH3_ES @0xC004
 printf "V/4021C008/%08X\n", (*(0x4021C008)) # CH3_INT @0xC008
 printf "V/4021C00C/%08X\n", (*(0x4021C00C)) # CH3_SBR @0xC00C
 printf "V/4021C010/%08X\n", (*(0x4021C010)) # CH3_PRI @0xC010
 printf "V/4021C020/%08X\n", (*(0x4021C020)) # TCD3_SADDR @0xC020
-printf "V/4021C024/%08X\n", (*(0x4021C024)) & 0xFFFF # TCD3_SOFF @0xC024
-printf "V/4021C026/%08X\n", (*(0x4021C026)) & 0xFFFF # TCD3_ATTR @0xC026
+printf "V/4021C024/%08X\n", (*(0x4021C024) >> 0) & 0xFFFF # TCD3_SOFF @0xC024
+printf "V/4021C026/%08X\n", (*(0x4021C024) >> 16) & 0xFFFF # TCD3_ATTR @0xC026
 printf "V/4021C028/%08X\n", (*(0x4021C028)) # TCD3_NBYTES_MLOFFNO @0xC028
 printf "V/4021C028/%08X\n", (*(0x4021C028)) # TCD3_NBYTES_MLOFFYES @0xC028
 printf "V/4021C02C/%08X\n", (*(0x4021C02C)) # TCD3_SLAST_SDA @0xC02C
 printf "V/4021C030/%08X\n", (*(0x4021C030)) # TCD3_DADDR @0xC030
-printf "V/4021C034/%08X\n", (*(0x4021C034)) & 0xFFFF # TCD3_DOFF @0xC034
-printf "V/4021C036/%08X\n", (*(0x4021C036)) & 0xFFFF # TCD3_CITER_ELINKNO @0xC036
-printf "V/4021C036/%08X\n", (*(0x4021C036)) & 0xFFFF # TCD3_CITER_ELINKYES @0xC036
+printf "V/4021C034/%08X\n", (*(0x4021C034) >> 0) & 0xFFFF # TCD3_DOFF @0xC034
+printf "V/4021C036/%08X\n", (*(0x4021C034) >> 16) & 0xFFFF # TCD3_CITER_ELINKNO @0xC036
+printf "V/4021C036/%08X\n", (*(0x4021C034) >> 16) & 0xFFFF # TCD3_CITER_ELINKYES @0xC036
 printf "V/4021C038/%08X\n", (*(0x4021C038)) # TCD3_DLAST_SGA @0xC038
-printf "V/4021C03C/%08X\n", (*(0x4021C03C)) & 0xFFFF # TCD3_CSR @0xC03C
-printf "V/4021C03E/%08X\n", (*(0x4021C03E)) & 0xFFFF # TCD3_BITER_ELINKNO @0xC03E
-printf "V/4021C03E/%08X\n", (*(0x4021C03E)) & 0xFFFF # TCD3_BITER_ELINKYES @0xC03E
+printf "V/4021C03C/%08X\n", (*(0x4021C03C) >> 0) & 0xFFFF # TCD3_CSR @0xC03C
+printf "V/4021C03E/%08X\n", (*(0x4021C03C) >> 16) & 0xFFFF # TCD3_BITER_ELINKNO @0xC03E
+printf "V/4021C03E/%08X\n", (*(0x4021C03C) >> 16) & 0xFFFF # TCD3_BITER_ELINKYES @0xC03E
 printf "V/40220000/%08X\n", (*(0x40220000)) # CH4_CSR @0x10000
 printf "V/40220004/%08X\n", (*(0x40220004)) # CH4_ES @0x10004
 printf "V/40220008/%08X\n", (*(0x40220008)) # CH4_INT @0x10008
 printf "V/4022000C/%08X\n", (*(0x4022000C)) # CH4_SBR @0x1000C
 printf "V/40220010/%08X\n", (*(0x40220010)) # CH4_PRI @0x10010
 printf "V/40220020/%08X\n", (*(0x40220020)) # TCD4_SADDR @0x10020
-printf "V/40220024/%08X\n", (*(0x40220024)) & 0xFFFF # TCD4_SOFF @0x10024
-printf "V/40220026/%08X\n", (*(0x40220026)) & 0xFFFF # TCD4_ATTR @0x10026
+printf "V/40220024/%08X\n", (*(0x40220024) >> 0) & 0xFFFF # TCD4_SOFF @0x10024
+printf "V/40220026/%08X\n", (*(0x40220024) >> 16) & 0xFFFF # TCD4_ATTR @0x10026
 printf "V/40220028/%08X\n", (*(0x40220028)) # TCD4_NBYTES_MLOFFNO @0x10028
 printf "V/40220028/%08X\n", (*(0x40220028)) # TCD4_NBYTES_MLOFFYES @0x10028
 printf "V/4022002C/%08X\n", (*(0x4022002C)) # TCD4_SLAST_SDA @0x1002C
 printf "V/40220030/%08X\n", (*(0x40220030)) # TCD4_DADDR @0x10030
-printf "V/40220034/%08X\n", (*(0x40220034)) & 0xFFFF # TCD4_DOFF @0x10034
-printf "V/40220036/%08X\n", (*(0x40220036)) & 0xFFFF # TCD4_CITER_ELINKNO @0x10036
-printf "V/40220036/%08X\n", (*(0x40220036)) & 0xFFFF # TCD4_CITER_ELINKYES @0x10036
+printf "V/40220034/%08X\n", (*(0x40220034) >> 0) & 0xFFFF # TCD4_DOFF @0x10034
+printf "V/40220036/%08X\n", (*(0x40220034) >> 16) & 0xFFFF # TCD4_CITER_ELINKNO @0x10036
+printf "V/40220036/%08X\n", (*(0x40220034) >> 16) & 0xFFFF # TCD4_CITER_ELINKYES @0x10036
 printf "V/40220038/%08X\n", (*(0x40220038)) # TCD4_DLAST_SGA @0x10038
-printf "V/4022003C/%08X\n", (*(0x4022003C)) & 0xFFFF # TCD4_CSR @0x1003C
-printf "V/4022003E/%08X\n", (*(0x4022003E)) & 0xFFFF # TCD4_BITER_ELINKNO @0x1003E
-printf "V/4022003E/%08X\n", (*(0x4022003E)) & 0xFFFF # TCD4_BITER_ELINKYES @0x1003E
+printf "V/4022003C/%08X\n", (*(0x4022003C) >> 0) & 0xFFFF # TCD4_CSR @0x1003C
+printf "V/4022003E/%08X\n", (*(0x4022003C) >> 16) & 0xFFFF # TCD4_BITER_ELINKNO @0x1003E
+printf "V/4022003E/%08X\n", (*(0x4022003C) >> 16) & 0xFFFF # TCD4_BITER_ELINKYES @0x1003E
 printf "V/40224000/%08X\n", (*(0x40224000)) # CH5_CSR @0x14000
 printf "V/40224004/%08X\n", (*(0x40224004)) # CH5_ES @0x14004
 printf "V/40224008/%08X\n", (*(0x40224008)) # CH5_INT @0x14008
 printf "V/4022400C/%08X\n", (*(0x4022400C)) # CH5_SBR @0x1400C
 printf "V/40224010/%08X\n", (*(0x40224010)) # CH5_PRI @0x14010
 printf "V/40224020/%08X\n", (*(0x40224020)) # TCD5_SADDR @0x14020
-printf "V/40224024/%08X\n", (*(0x40224024)) & 0xFFFF # TCD5_SOFF @0x14024
-printf "V/40224026/%08X\n", (*(0x40224026)) & 0xFFFF # TCD5_ATTR @0x14026
+printf "V/40224024/%08X\n", (*(0x40224024) >> 0) & 0xFFFF # TCD5_SOFF @0x14024
+printf "V/40224026/%08X\n", (*(0x40224024) >> 16) & 0xFFFF # TCD5_ATTR @0x14026
 printf "V/40224028/%08X\n", (*(0x40224028)) # TCD5_NBYTES_MLOFFNO @0x14028
 printf "V/40224028/%08X\n", (*(0x40224028)) # TCD5_NBYTES_MLOFFYES @0x14028
 printf "V/4022402C/%08X\n", (*(0x4022402C)) # TCD5_SLAST_SDA @0x1402C
 printf "V/40224030/%08X\n", (*(0x40224030)) # TCD5_DADDR @0x14030
-printf "V/40224034/%08X\n", (*(0x40224034)) & 0xFFFF # TCD5_DOFF @0x14034
-printf "V/40224036/%08X\n", (*(0x40224036)) & 0xFFFF # TCD5_CITER_ELINKNO @0x14036
-printf "V/40224036/%08X\n", (*(0x40224036)) & 0xFFFF # TCD5_CITER_ELINKYES @0x14036
+printf "V/40224034/%08X\n", (*(0x40224034) >> 0) & 0xFFFF # TCD5_DOFF @0x14034
+printf "V/40224036/%08X\n", (*(0x40224034) >> 16) & 0xFFFF # TCD5_CITER_ELINKNO @0x14036
+printf "V/40224036/%08X\n", (*(0x40224034) >> 16) & 0xFFFF # TCD5_CITER_ELINKYES @0x14036
 printf "V/40224038/%08X\n", (*(0x40224038)) # TCD5_DLAST_SGA @0x14038
-printf "V/4022403C/%08X\n", (*(0x4022403C)) & 0xFFFF # TCD5_CSR @0x1403C
-printf "V/4022403E/%08X\n", (*(0x4022403E)) & 0xFFFF # TCD5_BITER_ELINKNO @0x1403E
-printf "V/4022403E/%08X\n", (*(0x4022403E)) & 0xFFFF # TCD5_BITER_ELINKYES @0x1403E
+printf "V/4022403C/%08X\n", (*(0x4022403C) >> 0) & 0xFFFF # TCD5_CSR @0x1403C
+printf "V/4022403E/%08X\n", (*(0x4022403C) >> 16) & 0xFFFF # TCD5_BITER_ELINKNO @0x1403E
+printf "V/4022403E/%08X\n", (*(0x4022403C) >> 16) & 0xFFFF # TCD5_BITER_ELINKYES @0x1403E
 printf "V/40228000/%08X\n", (*(0x40228000)) # CH6_CSR @0x18000
 printf "V/40228004/%08X\n", (*(0x40228004)) # CH6_ES @0x18004
 printf "V/40228008/%08X\n", (*(0x40228008)) # CH6_INT @0x18008
 printf "V/4022800C/%08X\n", (*(0x4022800C)) # CH6_SBR @0x1800C
 printf "V/40228010/%08X\n", (*(0x40228010)) # CH6_PRI @0x18010
 printf "V/40228020/%08X\n", (*(0x40228020)) # TCD6_SADDR @0x18020
-printf "V/40228024/%08X\n", (*(0x40228024)) & 0xFFFF # TCD6_SOFF @0x18024
-printf "V/40228026/%08X\n", (*(0x40228026)) & 0xFFFF # TCD6_ATTR @0x18026
+printf "V/40228024/%08X\n", (*(0x40228024) >> 0) & 0xFFFF # TCD6_SOFF @0x18024
+printf "V/40228026/%08X\n", (*(0x40228024) >> 16) & 0xFFFF # TCD6_ATTR @0x18026
 printf "V/40228028/%08X\n", (*(0x40228028)) # TCD6_NBYTES_MLOFFNO @0x18028
 printf "V/40228028/%08X\n", (*(0x40228028)) # TCD6_NBYTES_MLOFFYES @0x18028
 printf "V/4022802C/%08X\n", (*(0x4022802C)) # TCD6_SLAST_SDA @0x1802C
 printf "V/40228030/%08X\n", (*(0x40228030)) # TCD6_DADDR @0x18030
-printf "V/40228034/%08X\n", (*(0x40228034)) & 0xFFFF # TCD6_DOFF @0x18034
-printf "V/40228036/%08X\n", (*(0x40228036)) & 0xFFFF # TCD6_CITER_ELINKNO @0x18036
-printf "V/40228036/%08X\n", (*(0x40228036)) & 0xFFFF # TCD6_CITER_ELINKYES @0x18036
+printf "V/40228034/%08X\n", (*(0x40228034) >> 0) & 0xFFFF # TCD6_DOFF @0x18034
+printf "V/40228036/%08X\n", (*(0x40228034) >> 16) & 0xFFFF # TCD6_CITER_ELINKNO @0x18036
+printf "V/40228036/%08X\n", (*(0x40228034) >> 16) & 0xFFFF # TCD6_CITER_ELINKYES @0x18036
 printf "V/40228038/%08X\n", (*(0x40228038)) # TCD6_DLAST_SGA @0x18038
-printf "V/4022803C/%08X\n", (*(0x4022803C)) & 0xFFFF # TCD6_CSR @0x1803C
-printf "V/4022803E/%08X\n", (*(0x4022803E)) & 0xFFFF # TCD6_BITER_ELINKNO @0x1803E
-printf "V/4022803E/%08X\n", (*(0x4022803E)) & 0xFFFF # TCD6_BITER_ELINKYES @0x1803E
+printf "V/4022803C/%08X\n", (*(0x4022803C) >> 0) & 0xFFFF # TCD6_CSR @0x1803C
+printf "V/4022803E/%08X\n", (*(0x4022803C) >> 16) & 0xFFFF # TCD6_BITER_ELINKNO @0x1803E
+printf "V/4022803E/%08X\n", (*(0x4022803C) >> 16) & 0xFFFF # TCD6_BITER_ELINKYES @0x1803E
 printf "V/4022C000/%08X\n", (*(0x4022C000)) # CH7_CSR @0x1C000
 printf "V/4022C004/%08X\n", (*(0x4022C004)) # CH7_ES @0x1C004
 printf "V/4022C008/%08X\n", (*(0x4022C008)) # CH7_INT @0x1C008
 printf "V/4022C00C/%08X\n", (*(0x4022C00C)) # CH7_SBR @0x1C00C
 printf "V/4022C010/%08X\n", (*(0x4022C010)) # CH7_PRI @0x1C010
 printf "V/4022C020/%08X\n", (*(0x4022C020)) # TCD7_SADDR @0x1C020
-printf "V/4022C024/%08X\n", (*(0x4022C024)) & 0xFFFF # TCD7_SOFF @0x1C024
-printf "V/4022C026/%08X\n", (*(0x4022C026)) & 0xFFFF # TCD7_ATTR @0x1C026
+printf "V/4022C024/%08X\n", (*(0x4022C024) >> 0) & 0xFFFF # TCD7_SOFF @0x1C024
+printf "V/4022C026/%08X\n", (*(0x4022C024) >> 16) & 0xFFFF # TCD7_ATTR @0x1C026
 printf "V/4022C028/%08X\n", (*(0x4022C028)) # TCD7_NBYTES_MLOFFNO @0x1C028
 printf "V/4022C028/%08X\n", (*(0x4022C028)) # TCD7_NBYTES_MLOFFYES @0x1C028
 printf "V/4022C02C/%08X\n", (*(0x4022C02C)) # TCD7_SLAST_SDA @0x1C02C
 printf "V/4022C030/%08X\n", (*(0x4022C030)) # TCD7_DADDR @0x1C030
-printf "V/4022C034/%08X\n", (*(0x4022C034)) & 0xFFFF # TCD7_DOFF @0x1C034
-printf "V/4022C036/%08X\n", (*(0x4022C036)) & 0xFFFF # TCD7_CITER_ELINKNO @0x1C036
-printf "V/4022C036/%08X\n", (*(0x4022C036)) & 0xFFFF # TCD7_CITER_ELINKYES @0x1C036
+printf "V/4022C034/%08X\n", (*(0x4022C034) >> 0) & 0xFFFF # TCD7_DOFF @0x1C034
+printf "V/4022C036/%08X\n", (*(0x4022C034) >> 16) & 0xFFFF # TCD7_CITER_ELINKNO @0x1C036
+printf "V/4022C036/%08X\n", (*(0x4022C034) >> 16) & 0xFFFF # TCD7_CITER_ELINKYES @0x1C036
 printf "V/4022C038/%08X\n", (*(0x4022C038)) # TCD7_DLAST_SGA @0x1C038
-printf "V/4022C03C/%08X\n", (*(0x4022C03C)) & 0xFFFF # TCD7_CSR @0x1C03C
-printf "V/4022C03E/%08X\n", (*(0x4022C03E)) & 0xFFFF # TCD7_BITER_ELINKNO @0x1C03E
-printf "V/4022C03E/%08X\n", (*(0x4022C03E)) & 0xFFFF # TCD7_BITER_ELINKYES @0x1C03E
+printf "V/4022C03C/%08X\n", (*(0x4022C03C) >> 0) & 0xFFFF # TCD7_CSR @0x1C03C
+printf "V/4022C03E/%08X\n", (*(0x4022C03C) >> 16) & 0xFFFF # TCD7_BITER_ELINKNO @0x1C03E
+printf "V/4022C03E/%08X\n", (*(0x4022C03C) >> 16) & 0xFFFF # TCD7_BITER_ELINKYES @0x1C03E
 printf "V/40230000/%08X\n", (*(0x40230000)) # CH8_CSR @0x20000
 printf "V/40230004/%08X\n", (*(0x40230004)) # CH8_ES @0x20004
 printf "V/40230008/%08X\n", (*(0x40230008)) # CH8_INT @0x20008
 printf "V/4023000C/%08X\n", (*(0x4023000C)) # CH8_SBR @0x2000C
 printf "V/40230010/%08X\n", (*(0x40230010)) # CH8_PRI @0x20010
 printf "V/40230020/%08X\n", (*(0x40230020)) # TCD8_SADDR @0x20020
-printf "V/40230024/%08X\n", (*(0x40230024)) & 0xFFFF # TCD8_SOFF @0x20024
-printf "V/40230026/%08X\n", (*(0x40230026)) & 0xFFFF # TCD8_ATTR @0x20026
+printf "V/40230024/%08X\n", (*(0x40230024) >> 0) & 0xFFFF # TCD8_SOFF @0x20024
+printf "V/40230026/%08X\n", (*(0x40230024) >> 16) & 0xFFFF # TCD8_ATTR @0x20026
 printf "V/40230028/%08X\n", (*(0x40230028)) # TCD8_NBYTES_MLOFFNO @0x20028
 printf "V/40230028/%08X\n", (*(0x40230028)) # TCD8_NBYTES_MLOFFYES @0x20028
 printf "V/4023002C/%08X\n", (*(0x4023002C)) # TCD8_SLAST_SDA @0x2002C
 printf "V/40230030/%08X\n", (*(0x40230030)) # TCD8_DADDR @0x20030
-printf "V/40230034/%08X\n", (*(0x40230034)) & 0xFFFF # TCD8_DOFF @0x20034
-printf "V/40230036/%08X\n", (*(0x40230036)) & 0xFFFF # TCD8_CITER_ELINKNO @0x20036
-printf "V/40230036/%08X\n", (*(0x40230036)) & 0xFFFF # TCD8_CITER_ELINKYES @0x20036
+printf "V/40230034/%08X\n", (*(0x40230034) >> 0) & 0xFFFF # TCD8_DOFF @0x20034
+printf "V/40230036/%08X\n", (*(0x40230034) >> 16) & 0xFFFF # TCD8_CITER_ELINKNO @0x20036
+printf "V/40230036/%08X\n", (*(0x40230034) >> 16) & 0xFFFF # TCD8_CITER_ELINKYES @0x20036
 printf "V/40230038/%08X\n", (*(0x40230038)) # TCD8_DLAST_SGA @0x20038
-printf "V/4023003C/%08X\n", (*(0x4023003C)) & 0xFFFF # TCD8_CSR @0x2003C
-printf "V/4023003E/%08X\n", (*(0x4023003E)) & 0xFFFF # TCD8_BITER_ELINKNO @0x2003E
-printf "V/4023003E/%08X\n", (*(0x4023003E)) & 0xFFFF # TCD8_BITER_ELINKYES @0x2003E
+printf "V/4023003C/%08X\n", (*(0x4023003C) >> 0) & 0xFFFF # TCD8_CSR @0x2003C
+printf "V/4023003E/%08X\n", (*(0x4023003C) >> 16) & 0xFFFF # TCD8_BITER_ELINKNO @0x2003E
+printf "V/4023003E/%08X\n", (*(0x4023003C) >> 16) & 0xFFFF # TCD8_BITER_ELINKYES @0x2003E
 printf "V/40234000/%08X\n", (*(0x40234000)) # CH9_CSR @0x24000
 printf "V/40234004/%08X\n", (*(0x40234004)) # CH9_ES @0x24004
 printf "V/40234008/%08X\n", (*(0x40234008)) # CH9_INT @0x24008
 printf "V/4023400C/%08X\n", (*(0x4023400C)) # CH9_SBR @0x2400C
 printf "V/40234010/%08X\n", (*(0x40234010)) # CH9_PRI @0x24010
 printf "V/40234020/%08X\n", (*(0x40234020)) # TCD9_SADDR @0x24020
-printf "V/40234024/%08X\n", (*(0x40234024)) & 0xFFFF # TCD9_SOFF @0x24024
-printf "V/40234026/%08X\n", (*(0x40234026)) & 0xFFFF # TCD9_ATTR @0x24026
+printf "V/40234024/%08X\n", (*(0x40234024) >> 0) & 0xFFFF # TCD9_SOFF @0x24024
+printf "V/40234026/%08X\n", (*(0x40234024) >> 16) & 0xFFFF # TCD9_ATTR @0x24026
 printf "V/40234028/%08X\n", (*(0x40234028)) # TCD9_NBYTES_MLOFFNO @0x24028
 printf "V/40234028/%08X\n", (*(0x40234028)) # TCD9_NBYTES_MLOFFYES @0x24028
 printf "V/4023402C/%08X\n", (*(0x4023402C)) # TCD9_SLAST_SDA @0x2402C
 printf "V/40234030/%08X\n", (*(0x40234030)) # TCD9_DADDR @0x24030
-printf "V/40234034/%08X\n", (*(0x40234034)) & 0xFFFF # TCD9_DOFF @0x24034
-printf "V/40234036/%08X\n", (*(0x40234036)) & 0xFFFF # TCD9_CITER_ELINKNO @0x24036
-printf "V/40234036/%08X\n", (*(0x40234036)) & 0xFFFF # TCD9_CITER_ELINKYES @0x24036
+printf "V/40234034/%08X\n", (*(0x40234034) >> 0) & 0xFFFF # TCD9_DOFF @0x24034
+printf "V/40234036/%08X\n", (*(0x40234034) >> 16) & 0xFFFF # TCD9_CITER_ELINKNO @0x24036
+printf "V/40234036/%08X\n", (*(0x40234034) >> 16) & 0xFFFF # TCD9_CITER_ELINKYES @0x24036
 printf "V/40234038/%08X\n", (*(0x40234038)) # TCD9_DLAST_SGA @0x24038
-printf "V/4023403C/%08X\n", (*(0x4023403C)) & 0xFFFF # TCD9_CSR @0x2403C
-printf "V/4023403E/%08X\n", (*(0x4023403E)) & 0xFFFF # TCD9_BITER_ELINKNO @0x2403E
-printf "V/4023403E/%08X\n", (*(0x4023403E)) & 0xFFFF # TCD9_BITER_ELINKYES @0x2403E
+printf "V/4023403C/%08X\n", (*(0x4023403C) >> 0) & 0xFFFF # TCD9_CSR @0x2403C
+printf "V/4023403E/%08X\n", (*(0x4023403C) >> 16) & 0xFFFF # TCD9_BITER_ELINKNO @0x2403E
+printf "V/4023403E/%08X\n", (*(0x4023403C) >> 16) & 0xFFFF # TCD9_BITER_ELINKYES @0x2403E
 printf "V/40238000/%08X\n", (*(0x40238000)) # CH10_CSR @0x28000
 printf "V/40238004/%08X\n", (*(0x40238004)) # CH10_ES @0x28004
 printf "V/40238008/%08X\n", (*(0x40238008)) # CH10_INT @0x28008
 printf "V/4023800C/%08X\n", (*(0x4023800C)) # CH10_SBR @0x2800C
 printf "V/40238010/%08X\n", (*(0x40238010)) # CH10_PRI @0x28010
 printf "V/40238020/%08X\n", (*(0x40238020)) # TCD10_SADDR @0x28020
-printf "V/40238024/%08X\n", (*(0x40238024)) & 0xFFFF # TCD10_SOFF @0x28024
-printf "V/40238026/%08X\n", (*(0x40238026)) & 0xFFFF # TCD10_ATTR @0x28026
+printf "V/40238024/%08X\n", (*(0x40238024) >> 0) & 0xFFFF # TCD10_SOFF @0x28024
+printf "V/40238026/%08X\n", (*(0x40238024) >> 16) & 0xFFFF # TCD10_ATTR @0x28026
 printf "V/40238028/%08X\n", (*(0x40238028)) # TCD10_NBYTES_MLOFFNO @0x28028
 printf "V/40238028/%08X\n", (*(0x40238028)) # TCD10_NBYTES_MLOFFYES @0x28028
 printf "V/4023802C/%08X\n", (*(0x4023802C)) # TCD10_SLAST_SDA @0x2802C
 printf "V/40238030/%08X\n", (*(0x40238030)) # TCD10_DADDR @0x28030
-printf "V/40238034/%08X\n", (*(0x40238034)) & 0xFFFF # TCD10_DOFF @0x28034
-printf "V/40238036/%08X\n", (*(0x40238036)) & 0xFFFF # TCD10_CITER_ELINKNO @0x28036
-printf "V/40238036/%08X\n", (*(0x40238036)) & 0xFFFF # TCD10_CITER_ELINKYES @0x28036
+printf "V/40238034/%08X\n", (*(0x40238034) >> 0) & 0xFFFF # TCD10_DOFF @0x28034
+printf "V/40238036/%08X\n", (*(0x40238034) >> 16) & 0xFFFF # TCD10_CITER_ELINKNO @0x28036
+printf "V/40238036/%08X\n", (*(0x40238034) >> 16) & 0xFFFF # TCD10_CITER_ELINKYES @0x28036
 printf "V/40238038/%08X\n", (*(0x40238038)) # TCD10_DLAST_SGA @0x28038
-printf "V/4023803C/%08X\n", (*(0x4023803C)) & 0xFFFF # TCD10_CSR @0x2803C
-printf "V/4023803E/%08X\n", (*(0x4023803E)) & 0xFFFF # TCD10_BITER_ELINKNO @0x2803E
-printf "V/4023803E/%08X\n", (*(0x4023803E)) & 0xFFFF # TCD10_BITER_ELINKYES @0x2803E
+printf "V/4023803C/%08X\n", (*(0x4023803C) >> 0) & 0xFFFF # TCD10_CSR @0x2803C
+printf "V/4023803E/%08X\n", (*(0x4023803C) >> 16) & 0xFFFF # TCD10_BITER_ELINKNO @0x2803E
+printf "V/4023803E/%08X\n", (*(0x4023803C) >> 16) & 0xFFFF # TCD10_BITER_ELINKYES @0x2803E
 printf "V/4023C000/%08X\n", (*(0x4023C000)) # CH11_CSR @0x2C000
 printf "V/4023C004/%08X\n", (*(0x4023C004)) # CH11_ES @0x2C004
 printf "V/4023C008/%08X\n", (*(0x4023C008)) # CH11_INT @0x2C008
 printf "V/4023C00C/%08X\n", (*(0x4023C00C)) # CH11_SBR @0x2C00C
 printf "V/4023C010/%08X\n", (*(0x4023C010)) # CH11_PRI @0x2C010
 printf "V/4023C020/%08X\n", (*(0x4023C020)) # TCD11_SADDR @0x2C020
-printf "V/4023C024/%08X\n", (*(0x4023C024)) & 0xFFFF # TCD11_SOFF @0x2C024
-printf "V/4023C026/%08X\n", (*(0x4023C026)) & 0xFFFF # TCD11_ATTR @0x2C026
+printf "V/4023C024/%08X\n", (*(0x4023C024) >> 0) & 0xFFFF # TCD11_SOFF @0x2C024
+printf "V/4023C026/%08X\n", (*(0x4023C024) >> 16) & 0xFFFF # TCD11_ATTR @0x2C026
 printf "V/4023C028/%08X\n", (*(0x4023C028)) # TCD11_NBYTES_MLOFFNO @0x2C028
 printf "V/4023C028/%08X\n", (*(0x4023C028)) # TCD11_NBYTES_MLOFFYES @0x2C028
 printf "V/4023C02C/%08X\n", (*(0x4023C02C)) # TCD11_SLAST_SDA @0x2C02C
 printf "V/4023C030/%08X\n", (*(0x4023C030)) # TCD11_DADDR @0x2C030
-printf "V/4023C034/%08X\n", (*(0x4023C034)) & 0xFFFF # TCD11_DOFF @0x2C034
-printf "V/4023C036/%08X\n", (*(0x4023C036)) & 0xFFFF # TCD11_CITER_ELINKNO @0x2C036
-printf "V/4023C036/%08X\n", (*(0x4023C036)) & 0xFFFF # TCD11_CITER_ELINKYES @0x2C036
+printf "V/4023C034/%08X\n", (*(0x4023C034) >> 0) & 0xFFFF # TCD11_DOFF @0x2C034
+printf "V/4023C036/%08X\n", (*(0x4023C034) >> 16) & 0xFFFF # TCD11_CITER_ELINKNO @0x2C036
+printf "V/4023C036/%08X\n", (*(0x4023C034) >> 16) & 0xFFFF # TCD11_CITER_ELINKYES @0x2C036
 printf "V/4023C038/%08X\n", (*(0x4023C038)) # TCD11_DLAST_SGA @0x2C038
-printf "V/4023C03C/%08X\n", (*(0x4023C03C)) & 0xFFFF # TCD11_CSR @0x2C03C
-printf "V/4023C03E/%08X\n", (*(0x4023C03E)) & 0xFFFF # TCD11_BITER_ELINKNO @0x2C03E
-printf "V/4023C03E/%08X\n", (*(0x4023C03E)) & 0xFFFF # TCD11_BITER_ELINKYES @0x2C03E
+printf "V/4023C03C/%08X\n", (*(0x4023C03C) >> 0) & 0xFFFF # TCD11_CSR @0x2C03C
+printf "V/4023C03E/%08X\n", (*(0x4023C03C) >> 16) & 0xFFFF # TCD11_BITER_ELINKNO @0x2C03E
+printf "V/4023C03E/%08X\n", (*(0x4023C03C) >> 16) & 0xFFFF # TCD11_BITER_ELINKYES @0x2C03E
 
 # TEMPSENSE @0x4037C000
 printf "V/4037C000/%08X\n", (*(0x4037C000)) # ETSCTL @0
@@ -5234,12 +5234,12 @@ printf "V/40278000/%08X\n", (*(0x40278000)) # CR @0
 printf "V/402780F0/%08X\n", (*(0x402780F0)) # HWCFG0 @0xF0
 printf "V/402780F4/%08X\n", (*(0x402780F4)) # HWCFG1 @0xF4
 printf "V/402780F8/%08X\n", (*(0x402780F8)) # HWCFG2 @0xF8
-printf "V/40278100/%08X\n", (*(0x40278100)) & 0xFF # MDACFG0 @0x100
-printf "V/40278101/%08X\n", (*(0x40278101)) & 0xFF # MDACFG1 @0x101
-printf "V/40278102/%08X\n", (*(0x40278102)) & 0xFF # MDACFG2 @0x102
-printf "V/40278103/%08X\n", (*(0x40278103)) & 0xFF # MDACFG3 @0x103
-printf "V/40278140/%08X\n", (*(0x40278140)) & 0xFF # MRCFG0 @0x140
-printf "V/40278141/%08X\n", (*(0x40278141)) & 0xFF # MRCFG1 @0x141
+printf "V/40278100/%08X\n", (*(0x40278100) >> 0) & 0xFF # MDACFG0 @0x100
+printf "V/40278101/%08X\n", (*(0x40278100) >> 8) & 0xFF # MDACFG1 @0x101
+printf "V/40278102/%08X\n", (*(0x40278100) >> 16) & 0xFF # MDACFG2 @0x102
+printf "V/40278103/%08X\n", (*(0x40278100) >> 24) & 0xFF # MDACFG3 @0x103
+printf "V/40278140/%08X\n", (*(0x40278140) >> 0) & 0xFF # MRCFG0 @0x140
+printf "V/40278141/%08X\n", (*(0x40278140) >> 8) & 0xFF # MRCFG1 @0x141
 printf "V/40278200/%08X\n", (*(0x40278200)) # DERRLOC[0] @0x200 + 0 * 0x4
 printf "V/40278204/%08X\n", (*(0x40278204)) # DERRLOC[1] @0x200 + 1 * 0x4
 printf "V/40278400/%08X\n", (*(0x40278400)) # DERR_W0_0 @0x400

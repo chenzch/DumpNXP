@@ -70,9 +70,6 @@
                                 <xsl:value-of
                                     select="concat($currentItem/addressOffset, ' + ', . - 1, ' * ', $currentItem/dimIncrement)" />
                             </offset>
-                            <size>
-                                <xsl:value-of select="$currentItem/size" />
-                            </size>
                         </node>
                     </xsl:for-each>
                 </xsl:when>
@@ -88,9 +85,6 @@
                         <offset>
                             <xsl:value-of select="$currentItem/addressOffset" />
                         </offset>
-                        <size>
-                            <xsl:value-of select="$currentItem/size" />
-                        </size>
                     </node>
                 </xsl:otherwise>
             </xsl:choose>
@@ -100,7 +94,7 @@
                 <xsl:with-param name="baseAddr" select="baseAddr" />
                 <xsl:with-param name="name" select="name" />
                 <xsl:with-param name="offset" select="offset" />
-                <xsl:with-param name="size" select="size" />
+                <xsl:with-param name="size" select="$currentItem/size" />
             </xsl:call-template>
         </xsl:for-each>
     </xsl:template>
@@ -116,15 +110,22 @@
                 <xsl:value-of select="substring($baseAddr, 3)" />
                 <xsl:text>/%08X\n", </xsl:text>
                 <xsl:text>(*(</xsl:text>
-                <xsl:value-of select="$baseAddr" />
-                <xsl:text>))</xsl:text>
+                <xsl:value-of select="fn:DecToHex((fn:HexToDec($baseAddr) idiv 4) * 4)" />
+                <xsl:text>)</xsl:text>
                 <xsl:choose>
                     <xsl:when test="$size = 8">
-                        <xsl:text> &amp; 0xFF</xsl:text>
+                        <xsl:text> &gt;&gt; </xsl:text>
+                        <xsl:value-of select="(fn:HexToDec($baseAddr) mod 4) * 8" />
+                        <xsl:text>) &amp; 0xFF</xsl:text>
                     </xsl:when>
                     <xsl:when test="$size = 16">
-                        <xsl:text> &amp; 0xFFFF</xsl:text>
+                        <xsl:text> &gt;&gt; </xsl:text>
+                        <xsl:value-of select="(fn:HexToDec($baseAddr) mod 4) * 8" />
+                        <xsl:text>) &amp; 0xFFFF</xsl:text>
                     </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>)</xsl:text>
+                    </xsl:otherwise>
                 </xsl:choose>
                 <xsl:text> # </xsl:text>
             </xsl:when>
