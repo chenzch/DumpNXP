@@ -16,15 +16,15 @@ set logging file S32K388_M7.dump
 set logging on
 
 # ACE__AHB @0
-#error INIT_VEC @0
-#error DATA_IN @0x8
+# error no base address # error unknown size INIT_VEC @0
+# error no base address # error unknown size DATA_IN @0x8
 
 # ACE__AHB2 @0
-#error STATUS @0x100
-#error CONTROL @0x108
-#error RESULT @0x118
-#error AUTH_TAG @0x120
-#error VERSION @0x128
+# error no base address # error unknown size STATUS @0x100
+# error no base address # error unknown size CONTROL @0x108
+# error no base address # error unknown size RESULT @0x118
+# error no base address # error unknown size AUTH_TAG @0x120
+# error no base address # error unknown size VERSION @0x128
 
 # ADC_0 @0x400A0000
 printf "V/400A0000/%08X\n", (*(0x400A0000)) # MCR @0
@@ -465,22 +465,22 @@ printf "V/40560020/%08X\n", (*(0x40560020)) # FEEDINTMAP7 @0x190020
 printf "V/40560024/%08X\n", (*(0x40560024)) # RESULTINTMAP7 @0x190024
 
 # AXBS_FEED @0
-printf "V/0/%08X\n", (*(0x0)) # PRS0 @0
-printf "V/10/%08X\n", (*(0x10)) # CRS0 @0x10
-printf "V/100/%08X\n", (*(0x100)) # PRS1 @0x100
-printf "V/110/%08X\n", (*(0x110)) # CRS1 @0x110
-printf "V/200/%08X\n", (*(0x200)) # PRS2 @0x200
-printf "V/210/%08X\n", (*(0x210)) # CRS2 @0x210
-printf "V/300/%08X\n", (*(0x300)) # PRS3 @0x300
-printf "V/310/%08X\n", (*(0x310)) # CRS3 @0x310
-printf "V/400/%08X\n", (*(0x400)) # PRS4 @0x400
-printf "V/410/%08X\n", (*(0x410)) # CRS4 @0x410
-printf "V/500/%08X\n", (*(0x500)) # PRS5 @0x500
-printf "V/510/%08X\n", (*(0x510)) # CRS5 @0x510
-printf "V/600/%08X\n", (*(0x600)) # PRS6 @0x600
-printf "V/610/%08X\n", (*(0x610)) # CRS6 @0x610
-printf "V/700/%08X\n", (*(0x700)) # PRS7 @0x700
-printf "V/710/%08X\n", (*(0x710)) # CRS7 @0x710
+# error no base address printf "V/00000000/%08X\n", (*(0x0)) # PRS0 @0
+# error no base address printf "V/00000010/%08X\n", (*(0x10)) # CRS0 @0x10
+# error no base address printf "V/00000100/%08X\n", (*(0x100)) # PRS1 @0x100
+# error no base address printf "V/00000110/%08X\n", (*(0x110)) # CRS1 @0x110
+# error no base address printf "V/00000200/%08X\n", (*(0x200)) # PRS2 @0x200
+# error no base address printf "V/00000210/%08X\n", (*(0x210)) # CRS2 @0x210
+# error no base address printf "V/00000300/%08X\n", (*(0x300)) # PRS3 @0x300
+# error no base address printf "V/00000310/%08X\n", (*(0x310)) # CRS3 @0x310
+# error no base address printf "V/00000400/%08X\n", (*(0x400)) # PRS4 @0x400
+# error no base address printf "V/00000410/%08X\n", (*(0x410)) # CRS4 @0x410
+# error no base address printf "V/00000500/%08X\n", (*(0x500)) # PRS5 @0x500
+# error no base address printf "V/00000510/%08X\n", (*(0x510)) # CRS5 @0x510
+# error no base address printf "V/00000600/%08X\n", (*(0x600)) # PRS6 @0x600
+# error no base address printf "V/00000610/%08X\n", (*(0x610)) # CRS6 @0x610
+# error no base address printf "V/00000700/%08X\n", (*(0x700)) # PRS7 @0x700
+# error no base address printf "V/00000710/%08X\n", (*(0x710)) # CRS7 @0x710
 
 # AXBS_LITE @0x40200000
 printf "V/40200000/%08X\n", (*(0x40200000)) # PRS0 @0
@@ -500,23 +500,23 @@ printf "V/40200610/%08X\n", (*(0x40200610)) # CRS6 @0x610
 printf "V/40200700/%08X\n", (*(0x40200700)) # PRS7 @0x700
 printf "V/40200710/%08X\n", (*(0x40200710)) # CRS7 @0x710
 
-# AXBS_RESULT @0
-printf "V/0/%08X\n", (*(0x0)) # PRS0 @0
-printf "V/10/%08X\n", (*(0x10)) # CRS0 @0x10
-printf "V/100/%08X\n", (*(0x100)) # PRS1 @0x100
-printf "V/110/%08X\n", (*(0x110)) # CRS1 @0x110
-printf "V/200/%08X\n", (*(0x200)) # PRS2 @0x200
-printf "V/210/%08X\n", (*(0x210)) # CRS2 @0x210
-printf "V/300/%08X\n", (*(0x300)) # PRS3 @0x300
-printf "V/310/%08X\n", (*(0x310)) # CRS3 @0x310
-printf "V/400/%08X\n", (*(0x400)) # PRS4 @0x400
-printf "V/410/%08X\n", (*(0x410)) # CRS4 @0x410
-printf "V/500/%08X\n", (*(0x500)) # PRS5 @0x500
-printf "V/510/%08X\n", (*(0x510)) # CRS5 @0x510
-printf "V/600/%08X\n", (*(0x600)) # PRS6 @0x600
-printf "V/610/%08X\n", (*(0x610)) # CRS6 @0x610
-printf "V/700/%08X\n", (*(0x700)) # PRS7 @0x700
-printf "V/710/%08X\n", (*(0x710)) # CRS7 @0x710
+# AXBS_RESULT @0x40200000
+printf "V/40200000/%08X\n", (*(0x40200000)) # PRS0 @0
+printf "V/40200010/%08X\n", (*(0x40200010)) # CRS0 @0x10
+printf "V/40200100/%08X\n", (*(0x40200100)) # PRS1 @0x100
+printf "V/40200110/%08X\n", (*(0x40200110)) # CRS1 @0x110
+printf "V/40200200/%08X\n", (*(0x40200200)) # PRS2 @0x200
+printf "V/40200210/%08X\n", (*(0x40200210)) # CRS2 @0x210
+printf "V/40200300/%08X\n", (*(0x40200300)) # PRS3 @0x300
+printf "V/40200310/%08X\n", (*(0x40200310)) # CRS3 @0x310
+printf "V/40200400/%08X\n", (*(0x40200400)) # PRS4 @0x400
+printf "V/40200410/%08X\n", (*(0x40200410)) # CRS4 @0x410
+printf "V/40200500/%08X\n", (*(0x40200500)) # PRS5 @0x500
+printf "V/40200510/%08X\n", (*(0x40200510)) # CRS5 @0x510
+printf "V/40200600/%08X\n", (*(0x40200600)) # PRS6 @0x600
+printf "V/40200610/%08X\n", (*(0x40200610)) # CRS6 @0x610
+printf "V/40200700/%08X\n", (*(0x40200700)) # PRS7 @0x700
+printf "V/40200710/%08X\n", (*(0x40200710)) # CRS7 @0x710
 
 # BCTU @0x40084000
 printf "V/40084000/%08X\n", (*(0x40084000)) # MCR @0

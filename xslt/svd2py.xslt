@@ -95,12 +95,12 @@ class Peripheral:
         return offset
 
 </xsl:text>
-        <xsl:for-each select="device/peripherals/peripheral">
+        <xsl:for-each select="device/peripherals/peripheral[fn:HexToDec(baseAddress) != 0]">
             <xsl:sort select="name" />
             <xsl:apply-templates select="." mode="peripheral" />
         </xsl:for-each>
         <xsl:text>class Device:&#10;    def __init__(self):&#10;        self.modules = [&#10;</xsl:text>
-        <xsl:for-each select="device/peripherals/peripheral">
+        <xsl:for-each select="device/peripherals/peripheral[fn:HexToDec(baseAddress) != 0]">
             <xsl:sort select="name" />
             <xsl:text>            Module_</xsl:text>
             <xsl:value-of select="name" />

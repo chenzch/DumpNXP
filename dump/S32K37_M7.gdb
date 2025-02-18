@@ -2955,106 +2955,106 @@ printf "V/406DCF90/%08X\n", (*(0x406DCF90)) # DMA_ERROR_CTRL5 @0xF90
 printf "V/406DCF94/%08X\n", (*(0x406DCF94)) # HW_CTRL_DMA_REQ_RESPONSE5 @0xF94
 
 # DSPSS_1 @0
-printf "V/C/%08X\n", (*(0xC)) # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH0 @0xC
-printf "V/14/%08X\n", (*(0x14)) # DSP_SDADC_CURR_READ_PTR0 @0x14
-printf "V/1C/%08X\n", (*(0x1C)) # DSP_CORE_BUF_ADDR0 @0x1C
-printf "V/28/%08X\n", (*(0x28)) # DSP_CORE_CURR_RD_PTR0 @0x28
-printf "V/2C/%08X\n", (*(0x2C)) # DSP_CORE_CURR_WR_PTR0 @0x2C
-printf "V/30/%08X\n", (*(0x30)) # DMA_READ_ADDR0 @0x30
-printf "V/38/%08X\n", (*(0x38)) # DMA_ERROR_STATUS0 @0x38
-printf "V/40/%08X\n", (*(0x40)) # DMA_WRITE_ADDR0 @0x40
-printf "V/44/%08X\n", (*(0x44)) # DMA_CURR_WR_PTR0 @0x44
-printf "V/48/%08X\n", (*(0x48)) # DMA_CURR_RD_PTR0 @0x48
-printf "V/50/%08X\n", (*(0x50)) # DSP_TO_DMA_REQUEST_STATUS0 @0x50
-printf "V/5C/%08X\n", (*(0x5C)) # DSPSS_DSP_TH_STATUS0 @0x5C
-printf "V/7C/%08X\n", (*(0x7C)) # DSP_CORE_BUFFER_STATUS0 @0x7C
-printf "V/80/%08X\n", (*(0x80)) # DSP_TO_CORE_TRIG_ERR_STATUS0 @0x80
-printf "V/84/%08X\n", (*(0x84)) # DS_GATE_STATUS_REGISTER0 @0x84
-printf "V/88/%08X\n", (*(0x88)) # DS_GATE_TRIGMUX_REGISTER0 @0x88
-printf "V/8C/%08X\n", (*(0x8C)) # HW_CTRL_DMA_REQ_STOP0 @0x8C
-printf "V/90/%08X\n", (*(0x90)) # DMA_ERROR_CTRL0 @0x90
-printf "V/94/%08X\n", (*(0x94)) # HW_CTRL_DMA_REQ_RESPONSE0 @0x94
-printf "V/30C/%08X\n", (*(0x30C)) # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH1 @0x30C
-printf "V/314/%08X\n", (*(0x314)) # DSP_SDADC_CURR_READ_PTR1 @0x314
-printf "V/31C/%08X\n", (*(0x31C)) # DSP_CORE_BUF_ADDR1 @0x31C
-printf "V/328/%08X\n", (*(0x328)) # DSP_CORE_CURR_RD_PTR1 @0x328
-printf "V/32C/%08X\n", (*(0x32C)) # DSP_CORE_CURR_WR_PTR1 @0x32C
-printf "V/330/%08X\n", (*(0x330)) # DMA_READ_ADDR1 @0x330
-printf "V/338/%08X\n", (*(0x338)) # DMA_ERROR_STATUS1 @0x338
-printf "V/340/%08X\n", (*(0x340)) # DMA_WRITE_ADDR1 @0x340
-printf "V/344/%08X\n", (*(0x344)) # DMA_CURR_WR_PTR1 @0x344
-printf "V/348/%08X\n", (*(0x348)) # DMA_CURR_RD_PTR1 @0x348
-printf "V/350/%08X\n", (*(0x350)) # DSP_TO_DMA_REQUEST_STATUS1 @0x350
-printf "V/35C/%08X\n", (*(0x35C)) # DSPSS_DSP_TH_STATUS1 @0x35C
-printf "V/37C/%08X\n", (*(0x37C)) # DSP_CORE_BUFFER_STATUS1 @0x37C
-printf "V/380/%08X\n", (*(0x380)) # DSP_TO_CORE_TRIG_ERR_STATUS1 @0x380
-printf "V/384/%08X\n", (*(0x384)) # DS_GATE_STATUS_REGISTER1 @0x384
-printf "V/388/%08X\n", (*(0x388)) # DS_GATE_TRIGMUX_REGISTER1 @0x388
-printf "V/38C/%08X\n", (*(0x38C)) # HW_CTRL_DMA_REQ_STOP1 @0x38C
-printf "V/390/%08X\n", (*(0x390)) # DMA_ERROR_CTRL1 @0x390
-printf "V/394/%08X\n", (*(0x394)) # HW_CTRL_DMA_REQ_RESPONSE1 @0x394
-printf "V/60C/%08X\n", (*(0x60C)) # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH2 @0x60C
-printf "V/614/%08X\n", (*(0x614)) # DSP_SDADC_CURR_READ_PTR2 @0x614
-printf "V/61C/%08X\n", (*(0x61C)) # DSP_CORE_BUF_ADDR2 @0x61C
-printf "V/628/%08X\n", (*(0x628)) # DSP_CORE_CURR_RD_PTR2 @0x628
-printf "V/62C/%08X\n", (*(0x62C)) # DSP_CORE_CURR_WR_PTR2 @0x62C
-printf "V/630/%08X\n", (*(0x630)) # DMA_READ_ADDR2 @0x630
-printf "V/638/%08X\n", (*(0x638)) # DMA_ERROR_STATUS2 @0x638
-printf "V/640/%08X\n", (*(0x640)) # DMA_WRITE_ADDR2 @0x640
-printf "V/644/%08X\n", (*(0x644)) # DMA_CURR_WR_PTR2 @0x644
-printf "V/648/%08X\n", (*(0x648)) # DMA_CURR_RD_PTR2 @0x648
-printf "V/650/%08X\n", (*(0x650)) # DSP_TO_DMA_REQUEST_STATUS2 @0x650
-printf "V/65C/%08X\n", (*(0x65C)) # DSPSS_DSP_TH_STATUS2 @0x65C
-printf "V/67C/%08X\n", (*(0x67C)) # DSP_CORE_BUFFER_STATUS2 @0x67C
-printf "V/680/%08X\n", (*(0x680)) # DSP_TO_CORE_TRIG_ERR_STATUS2 @0x680
-printf "V/684/%08X\n", (*(0x684)) # DS_GATE_STATUS_REGISTER2 @0x684
-printf "V/688/%08X\n", (*(0x688)) # DS_GATE_TRIGMUX_REGISTER2 @0x688
-printf "V/68C/%08X\n", (*(0x68C)) # HW_CTRL_DMA_REQ_STOP2 @0x68C
-printf "V/690/%08X\n", (*(0x690)) # DMA_ERROR_CTRL2 @0x690
-printf "V/694/%08X\n", (*(0x694)) # HW_CTRL_DMA_REQ_RESPONSE2 @0x694
-printf "V/90C/%08X\n", (*(0x90C)) # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH3 @0x90C
-printf "V/914/%08X\n", (*(0x914)) # DSP_SDADC_CURR_READ_PTR3 @0x914
-printf "V/91C/%08X\n", (*(0x91C)) # DSP_CORE_BUF_ADDR3 @0x91C
-printf "V/928/%08X\n", (*(0x928)) # DSP_CORE_CURR_RD_PTR3 @0x928
-printf "V/92C/%08X\n", (*(0x92C)) # DSP_CORE_CURR_WR_PTR3 @0x92C
-printf "V/930/%08X\n", (*(0x930)) # DMA_READ_ADDR3 @0x930
-printf "V/938/%08X\n", (*(0x938)) # DMA_ERROR_STATUS3 @0x938
-printf "V/940/%08X\n", (*(0x940)) # DMA_WRITE_ADDR3 @0x940
-printf "V/944/%08X\n", (*(0x944)) # DMA_CURR_WR_PTR3 @0x944
-printf "V/948/%08X\n", (*(0x948)) # DMA_CURR_RD_PTR3 @0x948
-printf "V/950/%08X\n", (*(0x950)) # DSP_TO_DMA_REQUEST_STATUS3 @0x950
-printf "V/95C/%08X\n", (*(0x95C)) # DSPSS_DSP_TH_STATUS3 @0x95C
-printf "V/97C/%08X\n", (*(0x97C)) # DSP_CORE_BUFFER_STATUS3 @0x97C
-printf "V/980/%08X\n", (*(0x980)) # DSP_TO_CORE_TRIG_ERR_STATUS3 @0x980
-printf "V/984/%08X\n", (*(0x984)) # DS_GATE_STATUS_REGISTER3 @0x984
-printf "V/988/%08X\n", (*(0x988)) # DS_GATE_TRIGMUX_REGISTER3 @0x988
-printf "V/98C/%08X\n", (*(0x98C)) # HW_CTRL_DMA_REQ_STOP3 @0x98C
-printf "V/990/%08X\n", (*(0x990)) # DMA_ERROR_CTRL3 @0x990
-printf "V/994/%08X\n", (*(0x994)) # HW_CTRL_DMA_REQ_RESPONSE3 @0x994
-printf "V/C14/%08X\n", (*(0xC14)) # DSPSS_DSP_IO_INTF0 @0xC14
-printf "V/C24/%08X\n", (*(0xC24)) # DSPSS_DSP_CORE_TRIGGER_SAFETY @0xC24
-printf "V/C30/%08X\n", (*(0xC30)) # DMA_READ_ADDR4 @0xC30
-printf "V/C38/%08X\n", (*(0xC38)) # DMA_ERROR_STATUS4 @0xC38
-printf "V/C40/%08X\n", (*(0xC40)) # DMA_WRITE_ADDR4 @0xC40
-printf "V/C44/%08X\n", (*(0xC44)) # DMA_CURR_WR_PTR4 @0xC44
-printf "V/C48/%08X\n", (*(0xC48)) # DMA_CURR_RD_PTR4 @0xC48
-printf "V/C50/%08X\n", (*(0xC50)) # DSP_TO_DMA_REQUEST_STATUS4 @0xC50
-printf "V/C8C/%08X\n", (*(0xC8C)) # HW_CTRL_DMA_REQ_STOP4 @0xC8C
-printf "V/C90/%08X\n", (*(0xC90)) # DMA_ERROR_CTRL4 @0xC90
-printf "V/C94/%08X\n", (*(0xC94)) # HW_CTRL_DMA_REQ_RESPONSE4 @0xC94
-printf "V/F30/%08X\n", (*(0xF30)) # DMA_READ_ADDR5 @0xF30
-printf "V/F38/%08X\n", (*(0xF38)) # DMA_ERROR_STATUS5 @0xF38
-printf "V/F40/%08X\n", (*(0xF40)) # DMA_WRITE_ADDR5 @0xF40
-printf "V/F44/%08X\n", (*(0xF44)) # DMA_CURR_WR_PTR5 @0xF44
-printf "V/F48/%08X\n", (*(0xF48)) # DMA_CURR_RD_PTR5 @0xF48
-printf "V/F50/%08X\n", (*(0xF50)) # DSP_TO_DMA_REQUEST_STATUS5 @0xF50
-printf "V/F8C/%08X\n", (*(0xF8C)) # HW_CTRL_DMA_REQ_STOP5 @0xF8C
-printf "V/F90/%08X\n", (*(0xF90)) # DMA_ERROR_CTRL5 @0xF90
-printf "V/F94/%08X\n", (*(0xF94)) # HW_CTRL_DMA_REQ_RESPONSE5 @0xF94
-printf "V/1200/%08X\n", (*(0x1200)) # DSPSS_DSP_THREAD_INFO[0] @0x1200 + 0 * 0x4
-printf "V/1204/%08X\n", (*(0x1204)) # DSPSS_DSP_THREAD_INFO[1] @0x1200 + 1 * 0x4
-printf "V/1208/%08X\n", (*(0x1208)) # DSPSS_DSP_THREAD_INFO[2] @0x1200 + 2 * 0x4
-printf "V/120C/%08X\n", (*(0x120C)) # DSPSS_DSP_THREAD_INFO[3] @0x1200 + 3 * 0x4
+# error no base address printf "V/0000000C/%08X\n", (*(0xC)) # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH0 @0xC
+# error no base address printf "V/00000014/%08X\n", (*(0x14)) # DSP_SDADC_CURR_READ_PTR0 @0x14
+# error no base address printf "V/0000001C/%08X\n", (*(0x1C)) # DSP_CORE_BUF_ADDR0 @0x1C
+# error no base address printf "V/00000028/%08X\n", (*(0x28)) # DSP_CORE_CURR_RD_PTR0 @0x28
+# error no base address printf "V/0000002C/%08X\n", (*(0x2C)) # DSP_CORE_CURR_WR_PTR0 @0x2C
+# error no base address printf "V/00000030/%08X\n", (*(0x30)) # DMA_READ_ADDR0 @0x30
+# error no base address printf "V/00000038/%08X\n", (*(0x38)) # DMA_ERROR_STATUS0 @0x38
+# error no base address printf "V/00000040/%08X\n", (*(0x40)) # DMA_WRITE_ADDR0 @0x40
+# error no base address printf "V/00000044/%08X\n", (*(0x44)) # DMA_CURR_WR_PTR0 @0x44
+# error no base address printf "V/00000048/%08X\n", (*(0x48)) # DMA_CURR_RD_PTR0 @0x48
+# error no base address printf "V/00000050/%08X\n", (*(0x50)) # DSP_TO_DMA_REQUEST_STATUS0 @0x50
+# error no base address printf "V/0000005C/%08X\n", (*(0x5C)) # DSPSS_DSP_TH_STATUS0 @0x5C
+# error no base address printf "V/0000007C/%08X\n", (*(0x7C)) # DSP_CORE_BUFFER_STATUS0 @0x7C
+# error no base address printf "V/00000080/%08X\n", (*(0x80)) # DSP_TO_CORE_TRIG_ERR_STATUS0 @0x80
+# error no base address printf "V/00000084/%08X\n", (*(0x84)) # DS_GATE_STATUS_REGISTER0 @0x84
+# error no base address printf "V/00000088/%08X\n", (*(0x88)) # DS_GATE_TRIGMUX_REGISTER0 @0x88
+# error no base address printf "V/0000008C/%08X\n", (*(0x8C)) # HW_CTRL_DMA_REQ_STOP0 @0x8C
+# error no base address printf "V/00000090/%08X\n", (*(0x90)) # DMA_ERROR_CTRL0 @0x90
+# error no base address printf "V/00000094/%08X\n", (*(0x94)) # HW_CTRL_DMA_REQ_RESPONSE0 @0x94
+# error no base address printf "V/0000030C/%08X\n", (*(0x30C)) # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH1 @0x30C
+# error no base address printf "V/00000314/%08X\n", (*(0x314)) # DSP_SDADC_CURR_READ_PTR1 @0x314
+# error no base address printf "V/0000031C/%08X\n", (*(0x31C)) # DSP_CORE_BUF_ADDR1 @0x31C
+# error no base address printf "V/00000328/%08X\n", (*(0x328)) # DSP_CORE_CURR_RD_PTR1 @0x328
+# error no base address printf "V/0000032C/%08X\n", (*(0x32C)) # DSP_CORE_CURR_WR_PTR1 @0x32C
+# error no base address printf "V/00000330/%08X\n", (*(0x330)) # DMA_READ_ADDR1 @0x330
+# error no base address printf "V/00000338/%08X\n", (*(0x338)) # DMA_ERROR_STATUS1 @0x338
+# error no base address printf "V/00000340/%08X\n", (*(0x340)) # DMA_WRITE_ADDR1 @0x340
+# error no base address printf "V/00000344/%08X\n", (*(0x344)) # DMA_CURR_WR_PTR1 @0x344
+# error no base address printf "V/00000348/%08X\n", (*(0x348)) # DMA_CURR_RD_PTR1 @0x348
+# error no base address printf "V/00000350/%08X\n", (*(0x350)) # DSP_TO_DMA_REQUEST_STATUS1 @0x350
+# error no base address printf "V/0000035C/%08X\n", (*(0x35C)) # DSPSS_DSP_TH_STATUS1 @0x35C
+# error no base address printf "V/0000037C/%08X\n", (*(0x37C)) # DSP_CORE_BUFFER_STATUS1 @0x37C
+# error no base address printf "V/00000380/%08X\n", (*(0x380)) # DSP_TO_CORE_TRIG_ERR_STATUS1 @0x380
+# error no base address printf "V/00000384/%08X\n", (*(0x384)) # DS_GATE_STATUS_REGISTER1 @0x384
+# error no base address printf "V/00000388/%08X\n", (*(0x388)) # DS_GATE_TRIGMUX_REGISTER1 @0x388
+# error no base address printf "V/0000038C/%08X\n", (*(0x38C)) # HW_CTRL_DMA_REQ_STOP1 @0x38C
+# error no base address printf "V/00000390/%08X\n", (*(0x390)) # DMA_ERROR_CTRL1 @0x390
+# error no base address printf "V/00000394/%08X\n", (*(0x394)) # HW_CTRL_DMA_REQ_RESPONSE1 @0x394
+# error no base address printf "V/0000060C/%08X\n", (*(0x60C)) # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH2 @0x60C
+# error no base address printf "V/00000614/%08X\n", (*(0x614)) # DSP_SDADC_CURR_READ_PTR2 @0x614
+# error no base address printf "V/0000061C/%08X\n", (*(0x61C)) # DSP_CORE_BUF_ADDR2 @0x61C
+# error no base address printf "V/00000628/%08X\n", (*(0x628)) # DSP_CORE_CURR_RD_PTR2 @0x628
+# error no base address printf "V/0000062C/%08X\n", (*(0x62C)) # DSP_CORE_CURR_WR_PTR2 @0x62C
+# error no base address printf "V/00000630/%08X\n", (*(0x630)) # DMA_READ_ADDR2 @0x630
+# error no base address printf "V/00000638/%08X\n", (*(0x638)) # DMA_ERROR_STATUS2 @0x638
+# error no base address printf "V/00000640/%08X\n", (*(0x640)) # DMA_WRITE_ADDR2 @0x640
+# error no base address printf "V/00000644/%08X\n", (*(0x644)) # DMA_CURR_WR_PTR2 @0x644
+# error no base address printf "V/00000648/%08X\n", (*(0x648)) # DMA_CURR_RD_PTR2 @0x648
+# error no base address printf "V/00000650/%08X\n", (*(0x650)) # DSP_TO_DMA_REQUEST_STATUS2 @0x650
+# error no base address printf "V/0000065C/%08X\n", (*(0x65C)) # DSPSS_DSP_TH_STATUS2 @0x65C
+# error no base address printf "V/0000067C/%08X\n", (*(0x67C)) # DSP_CORE_BUFFER_STATUS2 @0x67C
+# error no base address printf "V/00000680/%08X\n", (*(0x680)) # DSP_TO_CORE_TRIG_ERR_STATUS2 @0x680
+# error no base address printf "V/00000684/%08X\n", (*(0x684)) # DS_GATE_STATUS_REGISTER2 @0x684
+# error no base address printf "V/00000688/%08X\n", (*(0x688)) # DS_GATE_TRIGMUX_REGISTER2 @0x688
+# error no base address printf "V/0000068C/%08X\n", (*(0x68C)) # HW_CTRL_DMA_REQ_STOP2 @0x68C
+# error no base address printf "V/00000690/%08X\n", (*(0x690)) # DMA_ERROR_CTRL2 @0x690
+# error no base address printf "V/00000694/%08X\n", (*(0x694)) # HW_CTRL_DMA_REQ_RESPONSE2 @0x694
+# error no base address printf "V/0000090C/%08X\n", (*(0x90C)) # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH3 @0x90C
+# error no base address printf "V/00000914/%08X\n", (*(0x914)) # DSP_SDADC_CURR_READ_PTR3 @0x914
+# error no base address printf "V/0000091C/%08X\n", (*(0x91C)) # DSP_CORE_BUF_ADDR3 @0x91C
+# error no base address printf "V/00000928/%08X\n", (*(0x928)) # DSP_CORE_CURR_RD_PTR3 @0x928
+# error no base address printf "V/0000092C/%08X\n", (*(0x92C)) # DSP_CORE_CURR_WR_PTR3 @0x92C
+# error no base address printf "V/00000930/%08X\n", (*(0x930)) # DMA_READ_ADDR3 @0x930
+# error no base address printf "V/00000938/%08X\n", (*(0x938)) # DMA_ERROR_STATUS3 @0x938
+# error no base address printf "V/00000940/%08X\n", (*(0x940)) # DMA_WRITE_ADDR3 @0x940
+# error no base address printf "V/00000944/%08X\n", (*(0x944)) # DMA_CURR_WR_PTR3 @0x944
+# error no base address printf "V/00000948/%08X\n", (*(0x948)) # DMA_CURR_RD_PTR3 @0x948
+# error no base address printf "V/00000950/%08X\n", (*(0x950)) # DSP_TO_DMA_REQUEST_STATUS3 @0x950
+# error no base address printf "V/0000095C/%08X\n", (*(0x95C)) # DSPSS_DSP_TH_STATUS3 @0x95C
+# error no base address printf "V/0000097C/%08X\n", (*(0x97C)) # DSP_CORE_BUFFER_STATUS3 @0x97C
+# error no base address printf "V/00000980/%08X\n", (*(0x980)) # DSP_TO_CORE_TRIG_ERR_STATUS3 @0x980
+# error no base address printf "V/00000984/%08X\n", (*(0x984)) # DS_GATE_STATUS_REGISTER3 @0x984
+# error no base address printf "V/00000988/%08X\n", (*(0x988)) # DS_GATE_TRIGMUX_REGISTER3 @0x988
+# error no base address printf "V/0000098C/%08X\n", (*(0x98C)) # HW_CTRL_DMA_REQ_STOP3 @0x98C
+# error no base address printf "V/00000990/%08X\n", (*(0x990)) # DMA_ERROR_CTRL3 @0x990
+# error no base address printf "V/00000994/%08X\n", (*(0x994)) # HW_CTRL_DMA_REQ_RESPONSE3 @0x994
+# error no base address printf "V/00000C14/%08X\n", (*(0xC14)) # DSPSS_DSP_IO_INTF0 @0xC14
+# error no base address printf "V/00000C24/%08X\n", (*(0xC24)) # DSPSS_DSP_CORE_TRIGGER_SAFETY @0xC24
+# error no base address printf "V/00000C30/%08X\n", (*(0xC30)) # DMA_READ_ADDR4 @0xC30
+# error no base address printf "V/00000C38/%08X\n", (*(0xC38)) # DMA_ERROR_STATUS4 @0xC38
+# error no base address printf "V/00000C40/%08X\n", (*(0xC40)) # DMA_WRITE_ADDR4 @0xC40
+# error no base address printf "V/00000C44/%08X\n", (*(0xC44)) # DMA_CURR_WR_PTR4 @0xC44
+# error no base address printf "V/00000C48/%08X\n", (*(0xC48)) # DMA_CURR_RD_PTR4 @0xC48
+# error no base address printf "V/00000C50/%08X\n", (*(0xC50)) # DSP_TO_DMA_REQUEST_STATUS4 @0xC50
+# error no base address printf "V/00000C8C/%08X\n", (*(0xC8C)) # HW_CTRL_DMA_REQ_STOP4 @0xC8C
+# error no base address printf "V/00000C90/%08X\n", (*(0xC90)) # DMA_ERROR_CTRL4 @0xC90
+# error no base address printf "V/00000C94/%08X\n", (*(0xC94)) # HW_CTRL_DMA_REQ_RESPONSE4 @0xC94
+# error no base address printf "V/00000F30/%08X\n", (*(0xF30)) # DMA_READ_ADDR5 @0xF30
+# error no base address printf "V/00000F38/%08X\n", (*(0xF38)) # DMA_ERROR_STATUS5 @0xF38
+# error no base address printf "V/00000F40/%08X\n", (*(0xF40)) # DMA_WRITE_ADDR5 @0xF40
+# error no base address printf "V/00000F44/%08X\n", (*(0xF44)) # DMA_CURR_WR_PTR5 @0xF44
+# error no base address printf "V/00000F48/%08X\n", (*(0xF48)) # DMA_CURR_RD_PTR5 @0xF48
+# error no base address printf "V/00000F50/%08X\n", (*(0xF50)) # DSP_TO_DMA_REQUEST_STATUS5 @0xF50
+# error no base address printf "V/00000F8C/%08X\n", (*(0xF8C)) # HW_CTRL_DMA_REQ_STOP5 @0xF8C
+# error no base address printf "V/00000F90/%08X\n", (*(0xF90)) # DMA_ERROR_CTRL5 @0xF90
+# error no base address printf "V/00000F94/%08X\n", (*(0xF94)) # HW_CTRL_DMA_REQ_RESPONSE5 @0xF94
+# error no base address printf "V/00001200/%08X\n", (*(0x1200)) # DSPSS_DSP_THREAD_INFO[0] @0x1200 + 0 * 0x4
+# error no base address printf "V/00001204/%08X\n", (*(0x1204)) # DSPSS_DSP_THREAD_INFO[1] @0x1200 + 1 * 0x4
+# error no base address printf "V/00001208/%08X\n", (*(0x1208)) # DSPSS_DSP_THREAD_INFO[2] @0x1200 + 2 * 0x4
+# error no base address printf "V/0000120C/%08X\n", (*(0x120C)) # DSPSS_DSP_THREAD_INFO[3] @0x1200 + 3 * 0x4
 
 # EDMA1_XBIC @0x40674000
 printf "V/40674000/%08X\n", (*(0x40674000)) # MCR @0
@@ -7912,100 +7912,100 @@ printf "V/40260A5C/%08X\n", (*(0x40260A5C) >> 0) & 0xFFFF # IRSPRC[238] @0x880 +
 printf "V/40260A5E/%08X\n", (*(0x40260A5C) >> 16) & 0xFFFF # IRSPRC[239] @0x880 + 239 * 0x2
 
 # MU_0__MUB @0x1000
-printf "V/1000/%08X\n", (*(0x1000)) # VER @0
-printf "V/1004/%08X\n", (*(0x1004)) # PAR @0x4
-printf "V/1008/%08X\n", (*(0x1008)) # CR @0x8
-printf "V/100C/%08X\n", (*(0x100C)) # SR @0xC
-printf "V/1010/%08X\n", (*(0x1010)) # CCR0 @0x10
-printf "V/1018/%08X\n", (*(0x1018)) # CSSR0 @0x18
-printf "V/1100/%08X\n", (*(0x1100)) # FCR @0x100
-printf "V/1104/%08X\n", (*(0x1104)) # FSR @0x104
-printf "V/1110/%08X\n", (*(0x1110)) # GIER @0x110
-printf "V/1114/%08X\n", (*(0x1114)) # GCR @0x114
-printf "V/1118/%08X\n", (*(0x1118)) # GSR @0x118
-printf "V/1120/%08X\n", (*(0x1120)) # TCR @0x120
-printf "V/1124/%08X\n", (*(0x1124)) # TSR @0x124
-printf "V/1128/%08X\n", (*(0x1128)) # RCR @0x128
-printf "V/112C/%08X\n", (*(0x112C)) # RSR @0x12C
-printf "V/1200/%08X\n", (*(0x1200)) # TR[0] @0x200 + 0 * 0x4
-printf "V/1204/%08X\n", (*(0x1204)) # TR[1] @0x200 + 1 * 0x4
-printf "V/1208/%08X\n", (*(0x1208)) # TR[2] @0x200 + 2 * 0x4
-printf "V/120C/%08X\n", (*(0x120C)) # TR[3] @0x200 + 3 * 0x4
-printf "V/1280/%08X\n", (*(0x1280)) # RR[0] @0x280 + 0 * 0x4
-printf "V/1284/%08X\n", (*(0x1284)) # RR[1] @0x280 + 1 * 0x4
-printf "V/1288/%08X\n", (*(0x1288)) # RR[2] @0x280 + 2 * 0x4
-printf "V/128C/%08X\n", (*(0x128C)) # RR[3] @0x280 + 3 * 0x4
+printf "V/00001000/%08X\n", (*(0x1000)) # VER @0
+printf "V/00001004/%08X\n", (*(0x1004)) # PAR @0x4
+printf "V/00001008/%08X\n", (*(0x1008)) # CR @0x8
+printf "V/0000100C/%08X\n", (*(0x100C)) # SR @0xC
+printf "V/00001010/%08X\n", (*(0x1010)) # CCR0 @0x10
+printf "V/00001018/%08X\n", (*(0x1018)) # CSSR0 @0x18
+printf "V/00001100/%08X\n", (*(0x1100)) # FCR @0x100
+printf "V/00001104/%08X\n", (*(0x1104)) # FSR @0x104
+printf "V/00001110/%08X\n", (*(0x1110)) # GIER @0x110
+printf "V/00001114/%08X\n", (*(0x1114)) # GCR @0x114
+printf "V/00001118/%08X\n", (*(0x1118)) # GSR @0x118
+printf "V/00001120/%08X\n", (*(0x1120)) # TCR @0x120
+printf "V/00001124/%08X\n", (*(0x1124)) # TSR @0x124
+printf "V/00001128/%08X\n", (*(0x1128)) # RCR @0x128
+printf "V/0000112C/%08X\n", (*(0x112C)) # RSR @0x12C
+printf "V/00001200/%08X\n", (*(0x1200)) # TR[0] @0x200 + 0 * 0x4
+printf "V/00001204/%08X\n", (*(0x1204)) # TR[1] @0x200 + 1 * 0x4
+printf "V/00001208/%08X\n", (*(0x1208)) # TR[2] @0x200 + 2 * 0x4
+printf "V/0000120C/%08X\n", (*(0x120C)) # TR[3] @0x200 + 3 * 0x4
+printf "V/00001280/%08X\n", (*(0x1280)) # RR[0] @0x280 + 0 * 0x4
+printf "V/00001284/%08X\n", (*(0x1284)) # RR[1] @0x280 + 1 * 0x4
+printf "V/00001288/%08X\n", (*(0x1288)) # RR[2] @0x280 + 2 * 0x4
+printf "V/0000128C/%08X\n", (*(0x128C)) # RR[3] @0x280 + 3 * 0x4
 
 # MU_1__MUB @0x1000
-printf "V/1000/%08X\n", (*(0x1000)) # VER @0
-printf "V/1004/%08X\n", (*(0x1004)) # PAR @0x4
-printf "V/1008/%08X\n", (*(0x1008)) # CR @0x8
-printf "V/100C/%08X\n", (*(0x100C)) # SR @0xC
-printf "V/1010/%08X\n", (*(0x1010)) # CCR0 @0x10
-printf "V/1018/%08X\n", (*(0x1018)) # CSSR0 @0x18
-printf "V/1100/%08X\n", (*(0x1100)) # FCR @0x100
-printf "V/1104/%08X\n", (*(0x1104)) # FSR @0x104
-printf "V/1110/%08X\n", (*(0x1110)) # GIER @0x110
-printf "V/1114/%08X\n", (*(0x1114)) # GCR @0x114
-printf "V/1118/%08X\n", (*(0x1118)) # GSR @0x118
-printf "V/1120/%08X\n", (*(0x1120)) # TCR @0x120
-printf "V/1124/%08X\n", (*(0x1124)) # TSR @0x124
-printf "V/1128/%08X\n", (*(0x1128)) # RCR @0x128
-printf "V/112C/%08X\n", (*(0x112C)) # RSR @0x12C
-printf "V/1200/%08X\n", (*(0x1200)) # TR[0] @0x200 + 0 * 0x4
-printf "V/1204/%08X\n", (*(0x1204)) # TR[1] @0x200 + 1 * 0x4
-printf "V/1208/%08X\n", (*(0x1208)) # TR[2] @0x200 + 2 * 0x4
-printf "V/120C/%08X\n", (*(0x120C)) # TR[3] @0x200 + 3 * 0x4
-printf "V/1280/%08X\n", (*(0x1280)) # RR[0] @0x280 + 0 * 0x4
-printf "V/1284/%08X\n", (*(0x1284)) # RR[1] @0x280 + 1 * 0x4
-printf "V/1288/%08X\n", (*(0x1288)) # RR[2] @0x280 + 2 * 0x4
-printf "V/128C/%08X\n", (*(0x128C)) # RR[3] @0x280 + 3 * 0x4
+printf "V/00001000/%08X\n", (*(0x1000)) # VER @0
+printf "V/00001004/%08X\n", (*(0x1004)) # PAR @0x4
+printf "V/00001008/%08X\n", (*(0x1008)) # CR @0x8
+printf "V/0000100C/%08X\n", (*(0x100C)) # SR @0xC
+printf "V/00001010/%08X\n", (*(0x1010)) # CCR0 @0x10
+printf "V/00001018/%08X\n", (*(0x1018)) # CSSR0 @0x18
+printf "V/00001100/%08X\n", (*(0x1100)) # FCR @0x100
+printf "V/00001104/%08X\n", (*(0x1104)) # FSR @0x104
+printf "V/00001110/%08X\n", (*(0x1110)) # GIER @0x110
+printf "V/00001114/%08X\n", (*(0x1114)) # GCR @0x114
+printf "V/00001118/%08X\n", (*(0x1118)) # GSR @0x118
+printf "V/00001120/%08X\n", (*(0x1120)) # TCR @0x120
+printf "V/00001124/%08X\n", (*(0x1124)) # TSR @0x124
+printf "V/00001128/%08X\n", (*(0x1128)) # RCR @0x128
+printf "V/0000112C/%08X\n", (*(0x112C)) # RSR @0x12C
+printf "V/00001200/%08X\n", (*(0x1200)) # TR[0] @0x200 + 0 * 0x4
+printf "V/00001204/%08X\n", (*(0x1204)) # TR[1] @0x200 + 1 * 0x4
+printf "V/00001208/%08X\n", (*(0x1208)) # TR[2] @0x200 + 2 * 0x4
+printf "V/0000120C/%08X\n", (*(0x120C)) # TR[3] @0x200 + 3 * 0x4
+printf "V/00001280/%08X\n", (*(0x1280)) # RR[0] @0x280 + 0 * 0x4
+printf "V/00001284/%08X\n", (*(0x1284)) # RR[1] @0x280 + 1 * 0x4
+printf "V/00001288/%08X\n", (*(0x1288)) # RR[2] @0x280 + 2 * 0x4
+printf "V/0000128C/%08X\n", (*(0x128C)) # RR[3] @0x280 + 3 * 0x4
 
 # MU_2__MUA @0
-printf "V/0/%08X\n", (*(0x0)) # VER @0
-printf "V/4/%08X\n", (*(0x4)) # PAR @0x4
-printf "V/8/%08X\n", (*(0x8)) # CR @0x8
-printf "V/C/%08X\n", (*(0xC)) # SR @0xC
-printf "V/100/%08X\n", (*(0x100)) # FCR @0x100
-printf "V/104/%08X\n", (*(0x104)) # FSR @0x104
-printf "V/110/%08X\n", (*(0x110)) # GIER @0x110
-printf "V/114/%08X\n", (*(0x114)) # GCR @0x114
-printf "V/118/%08X\n", (*(0x118)) # GSR @0x118
-printf "V/120/%08X\n", (*(0x120)) # TCR @0x120
-printf "V/124/%08X\n", (*(0x124)) # TSR @0x124
-printf "V/128/%08X\n", (*(0x128)) # RCR @0x128
-printf "V/12C/%08X\n", (*(0x12C)) # RSR @0x12C
-printf "V/200/%08X\n", (*(0x200)) # TR[0] @0x200 + 0 * 0x4
-printf "V/204/%08X\n", (*(0x204)) # TR[1] @0x200 + 1 * 0x4
-printf "V/208/%08X\n", (*(0x208)) # TR[2] @0x200 + 2 * 0x4
-printf "V/20C/%08X\n", (*(0x20C)) # TR[3] @0x200 + 3 * 0x4
-printf "V/280/%08X\n", (*(0x280)) # RR[0] @0x280 + 0 * 0x4
-printf "V/284/%08X\n", (*(0x284)) # RR[1] @0x280 + 1 * 0x4
-printf "V/288/%08X\n", (*(0x288)) # RR[2] @0x280 + 2 * 0x4
-printf "V/28C/%08X\n", (*(0x28C)) # RR[3] @0x280 + 3 * 0x4
+# error no base address printf "V/00000000/%08X\n", (*(0x0)) # VER @0
+# error no base address printf "V/00000004/%08X\n", (*(0x4)) # PAR @0x4
+# error no base address printf "V/00000008/%08X\n", (*(0x8)) # CR @0x8
+# error no base address printf "V/0000000C/%08X\n", (*(0xC)) # SR @0xC
+# error no base address printf "V/00000100/%08X\n", (*(0x100)) # FCR @0x100
+# error no base address printf "V/00000104/%08X\n", (*(0x104)) # FSR @0x104
+# error no base address printf "V/00000110/%08X\n", (*(0x110)) # GIER @0x110
+# error no base address printf "V/00000114/%08X\n", (*(0x114)) # GCR @0x114
+# error no base address printf "V/00000118/%08X\n", (*(0x118)) # GSR @0x118
+# error no base address printf "V/00000120/%08X\n", (*(0x120)) # TCR @0x120
+# error no base address printf "V/00000124/%08X\n", (*(0x124)) # TSR @0x124
+# error no base address printf "V/00000128/%08X\n", (*(0x128)) # RCR @0x128
+# error no base address printf "V/0000012C/%08X\n", (*(0x12C)) # RSR @0x12C
+# error no base address printf "V/00000200/%08X\n", (*(0x200)) # TR[0] @0x200 + 0 * 0x4
+# error no base address printf "V/00000204/%08X\n", (*(0x204)) # TR[1] @0x200 + 1 * 0x4
+# error no base address printf "V/00000208/%08X\n", (*(0x208)) # TR[2] @0x200 + 2 * 0x4
+# error no base address printf "V/0000020C/%08X\n", (*(0x20C)) # TR[3] @0x200 + 3 * 0x4
+# error no base address printf "V/00000280/%08X\n", (*(0x280)) # RR[0] @0x280 + 0 * 0x4
+# error no base address printf "V/00000284/%08X\n", (*(0x284)) # RR[1] @0x280 + 1 * 0x4
+# error no base address printf "V/00000288/%08X\n", (*(0x288)) # RR[2] @0x280 + 2 * 0x4
+# error no base address printf "V/0000028C/%08X\n", (*(0x28C)) # RR[3] @0x280 + 3 * 0x4
 
 # MU_2__MUB @0x1000
-printf "V/1000/%08X\n", (*(0x1000)) # VER @0
-printf "V/1004/%08X\n", (*(0x1004)) # PAR @0x4
-printf "V/1008/%08X\n", (*(0x1008)) # CR @0x8
-printf "V/100C/%08X\n", (*(0x100C)) # SR @0xC
-printf "V/1100/%08X\n", (*(0x1100)) # FCR @0x100
-printf "V/1104/%08X\n", (*(0x1104)) # FSR @0x104
-printf "V/1110/%08X\n", (*(0x1110)) # GIER @0x110
-printf "V/1114/%08X\n", (*(0x1114)) # GCR @0x114
-printf "V/1118/%08X\n", (*(0x1118)) # GSR @0x118
-printf "V/1120/%08X\n", (*(0x1120)) # TCR @0x120
-printf "V/1124/%08X\n", (*(0x1124)) # TSR @0x124
-printf "V/1128/%08X\n", (*(0x1128)) # RCR @0x128
-printf "V/112C/%08X\n", (*(0x112C)) # RSR @0x12C
-printf "V/1200/%08X\n", (*(0x1200)) # TR[0] @0x200 + 0 * 0x4
-printf "V/1204/%08X\n", (*(0x1204)) # TR[1] @0x200 + 1 * 0x4
-printf "V/1208/%08X\n", (*(0x1208)) # TR[2] @0x200 + 2 * 0x4
-printf "V/120C/%08X\n", (*(0x120C)) # TR[3] @0x200 + 3 * 0x4
-printf "V/1280/%08X\n", (*(0x1280)) # RR[0] @0x280 + 0 * 0x4
-printf "V/1284/%08X\n", (*(0x1284)) # RR[1] @0x280 + 1 * 0x4
-printf "V/1288/%08X\n", (*(0x1288)) # RR[2] @0x280 + 2 * 0x4
-printf "V/128C/%08X\n", (*(0x128C)) # RR[3] @0x280 + 3 * 0x4
+printf "V/00001000/%08X\n", (*(0x1000)) # VER @0
+printf "V/00001004/%08X\n", (*(0x1004)) # PAR @0x4
+printf "V/00001008/%08X\n", (*(0x1008)) # CR @0x8
+printf "V/0000100C/%08X\n", (*(0x100C)) # SR @0xC
+printf "V/00001100/%08X\n", (*(0x1100)) # FCR @0x100
+printf "V/00001104/%08X\n", (*(0x1104)) # FSR @0x104
+printf "V/00001110/%08X\n", (*(0x1110)) # GIER @0x110
+printf "V/00001114/%08X\n", (*(0x1114)) # GCR @0x114
+printf "V/00001118/%08X\n", (*(0x1118)) # GSR @0x118
+printf "V/00001120/%08X\n", (*(0x1120)) # TCR @0x120
+printf "V/00001124/%08X\n", (*(0x1124)) # TSR @0x124
+printf "V/00001128/%08X\n", (*(0x1128)) # RCR @0x128
+printf "V/0000112C/%08X\n", (*(0x112C)) # RSR @0x12C
+printf "V/00001200/%08X\n", (*(0x1200)) # TR[0] @0x200 + 0 * 0x4
+printf "V/00001204/%08X\n", (*(0x1204)) # TR[1] @0x200 + 1 * 0x4
+printf "V/00001208/%08X\n", (*(0x1208)) # TR[2] @0x200 + 2 * 0x4
+printf "V/0000120C/%08X\n", (*(0x120C)) # TR[3] @0x200 + 3 * 0x4
+printf "V/00001280/%08X\n", (*(0x1280)) # RR[0] @0x280 + 0 * 0x4
+printf "V/00001284/%08X\n", (*(0x1284)) # RR[1] @0x280 + 1 * 0x4
+printf "V/00001288/%08X\n", (*(0x1288)) # RR[2] @0x280 + 2 * 0x4
+printf "V/0000128C/%08X\n", (*(0x128C)) # RR[3] @0x280 + 3 * 0x4
 
 # OMU_CM7_0 @0x40518000
 printf "V/4051C000/%08X\n", (*(0x4051C000)) # OER @0x4000

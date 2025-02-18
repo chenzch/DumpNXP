@@ -60,7 +60,7 @@
                         <node>
                             <baseAddr>
                                 <xsl:value-of
-                                    select="fn:DecToHex($baseAddr + fn:HexToDec($currentItem/addressOffset) +  (. - 1) * fn:HexToDec($currentItem/dimIncrement))" />
+                                    select="fn:FormatHex(fn:DecToHex($baseAddr + fn:HexToDec($currentItem/addressOffset) +  (. - 1) * fn:HexToDec($currentItem/dimIncrement)))" />
                             </baseAddr>
                             <name>
                                 <xsl:value-of
@@ -77,7 +77,7 @@
                     <node>
                         <baseAddr>
                             <xsl:value-of
-                                select="fn:DecToHex($baseAddr + fn:HexToDec($currentItem/addressOffset))" />
+                                select="fn:FormatHex(fn:DecToHex($baseAddr + fn:HexToDec($currentItem/addressOffset)))" />
                         </baseAddr>
                         <name>
                             <xsl:value-of select="$currentItem/name" />
@@ -91,6 +91,7 @@
         </xsl:variable>
         <xsl:for-each select="$nodes/node">
             <xsl:call-template name="register-template">
+                <xsl:with-param name="base" select="$baseAddr" />
                 <xsl:with-param name="baseAddr" select="baseAddr" />
                 <xsl:with-param name="name" select="name" />
                 <xsl:with-param name="offset" select="offset" />
@@ -100,10 +101,14 @@
     </xsl:template>
 
     <xsl:template name="register-template">
+        <xsl:param name="base" />
         <xsl:param name="baseAddr" />
         <xsl:param name="name" />
         <xsl:param name="size" />
         <xsl:param name="offset" />
+        <xsl:if test="$base = 0">
+            <xsl:text># error no base address </xsl:text>
+        </xsl:if>
         <xsl:choose>
             <xsl:when test="($size = 8 or $size = 16 or $size = 32)">
                 <xsl:text>printf "V/</xsl:text>
@@ -130,7 +135,7 @@
                 <xsl:text> # </xsl:text>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:text>#error </xsl:text>
+                <xsl:text># error unknown size </xsl:text>
             </xsl:otherwise>
         </xsl:choose>
         <xsl:value-of select="$name" />
@@ -138,6 +143,12 @@
         <xsl:value-of select="$offset" />
         <xsl:text>&#10;</xsl:text>
     </xsl:template>
+
+    <xsl:function name="fn:FormatHex">
+        <xsl:param name="Hex" />
+        <xsl:variable name="MaxHex" select="concat('00000000', substring($Hex, 3))" />
+        <xsl:sequence select="concat('0x', substring($MaxHex, string-length($MaxHex) - 7))" />
+    </xsl:function>
 
     <xsl:function name="fn:DecToHex">
         <xsl:param name="dec" />

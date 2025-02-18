@@ -284,32 +284,32 @@ printf "V/400A43A8/%08X\n", (*(0x400A43A8)) # OFSGNUSR @0x3A8
 printf "V/400A43B4/%08X\n", (*(0x400A43B4)) # CAL2 @0x3B4
 
 # AEC_AE @0
-printf "V/0/%08X\n", (*(0x0)) # VERID @0
-printf "V/8/%08X\n", (*(0x8) >> 0) & 0xFFFF # LOCK_CONTROL @0x8
-printf "V/C/%08X\n", (*(0xC)) # LPWU_CONTROL @0xC
-printf "V/10/%08X\n", (*(0x10) >> 0) & 0xFFFF # EVENTS_STATUS @0x10
-printf "V/14/%08X\n", (*(0x14) >> 0) & 0xFFFF # EVENTS_ENABLE @0x14
-printf "V/18/%08X\n", (*(0x18) >> 0) & 0xFFFF # FAULTS_STATUS @0x18
-printf "V/1C/%08X\n", (*(0x1C) >> 0) & 0xFFFF # FAULTS_ENABLE @0x1C
-printf "V/20/%08X\n", (*(0x20)) # NOTIFS_MONITOR @0x20
-printf "V/24/%08X\n", (*(0x24)) # IRQ_SET @0x24
-printf "V/28/%08X\n", (*(0x28)) # SAFETY_ENABLE @0x28
-printf "V/2C/%08X\n", (*(0x2C) >> 0) & 0xFFFF # SYSCLK_CHECK @0x2C
-printf "V/30/%08X\n", (*(0x30) >> 0) & 0xFFFF # ALIVE_WD_CFG @0x30
-printf "V/34/%08X\n", (*(0x34) >> 0) & 0xFFFF # ALIVE_WD_TOKEN @0x34
-printf "V/38/%08X\n", (*(0x38) >> 0) & 0xFFFF # ALIVE_WD_ANSWER @0x38
-printf "V/3C/%08X\n", (*(0x3C) >> 0) & 0xFFFF # FAULT_WD_CFG @0x3C
-printf "V/40/%08X\n", (*(0x40)) # CLKGEN_CFG @0x40
-printf "V/44/%08X\n", (*(0x44) >> 0) & 0xFFFF # RSTGEN_CFG @0x44
-printf "V/48/%08X\n", (*(0x48)) # IO_FUNCMUX_CFG @0x48
-printf "V/60/%08X\n", (*(0x60) >> 0) & 0xFFFF # LINPHY_CFG @0x60
-printf "V/64/%08X\n", (*(0x64)) # LINPHY_MONITOR @0x64
-printf "V/70/%08X\n", (*(0x70) >> 0) & 0xFFFF # CANPHY_CFG @0x70
-printf "V/74/%08X\n", (*(0x74) >> 0) & 0xFFFF # CANPHY_MONITOR @0x74
-printf "V/80/%08X\n", (*(0x80)) # TMON_PHY @0x80
-printf "V/84/%08X\n", (*(0x84)) # TMON_PMC @0x84
-printf "V/88/%08X\n", (*(0x88) >> 0) & 0xFFFF # TMON_MONITOR @0x88
-printf "V/8A/%08X\n", (*(0x88) >> 16) & 0xFFFF # TMON_CHECK @0x8A
+# error no base address printf "V/00000000/%08X\n", (*(0x0)) # VERID @0
+# error no base address printf "V/00000008/%08X\n", (*(0x8) >> 0) & 0xFFFF # LOCK_CONTROL @0x8
+# error no base address printf "V/0000000C/%08X\n", (*(0xC)) # LPWU_CONTROL @0xC
+# error no base address printf "V/00000010/%08X\n", (*(0x10) >> 0) & 0xFFFF # EVENTS_STATUS @0x10
+# error no base address printf "V/00000014/%08X\n", (*(0x14) >> 0) & 0xFFFF # EVENTS_ENABLE @0x14
+# error no base address printf "V/00000018/%08X\n", (*(0x18) >> 0) & 0xFFFF # FAULTS_STATUS @0x18
+# error no base address printf "V/0000001C/%08X\n", (*(0x1C) >> 0) & 0xFFFF # FAULTS_ENABLE @0x1C
+# error no base address printf "V/00000020/%08X\n", (*(0x20)) # NOTIFS_MONITOR @0x20
+# error no base address printf "V/00000024/%08X\n", (*(0x24)) # IRQ_SET @0x24
+# error no base address printf "V/00000028/%08X\n", (*(0x28)) # SAFETY_ENABLE @0x28
+# error no base address printf "V/0000002C/%08X\n", (*(0x2C) >> 0) & 0xFFFF # SYSCLK_CHECK @0x2C
+# error no base address printf "V/00000030/%08X\n", (*(0x30) >> 0) & 0xFFFF # ALIVE_WD_CFG @0x30
+# error no base address printf "V/00000034/%08X\n", (*(0x34) >> 0) & 0xFFFF # ALIVE_WD_TOKEN @0x34
+# error no base address printf "V/00000038/%08X\n", (*(0x38) >> 0) & 0xFFFF # ALIVE_WD_ANSWER @0x38
+# error no base address printf "V/0000003C/%08X\n", (*(0x3C) >> 0) & 0xFFFF # FAULT_WD_CFG @0x3C
+# error no base address printf "V/00000040/%08X\n", (*(0x40)) # CLKGEN_CFG @0x40
+# error no base address printf "V/00000044/%08X\n", (*(0x44) >> 0) & 0xFFFF # RSTGEN_CFG @0x44
+# error no base address printf "V/00000048/%08X\n", (*(0x48)) # IO_FUNCMUX_CFG @0x48
+# error no base address printf "V/00000060/%08X\n", (*(0x60) >> 0) & 0xFFFF # LINPHY_CFG @0x60
+# error no base address printf "V/00000064/%08X\n", (*(0x64)) # LINPHY_MONITOR @0x64
+# error no base address printf "V/00000070/%08X\n", (*(0x70) >> 0) & 0xFFFF # CANPHY_CFG @0x70
+# error no base address printf "V/00000074/%08X\n", (*(0x74) >> 0) & 0xFFFF # CANPHY_MONITOR @0x74
+# error no base address printf "V/00000080/%08X\n", (*(0x80)) # TMON_PHY @0x80
+# error no base address printf "V/00000084/%08X\n", (*(0x84)) # TMON_PMC @0x84
+# error no base address printf "V/00000088/%08X\n", (*(0x88) >> 0) & 0xFFFF # TMON_MONITOR @0x88
+# error no base address printf "V/0000008A/%08X\n", (*(0x88) >> 16) & 0xFFFF # TMON_CHECK @0x8A
 
 # BCTU @0x40084000
 printf "V/40084000/%08X\n", (*(0x40084000)) # MCR @0
@@ -1156,13 +1156,13 @@ printf "V/40284006/%08X\n", (*(0x40284004) >> 16) & 0xFF # CHCFG6 @0 + 6 * 0x1
 printf "V/40284007/%08X\n", (*(0x40284004) >> 24) & 0xFF # CHCFG7 @0 + 7 * 0x1
 
 # DPGA_AE @0x140
-printf "V/140/%08X\n", (*(0x140) >> 0) & 0xFF # INTF @0
-printf "V/141/%08X\n", (*(0x140) >> 8) & 0xFF # INTEN @0x1
-printf "V/142/%08X\n", (*(0x140) >> 16) & 0xFF # STAT @0x2
-printf "V/143/%08X\n", (*(0x140) >> 24) & 0xFF # CTRL @0x3
-printf "V/144/%08X\n", (*(0x144)) # AMPCFG @0x4
-printf "V/148/%08X\n", (*(0x148)) # BTCFG @0x8
-printf "V/14C/%08X\n", (*(0x14C)) # VDCFG @0xC
+printf "V/00000140/%08X\n", (*(0x140) >> 0) & 0xFF # INTF @0
+printf "V/00000141/%08X\n", (*(0x140) >> 8) & 0xFF # INTEN @0x1
+printf "V/00000142/%08X\n", (*(0x140) >> 16) & 0xFF # STAT @0x2
+printf "V/00000143/%08X\n", (*(0x140) >> 24) & 0xFF # CTRL @0x3
+printf "V/00000144/%08X\n", (*(0x144)) # AMPCFG @0x4
+printf "V/00000148/%08X\n", (*(0x148)) # BTCFG @0x8
+printf "V/0000014C/%08X\n", (*(0x14C)) # VDCFG @0xC
 
 # EDMA @0x4020C000
 printf "V/4020C000/%08X\n", (*(0x4020C000)) # CSR @0
@@ -1836,36 +1836,36 @@ printf "V/402D4000/%08X\n", (*(0x402D4000)) # CTRL @0
 printf "V/402D4004/%08X\n", (*(0x402D4004)) # STAT @0x4
 
 # GDU_AE @0x180
-printf "V/180/%08X\n", (*(0x180) >> 0) & 0xFF # INTF @0
-printf "V/182/%08X\n", (*(0x180) >> 16) & 0xFF # INTEN @0x2
-printf "V/184/%08X\n", (*(0x184) >> 0) & 0xFFFF # STAT @0x4
-printf "V/186/%08X\n", (*(0x184) >> 16) & 0xFFFF # CTL @0x6
-printf "V/188/%08X\n", (*(0x188) >> 0) & 0xFF # CFG @0x8
-printf "V/18A/%08X\n", (*(0x188) >> 16) & 0xFF # EACFG @0xA
-printf "V/18C/%08X\n", (*(0x18C) >> 0) & 0xFFFF # BOOSTCFG @0xC
-printf "V/18E/%08X\n", (*(0x18C) >> 16) & 0xFFFF # BTCFG @0xE
-printf "V/190/%08X\n", (*(0x190)) # HSSRON @0x10
-printf "V/194/%08X\n", (*(0x194)) # HSSROFF @0x14
-printf "V/198/%08X\n", (*(0x198)) # LSSRON @0x18
-printf "V/19C/%08X\n", (*(0x19C)) # LSSROFF @0x1C
-printf "V/1A0/%08X\n", (*(0x1A0) >> 0) & 0xFF # OFFSDCFG @0x20
-printf "V/1A4/%08X\n", (*(0x1A4) >> 0) & 0xFFFF # DSCFG @0x24
-printf "V/1A8/%08X\n", (*(0x1A8)) # CPCFG @0x28
-printf "V/1AC/%08X\n", (*(0x1AC) >> 0) & 0xFFFF # DLYMR @0x2C
-printf "V/1AE/%08X\n", (*(0x1AC) >> 16) & 0xFFFF # DLYMCFG @0x2E
-printf "V/1B0/%08X\n", (*(0x1B0) >> 0) & 0xFF # SUPCFG @0x30
-printf "V/1B4/%08X\n", (*(0x1B4)) # IRT @0x34
+printf "V/00000180/%08X\n", (*(0x180) >> 0) & 0xFF # INTF @0
+printf "V/00000182/%08X\n", (*(0x180) >> 16) & 0xFF # INTEN @0x2
+printf "V/00000184/%08X\n", (*(0x184) >> 0) & 0xFFFF # STAT @0x4
+printf "V/00000186/%08X\n", (*(0x184) >> 16) & 0xFFFF # CTL @0x6
+printf "V/00000188/%08X\n", (*(0x188) >> 0) & 0xFF # CFG @0x8
+printf "V/0000018A/%08X\n", (*(0x188) >> 16) & 0xFF # EACFG @0xA
+printf "V/0000018C/%08X\n", (*(0x18C) >> 0) & 0xFFFF # BOOSTCFG @0xC
+printf "V/0000018E/%08X\n", (*(0x18C) >> 16) & 0xFFFF # BTCFG @0xE
+printf "V/00000190/%08X\n", (*(0x190)) # HSSRON @0x10
+printf "V/00000194/%08X\n", (*(0x194)) # HSSROFF @0x14
+printf "V/00000198/%08X\n", (*(0x198)) # LSSRON @0x18
+printf "V/0000019C/%08X\n", (*(0x19C)) # LSSROFF @0x1C
+printf "V/000001A0/%08X\n", (*(0x1A0) >> 0) & 0xFF # OFFSDCFG @0x20
+printf "V/000001A4/%08X\n", (*(0x1A4) >> 0) & 0xFFFF # DSCFG @0x24
+printf "V/000001A8/%08X\n", (*(0x1A8)) # CPCFG @0x28
+printf "V/000001AC/%08X\n", (*(0x1AC) >> 0) & 0xFFFF # DLYMR @0x2C
+printf "V/000001AE/%08X\n", (*(0x1AC) >> 16) & 0xFFFF # DLYMCFG @0x2E
+printf "V/000001B0/%08X\n", (*(0x1B0) >> 0) & 0xFF # SUPCFG @0x30
+printf "V/000001B4/%08X\n", (*(0x1B4)) # IRT @0x34
 
 # HVI_AE @0x200
-printf "V/200/%08X\n", (*(0x200)) # INTF @0
-printf "V/204/%08X\n", (*(0x204)) # INTEN @0x4
-printf "V/208/%08X\n", (*(0x208)) # STAT @0x8
-printf "V/20C/%08X\n", (*(0x20C)) # GCTRL @0xC
-printf "V/214/%08X\n", (*(0x214) >> 0) & 0xFFFF # UCFG0 @0x14
-printf "V/216/%08X\n", (*(0x214) >> 16) & 0xFF # UCTRL0 @0x16
-printf "V/217/%08X\n", (*(0x214) >> 24) & 0xFF # VMCFG0 @0x17
-printf "V/218/%08X\n", (*(0x218) >> 0) & 0xFFFF # UCFG1 @0x18
-printf "V/21A/%08X\n", (*(0x218) >> 16) & 0xFF # UCTRL1 @0x1A
+printf "V/00000200/%08X\n", (*(0x200)) # INTF @0
+printf "V/00000204/%08X\n", (*(0x204)) # INTEN @0x4
+printf "V/00000208/%08X\n", (*(0x208)) # STAT @0x8
+printf "V/0000020C/%08X\n", (*(0x20C)) # GCTRL @0xC
+printf "V/00000214/%08X\n", (*(0x214) >> 0) & 0xFFFF # UCFG0 @0x14
+printf "V/00000216/%08X\n", (*(0x214) >> 16) & 0xFF # UCTRL0 @0x16
+printf "V/00000217/%08X\n", (*(0x214) >> 24) & 0xFF # VMCFG0 @0x17
+printf "V/00000218/%08X\n", (*(0x218) >> 0) & 0xFFFF # UCFG1 @0x18
+printf "V/0000021A/%08X\n", (*(0x218) >> 16) & 0xFF # UCTRL1 @0x1A
 
 # INTM @0x4027C000
 printf "V/4027C000/%08X\n", (*(0x4027C000)) # INTM_MM @0
@@ -4057,12 +4057,12 @@ printf "V/40250638/%08X\n", (*(0x40250638)) # MDMAPWIRREL @0x38
 printf "V/402506FC/%08X\n", (*(0x402506FC)) # ID @0xFC
 
 # MEM_OTP_AE @0x120
-printf "V/120/%08X\n", (*(0x120) >> 0) & 0xFFFF # CTRL_CMD @0
-printf "V/122/%08X\n", (*(0x120) >> 16) & 0xFFFF # STRT_STP @0x2
-printf "V/128/%08X\n", (*(0x128) >> 0) & 0xFFFF # DATAOUT @0x8
-printf "V/12A/%08X\n", (*(0x128) >> 16) & 0xFFFF # STATUS @0xA
-printf "V/13C/%08X\n", (*(0x13C) >> 0) & 0xFFFF # ERROR @0x1C
-printf "V/13E/%08X\n", (*(0x13C) >> 16) & 0xFFFF # MODE @0x1E
+printf "V/00000120/%08X\n", (*(0x120) >> 0) & 0xFFFF # CTRL_CMD @0
+printf "V/00000122/%08X\n", (*(0x120) >> 16) & 0xFFFF # STRT_STP @0x2
+printf "V/00000128/%08X\n", (*(0x128) >> 0) & 0xFFFF # DATAOUT @0x8
+printf "V/0000012A/%08X\n", (*(0x128) >> 16) & 0xFFFF # STATUS @0xA
+printf "V/0000013C/%08X\n", (*(0x13C) >> 0) & 0xFFFF # ERROR @0x1C
+printf "V/0000013E/%08X\n", (*(0x13C) >> 16) & 0xFFFF # MODE @0x1E
 
 # MSCM @0x40260000
 printf "V/40260000/%08X\n", (*(0x40260000)) # CPXTYPE @0
@@ -4437,9 +4437,9 @@ printf "V/402E8004/%08X\n", (*(0x402E8004)) # CONFIG @0x4
 printf "V/402E800C/%08X\n", (*(0x402E800C)) # VERID @0xC
 
 # PMC_AE @0x100
-printf "V/100/%08X\n", (*(0x100)) # CONFIG @0
-printf "V/104/%08X\n", (*(0x104)) # MONITOR @0x4
-printf "V/10C/%08X\n", (*(0x10C)) # MONCHECK @0xC
+printf "V/00000100/%08X\n", (*(0x100)) # CONFIG @0
+printf "V/00000104/%08X\n", (*(0x104)) # MONITOR @0x4
+printf "V/0000010C/%08X\n", (*(0x10C)) # MONCHECK @0xC
 
 # PRAMC_0 @0x40264000
 printf "V/40264000/%08X\n", (*(0x40264000)) # PRCR1 @0
