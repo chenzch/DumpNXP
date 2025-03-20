@@ -3682,7 +3682,7 @@ printf "V/4025C228/%08X\n", (*(0x4025C228))
 end
 
 # FCCU @0x40384000
-# 0x40384000 not found in map.
+if ($PRTN1_COFB3_STAT & ( 1 << 1 ))
 # CTRL @0
 printf "V/40384000/%08X\n", (*(0x40384000))
 # CTRLK @0x4
@@ -3741,6 +3741,7 @@ printf "V/4038412C/%08X\n", (*(0x4038412C))
 printf "V/40384134/%08X\n", (*(0x40384134))
 # TMR_ETMR @0x138
 printf "V/40384138/%08X\n", (*(0x40384138))
+end
 
 # FIRC @0x402D0000
 # 0x402D0000 not found in map.
@@ -3750,7 +3751,7 @@ printf "V/402D0004/%08X\n", (*(0x402D0004))
 printf "V/402D0008/%08X\n", (*(0x402D0008))
 
 # FLASH @0x402EC000
-# 0x402EC000 not found in map.
+if ($PRTN1_COFB1_STAT & ( 1 << 27 ))
 # MCR @0
 printf "V/402EC000/%08X\n", (*(0x402EC000))
 # MCRS @0x4
@@ -3879,6 +3880,7 @@ printf "V/402EC174/%08X\n", (*(0x402EC174))
 printf "V/402EC178/%08X\n", (*(0x402EC178))
 # DATA[31] @0x100 + 31 * 0x4
 printf "V/402EC17C/%08X\n", (*(0x402EC17C))
+end
 
 # FLEXIO @0x40324000
 if ($PRTN1_COFB2_STAT & ( 1 << 9 ))
@@ -4301,7 +4303,7 @@ printf "V/4027C004/%08X\n", (*(0x4027C004))
 end
 
 # JDC @0x40394000
-# 0x40394000 not found in map.
+if ($PRTN1_COFB3_STAT & ( 1 << 5 ))
 # MCR @0
 printf "V/40394000/%08X\n", (*(0x40394000))
 # MSR @0x4
@@ -4310,6 +4312,7 @@ printf "V/40394004/%08X\n", (*(0x40394004))
 printf "V/40394008/%08X\n", (*(0x40394008))
 # JIN_IPS @0xC
 printf "V/4039400C/%08X\n", (*(0x4039400C))
+end
 
 # LCU_0 @0x40098000
 if ($PRTN0_COFB1_STAT & ( 1 << 6 ))
@@ -7811,7 +7814,7 @@ printf "V/40260A5E/%08X\n", (*(0x40260A5C) >> 16) & 0xFFFF
 end
 
 # MU_0__MUB @0x4038C000
-# 0x4038C000 not found in map.
+if ($PRTN1_COFB3_STAT & ( 1 << 3 ))
 # VER @0
 printf "V/4038C000/%08X\n", (*(0x4038C000))
 # PAR @0x4
@@ -7858,9 +7861,10 @@ printf "V/4038C284/%08X\n", (*(0x4038C284))
 printf "V/4038C288/%08X\n", (*(0x4038C288))
 # RR[3] @0x280 + 3 * 0x4
 printf "V/4038C28C/%08X\n", (*(0x4038C28C))
+end
 
 # MU_1__MUB @0x40390000
-# 0x40390000 not found in map.
+if ($PRTN1_COFB3_STAT & ( 1 << 4 ))
 # VER @0
 printf "V/40390000/%08X\n", (*(0x40390000))
 # PAR @0x4
@@ -7907,9 +7911,10 @@ printf "V/40390284/%08X\n", (*(0x40390284))
 printf "V/40390288/%08X\n", (*(0x40390288))
 # RR[3] @0x280 + 3 * 0x4
 printf "V/4039028C/%08X\n", (*(0x4039028C))
+end
 
 # PFLASH @0x40268000
-# 0x40268000 not found in map.
+if ($PRTN1_COFB0_STAT & ( 1 << 26 ))
 # PFCR[0] @0 + 0 * 0x4
 printf "V/40268000/%08X\n", (*(0x40268000))
 # PFCR[1] @0 + 1 * 0x4
@@ -7954,6 +7959,7 @@ printf "V/4026839C/%08X\n", (*(0x4026839C))
 printf "V/402683A0/%08X\n", (*(0x402683A0))
 # PFCBLKU_LOCKMASTER_S @0x480
 printf "V/40268480/%08X\n", (*(0x40268480))
+end
 
 # PIT_0 @0x400B0000
 if ($PRTN0_COFB1_STAT & ( 1 << 12 ))
@@ -8011,9 +8017,10 @@ printf "V/402E8004/%08X\n", (*(0x402E8004))
 printf "V/402E800C/%08X\n", (*(0x402E800C))
 
 # PRAMC_0 @0x40264000
-# 0x40264000 not found in map.
+if ($PRTN1_COFB0_STAT & ( 1 << 25 ))
 # PRCR1 @0
 printf "V/40264000/%08X\n", (*(0x40264000))
+end
 
 # RTC @0x40288000
 if ($PRTN1_COFB1_STAT & ( 1 << 2 ))
@@ -8101,7 +8108,7 @@ printf "V/402C8004/%08X\n", (*(0x402C8004))
 printf "V/402C800C/%08X\n", (*(0x402C800C))
 
 # SIUL2 @0x40290000
-# 0x40290000 not found in map.
+if ($PRTN1_COFB1_STAT & ( 1 << 10 ))
 # MIDR1 @0x4
 printf "V/40290004/%08X\n", (*(0x40290004))
 # MIDR2 @0x8
@@ -9576,6 +9583,7 @@ printf "V/4029179C/%08X\n", (*(0x4029179C))
 printf "V/402917A0/%08X\n", (*(0x402917A0))
 # MPGPDO9 @0x17A4
 printf "V/402917A4/%08X\n", (*(0x402917A4))
+end
 
 # STCU @0x403A0000
 if ($PRTN1_COFB3_STAT & ( 1 << 8 ))
@@ -10296,7 +10304,7 @@ printf "V/402C40A4/%08X\n", (*(0x402C40A4))
 end
 
 # VIRT_WRAPPER @0x402A8000
-if ($PRTN1_COFB1_STAT & ( 1 << 10 ))
+# 0x402A8000 not found in map.
 # REG_A0 @0 + 0 * 0x4
 printf "V/402A8000/%08X\n", (*(0x402A8000))
 # REG_A1 @0 + 1 * 0x4
@@ -10429,7 +10437,6 @@ printf "V/402A80FC/%08X\n", (*(0x402A80FC))
 printf "V/402A8100/%08X\n", (*(0x402A8100))
 # REG_D1055_1040 @0x104
 printf "V/402A8104/%08X\n", (*(0x402A8104))
-end
 
 # WKPU @0x402B4000
 if ($PRTN1_COFB1_STAT & ( 1 << 13 ))
@@ -10464,7 +10471,7 @@ printf "V/402B4070/%08X\n", (*(0x402B4070))
 end
 
 # XBIC_AXBS @0x40204000
-# 0x40204000 not found in map.
+if ($PRTN1_COFB0_STAT & ( 1 << 1 ))
 # MCR @0
 printf "V/40204000/%08X\n", (*(0x40204000))
 # EIR @0x4
@@ -10473,9 +10480,10 @@ printf "V/40204004/%08X\n", (*(0x40204004))
 printf "V/40204008/%08X\n", (*(0x40204008))
 # EAR @0xC
 printf "V/4020400C/%08X\n", (*(0x4020400C))
+end
 
 # XRDC @0x40278000
-# 0x40278000 not found in map.
+if ($PRTN1_COFB0_STAT & ( 1 << 30 ))
 # CR @0
 printf "V/40278000/%08X\n", (*(0x40278000))
 # HWCFG0 @0xF0
@@ -11110,5 +11118,6 @@ printf "V/4027A2E4/%08X\n", (*(0x4027A2E4))
 printf "V/4027A2E8/%08X\n", (*(0x4027A2E8))
 # MRGD_W3_23 @0x22EC
 printf "V/4027A2EC/%08X\n", (*(0x4027A2EC))
+end
 
 set logging off

@@ -58897,10 +58897,10 @@ class Module_SWT_0(Peripheral):
             ]),
         ])
 
-class Module_TCD(Peripheral):
+class Module_TCD0_CH0(Peripheral):
     def __init__(self):
-        super().__init__("TCD", 0x40210000, 0x2C040, [
-            Register("CH0_CSR", 0x40210000, 32, "Channel Control and Status", [
+        super().__init__("TCD0_CH0", 0x40210000, 0x40, [
+            Register("CSR", 0x40210000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -58922,7 +58922,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH0_ES", 0x40210004, 32, "Channel Error Status", [
+            Register("ES", 0x40210004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -58960,13 +58960,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH0_INT", 0x40210008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x40210008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH0_SBR", 0x4021000C, 32, "Channel System Bus", [
+            Register("SBR", 0x4021000C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -58980,7 +58980,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH0_PRI", 0x40210010, 32, "Channel Priority", [
+            Register("PRI", 0x40210010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -58992,15 +58992,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD0_SADDR", 0x40210020, 32, "TCD Source Address", [
+            Register("SADDR", 0x40210020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD0_SOFF", 0x40210024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x40210024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD0_ATTR", 0x40210026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x40210026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -59019,7 +59019,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD0_NBYTES_MLOFFNO", 0x40210028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x40210028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -59031,7 +59031,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD0_NBYTES_MLOFFYES", 0x40210028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x40210028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -59045,19 +59045,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD0_SLAST_SDA", 0x4021002C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4021002C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD0_DADDR", 0x40210030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x40210030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD0_DOFF", 0x40210034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x40210034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD0_CITER_ELINKNO", 0x40210036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x40210036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59065,7 +59065,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD0_CITER_ELINKYES", 0x40210036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x40210036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59075,11 +59075,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD0_DLAST_SGA", 0x40210038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x40210038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD0_CSR", 0x4021003C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4021003C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -59091,6 +59091,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -59117,7 +59121,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD0_BITER_ELINKNO", 0x4021003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4021003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59125,7 +59129,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD0_BITER_ELINKYES", 0x4021003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4021003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59135,7 +59139,12 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 9, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("CH1_CSR", 0x40214000, 32, "Channel Control and Status", [
+        ])
+
+class Module_TCD0_CH1(Peripheral):
+    def __init__(self):
+        super().__init__("TCD0_CH1", 0x40214000, 0x40, [
+            Register("CSR", 0x40214000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -59157,7 +59166,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH1_ES", 0x40214004, 32, "Channel Error Status", [
+            Register("ES", 0x40214004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -59195,13 +59204,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH1_INT", 0x40214008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x40214008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH1_SBR", 0x4021400C, 32, "Channel System Bus", [
+            Register("SBR", 0x4021400C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -59215,7 +59224,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH1_PRI", 0x40214010, 32, "Channel Priority", [
+            Register("PRI", 0x40214010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -59227,15 +59236,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD1_SADDR", 0x40214020, 32, "TCD Source Address", [
+            Register("SADDR", 0x40214020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD1_SOFF", 0x40214024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x40214024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD1_ATTR", 0x40214026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x40214026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -59254,7 +59263,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD1_NBYTES_MLOFFNO", 0x40214028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x40214028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -59266,7 +59275,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD1_NBYTES_MLOFFYES", 0x40214028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x40214028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -59280,19 +59289,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD1_SLAST_SDA", 0x4021402C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4021402C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD1_DADDR", 0x40214030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x40214030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD1_DOFF", 0x40214034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x40214034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD1_CITER_ELINKNO", 0x40214036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x40214036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59300,7 +59309,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD1_CITER_ELINKYES", 0x40214036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x40214036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59310,11 +59319,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD1_DLAST_SGA", 0x40214038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x40214038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD1_CSR", 0x4021403C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4021403C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -59326,6 +59335,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -59352,7 +59365,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD1_BITER_ELINKNO", 0x4021403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4021403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59360,7 +59373,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD1_BITER_ELINKYES", 0x4021403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4021403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59370,7 +59383,12 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 9, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("CH2_CSR", 0x40218000, 32, "Channel Control and Status", [
+        ])
+
+class Module_TCD0_CH10(Peripheral):
+    def __init__(self):
+        super().__init__("TCD0_CH10", 0x40238000, 0x40, [
+            Register("CSR", 0x40238000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -59392,7 +59410,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH2_ES", 0x40218004, 32, "Channel Error Status", [
+            Register("ES", 0x40238004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -59430,13 +59448,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH2_INT", 0x40218008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x40238008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH2_SBR", 0x4021800C, 32, "Channel System Bus", [
+            Register("SBR", 0x4023800C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -59450,7 +59468,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH2_PRI", 0x40218010, 32, "Channel Priority", [
+            Register("PRI", 0x40238010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -59462,15 +59480,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD2_SADDR", 0x40218020, 32, "TCD Source Address", [
+            Register("SADDR", 0x40238020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD2_SOFF", 0x40218024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x40238024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD2_ATTR", 0x40218026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x40238026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -59489,7 +59507,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD2_NBYTES_MLOFFNO", 0x40218028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x40238028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -59501,7 +59519,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD2_NBYTES_MLOFFYES", 0x40218028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x40238028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -59515,19 +59533,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD2_SLAST_SDA", 0x4021802C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4023802C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD2_DADDR", 0x40218030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x40238030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD2_DOFF", 0x40218034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x40238034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD2_CITER_ELINKNO", 0x40218036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x40238036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59535,7 +59553,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD2_CITER_ELINKYES", 0x40218036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x40238036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59545,11 +59563,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD2_DLAST_SGA", 0x40218038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x40238038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD2_CSR", 0x4021803C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4023803C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -59561,6 +59579,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -59587,7 +59609,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD2_BITER_ELINKNO", 0x4021803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4023803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59595,7 +59617,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD2_BITER_ELINKYES", 0x4021803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4023803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59605,7 +59627,12 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 9, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("CH3_CSR", 0x4021C000, 32, "Channel Control and Status", [
+        ])
+
+class Module_TCD0_CH11(Peripheral):
+    def __init__(self):
+        super().__init__("TCD0_CH11", 0x4023C000, 0x40, [
+            Register("CSR", 0x4023C000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -59627,7 +59654,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH3_ES", 0x4021C004, 32, "Channel Error Status", [
+            Register("ES", 0x4023C004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -59665,13 +59692,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH3_INT", 0x4021C008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x4023C008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH3_SBR", 0x4021C00C, 32, "Channel System Bus", [
+            Register("SBR", 0x4023C00C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -59685,7 +59712,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH3_PRI", 0x4021C010, 32, "Channel Priority", [
+            Register("PRI", 0x4023C010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -59697,15 +59724,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD3_SADDR", 0x4021C020, 32, "TCD Source Address", [
+            Register("SADDR", 0x4023C020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD3_SOFF", 0x4021C024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x4023C024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD3_ATTR", 0x4021C026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x4023C026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -59724,7 +59751,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD3_NBYTES_MLOFFNO", 0x4021C028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x4023C028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -59736,7 +59763,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD3_NBYTES_MLOFFYES", 0x4021C028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x4023C028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -59750,19 +59777,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD3_SLAST_SDA", 0x4021C02C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4023C02C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD3_DADDR", 0x4021C030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x4023C030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD3_DOFF", 0x4021C034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x4023C034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD3_CITER_ELINKNO", 0x4021C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x4023C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59770,7 +59797,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD3_CITER_ELINKYES", 0x4021C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x4023C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59780,11 +59807,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD3_DLAST_SGA", 0x4021C038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x4023C038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD3_CSR", 0x4021C03C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4023C03C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -59796,6 +59823,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -59822,7 +59853,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD3_BITER_ELINKNO", 0x4021C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4023C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59830,7 +59861,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD3_BITER_ELINKYES", 0x4021C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4023C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -59840,7 +59871,12 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 9, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("CH4_CSR", 0x40220000, 32, "Channel Control and Status", [
+        ])
+
+class Module_TCD0_CH2(Peripheral):
+    def __init__(self):
+        super().__init__("TCD0_CH2", 0x40218000, 0x40, [
+            Register("CSR", 0x40218000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -59862,7 +59898,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH4_ES", 0x40220004, 32, "Channel Error Status", [
+            Register("ES", 0x40218004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -59900,13 +59936,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH4_INT", 0x40220008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x40218008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH4_SBR", 0x4022000C, 32, "Channel System Bus", [
+            Register("SBR", 0x4021800C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -59920,7 +59956,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH4_PRI", 0x40220010, 32, "Channel Priority", [
+            Register("PRI", 0x40218010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -59932,15 +59968,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD4_SADDR", 0x40220020, 32, "TCD Source Address", [
+            Register("SADDR", 0x40218020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD4_SOFF", 0x40220024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x40218024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD4_ATTR", 0x40220026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x40218026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -59959,7 +59995,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD4_NBYTES_MLOFFNO", 0x40220028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x40218028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -59971,7 +60007,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD4_NBYTES_MLOFFYES", 0x40220028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x40218028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -59985,19 +60021,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD4_SLAST_SDA", 0x4022002C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4021802C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD4_DADDR", 0x40220030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x40218030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD4_DOFF", 0x40220034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x40218034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD4_CITER_ELINKNO", 0x40220036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x40218036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60005,7 +60041,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD4_CITER_ELINKYES", 0x40220036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x40218036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60015,11 +60051,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD4_DLAST_SGA", 0x40220038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x40218038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD4_CSR", 0x4022003C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4021803C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -60031,6 +60067,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -60057,7 +60097,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD4_BITER_ELINKNO", 0x4022003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4021803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60065,7 +60105,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD4_BITER_ELINKYES", 0x4022003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4021803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60075,7 +60115,12 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 9, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("CH5_CSR", 0x40224000, 32, "Channel Control and Status", [
+        ])
+
+class Module_TCD0_CH3(Peripheral):
+    def __init__(self):
+        super().__init__("TCD0_CH3", 0x4021C000, 0x40, [
+            Register("CSR", 0x4021C000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -60097,7 +60142,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH5_ES", 0x40224004, 32, "Channel Error Status", [
+            Register("ES", 0x4021C004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -60135,13 +60180,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH5_INT", 0x40224008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x4021C008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH5_SBR", 0x4022400C, 32, "Channel System Bus", [
+            Register("SBR", 0x4021C00C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -60155,7 +60200,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH5_PRI", 0x40224010, 32, "Channel Priority", [
+            Register("PRI", 0x4021C010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -60167,15 +60212,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD5_SADDR", 0x40224020, 32, "TCD Source Address", [
+            Register("SADDR", 0x4021C020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD5_SOFF", 0x40224024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x4021C024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD5_ATTR", 0x40224026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x4021C026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -60194,7 +60239,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD5_NBYTES_MLOFFNO", 0x40224028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x4021C028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -60206,7 +60251,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD5_NBYTES_MLOFFYES", 0x40224028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x4021C028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -60220,19 +60265,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD5_SLAST_SDA", 0x4022402C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4021C02C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD5_DADDR", 0x40224030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x4021C030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD5_DOFF", 0x40224034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x4021C034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD5_CITER_ELINKNO", 0x40224036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x4021C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60240,7 +60285,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD5_CITER_ELINKYES", 0x40224036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x4021C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60250,11 +60295,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD5_DLAST_SGA", 0x40224038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x4021C038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD5_CSR", 0x4022403C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4021C03C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -60266,6 +60311,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -60292,7 +60341,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD5_BITER_ELINKNO", 0x4022403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4021C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60300,7 +60349,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD5_BITER_ELINKYES", 0x4022403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4021C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60310,7 +60359,12 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 9, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("CH6_CSR", 0x40228000, 32, "Channel Control and Status", [
+        ])
+
+class Module_TCD0_CH4(Peripheral):
+    def __init__(self):
+        super().__init__("TCD0_CH4", 0x40220000, 0x40, [
+            Register("CSR", 0x40220000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -60332,7 +60386,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH6_ES", 0x40228004, 32, "Channel Error Status", [
+            Register("ES", 0x40220004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -60370,13 +60424,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH6_INT", 0x40228008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x40220008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH6_SBR", 0x4022800C, 32, "Channel System Bus", [
+            Register("SBR", 0x4022000C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -60390,7 +60444,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH6_PRI", 0x40228010, 32, "Channel Priority", [
+            Register("PRI", 0x40220010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -60402,15 +60456,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD6_SADDR", 0x40228020, 32, "TCD Source Address", [
+            Register("SADDR", 0x40220020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD6_SOFF", 0x40228024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x40220024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD6_ATTR", 0x40228026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x40220026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -60429,7 +60483,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD6_NBYTES_MLOFFNO", 0x40228028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x40220028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -60441,7 +60495,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD6_NBYTES_MLOFFYES", 0x40228028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x40220028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -60455,19 +60509,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD6_SLAST_SDA", 0x4022802C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4022002C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD6_DADDR", 0x40228030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x40220030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD6_DOFF", 0x40228034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x40220034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD6_CITER_ELINKNO", 0x40228036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x40220036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60475,7 +60529,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD6_CITER_ELINKYES", 0x40228036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x40220036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60485,11 +60539,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD6_DLAST_SGA", 0x40228038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x40220038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD6_CSR", 0x4022803C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4022003C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -60501,6 +60555,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -60527,7 +60585,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD6_BITER_ELINKNO", 0x4022803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4022003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60535,7 +60593,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD6_BITER_ELINKYES", 0x4022803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4022003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60545,7 +60603,12 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 9, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("CH7_CSR", 0x4022C000, 32, "Channel Control and Status", [
+        ])
+
+class Module_TCD0_CH5(Peripheral):
+    def __init__(self):
+        super().__init__("TCD0_CH5", 0x40224000, 0x40, [
+            Register("CSR", 0x40224000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -60567,7 +60630,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH7_ES", 0x4022C004, 32, "Channel Error Status", [
+            Register("ES", 0x40224004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -60605,13 +60668,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH7_INT", 0x4022C008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x40224008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH7_SBR", 0x4022C00C, 32, "Channel System Bus", [
+            Register("SBR", 0x4022400C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -60625,7 +60688,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH7_PRI", 0x4022C010, 32, "Channel Priority", [
+            Register("PRI", 0x40224010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -60637,15 +60700,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD7_SADDR", 0x4022C020, 32, "TCD Source Address", [
+            Register("SADDR", 0x40224020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD7_SOFF", 0x4022C024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x40224024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD7_ATTR", 0x4022C026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x40224026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -60664,7 +60727,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD7_NBYTES_MLOFFNO", 0x4022C028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x40224028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -60676,7 +60739,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD7_NBYTES_MLOFFYES", 0x4022C028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x40224028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -60690,19 +60753,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD7_SLAST_SDA", 0x4022C02C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4022402C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD7_DADDR", 0x4022C030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x40224030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD7_DOFF", 0x4022C034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x40224034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD7_CITER_ELINKNO", 0x4022C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x40224036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60710,7 +60773,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD7_CITER_ELINKYES", 0x4022C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x40224036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60720,11 +60783,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD7_DLAST_SGA", 0x4022C038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x40224038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD7_CSR", 0x4022C03C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4022403C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -60736,6 +60799,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -60762,7 +60829,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD7_BITER_ELINKNO", 0x4022C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4022403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60770,7 +60837,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD7_BITER_ELINKYES", 0x4022C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4022403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60780,7 +60847,12 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 9, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("CH8_CSR", 0x40230000, 32, "Channel Control and Status", [
+        ])
+
+class Module_TCD0_CH6(Peripheral):
+    def __init__(self):
+        super().__init__("TCD0_CH6", 0x40228000, 0x40, [
+            Register("CSR", 0x40228000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -60802,7 +60874,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH8_ES", 0x40230004, 32, "Channel Error Status", [
+            Register("ES", 0x40228004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -60840,13 +60912,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH8_INT", 0x40230008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x40228008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH8_SBR", 0x4023000C, 32, "Channel System Bus", [
+            Register("SBR", 0x4022800C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -60860,7 +60932,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH8_PRI", 0x40230010, 32, "Channel Priority", [
+            Register("PRI", 0x40228010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -60872,15 +60944,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD8_SADDR", 0x40230020, 32, "TCD Source Address", [
+            Register("SADDR", 0x40228020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD8_SOFF", 0x40230024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x40228024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD8_ATTR", 0x40230026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x40228026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -60899,7 +60971,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD8_NBYTES_MLOFFNO", 0x40230028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x40228028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -60911,7 +60983,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD8_NBYTES_MLOFFYES", 0x40230028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x40228028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -60925,19 +60997,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD8_SLAST_SDA", 0x4023002C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4022802C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD8_DADDR", 0x40230030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x40228030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD8_DOFF", 0x40230034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x40228034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD8_CITER_ELINKNO", 0x40230036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x40228036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60945,7 +61017,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD8_CITER_ELINKYES", 0x40230036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x40228036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -60955,11 +61027,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD8_DLAST_SGA", 0x40230038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x40228038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD8_CSR", 0x4023003C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4022803C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -60971,6 +61043,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -60997,7 +61073,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD8_BITER_ELINKNO", 0x4023003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4022803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61005,7 +61081,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD8_BITER_ELINKYES", 0x4023003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4022803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61015,7 +61091,12 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 9, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("CH9_CSR", 0x40234000, 32, "Channel Control and Status", [
+        ])
+
+class Module_TCD0_CH7(Peripheral):
+    def __init__(self):
+        super().__init__("TCD0_CH7", 0x4022C000, 0x40, [
+            Register("CSR", 0x4022C000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -61037,7 +61118,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH9_ES", 0x40234004, 32, "Channel Error Status", [
+            Register("ES", 0x4022C004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -61075,13 +61156,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH9_INT", 0x40234008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x4022C008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH9_SBR", 0x4023400C, 32, "Channel System Bus", [
+            Register("SBR", 0x4022C00C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -61095,7 +61176,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH9_PRI", 0x40234010, 32, "Channel Priority", [
+            Register("PRI", 0x4022C010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -61107,15 +61188,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD9_SADDR", 0x40234020, 32, "TCD Source Address", [
+            Register("SADDR", 0x4022C020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD9_SOFF", 0x40234024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x4022C024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD9_ATTR", 0x40234026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x4022C026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -61134,7 +61215,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD9_NBYTES_MLOFFNO", 0x40234028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x4022C028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -61146,7 +61227,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD9_NBYTES_MLOFFYES", 0x40234028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x4022C028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -61160,19 +61241,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD9_SLAST_SDA", 0x4023402C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4022C02C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD9_DADDR", 0x40234030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x4022C030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD9_DOFF", 0x40234034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x4022C034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD9_CITER_ELINKNO", 0x40234036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x4022C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61180,7 +61261,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD9_CITER_ELINKYES", 0x40234036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x4022C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61190,11 +61271,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD9_DLAST_SGA", 0x40234038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x4022C038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD9_CSR", 0x4023403C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4022C03C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -61206,6 +61287,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -61232,7 +61317,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD9_BITER_ELINKNO", 0x4023403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4022C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61240,7 +61325,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD9_BITER_ELINKYES", 0x4023403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4022C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61250,7 +61335,12 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 9, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("CH10_CSR", 0x40238000, 32, "Channel Control and Status", [
+        ])
+
+class Module_TCD0_CH8(Peripheral):
+    def __init__(self):
+        super().__init__("TCD0_CH8", 0x40230000, 0x40, [
+            Register("CSR", 0x40230000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -61272,7 +61362,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH10_ES", 0x40238004, 32, "Channel Error Status", [
+            Register("ES", 0x40230004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -61310,13 +61400,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH10_INT", 0x40238008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x40230008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH10_SBR", 0x4023800C, 32, "Channel System Bus", [
+            Register("SBR", 0x4023000C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -61330,7 +61420,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH10_PRI", 0x40238010, 32, "Channel Priority", [
+            Register("PRI", 0x40230010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -61342,15 +61432,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD10_SADDR", 0x40238020, 32, "TCD Source Address", [
+            Register("SADDR", 0x40230020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD10_SOFF", 0x40238024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x40230024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD10_ATTR", 0x40238026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x40230026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -61369,7 +61459,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD10_NBYTES_MLOFFNO", 0x40238028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x40230028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -61381,7 +61471,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD10_NBYTES_MLOFFYES", 0x40238028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x40230028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -61395,19 +61485,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD10_SLAST_SDA", 0x4023802C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4023002C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD10_DADDR", 0x40238030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x40230030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD10_DOFF", 0x40238034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x40230034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD10_CITER_ELINKNO", 0x40238036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x40230036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61415,7 +61505,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD10_CITER_ELINKYES", 0x40238036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x40230036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61425,11 +61515,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD10_DLAST_SGA", 0x40238038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x40230038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD10_CSR", 0x4023803C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4023003C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -61441,6 +61531,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -61467,7 +61561,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD10_BITER_ELINKNO", 0x4023803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4023003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61475,7 +61569,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD10_BITER_ELINKYES", 0x4023803E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4023003E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61485,7 +61579,12 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 9, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("CH11_CSR", 0x4023C000, 32, "Channel Control and Status", [
+        ])
+
+class Module_TCD0_CH9(Peripheral):
+    def __init__(self):
+        super().__init__("TCD0_CH9", 0x40234000, 0x40, [
+            Register("CSR", 0x40234000, 32, "Channel Control and Status", [
                 Field("ACTIVE", 31, 1, "Channel Active", [
                 ]),
                 Field("DONE", 30, 1, "Channel Done", [
@@ -61507,7 +61606,7 @@ class Module_TCD(Peripheral):
                     EnumVal("ERQ_1", "0x1", "DMA hardware request signal for corresponding channel enabled"),
                 ]),
             ]),
-            Register("CH11_ES", 0x4023C004, 32, "Channel Error Status", [
+            Register("ES", 0x40234004, 32, "Channel Error Status", [
                 Field("ERR", 31, 1, "Error In Channel", [
                     EnumVal("ERR_0", "0", "An error in this channel has not occurred"),
                     EnumVal("ERR_1", "0x1", "An error in this channel has occurred"),
@@ -61545,13 +61644,13 @@ class Module_TCD(Peripheral):
                     EnumVal("DBE_1", "0x1", "Last recorded error was bus error on destination write"),
                 ]),
             ]),
-            Register("CH11_INT", 0x4023C008, 32, "Channel Interrupt Status", [
+            Register("INT", 0x40234008, 32, "Channel Interrupt Status", [
                 Field("INT", 0, 1, "Interrupt Request", [
                     EnumVal("INT_0", "0", "Interrupt request for corresponding channel cleared"),
                     EnumVal("INT_1", "0x1", "Interrupt request for corresponding channel active"),
                 ]),
             ]),
-            Register("CH11_SBR", 0x4023C00C, 32, "Channel System Bus", [
+            Register("SBR", 0x4023400C, 32, "Channel System Bus", [
                 Field("ATTR", 17, 3, "Attribute Output", [
                 ]),
                 Field("EMI", 16, 1, "Enable Master ID Replication", [
@@ -61565,7 +61664,7 @@ class Module_TCD(Peripheral):
                 Field("MID", 0, 4, "Master ID", [
                 ]),
             ]),
-            Register("CH11_PRI", 0x4023C010, 32, "Channel Priority", [
+            Register("PRI", 0x40234010, 32, "Channel Priority", [
                 Field("ECP", 31, 1, "Enable Channel Preemption", [
                     EnumVal("ECP_0", "0", "Channel cannot be suspended by a higher-priority channel's service request"),
                     EnumVal("ECP_1", "0x1", "Channel can be temporarily suspended by a higher-priority channel's service request"),
@@ -61577,15 +61676,15 @@ class Module_TCD(Peripheral):
                 Field("APL", 0, 3, "Arbitration Priority Level", [
                 ]),
             ]),
-            Register("TCD11_SADDR", 0x4023C020, 32, "TCD Source Address", [
+            Register("SADDR", 0x40234020, 32, "TCD Source Address", [
                 Field("SADDR", 0, 32, "Source Address", [
                 ]),
             ]),
-            Register("TCD11_SOFF", 0x4023C024, 16, "TCD Signed Source Address Offset", [
+            Register("SOFF", 0x40234024, 16, "TCD Signed Source Address Offset", [
                 Field("SOFF", 0, 16, "Source Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD11_ATTR", 0x4023C026, 16, "TCD Transfer Attributes", [
+            Register("ATTR", 0x40234026, 16, "TCD Transfer Attributes", [
                 Field("SMOD", 11, 5, "Source Address Modulo", [
                     EnumVal("SMOD_0", "0", "Source address modulo feature disabled"),
                     EnumVal("SMOD_1", "0x1", "Source address modulo feature enabled for any non-zero value [1-31]"),
@@ -61604,7 +61703,7 @@ class Module_TCD(Peripheral):
                 Field("DSIZE", 0, 3, "Destination Data Transfer Size", [
                 ]),
             ]),
-            Register("TCD11_NBYTES_MLOFFNO", 0x4023C028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
+            Register("NBYTES_MLOFFNO", 0x40234028, 32, "TCD Transfer Size Without Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -61616,7 +61715,7 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 30, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD11_NBYTES_MLOFFYES", 0x4023C028, 32, "TCD Transfer Size with Minor Loop Offsets", [
+            Register("NBYTES_MLOFFYES", 0x40234028, 32, "TCD Transfer Size with Minor Loop Offsets", [
                 Field("SMLOE", 31, 1, "Source Minor Loop Offset Enable", [
                     EnumVal("SMLOE_0", "0", "Minor loop offset not applied to SADDR"),
                     EnumVal("SMLOE_1", "0x1", "Minor loop offset applied to SADDR"),
@@ -61630,19 +61729,19 @@ class Module_TCD(Peripheral):
                 Field("NBYTES", 0, 10, "Number of Bytes To Transfer Per Service Request", [
                 ]),
             ]),
-            Register("TCD11_SLAST_SDA", 0x4023C02C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
+            Register("SLAST_SDA", 0x4023402C, 32, "TCD Last Source Address Adjustment / Store DADDR Address", [
                 Field("SLAST_SDA", 0, 32, "Last Source Address Adjustment / Store DADDR Address", [
                 ]),
             ]),
-            Register("TCD11_DADDR", 0x4023C030, 32, "TCD Destination Address", [
+            Register("DADDR", 0x40234030, 32, "TCD Destination Address", [
                 Field("DADDR", 0, 32, "Destination Address", [
                 ]),
             ]),
-            Register("TCD11_DOFF", 0x4023C034, 16, "TCD Signed Destination Address Offset", [
+            Register("DOFF", 0x40234034, 16, "TCD Signed Destination Address Offset", [
                 Field("DOFF", 0, 16, "Destination Address Signed Offset", [
                 ]),
             ]),
-            Register("TCD11_CITER_ELINKNO", 0x4023C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("CITER_ELINKNO", 0x40234036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61650,7 +61749,7 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 15, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD11_CITER_ELINKYES", 0x4023C036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("CITER_ELINKYES", 0x40234036, 16, "TCD Current Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61660,11 +61759,11 @@ class Module_TCD(Peripheral):
                 Field("CITER", 0, 9, "Current Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD11_DLAST_SGA", 0x4023C038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
+            Register("DLAST_SGA", 0x40234038, 32, "TCD Last Destination Address Adjustment / Scatter Gather Address", [
                 Field("DLAST_SGA", 0, 32, "Last Destination Address Adjustment / Scatter Gather Address", [
                 ]),
             ]),
-            Register("TCD11_CSR", 0x4023C03C, 16, "TCD Control and Status", [
+            Register("CSR", 0x4023403C, 16, "TCD Control and Status", [
                 Field("BWC", 14, 2, "Bandwidth Control", [
                     EnumVal("BWC_0", "0", "No eDMA engine stalls"),
                     EnumVal("BWC_1", "0x1", "Enable eDMA master high-priority elevation (HPE) mode. No eDMA engine stalls."),
@@ -61676,6 +61775,10 @@ class Module_TCD(Peripheral):
                 Field("ESDA", 7, 1, "Enable Store Destination Address", [
                     EnumVal("ESDA_0", "0", "Ability to store destination address to system memory disabled"),
                     EnumVal("ESDA_1", "0x1", "Ability to store destination address to system memory enabled"),
+                ]),
+                Field("EEOP", 6, 1, "Enable End-Of-Packet Processing", [
+                    EnumVal("EEOP_0", "0", "End-of-packet operation disabled"),
+                    EnumVal("EEOP_1", "0x1", "End-of-packet hardware input signal enabled"),
                 ]),
                 Field("MAJORELINK", 5, 1, "Enable Link When Major Loop Complete", [
                     EnumVal("MAJORELINK_0", "0", "Channel-to-channel linking disabled"),
@@ -61702,7 +61805,7 @@ class Module_TCD(Peripheral):
                     EnumVal("START_1", "0x1", "Channel explicitly started via a software-initiated service request"),
                 ]),
             ]),
-            Register("TCD11_BITER_ELINKNO", 0x4023C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
+            Register("BITER_ELINKNO", 0x4023403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled)", [
                 Field("ELINK", 15, 1, "Enables Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -61710,7 +61813,7 @@ class Module_TCD(Peripheral):
                 Field("BITER", 0, 15, "Starting Major Iteration Count", [
                 ]),
             ]),
-            Register("TCD11_BITER_ELINKYES", 0x4023C03E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
+            Register("BITER_ELINKYES", 0x4023403E, 16, "TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled)", [
                 Field("ELINK", 15, 1, "Enable Link", [
                     EnumVal("ELINK_0", "0", "Channel-to-channel linking disabled"),
                     EnumVal("ELINK_1", "0x1", "Channel-to-channel linking enabled"),
@@ -67880,7 +67983,18 @@ class Device:
             Module_STCU(),
             Module_STM_0(),
             Module_SWT_0(),
-            Module_TCD(),
+            Module_TCD0_CH0(),
+            Module_TCD0_CH1(),
+            Module_TCD0_CH10(),
+            Module_TCD0_CH11(),
+            Module_TCD0_CH2(),
+            Module_TCD0_CH3(),
+            Module_TCD0_CH4(),
+            Module_TCD0_CH5(),
+            Module_TCD0_CH6(),
+            Module_TCD0_CH7(),
+            Module_TCD0_CH8(),
+            Module_TCD0_CH9(),
             Module_TEMPSENSE(),
             Module_TRGMUX(),
             Module_TSPC(),

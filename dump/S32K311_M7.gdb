@@ -15,7 +15,15 @@ set pagination off
 set logging file S32K311_M7.dump
 set logging on
 
+$PRTN0_COFB1_STAT = *(0x402DC114)
+$PRTN1_COFB0_STAT = *(0x402DC310)
+$PRTN1_COFB1_STAT = *(0x402DC314)
+$PRTN1_COFB2_STAT = *(0x402DC318)
+$PRTN1_COFB3_STAT = *(0x402DC31C)
+
+
 # ADC_0 @0x400A0000
+if ($PRTN0_COFB1_STAT & ( 1 << 8 ))
 # MCR @0
 printf "V/400A0000/%08X\n", (*(0x400A0000))
 # MSR @0x4
@@ -280,8 +288,10 @@ printf "V/400A03A0/%08X\n", (*(0x400A03A0))
 printf "V/400A03A8/%08X\n", (*(0x400A03A8))
 # CAL2 @0x3B4
 printf "V/400A03B4/%08X\n", (*(0x400A03B4))
+end
 
 # ADC_1 @0x400A4000
+if ($PRTN0_COFB1_STAT & ( 1 << 9 ))
 # MCR @0
 printf "V/400A4000/%08X\n", (*(0x400A4000))
 # MSR @0x4
@@ -546,8 +556,10 @@ printf "V/400A43A0/%08X\n", (*(0x400A43A0))
 printf "V/400A43A8/%08X\n", (*(0x400A43A8))
 # CAL2 @0x3B4
 printf "V/400A43B4/%08X\n", (*(0x400A43B4))
+end
 
 # BCTU @0x40084000
+if ($PRTN0_COFB1_STAT & ( 1 << 1 ))
 # MCR @0
 printf "V/40084000/%08X\n", (*(0x40084000))
 # MSR @0x8
@@ -706,8 +718,10 @@ printf "V/40084468/%08X\n", (*(0x40084468))
 printf "V/4008446C/%08X\n", (*(0x4008446C))
 # FIFOCNTR @0x470
 printf "V/40084470/%08X\n", (*(0x40084470))
+end
 
 # CAN_0 @0x40304000
+if ($PRTN1_COFB2_STAT & ( 1 << 1 ))
 # MCR @0
 printf "V/40304000/%08X\n", (*(0x40304000))
 # CTRL1 @0x4
@@ -1292,8 +1306,10 @@ printf "V/403071F4/%08X\n", (*(0x403071F4))
 printf "V/403071F8/%08X\n", (*(0x403071F8))
 # ERFFEL[127] @0x3000 + 127 * 0x4
 printf "V/403071FC/%08X\n", (*(0x403071FC))
+end
 
 # CAN_1 @0x40308000
+if ($PRTN1_COFB2_STAT & ( 1 << 2 ))
 # MCR @0
 printf "V/40308000/%08X\n", (*(0x40308000))
 # CTRL1 @0x4
@@ -1616,8 +1632,10 @@ printf "V/40308D24/%08X\n", (*(0x40308D24))
 printf "V/40308D28/%08X\n", (*(0x40308D28))
 # HR_TIME_STAMP[63] @0xC30 + 63 * 0x4
 printf "V/40308D2C/%08X\n", (*(0x40308D2C))
+end
 
 # CAN_2 @0x4030C000
+if ($PRTN1_COFB2_STAT & ( 1 << 3 ))
 # MCR @0
 printf "V/4030C000/%08X\n", (*(0x4030C000))
 # CTRL1 @0x4
@@ -1940,8 +1958,10 @@ printf "V/4030CD24/%08X\n", (*(0x4030CD24))
 printf "V/4030CD28/%08X\n", (*(0x4030CD28))
 # HR_TIME_STAMP[63] @0xC30 + 63 * 0x4
 printf "V/4030CD2C/%08X\n", (*(0x4030CD2C))
+end
 
 # CMU_0 @0x402BC000
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC000/%08X\n", (*(0x402BC000))
 # RCCR @0x4
@@ -1954,8 +1974,10 @@ printf "V/402BC00C/%08X\n", (*(0x402BC00C))
 printf "V/402BC010/%08X\n", (*(0x402BC010))
 # IER @0x14
 printf "V/402BC014/%08X\n", (*(0x402BC014))
+end
 
 # CMU_1 @0x402BC020
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC020/%08X\n", (*(0x402BC020))
 # RCCR @0x4
@@ -1964,8 +1986,10 @@ printf "V/402BC024/%08X\n", (*(0x402BC024))
 printf "V/402BC028/%08X\n", (*(0x402BC028))
 # IER @0xC
 printf "V/402BC02C/%08X\n", (*(0x402BC02C))
+end
 
 # CMU_2 @0x402BC040
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC040/%08X\n", (*(0x402BC040))
 # RCCR @0x4
@@ -1974,8 +1998,10 @@ printf "V/402BC044/%08X\n", (*(0x402BC044))
 printf "V/402BC048/%08X\n", (*(0x402BC048))
 # IER @0xC
 printf "V/402BC04C/%08X\n", (*(0x402BC04C))
+end
 
 # CMU_3 @0x402BC060
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC060/%08X\n", (*(0x402BC060))
 # RCCR @0x4
@@ -1988,8 +2014,10 @@ printf "V/402BC06C/%08X\n", (*(0x402BC06C))
 printf "V/402BC070/%08X\n", (*(0x402BC070))
 # IER @0x14
 printf "V/402BC074/%08X\n", (*(0x402BC074))
+end
 
 # CMU_4 @0x402BC080
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC080/%08X\n", (*(0x402BC080))
 # RCCR @0x4
@@ -2002,8 +2030,10 @@ printf "V/402BC08C/%08X\n", (*(0x402BC08C))
 printf "V/402BC090/%08X\n", (*(0x402BC090))
 # IER @0x14
 printf "V/402BC094/%08X\n", (*(0x402BC094))
+end
 
 # CMU_5 @0x402BC0A0
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC0A0/%08X\n", (*(0x402BC0A0))
 # RCCR @0x4
@@ -2016,8 +2046,10 @@ printf "V/402BC0AC/%08X\n", (*(0x402BC0AC))
 printf "V/402BC0B0/%08X\n", (*(0x402BC0B0))
 # IER @0x14
 printf "V/402BC0B4/%08X\n", (*(0x402BC0B4))
+end
 
 # CONFIGURATION_GPR @0x4039C000
+# 0x4039C000 not found in map.
 # CONFIG_REG0 @0x1C
 printf "V/4039C01C/%08X\n", (*(0x4039C01C))
 # CONFIG_REG6 @0x34
@@ -2044,14 +2076,17 @@ printf "V/4039C060/%08X\n", (*(0x4039C060))
 printf "V/4039C064/%08X\n", (*(0x4039C064))
 
 # CRC @0x40380000
+if ($PRTN1_COFB3_STAT & ( 1 << 0 ))
 # DATA @0
 printf "V/40380000/%08X\n", (*(0x40380000))
 # GPOLY @0x4
 printf "V/40380004/%08X\n", (*(0x40380004))
 # CTRL @0x8
 printf "V/40380008/%08X\n", (*(0x40380008))
+end
 
 # DCM @0x402AC000
+# 0x402AC000 not found in map.
 # DCMSTAT @0
 printf "V/402AC000/%08X\n", (*(0x402AC000))
 # DCMLCC @0x4
@@ -2100,6 +2135,7 @@ printf "V/402AC06C/%08X\n", (*(0x402AC06C))
 printf "V/402AC080/%08X\n", (*(0x402AC080))
 
 # DCM_GPR @0x402AC000
+# 0x402AC000 not found in map.
 # DCMROD1 @0x200
 printf "V/402AC200/%08X\n", (*(0x402AC200))
 # DCMROD3 @0x208
@@ -2186,6 +2222,7 @@ printf "V/402AC708/%08X\n", (*(0x402AC708))
 printf "V/402AC70C/%08X\n", (*(0x402AC70C))
 
 # DMAMUX_0 @0x40280000
+if ($PRTN1_COFB1_STAT & ( 1 << 0 ))
 # CHCFG0 @0 + 0 * 0x1
 printf "V/40280000/%08X\n", (*(0x40280000) >> 0) & 0xFF
 # CHCFG1 @0 + 1 * 0x1
@@ -2202,8 +2239,10 @@ printf "V/40280005/%08X\n", (*(0x40280004) >> 8) & 0xFF
 printf "V/40280006/%08X\n", (*(0x40280004) >> 16) & 0xFF
 # CHCFG7 @0 + 7 * 0x1
 printf "V/40280007/%08X\n", (*(0x40280004) >> 24) & 0xFF
+end
 
 # DMAMUX_1 @0x40284000
+if ($PRTN1_COFB1_STAT & ( 1 << 1 ))
 # CHCFG0 @0 + 0 * 0x1
 printf "V/40284000/%08X\n", (*(0x40284000) >> 0) & 0xFF
 # CHCFG1 @0 + 1 * 0x1
@@ -2220,8 +2259,10 @@ printf "V/40284005/%08X\n", (*(0x40284004) >> 8) & 0xFF
 printf "V/40284006/%08X\n", (*(0x40284004) >> 16) & 0xFF
 # CHCFG7 @0 + 7 * 0x1
 printf "V/40284007/%08X\n", (*(0x40284004) >> 24) & 0xFF
+end
 
 # EDMA @0x4020C000
+if ($PRTN1_COFB0_STAT PRTN1_COFB0_STAT & ( 1 << 3 3 ))
 # CSR @0
 printf "V/4020C000/%08X\n", (*(0x4020C000))
 # ES @0x4
@@ -2254,8 +2295,10 @@ printf "V/4020C124/%08X\n", (*(0x4020C124))
 printf "V/4020C128/%08X\n", (*(0x4020C128))
 # CH_GRPRI[11] @0x100 + 11 * 0x4
 printf "V/4020C12C/%08X\n", (*(0x4020C12C))
+end
 
 # EIM @0x40258000
+if ($PRTN1_COFB0_STAT & ( 1 << 22 ))
 # EIMCR @0
 printf "V/40258000/%08X\n", (*(0x40258000))
 # EICHEN @0x4
@@ -2358,8 +2401,10 @@ printf "V/40258804/%08X\n", (*(0x40258804))
 printf "V/40258844/%08X\n", (*(0x40258844))
 # EICHD30_WORD1 @0x884
 printf "V/40258884/%08X\n", (*(0x40258884))
+end
 
 # EMIOS_0 @0x40088000
+if ($PRTN0_COFB1_STAT & ( 1 << 2 ))
 # MCR @0
 printf "V/40088000/%08X\n", (*(0x40088000))
 # GFLAG @0x4
@@ -2680,8 +2725,10 @@ printf "V/40088310/%08X\n", (*(0x40088310))
 printf "V/40088314/%08X\n", (*(0x40088314))
 # C2_23 @0x318
 printf "V/40088318/%08X\n", (*(0x40088318))
+end
 
 # EMIOS_1 @0x4008C000
+if ($PRTN0_COFB1_STAT & ( 1 << 3 ))
 # MCR @0
 printf "V/4008C000/%08X\n", (*(0x4008C000))
 # GFLAG @0x4
@@ -2988,8 +3035,10 @@ printf "V/4008C310/%08X\n", (*(0x4008C310))
 printf "V/4008C314/%08X\n", (*(0x4008C314))
 # C2_23 @0x318
 printf "V/4008C318/%08X\n", (*(0x4008C318))
+end
 
 # ERM @0x4025C000
+if ($PRTN1_COFB0_STAT PRTN1_COFB0_STAT & ( 1 << 23 23 ))
 # CR0 @0
 printf "V/4025C000/%08X\n", (*(0x4025C000))
 # CR1 @0x4
@@ -3048,8 +3097,10 @@ printf "V/4025C218/%08X\n", (*(0x4025C218))
 printf "V/4025C220/%08X\n", (*(0x4025C220))
 # CORR_ERR_CNT18 @0x228
 printf "V/4025C228/%08X\n", (*(0x4025C228))
+end
 
 # FCCU @0x40384000
+if ($PRTN1_COFB3_STAT & ( 1 << 1 ))
 # CTRL @0
 printf "V/40384000/%08X\n", (*(0x40384000))
 # CTRLK @0x4
@@ -3108,14 +3159,17 @@ printf "V/4038412C/%08X\n", (*(0x4038412C))
 printf "V/40384134/%08X\n", (*(0x40384134))
 # TMR_ETMR @0x138
 printf "V/40384138/%08X\n", (*(0x40384138))
+end
 
 # FIRC @0x402D0000
+# 0x402D0000 not found in map.
 # Status_Register @0x4
 printf "V/402D0004/%08X\n", (*(0x402D0004))
 # STDBY_ENABLE @0x8
 printf "V/402D0008/%08X\n", (*(0x402D0008))
 
 # FLASH @0x402EC000
+if ($PRTN1_COFB1_STAT & ( 1 << 27 ))
 # MCR @0
 printf "V/402EC000/%08X\n", (*(0x402EC000))
 # MCRS @0x4
@@ -3244,8 +3298,10 @@ printf "V/402EC174/%08X\n", (*(0x402EC174))
 printf "V/402EC178/%08X\n", (*(0x402EC178))
 # DATA[31] @0x100 + 31 * 0x4
 printf "V/402EC17C/%08X\n", (*(0x402EC17C))
+end
 
 # FLEXIO @0x40324000
+if ($PRTN1_COFB2_STAT & ( 1 << 9 ))
 # VERID @0
 printf "V/40324000/%08X\n", (*(0x40324000))
 # PARAM @0x4
@@ -3536,20 +3592,26 @@ printf "V/40324914/%08X\n", (*(0x40324914))
 printf "V/40324918/%08X\n", (*(0x40324918))
 # SHIFTBUFHBS[7] @0x900 + 7 * 0x4
 printf "V/4032491C/%08X\n", (*(0x4032491C))
+end
 
 # FXOSC @0x402D4000
+if ($PRTN1_COFB1_STAT & ( 1 << 21 ))
 # CTRL @0
 printf "V/402D4000/%08X\n", (*(0x402D4000))
 # STAT @0x4
 printf "V/402D4004/%08X\n", (*(0x402D4004))
+end
 
 # INTM @0x4027C000
+if ($PRTN1_COFB0_STAT & ( 1 << 31 ))
 # INTM_MM @0
 printf "V/4027C000/%08X\n", (*(0x4027C000))
 # INTM_IACK @0x4
 printf "V/4027C004/%08X\n", (*(0x4027C004))
+end
 
 # JDC @0x40394000
+if ($PRTN1_COFB3_STAT & ( 1 << 5 ))
 # MCR @0
 printf "V/40394000/%08X\n", (*(0x40394000))
 # MSR @0x4
@@ -3558,8 +3620,10 @@ printf "V/40394004/%08X\n", (*(0x40394004))
 printf "V/40394008/%08X\n", (*(0x40394008))
 # JIN_IPS @0xC
 printf "V/4039400C/%08X\n", (*(0x4039400C))
+end
 
 # LCU_0 @0x40098000
+if ($PRTN0_COFB1_STAT & ( 1 << 6 ))
 # MUXSEL[0] @0x200 + 0 * 0x4
 printf "V/40098200/%08X\n", (*(0x40098200))
 # MUXSEL[1] @0x200 + 1 * 0x4
@@ -3604,8 +3668,10 @@ printf "V/4009829C/%08X\n", (*(0x4009829C))
 printf "V/400982A0/%08X\n", (*(0x400982A0))
 # DBGEN @0x2A8
 printf "V/400982A8/%08X\n", (*(0x400982A8))
+end
 
 # LCU_1 @0x4009C000
+if ($PRTN0_COFB1_STAT & ( 1 << 7 ))
 # MUXSEL[0] @0x200 + 0 * 0x4
 printf "V/4009C200/%08X\n", (*(0x4009C200))
 # MUXSEL[1] @0x200 + 1 * 0x4
@@ -3650,8 +3716,10 @@ printf "V/4009C29C/%08X\n", (*(0x4009C29C))
 printf "V/4009C2A0/%08X\n", (*(0x4009C2A0))
 # DBGEN @0x2A8
 printf "V/4009C2A8/%08X\n", (*(0x4009C2A8))
+end
 
 # LPCMP_0 @0x40370000
+if ($PRTN1_COFB2_STAT & ( 1 << 28 ))
 # VERID @0
 printf "V/40370000/%08X\n", (*(0x40370000))
 # PARAM @0x4
@@ -3676,8 +3744,10 @@ printf "V/40370028/%08X\n", (*(0x40370028))
 printf "V/4037002C/%08X\n", (*(0x4037002C))
 # RRSR @0x30
 printf "V/40370030/%08X\n", (*(0x40370030))
+end
 
 # LPI2C_0 @0x40350000
+if ($PRTN1_COFB2_STAT & ( 1 << 20 ))
 # VERID @0
 printf "V/40350000/%08X\n", (*(0x40350000))
 # PARAM @0x4
@@ -3734,8 +3804,10 @@ printf "V/40350154/%08X\n", (*(0x40350154))
 printf "V/40350160/%08X\n", (*(0x40350160))
 # SRDR @0x170
 printf "V/40350170/%08X\n", (*(0x40350170))
+end
 
 # LPI2C_1 @0x40354000
+if ($PRTN1_COFB2_STAT & ( 1 << 21 ))
 # VERID @0
 printf "V/40354000/%08X\n", (*(0x40354000))
 # PARAM @0x4
@@ -3792,8 +3864,10 @@ printf "V/40354154/%08X\n", (*(0x40354154))
 printf "V/40354160/%08X\n", (*(0x40354160))
 # SRDR @0x170
 printf "V/40354170/%08X\n", (*(0x40354170))
+end
 
 # LPSPI_0 @0x40358000
+if ($PRTN1_COFB2_STAT & ( 1 << 22 ))
 # VERID @0
 printf "V/40358000/%08X\n", (*(0x40358000))
 # PARAM @0x4
@@ -4346,8 +4420,10 @@ printf "V/403587F4/%08X\n", (*(0x403587F4))
 printf "V/403587F8/%08X\n", (*(0x403587F8))
 # RDBR[127] @0x600 + 127 * 0x4
 printf "V/403587FC/%08X\n", (*(0x403587FC))
+end
 
 # LPSPI_1 @0x4035C000
+if ($PRTN1_COFB2_STAT & ( 1 << 23 ))
 # VERID @0
 printf "V/4035C000/%08X\n", (*(0x4035C000))
 # PARAM @0x4
@@ -4900,8 +4976,10 @@ printf "V/4035C7F4/%08X\n", (*(0x4035C7F4))
 printf "V/4035C7F8/%08X\n", (*(0x4035C7F8))
 # RDBR[127] @0x600 + 127 * 0x4
 printf "V/4035C7FC/%08X\n", (*(0x4035C7FC))
+end
 
 # LPSPI_2 @0x40360000
+if ($PRTN1_COFB2_STAT & ( 1 << 24 ))
 # VERID @0
 printf "V/40360000/%08X\n", (*(0x40360000))
 # PARAM @0x4
@@ -5454,8 +5532,10 @@ printf "V/403607F4/%08X\n", (*(0x403607F4))
 printf "V/403607F8/%08X\n", (*(0x403607F8))
 # RDBR[127] @0x600 + 127 * 0x4
 printf "V/403607FC/%08X\n", (*(0x403607FC))
+end
 
 # LPSPI_3 @0x40364000
+if ($PRTN1_COFB2_STAT & ( 1 << 25 ))
 # VERID @0
 printf "V/40364000/%08X\n", (*(0x40364000))
 # PARAM @0x4
@@ -6008,8 +6088,10 @@ printf "V/403647F4/%08X\n", (*(0x403647F4))
 printf "V/403647F8/%08X\n", (*(0x403647F8))
 # RDBR[127] @0x600 + 127 * 0x4
 printf "V/403647FC/%08X\n", (*(0x403647FC))
+end
 
 # LPUART_0 @0x40328000
+if ($PRTN1_COFB2_STAT & ( 1 << 10 ))
 # VERID @0
 printf "V/40328000/%08X\n", (*(0x40328000))
 # PARAM @0x4
@@ -6826,8 +6908,10 @@ printf "V/403287F4/%08X\n", (*(0x403287F4))
 printf "V/403287F8/%08X\n", (*(0x403287F8))
 # TDBR[255] @0x400 + 255 * 0x4
 printf "V/403287FC/%08X\n", (*(0x403287FC))
+end
 
 # LPUART_1 @0x4032C000
+if ($PRTN1_COFB2_STAT & ( 1 << 11 ))
 # VERID @0
 printf "V/4032C000/%08X\n", (*(0x4032C000))
 # PARAM @0x4
@@ -7644,8 +7728,10 @@ printf "V/4032C7F4/%08X\n", (*(0x4032C7F4))
 printf "V/4032C7F8/%08X\n", (*(0x4032C7F8))
 # TDBR[255] @0x400 + 255 * 0x4
 printf "V/4032C7FC/%08X\n", (*(0x4032C7FC))
+end
 
 # LPUART_2 @0x40330000
+if ($PRTN1_COFB2_STAT & ( 1 << 12 ))
 # VERID @0
 printf "V/40330000/%08X\n", (*(0x40330000))
 # PARAM @0x4
@@ -7672,8 +7758,10 @@ printf "V/40330028/%08X\n", (*(0x40330028))
 printf "V/4033002C/%08X\n", (*(0x4033002C))
 # DATARO @0x30
 printf "V/40330030/%08X\n", (*(0x40330030))
+end
 
 # LPUART_3 @0x40334000
+if ($PRTN1_COFB2_STAT & ( 1 << 13 ))
 # VERID @0
 printf "V/40334000/%08X\n", (*(0x40334000))
 # PARAM @0x4
@@ -7700,8 +7788,10 @@ printf "V/40334028/%08X\n", (*(0x40334028))
 printf "V/4033402C/%08X\n", (*(0x4033402C))
 # DATARO @0x30
 printf "V/40334030/%08X\n", (*(0x40334030))
+end
 
 # MCM_0_CM7 @0xE0080000
+# 0xE0080000 not found in map.
 # PLREV @0
 printf "V/E0080000/%08X\n", (*(0xE0080000) >> 0) & 0xFFFF
 # PCT @0x2
@@ -7722,6 +7812,7 @@ printf "V/E008040C/%08X\n", (*(0xE008040C))
 printf "V/E0080410/%08X\n", (*(0xE0080410))
 
 # MC_CGM @0x402D8000
+# 0x402D8000 not found in map.
 # PCFS_SDUR @0
 printf "V/402D8000/%08X\n", (*(0x402D8000))
 # PCFS_DIVC8 @0x58
@@ -7792,6 +7883,7 @@ printf "V/402D85C8/%08X\n", (*(0x402D85C8))
 printf "V/402D85FC/%08X\n", (*(0x402D85FC))
 
 # MC_ME @0x402DC000
+# 0x402DC000 not found in map.
 # CTL_KEY @0
 printf "V/402DC000/%08X\n", (*(0x402DC000))
 # MODE_CONF @0x4
@@ -7848,6 +7940,7 @@ printf "V/402DC338/%08X\n", (*(0x402DC338))
 printf "V/402DC33C/%08X\n", (*(0x402DC33C))
 
 # MC_RGM @0x4028C000
+# 0x4028C000 not found in map.
 # DES @0
 printf "V/4028C000/%08X\n", (*(0x4028C000))
 # FES @0x8
@@ -7870,6 +7963,7 @@ printf "V/4028C024/%08X\n", (*(0x4028C024))
 printf "V/4028C028/%08X\n", (*(0x4028C028))
 
 # MDM_AP @0x40250600
+# 0x40250600 not found in map.
 # MDMAPSTTS @0
 printf "V/40250600/%08X\n", (*(0x40250600))
 # MDMAPCTL @0x4
@@ -7882,6 +7976,7 @@ printf "V/40250634/%08X\n", (*(0x40250634))
 printf "V/40250638/%08X\n", (*(0x40250638))
 
 # MSCM @0x40260000
+if ($PRTN1_COFB0_STAT & ( 1 << 24 ))
 # CPXTYPE @0
 printf "V/40260000/%08X\n", (*(0x40260000))
 # CPXNUM @0x4
@@ -8444,8 +8539,10 @@ printf "V/40260A5A/%08X\n", (*(0x40260A58) >> 16) & 0xFFFF
 printf "V/40260A5C/%08X\n", (*(0x40260A5C) >> 0) & 0xFFFF
 # IRSPRC[239] @0x880 + 239 * 0x2
 printf "V/40260A5E/%08X\n", (*(0x40260A5C) >> 16) & 0xFFFF
+end
 
 # MU_0__MUB @0x4038C000
+if ($PRTN1_COFB3_STAT & ( 1 << 3 ))
 # VER @0
 printf "V/4038C000/%08X\n", (*(0x4038C000))
 # PAR @0x4
@@ -8492,8 +8589,10 @@ printf "V/4038C284/%08X\n", (*(0x4038C284))
 printf "V/4038C288/%08X\n", (*(0x4038C288))
 # RR[3] @0x280 + 3 * 0x4
 printf "V/4038C28C/%08X\n", (*(0x4038C28C))
+end
 
 # MU_1__MUB @0x40390000
+if ($PRTN1_COFB3_STAT & ( 1 << 4 ))
 # VER @0
 printf "V/40390000/%08X\n", (*(0x40390000))
 # PAR @0x4
@@ -8540,8 +8639,10 @@ printf "V/40390284/%08X\n", (*(0x40390284))
 printf "V/40390288/%08X\n", (*(0x40390288))
 # RR[3] @0x280 + 3 * 0x4
 printf "V/4039028C/%08X\n", (*(0x4039028C))
+end
 
 # PFLASH @0x40268000
+if ($PRTN1_COFB0_STAT & ( 1 << 26 ))
 # PFCR[0] @0 + 0 * 0x4
 printf "V/40268000/%08X\n", (*(0x40268000))
 # PFCR[1] @0 + 1 * 0x4
@@ -8590,8 +8691,10 @@ printf "V/40268480/%08X\n", (*(0x40268480))
 printf "V/40268484/%08X\n", (*(0x40268484))
 # PFCBLK1_LOCKMASTER_SS0 @0x494
 printf "V/40268494/%08X\n", (*(0x40268494))
+end
 
 # PIT_0 @0x400B0000
+if ($PRTN0_COFB1_STAT & ( 1 << 12 ))
 # MCR @0
 printf "V/400B0000/%08X\n", (*(0x400B0000))
 # LTMR64H @0xE0
@@ -8608,12 +8711,16 @@ printf "V/400B00F4/%08X\n", (*(0x400B00F4))
 printf "V/400B00F8/%08X\n", (*(0x400B00F8))
 # RTI_TFLG @0xFC
 printf "V/400B00FC/%08X\n", (*(0x400B00FC))
+end
 
 # PIT_1 @0x400B4000
+if ($PRTN0_COFB1_STAT & ( 1 << 13 ))
 # MCR @0
 printf "V/400B4000/%08X\n", (*(0x400B4000))
+end
 
 # PLL @0x402E0000
+if ($PRTN1_COFB1_STAT & ( 1 << 24 ))
 # PLLCR @0
 printf "V/402E0000/%08X\n", (*(0x402E0000))
 # PLLSR @0x4
@@ -8632,8 +8739,10 @@ printf "V/402E0020/%08X\n", (*(0x402E0020))
 printf "V/402E0080/%08X\n", (*(0x402E0080))
 # PLLODIV_[1] @0x80 + 1 * 0x4
 printf "V/402E0084/%08X\n", (*(0x402E0084))
+end
 
 # PMC @0x402E8000
+# 0x402E8000 not found in map.
 # LVSC @0
 printf "V/402E8000/%08X\n", (*(0x402E8000))
 # CONFIG @0x4
@@ -8642,10 +8751,13 @@ printf "V/402E8004/%08X\n", (*(0x402E8004))
 printf "V/402E800C/%08X\n", (*(0x402E800C))
 
 # PRAMC_0 @0x40264000
+if ($PRTN1_COFB0_STAT & ( 1 << 25 ))
 # PRCR1 @0
 printf "V/40264000/%08X\n", (*(0x40264000))
+end
 
 # RTC @0x40288000
+if ($PRTN1_COFB1_STAT & ( 1 << 2 ))
 # RTCSUPV @0
 printf "V/40288000/%08X\n", (*(0x40288000))
 # RTCC @0x4
@@ -8658,8 +8770,10 @@ printf "V/4028800C/%08X\n", (*(0x4028800C))
 printf "V/40288010/%08X\n", (*(0x40288010))
 # RTCVAL @0x14
 printf "V/40288014/%08X\n", (*(0x40288014))
+end
 
 # SDA_AP @0x40254700
+if ($PRTN1_COFB0_STAT & ( 1 << 21 ))
 # AUTHSTTS @0
 printf "V/40254700/%08X\n", (*(0x40254700))
 # AUTHCTL @0x4
@@ -8718,14 +8832,17 @@ printf "V/402547D0/%08X\n", (*(0x402547D0))
 printf "V/402547E0/%08X\n", (*(0x402547E0))
 # ID @0xFC
 printf "V/402547FC/%08X\n", (*(0x402547FC))
+end
 
 # SIRC @0x402C8000
+# 0x402C8000 not found in map.
 # SR @0x4
 printf "V/402C8004/%08X\n", (*(0x402C8004))
 # MISCELLANEOUS_IN @0xC
 printf "V/402C800C/%08X\n", (*(0x402C800C))
 
 # SIUL2 @0x40290000
+if ($PRTN1_COFB1_STAT & ( 1 << 10 ))
 # MIDR1 @0x4
 printf "V/40290004/%08X\n", (*(0x40290004))
 # MIDR2 @0x8
@@ -9754,8 +9871,10 @@ printf "V/4029179C/%08X\n", (*(0x4029179C))
 printf "V/402917A0/%08X\n", (*(0x402917A0))
 # MPGPDO9 @0x17A4
 printf "V/402917A4/%08X\n", (*(0x402917A4))
+end
 
 # STCU @0x403A0000
+if ($PRTN1_COFB3_STAT & ( 1 << 8 ))
 # RUNSW @0x4
 printf "V/403A0004/%08X\n", (*(0x403A0004))
 # SKC @0x8
@@ -9824,14 +9943,18 @@ printf "V/403A2238/%08X\n", (*(0x403A2238))
 printf "V/403A223C/%08X\n", (*(0x403A223C))
 # MB_CTRL11 @0x2240
 printf "V/403A2240/%08X\n", (*(0x403A2240))
+end
 
 # STM_0 @0x40274000
+if ($PRTN1_COFB0_STAT & ( 1 << 29 ))
 # CR @0
 printf "V/40274000/%08X\n", (*(0x40274000))
 # CNT @0x4
 printf "V/40274004/%08X\n", (*(0x40274004))
+end
 
 # SWT_0 @0x40270000
+if ($PRTN1_COFB0_STAT & ( 1 << 28 ))
 # CR @0
 printf "V/40270000/%08X\n", (*(0x40270000))
 # IR @0x4
@@ -9848,466 +9971,514 @@ printf "V/40270014/%08X\n", (*(0x40270014))
 printf "V/40270018/%08X\n", (*(0x40270018))
 # RRR @0x1C
 printf "V/4027001C/%08X\n", (*(0x4027001C))
+end
 
-# TCD @0x40210000
-# CH0_CSR @0
+# TCD0_CH0 @0x40210000
+if ($PRTN1_COFB0_STAT & ( 1 << 4 ))
+# CSR @0
 printf "V/40210000/%08X\n", (*(0x40210000))
-# CH0_ES @0x4
+# ES @0x4
 printf "V/40210004/%08X\n", (*(0x40210004))
-# CH0_INT @0x8
+# INT @0x8
 printf "V/40210008/%08X\n", (*(0x40210008))
-# CH0_SBR @0xC
+# SBR @0xC
 printf "V/4021000C/%08X\n", (*(0x4021000C))
-# CH0_PRI @0x10
+# PRI @0x10
 printf "V/40210010/%08X\n", (*(0x40210010))
-# TCD0_SADDR @0x20
+# SADDR @0x20
 printf "V/40210020/%08X\n", (*(0x40210020))
-# TCD0_SOFF @0x24
+# SOFF @0x24
 printf "V/40210024/%08X\n", (*(0x40210024) >> 0) & 0xFFFF
-# TCD0_ATTR @0x26
+# ATTR @0x26
 printf "V/40210026/%08X\n", (*(0x40210024) >> 16) & 0xFFFF
-# TCD0_NBYTES_MLOFFNO @0x28
+# NBYTES_MLOFFNO @0x28
 printf "V/40210028/%08X\n", (*(0x40210028))
-# TCD0_NBYTES_MLOFFYES @0x28
+# NBYTES_MLOFFYES @0x28
 printf "V/40210028/%08X\n", (*(0x40210028))
-# TCD0_SLAST_SDA @0x2C
+# SLAST_SDA @0x2C
 printf "V/4021002C/%08X\n", (*(0x4021002C))
-# TCD0_DADDR @0x30
+# DADDR @0x30
 printf "V/40210030/%08X\n", (*(0x40210030))
-# TCD0_DOFF @0x34
+# DOFF @0x34
 printf "V/40210034/%08X\n", (*(0x40210034) >> 0) & 0xFFFF
-# TCD0_CITER_ELINKNO @0x36
+# CITER_ELINKNO @0x36
 printf "V/40210036/%08X\n", (*(0x40210034) >> 16) & 0xFFFF
-# TCD0_CITER_ELINKYES @0x36
+# CITER_ELINKYES @0x36
 printf "V/40210036/%08X\n", (*(0x40210034) >> 16) & 0xFFFF
-# TCD0_DLAST_SGA @0x38
+# DLAST_SGA @0x38
 printf "V/40210038/%08X\n", (*(0x40210038))
-# TCD0_CSR @0x3C
+# CSR @0x3C
 printf "V/4021003C/%08X\n", (*(0x4021003C) >> 0) & 0xFFFF
-# TCD0_BITER_ELINKNO @0x3E
+# BITER_ELINKNO @0x3E
 printf "V/4021003E/%08X\n", (*(0x4021003C) >> 16) & 0xFFFF
-# TCD0_BITER_ELINKYES @0x3E
+# BITER_ELINKYES @0x3E
 printf "V/4021003E/%08X\n", (*(0x4021003C) >> 16) & 0xFFFF
-# CH1_CSR @0x4000
+end
+
+# TCD0_CH1 @0x40214000
+if ($PRTN1_COFB0_STAT & ( 1 << 5 ))
+# CSR @0
 printf "V/40214000/%08X\n", (*(0x40214000))
-# CH1_ES @0x4004
+# ES @0x4
 printf "V/40214004/%08X\n", (*(0x40214004))
-# CH1_INT @0x4008
+# INT @0x8
 printf "V/40214008/%08X\n", (*(0x40214008))
-# CH1_SBR @0x400C
+# SBR @0xC
 printf "V/4021400C/%08X\n", (*(0x4021400C))
-# CH1_PRI @0x4010
+# PRI @0x10
 printf "V/40214010/%08X\n", (*(0x40214010))
-# TCD1_SADDR @0x4020
+# SADDR @0x20
 printf "V/40214020/%08X\n", (*(0x40214020))
-# TCD1_SOFF @0x4024
+# SOFF @0x24
 printf "V/40214024/%08X\n", (*(0x40214024) >> 0) & 0xFFFF
-# TCD1_ATTR @0x4026
+# ATTR @0x26
 printf "V/40214026/%08X\n", (*(0x40214024) >> 16) & 0xFFFF
-# TCD1_NBYTES_MLOFFNO @0x4028
+# NBYTES_MLOFFNO @0x28
 printf "V/40214028/%08X\n", (*(0x40214028))
-# TCD1_NBYTES_MLOFFYES @0x4028
+# NBYTES_MLOFFYES @0x28
 printf "V/40214028/%08X\n", (*(0x40214028))
-# TCD1_SLAST_SDA @0x402C
+# SLAST_SDA @0x2C
 printf "V/4021402C/%08X\n", (*(0x4021402C))
-# TCD1_DADDR @0x4030
+# DADDR @0x30
 printf "V/40214030/%08X\n", (*(0x40214030))
-# TCD1_DOFF @0x4034
+# DOFF @0x34
 printf "V/40214034/%08X\n", (*(0x40214034) >> 0) & 0xFFFF
-# TCD1_CITER_ELINKNO @0x4036
+# CITER_ELINKNO @0x36
 printf "V/40214036/%08X\n", (*(0x40214034) >> 16) & 0xFFFF
-# TCD1_CITER_ELINKYES @0x4036
+# CITER_ELINKYES @0x36
 printf "V/40214036/%08X\n", (*(0x40214034) >> 16) & 0xFFFF
-# TCD1_DLAST_SGA @0x4038
+# DLAST_SGA @0x38
 printf "V/40214038/%08X\n", (*(0x40214038))
-# TCD1_CSR @0x403C
+# CSR @0x3C
 printf "V/4021403C/%08X\n", (*(0x4021403C) >> 0) & 0xFFFF
-# TCD1_BITER_ELINKNO @0x403E
+# BITER_ELINKNO @0x3E
 printf "V/4021403E/%08X\n", (*(0x4021403C) >> 16) & 0xFFFF
-# TCD1_BITER_ELINKYES @0x403E
+# BITER_ELINKYES @0x3E
 printf "V/4021403E/%08X\n", (*(0x4021403C) >> 16) & 0xFFFF
-# CH2_CSR @0x8000
-printf "V/40218000/%08X\n", (*(0x40218000))
-# CH2_ES @0x8004
-printf "V/40218004/%08X\n", (*(0x40218004))
-# CH2_INT @0x8008
-printf "V/40218008/%08X\n", (*(0x40218008))
-# CH2_SBR @0x800C
-printf "V/4021800C/%08X\n", (*(0x4021800C))
-# CH2_PRI @0x8010
-printf "V/40218010/%08X\n", (*(0x40218010))
-# TCD2_SADDR @0x8020
-printf "V/40218020/%08X\n", (*(0x40218020))
-# TCD2_SOFF @0x8024
-printf "V/40218024/%08X\n", (*(0x40218024) >> 0) & 0xFFFF
-# TCD2_ATTR @0x8026
-printf "V/40218026/%08X\n", (*(0x40218024) >> 16) & 0xFFFF
-# TCD2_NBYTES_MLOFFNO @0x8028
-printf "V/40218028/%08X\n", (*(0x40218028))
-# TCD2_NBYTES_MLOFFYES @0x8028
-printf "V/40218028/%08X\n", (*(0x40218028))
-# TCD2_SLAST_SDA @0x802C
-printf "V/4021802C/%08X\n", (*(0x4021802C))
-# TCD2_DADDR @0x8030
-printf "V/40218030/%08X\n", (*(0x40218030))
-# TCD2_DOFF @0x8034
-printf "V/40218034/%08X\n", (*(0x40218034) >> 0) & 0xFFFF
-# TCD2_CITER_ELINKNO @0x8036
-printf "V/40218036/%08X\n", (*(0x40218034) >> 16) & 0xFFFF
-# TCD2_CITER_ELINKYES @0x8036
-printf "V/40218036/%08X\n", (*(0x40218034) >> 16) & 0xFFFF
-# TCD2_DLAST_SGA @0x8038
-printf "V/40218038/%08X\n", (*(0x40218038))
-# TCD2_CSR @0x803C
-printf "V/4021803C/%08X\n", (*(0x4021803C) >> 0) & 0xFFFF
-# TCD2_BITER_ELINKNO @0x803E
-printf "V/4021803E/%08X\n", (*(0x4021803C) >> 16) & 0xFFFF
-# TCD2_BITER_ELINKYES @0x803E
-printf "V/4021803E/%08X\n", (*(0x4021803C) >> 16) & 0xFFFF
-# CH3_CSR @0xC000
-printf "V/4021C000/%08X\n", (*(0x4021C000))
-# CH3_ES @0xC004
-printf "V/4021C004/%08X\n", (*(0x4021C004))
-# CH3_INT @0xC008
-printf "V/4021C008/%08X\n", (*(0x4021C008))
-# CH3_SBR @0xC00C
-printf "V/4021C00C/%08X\n", (*(0x4021C00C))
-# CH3_PRI @0xC010
-printf "V/4021C010/%08X\n", (*(0x4021C010))
-# TCD3_SADDR @0xC020
-printf "V/4021C020/%08X\n", (*(0x4021C020))
-# TCD3_SOFF @0xC024
-printf "V/4021C024/%08X\n", (*(0x4021C024) >> 0) & 0xFFFF
-# TCD3_ATTR @0xC026
-printf "V/4021C026/%08X\n", (*(0x4021C024) >> 16) & 0xFFFF
-# TCD3_NBYTES_MLOFFNO @0xC028
-printf "V/4021C028/%08X\n", (*(0x4021C028))
-# TCD3_NBYTES_MLOFFYES @0xC028
-printf "V/4021C028/%08X\n", (*(0x4021C028))
-# TCD3_SLAST_SDA @0xC02C
-printf "V/4021C02C/%08X\n", (*(0x4021C02C))
-# TCD3_DADDR @0xC030
-printf "V/4021C030/%08X\n", (*(0x4021C030))
-# TCD3_DOFF @0xC034
-printf "V/4021C034/%08X\n", (*(0x4021C034) >> 0) & 0xFFFF
-# TCD3_CITER_ELINKNO @0xC036
-printf "V/4021C036/%08X\n", (*(0x4021C034) >> 16) & 0xFFFF
-# TCD3_CITER_ELINKYES @0xC036
-printf "V/4021C036/%08X\n", (*(0x4021C034) >> 16) & 0xFFFF
-# TCD3_DLAST_SGA @0xC038
-printf "V/4021C038/%08X\n", (*(0x4021C038))
-# TCD3_CSR @0xC03C
-printf "V/4021C03C/%08X\n", (*(0x4021C03C) >> 0) & 0xFFFF
-# TCD3_BITER_ELINKNO @0xC03E
-printf "V/4021C03E/%08X\n", (*(0x4021C03C) >> 16) & 0xFFFF
-# TCD3_BITER_ELINKYES @0xC03E
-printf "V/4021C03E/%08X\n", (*(0x4021C03C) >> 16) & 0xFFFF
-# CH4_CSR @0x10000
-printf "V/40220000/%08X\n", (*(0x40220000))
-# CH4_ES @0x10004
-printf "V/40220004/%08X\n", (*(0x40220004))
-# CH4_INT @0x10008
-printf "V/40220008/%08X\n", (*(0x40220008))
-# CH4_SBR @0x1000C
-printf "V/4022000C/%08X\n", (*(0x4022000C))
-# CH4_PRI @0x10010
-printf "V/40220010/%08X\n", (*(0x40220010))
-# TCD4_SADDR @0x10020
-printf "V/40220020/%08X\n", (*(0x40220020))
-# TCD4_SOFF @0x10024
-printf "V/40220024/%08X\n", (*(0x40220024) >> 0) & 0xFFFF
-# TCD4_ATTR @0x10026
-printf "V/40220026/%08X\n", (*(0x40220024) >> 16) & 0xFFFF
-# TCD4_NBYTES_MLOFFNO @0x10028
-printf "V/40220028/%08X\n", (*(0x40220028))
-# TCD4_NBYTES_MLOFFYES @0x10028
-printf "V/40220028/%08X\n", (*(0x40220028))
-# TCD4_SLAST_SDA @0x1002C
-printf "V/4022002C/%08X\n", (*(0x4022002C))
-# TCD4_DADDR @0x10030
-printf "V/40220030/%08X\n", (*(0x40220030))
-# TCD4_DOFF @0x10034
-printf "V/40220034/%08X\n", (*(0x40220034) >> 0) & 0xFFFF
-# TCD4_CITER_ELINKNO @0x10036
-printf "V/40220036/%08X\n", (*(0x40220034) >> 16) & 0xFFFF
-# TCD4_CITER_ELINKYES @0x10036
-printf "V/40220036/%08X\n", (*(0x40220034) >> 16) & 0xFFFF
-# TCD4_DLAST_SGA @0x10038
-printf "V/40220038/%08X\n", (*(0x40220038))
-# TCD4_CSR @0x1003C
-printf "V/4022003C/%08X\n", (*(0x4022003C) >> 0) & 0xFFFF
-# TCD4_BITER_ELINKNO @0x1003E
-printf "V/4022003E/%08X\n", (*(0x4022003C) >> 16) & 0xFFFF
-# TCD4_BITER_ELINKYES @0x1003E
-printf "V/4022003E/%08X\n", (*(0x4022003C) >> 16) & 0xFFFF
-# CH5_CSR @0x14000
-printf "V/40224000/%08X\n", (*(0x40224000))
-# CH5_ES @0x14004
-printf "V/40224004/%08X\n", (*(0x40224004))
-# CH5_INT @0x14008
-printf "V/40224008/%08X\n", (*(0x40224008))
-# CH5_SBR @0x1400C
-printf "V/4022400C/%08X\n", (*(0x4022400C))
-# CH5_PRI @0x14010
-printf "V/40224010/%08X\n", (*(0x40224010))
-# TCD5_SADDR @0x14020
-printf "V/40224020/%08X\n", (*(0x40224020))
-# TCD5_SOFF @0x14024
-printf "V/40224024/%08X\n", (*(0x40224024) >> 0) & 0xFFFF
-# TCD5_ATTR @0x14026
-printf "V/40224026/%08X\n", (*(0x40224024) >> 16) & 0xFFFF
-# TCD5_NBYTES_MLOFFNO @0x14028
-printf "V/40224028/%08X\n", (*(0x40224028))
-# TCD5_NBYTES_MLOFFYES @0x14028
-printf "V/40224028/%08X\n", (*(0x40224028))
-# TCD5_SLAST_SDA @0x1402C
-printf "V/4022402C/%08X\n", (*(0x4022402C))
-# TCD5_DADDR @0x14030
-printf "V/40224030/%08X\n", (*(0x40224030))
-# TCD5_DOFF @0x14034
-printf "V/40224034/%08X\n", (*(0x40224034) >> 0) & 0xFFFF
-# TCD5_CITER_ELINKNO @0x14036
-printf "V/40224036/%08X\n", (*(0x40224034) >> 16) & 0xFFFF
-# TCD5_CITER_ELINKYES @0x14036
-printf "V/40224036/%08X\n", (*(0x40224034) >> 16) & 0xFFFF
-# TCD5_DLAST_SGA @0x14038
-printf "V/40224038/%08X\n", (*(0x40224038))
-# TCD5_CSR @0x1403C
-printf "V/4022403C/%08X\n", (*(0x4022403C) >> 0) & 0xFFFF
-# TCD5_BITER_ELINKNO @0x1403E
-printf "V/4022403E/%08X\n", (*(0x4022403C) >> 16) & 0xFFFF
-# TCD5_BITER_ELINKYES @0x1403E
-printf "V/4022403E/%08X\n", (*(0x4022403C) >> 16) & 0xFFFF
-# CH6_CSR @0x18000
-printf "V/40228000/%08X\n", (*(0x40228000))
-# CH6_ES @0x18004
-printf "V/40228004/%08X\n", (*(0x40228004))
-# CH6_INT @0x18008
-printf "V/40228008/%08X\n", (*(0x40228008))
-# CH6_SBR @0x1800C
-printf "V/4022800C/%08X\n", (*(0x4022800C))
-# CH6_PRI @0x18010
-printf "V/40228010/%08X\n", (*(0x40228010))
-# TCD6_SADDR @0x18020
-printf "V/40228020/%08X\n", (*(0x40228020))
-# TCD6_SOFF @0x18024
-printf "V/40228024/%08X\n", (*(0x40228024) >> 0) & 0xFFFF
-# TCD6_ATTR @0x18026
-printf "V/40228026/%08X\n", (*(0x40228024) >> 16) & 0xFFFF
-# TCD6_NBYTES_MLOFFNO @0x18028
-printf "V/40228028/%08X\n", (*(0x40228028))
-# TCD6_NBYTES_MLOFFYES @0x18028
-printf "V/40228028/%08X\n", (*(0x40228028))
-# TCD6_SLAST_SDA @0x1802C
-printf "V/4022802C/%08X\n", (*(0x4022802C))
-# TCD6_DADDR @0x18030
-printf "V/40228030/%08X\n", (*(0x40228030))
-# TCD6_DOFF @0x18034
-printf "V/40228034/%08X\n", (*(0x40228034) >> 0) & 0xFFFF
-# TCD6_CITER_ELINKNO @0x18036
-printf "V/40228036/%08X\n", (*(0x40228034) >> 16) & 0xFFFF
-# TCD6_CITER_ELINKYES @0x18036
-printf "V/40228036/%08X\n", (*(0x40228034) >> 16) & 0xFFFF
-# TCD6_DLAST_SGA @0x18038
-printf "V/40228038/%08X\n", (*(0x40228038))
-# TCD6_CSR @0x1803C
-printf "V/4022803C/%08X\n", (*(0x4022803C) >> 0) & 0xFFFF
-# TCD6_BITER_ELINKNO @0x1803E
-printf "V/4022803E/%08X\n", (*(0x4022803C) >> 16) & 0xFFFF
-# TCD6_BITER_ELINKYES @0x1803E
-printf "V/4022803E/%08X\n", (*(0x4022803C) >> 16) & 0xFFFF
-# CH7_CSR @0x1C000
-printf "V/4022C000/%08X\n", (*(0x4022C000))
-# CH7_ES @0x1C004
-printf "V/4022C004/%08X\n", (*(0x4022C004))
-# CH7_INT @0x1C008
-printf "V/4022C008/%08X\n", (*(0x4022C008))
-# CH7_SBR @0x1C00C
-printf "V/4022C00C/%08X\n", (*(0x4022C00C))
-# CH7_PRI @0x1C010
-printf "V/4022C010/%08X\n", (*(0x4022C010))
-# TCD7_SADDR @0x1C020
-printf "V/4022C020/%08X\n", (*(0x4022C020))
-# TCD7_SOFF @0x1C024
-printf "V/4022C024/%08X\n", (*(0x4022C024) >> 0) & 0xFFFF
-# TCD7_ATTR @0x1C026
-printf "V/4022C026/%08X\n", (*(0x4022C024) >> 16) & 0xFFFF
-# TCD7_NBYTES_MLOFFNO @0x1C028
-printf "V/4022C028/%08X\n", (*(0x4022C028))
-# TCD7_NBYTES_MLOFFYES @0x1C028
-printf "V/4022C028/%08X\n", (*(0x4022C028))
-# TCD7_SLAST_SDA @0x1C02C
-printf "V/4022C02C/%08X\n", (*(0x4022C02C))
-# TCD7_DADDR @0x1C030
-printf "V/4022C030/%08X\n", (*(0x4022C030))
-# TCD7_DOFF @0x1C034
-printf "V/4022C034/%08X\n", (*(0x4022C034) >> 0) & 0xFFFF
-# TCD7_CITER_ELINKNO @0x1C036
-printf "V/4022C036/%08X\n", (*(0x4022C034) >> 16) & 0xFFFF
-# TCD7_CITER_ELINKYES @0x1C036
-printf "V/4022C036/%08X\n", (*(0x4022C034) >> 16) & 0xFFFF
-# TCD7_DLAST_SGA @0x1C038
-printf "V/4022C038/%08X\n", (*(0x4022C038))
-# TCD7_CSR @0x1C03C
-printf "V/4022C03C/%08X\n", (*(0x4022C03C) >> 0) & 0xFFFF
-# TCD7_BITER_ELINKNO @0x1C03E
-printf "V/4022C03E/%08X\n", (*(0x4022C03C) >> 16) & 0xFFFF
-# TCD7_BITER_ELINKYES @0x1C03E
-printf "V/4022C03E/%08X\n", (*(0x4022C03C) >> 16) & 0xFFFF
-# CH8_CSR @0x20000
-printf "V/40230000/%08X\n", (*(0x40230000))
-# CH8_ES @0x20004
-printf "V/40230004/%08X\n", (*(0x40230004))
-# CH8_INT @0x20008
-printf "V/40230008/%08X\n", (*(0x40230008))
-# CH8_SBR @0x2000C
-printf "V/4023000C/%08X\n", (*(0x4023000C))
-# CH8_PRI @0x20010
-printf "V/40230010/%08X\n", (*(0x40230010))
-# TCD8_SADDR @0x20020
-printf "V/40230020/%08X\n", (*(0x40230020))
-# TCD8_SOFF @0x20024
-printf "V/40230024/%08X\n", (*(0x40230024) >> 0) & 0xFFFF
-# TCD8_ATTR @0x20026
-printf "V/40230026/%08X\n", (*(0x40230024) >> 16) & 0xFFFF
-# TCD8_NBYTES_MLOFFNO @0x20028
-printf "V/40230028/%08X\n", (*(0x40230028))
-# TCD8_NBYTES_MLOFFYES @0x20028
-printf "V/40230028/%08X\n", (*(0x40230028))
-# TCD8_SLAST_SDA @0x2002C
-printf "V/4023002C/%08X\n", (*(0x4023002C))
-# TCD8_DADDR @0x20030
-printf "V/40230030/%08X\n", (*(0x40230030))
-# TCD8_DOFF @0x20034
-printf "V/40230034/%08X\n", (*(0x40230034) >> 0) & 0xFFFF
-# TCD8_CITER_ELINKNO @0x20036
-printf "V/40230036/%08X\n", (*(0x40230034) >> 16) & 0xFFFF
-# TCD8_CITER_ELINKYES @0x20036
-printf "V/40230036/%08X\n", (*(0x40230034) >> 16) & 0xFFFF
-# TCD8_DLAST_SGA @0x20038
-printf "V/40230038/%08X\n", (*(0x40230038))
-# TCD8_CSR @0x2003C
-printf "V/4023003C/%08X\n", (*(0x4023003C) >> 0) & 0xFFFF
-# TCD8_BITER_ELINKNO @0x2003E
-printf "V/4023003E/%08X\n", (*(0x4023003C) >> 16) & 0xFFFF
-# TCD8_BITER_ELINKYES @0x2003E
-printf "V/4023003E/%08X\n", (*(0x4023003C) >> 16) & 0xFFFF
-# CH9_CSR @0x24000
-printf "V/40234000/%08X\n", (*(0x40234000))
-# CH9_ES @0x24004
-printf "V/40234004/%08X\n", (*(0x40234004))
-# CH9_INT @0x24008
-printf "V/40234008/%08X\n", (*(0x40234008))
-# CH9_SBR @0x2400C
-printf "V/4023400C/%08X\n", (*(0x4023400C))
-# CH9_PRI @0x24010
-printf "V/40234010/%08X\n", (*(0x40234010))
-# TCD9_SADDR @0x24020
-printf "V/40234020/%08X\n", (*(0x40234020))
-# TCD9_SOFF @0x24024
-printf "V/40234024/%08X\n", (*(0x40234024) >> 0) & 0xFFFF
-# TCD9_ATTR @0x24026
-printf "V/40234026/%08X\n", (*(0x40234024) >> 16) & 0xFFFF
-# TCD9_NBYTES_MLOFFNO @0x24028
-printf "V/40234028/%08X\n", (*(0x40234028))
-# TCD9_NBYTES_MLOFFYES @0x24028
-printf "V/40234028/%08X\n", (*(0x40234028))
-# TCD9_SLAST_SDA @0x2402C
-printf "V/4023402C/%08X\n", (*(0x4023402C))
-# TCD9_DADDR @0x24030
-printf "V/40234030/%08X\n", (*(0x40234030))
-# TCD9_DOFF @0x24034
-printf "V/40234034/%08X\n", (*(0x40234034) >> 0) & 0xFFFF
-# TCD9_CITER_ELINKNO @0x24036
-printf "V/40234036/%08X\n", (*(0x40234034) >> 16) & 0xFFFF
-# TCD9_CITER_ELINKYES @0x24036
-printf "V/40234036/%08X\n", (*(0x40234034) >> 16) & 0xFFFF
-# TCD9_DLAST_SGA @0x24038
-printf "V/40234038/%08X\n", (*(0x40234038))
-# TCD9_CSR @0x2403C
-printf "V/4023403C/%08X\n", (*(0x4023403C) >> 0) & 0xFFFF
-# TCD9_BITER_ELINKNO @0x2403E
-printf "V/4023403E/%08X\n", (*(0x4023403C) >> 16) & 0xFFFF
-# TCD9_BITER_ELINKYES @0x2403E
-printf "V/4023403E/%08X\n", (*(0x4023403C) >> 16) & 0xFFFF
-# CH10_CSR @0x28000
+end
+
+# TCD0_CH10 @0x40238000
+if ($PRTN1_COFB0_STAT & ( 1 << 14 ))
+# CSR @0
 printf "V/40238000/%08X\n", (*(0x40238000))
-# CH10_ES @0x28004
+# ES @0x4
 printf "V/40238004/%08X\n", (*(0x40238004))
-# CH10_INT @0x28008
+# INT @0x8
 printf "V/40238008/%08X\n", (*(0x40238008))
-# CH10_SBR @0x2800C
+# SBR @0xC
 printf "V/4023800C/%08X\n", (*(0x4023800C))
-# CH10_PRI @0x28010
+# PRI @0x10
 printf "V/40238010/%08X\n", (*(0x40238010))
-# TCD10_SADDR @0x28020
+# SADDR @0x20
 printf "V/40238020/%08X\n", (*(0x40238020))
-# TCD10_SOFF @0x28024
+# SOFF @0x24
 printf "V/40238024/%08X\n", (*(0x40238024) >> 0) & 0xFFFF
-# TCD10_ATTR @0x28026
+# ATTR @0x26
 printf "V/40238026/%08X\n", (*(0x40238024) >> 16) & 0xFFFF
-# TCD10_NBYTES_MLOFFNO @0x28028
+# NBYTES_MLOFFNO @0x28
 printf "V/40238028/%08X\n", (*(0x40238028))
-# TCD10_NBYTES_MLOFFYES @0x28028
+# NBYTES_MLOFFYES @0x28
 printf "V/40238028/%08X\n", (*(0x40238028))
-# TCD10_SLAST_SDA @0x2802C
+# SLAST_SDA @0x2C
 printf "V/4023802C/%08X\n", (*(0x4023802C))
-# TCD10_DADDR @0x28030
+# DADDR @0x30
 printf "V/40238030/%08X\n", (*(0x40238030))
-# TCD10_DOFF @0x28034
+# DOFF @0x34
 printf "V/40238034/%08X\n", (*(0x40238034) >> 0) & 0xFFFF
-# TCD10_CITER_ELINKNO @0x28036
+# CITER_ELINKNO @0x36
 printf "V/40238036/%08X\n", (*(0x40238034) >> 16) & 0xFFFF
-# TCD10_CITER_ELINKYES @0x28036
+# CITER_ELINKYES @0x36
 printf "V/40238036/%08X\n", (*(0x40238034) >> 16) & 0xFFFF
-# TCD10_DLAST_SGA @0x28038
+# DLAST_SGA @0x38
 printf "V/40238038/%08X\n", (*(0x40238038))
-# TCD10_CSR @0x2803C
+# CSR @0x3C
 printf "V/4023803C/%08X\n", (*(0x4023803C) >> 0) & 0xFFFF
-# TCD10_BITER_ELINKNO @0x2803E
+# BITER_ELINKNO @0x3E
 printf "V/4023803E/%08X\n", (*(0x4023803C) >> 16) & 0xFFFF
-# TCD10_BITER_ELINKYES @0x2803E
+# BITER_ELINKYES @0x3E
 printf "V/4023803E/%08X\n", (*(0x4023803C) >> 16) & 0xFFFF
-# CH11_CSR @0x2C000
+end
+
+# TCD0_CH11 @0x4023C000
+if ($PRTN1_COFB0_STAT & ( 1 << 15 ))
+# CSR @0
 printf "V/4023C000/%08X\n", (*(0x4023C000))
-# CH11_ES @0x2C004
+# ES @0x4
 printf "V/4023C004/%08X\n", (*(0x4023C004))
-# CH11_INT @0x2C008
+# INT @0x8
 printf "V/4023C008/%08X\n", (*(0x4023C008))
-# CH11_SBR @0x2C00C
+# SBR @0xC
 printf "V/4023C00C/%08X\n", (*(0x4023C00C))
-# CH11_PRI @0x2C010
+# PRI @0x10
 printf "V/4023C010/%08X\n", (*(0x4023C010))
-# TCD11_SADDR @0x2C020
+# SADDR @0x20
 printf "V/4023C020/%08X\n", (*(0x4023C020))
-# TCD11_SOFF @0x2C024
+# SOFF @0x24
 printf "V/4023C024/%08X\n", (*(0x4023C024) >> 0) & 0xFFFF
-# TCD11_ATTR @0x2C026
+# ATTR @0x26
 printf "V/4023C026/%08X\n", (*(0x4023C024) >> 16) & 0xFFFF
-# TCD11_NBYTES_MLOFFNO @0x2C028
+# NBYTES_MLOFFNO @0x28
 printf "V/4023C028/%08X\n", (*(0x4023C028))
-# TCD11_NBYTES_MLOFFYES @0x2C028
+# NBYTES_MLOFFYES @0x28
 printf "V/4023C028/%08X\n", (*(0x4023C028))
-# TCD11_SLAST_SDA @0x2C02C
+# SLAST_SDA @0x2C
 printf "V/4023C02C/%08X\n", (*(0x4023C02C))
-# TCD11_DADDR @0x2C030
+# DADDR @0x30
 printf "V/4023C030/%08X\n", (*(0x4023C030))
-# TCD11_DOFF @0x2C034
+# DOFF @0x34
 printf "V/4023C034/%08X\n", (*(0x4023C034) >> 0) & 0xFFFF
-# TCD11_CITER_ELINKNO @0x2C036
+# CITER_ELINKNO @0x36
 printf "V/4023C036/%08X\n", (*(0x4023C034) >> 16) & 0xFFFF
-# TCD11_CITER_ELINKYES @0x2C036
+# CITER_ELINKYES @0x36
 printf "V/4023C036/%08X\n", (*(0x4023C034) >> 16) & 0xFFFF
-# TCD11_DLAST_SGA @0x2C038
+# DLAST_SGA @0x38
 printf "V/4023C038/%08X\n", (*(0x4023C038))
-# TCD11_CSR @0x2C03C
+# CSR @0x3C
 printf "V/4023C03C/%08X\n", (*(0x4023C03C) >> 0) & 0xFFFF
-# TCD11_BITER_ELINKNO @0x2C03E
+# BITER_ELINKNO @0x3E
 printf "V/4023C03E/%08X\n", (*(0x4023C03C) >> 16) & 0xFFFF
-# TCD11_BITER_ELINKYES @0x2C03E
+# BITER_ELINKYES @0x3E
 printf "V/4023C03E/%08X\n", (*(0x4023C03C) >> 16) & 0xFFFF
+end
+
+# TCD0_CH2 @0x40218000
+if ($PRTN1_COFB0_STAT & ( 1 << 6 ))
+# CSR @0
+printf "V/40218000/%08X\n", (*(0x40218000))
+# ES @0x4
+printf "V/40218004/%08X\n", (*(0x40218004))
+# INT @0x8
+printf "V/40218008/%08X\n", (*(0x40218008))
+# SBR @0xC
+printf "V/4021800C/%08X\n", (*(0x4021800C))
+# PRI @0x10
+printf "V/40218010/%08X\n", (*(0x40218010))
+# SADDR @0x20
+printf "V/40218020/%08X\n", (*(0x40218020))
+# SOFF @0x24
+printf "V/40218024/%08X\n", (*(0x40218024) >> 0) & 0xFFFF
+# ATTR @0x26
+printf "V/40218026/%08X\n", (*(0x40218024) >> 16) & 0xFFFF
+# NBYTES_MLOFFNO @0x28
+printf "V/40218028/%08X\n", (*(0x40218028))
+# NBYTES_MLOFFYES @0x28
+printf "V/40218028/%08X\n", (*(0x40218028))
+# SLAST_SDA @0x2C
+printf "V/4021802C/%08X\n", (*(0x4021802C))
+# DADDR @0x30
+printf "V/40218030/%08X\n", (*(0x40218030))
+# DOFF @0x34
+printf "V/40218034/%08X\n", (*(0x40218034) >> 0) & 0xFFFF
+# CITER_ELINKNO @0x36
+printf "V/40218036/%08X\n", (*(0x40218034) >> 16) & 0xFFFF
+# CITER_ELINKYES @0x36
+printf "V/40218036/%08X\n", (*(0x40218034) >> 16) & 0xFFFF
+# DLAST_SGA @0x38
+printf "V/40218038/%08X\n", (*(0x40218038))
+# CSR @0x3C
+printf "V/4021803C/%08X\n", (*(0x4021803C) >> 0) & 0xFFFF
+# BITER_ELINKNO @0x3E
+printf "V/4021803E/%08X\n", (*(0x4021803C) >> 16) & 0xFFFF
+# BITER_ELINKYES @0x3E
+printf "V/4021803E/%08X\n", (*(0x4021803C) >> 16) & 0xFFFF
+end
+
+# TCD0_CH3 @0x4021C000
+if ($PRTN1_COFB0_STAT & ( 1 << 7 ))
+# CSR @0
+printf "V/4021C000/%08X\n", (*(0x4021C000))
+# ES @0x4
+printf "V/4021C004/%08X\n", (*(0x4021C004))
+# INT @0x8
+printf "V/4021C008/%08X\n", (*(0x4021C008))
+# SBR @0xC
+printf "V/4021C00C/%08X\n", (*(0x4021C00C))
+# PRI @0x10
+printf "V/4021C010/%08X\n", (*(0x4021C010))
+# SADDR @0x20
+printf "V/4021C020/%08X\n", (*(0x4021C020))
+# SOFF @0x24
+printf "V/4021C024/%08X\n", (*(0x4021C024) >> 0) & 0xFFFF
+# ATTR @0x26
+printf "V/4021C026/%08X\n", (*(0x4021C024) >> 16) & 0xFFFF
+# NBYTES_MLOFFNO @0x28
+printf "V/4021C028/%08X\n", (*(0x4021C028))
+# NBYTES_MLOFFYES @0x28
+printf "V/4021C028/%08X\n", (*(0x4021C028))
+# SLAST_SDA @0x2C
+printf "V/4021C02C/%08X\n", (*(0x4021C02C))
+# DADDR @0x30
+printf "V/4021C030/%08X\n", (*(0x4021C030))
+# DOFF @0x34
+printf "V/4021C034/%08X\n", (*(0x4021C034) >> 0) & 0xFFFF
+# CITER_ELINKNO @0x36
+printf "V/4021C036/%08X\n", (*(0x4021C034) >> 16) & 0xFFFF
+# CITER_ELINKYES @0x36
+printf "V/4021C036/%08X\n", (*(0x4021C034) >> 16) & 0xFFFF
+# DLAST_SGA @0x38
+printf "V/4021C038/%08X\n", (*(0x4021C038))
+# CSR @0x3C
+printf "V/4021C03C/%08X\n", (*(0x4021C03C) >> 0) & 0xFFFF
+# BITER_ELINKNO @0x3E
+printf "V/4021C03E/%08X\n", (*(0x4021C03C) >> 16) & 0xFFFF
+# BITER_ELINKYES @0x3E
+printf "V/4021C03E/%08X\n", (*(0x4021C03C) >> 16) & 0xFFFF
+end
+
+# TCD0_CH4 @0x40220000
+if ($PRTN1_COFB0_STAT & ( 1 << 8 ))
+# CSR @0
+printf "V/40220000/%08X\n", (*(0x40220000))
+# ES @0x4
+printf "V/40220004/%08X\n", (*(0x40220004))
+# INT @0x8
+printf "V/40220008/%08X\n", (*(0x40220008))
+# SBR @0xC
+printf "V/4022000C/%08X\n", (*(0x4022000C))
+# PRI @0x10
+printf "V/40220010/%08X\n", (*(0x40220010))
+# SADDR @0x20
+printf "V/40220020/%08X\n", (*(0x40220020))
+# SOFF @0x24
+printf "V/40220024/%08X\n", (*(0x40220024) >> 0) & 0xFFFF
+# ATTR @0x26
+printf "V/40220026/%08X\n", (*(0x40220024) >> 16) & 0xFFFF
+# NBYTES_MLOFFNO @0x28
+printf "V/40220028/%08X\n", (*(0x40220028))
+# NBYTES_MLOFFYES @0x28
+printf "V/40220028/%08X\n", (*(0x40220028))
+# SLAST_SDA @0x2C
+printf "V/4022002C/%08X\n", (*(0x4022002C))
+# DADDR @0x30
+printf "V/40220030/%08X\n", (*(0x40220030))
+# DOFF @0x34
+printf "V/40220034/%08X\n", (*(0x40220034) >> 0) & 0xFFFF
+# CITER_ELINKNO @0x36
+printf "V/40220036/%08X\n", (*(0x40220034) >> 16) & 0xFFFF
+# CITER_ELINKYES @0x36
+printf "V/40220036/%08X\n", (*(0x40220034) >> 16) & 0xFFFF
+# DLAST_SGA @0x38
+printf "V/40220038/%08X\n", (*(0x40220038))
+# CSR @0x3C
+printf "V/4022003C/%08X\n", (*(0x4022003C) >> 0) & 0xFFFF
+# BITER_ELINKNO @0x3E
+printf "V/4022003E/%08X\n", (*(0x4022003C) >> 16) & 0xFFFF
+# BITER_ELINKYES @0x3E
+printf "V/4022003E/%08X\n", (*(0x4022003C) >> 16) & 0xFFFF
+end
+
+# TCD0_CH5 @0x40224000
+if ($PRTN1_COFB0_STAT & ( 1 << 9 ))
+# CSR @0
+printf "V/40224000/%08X\n", (*(0x40224000))
+# ES @0x4
+printf "V/40224004/%08X\n", (*(0x40224004))
+# INT @0x8
+printf "V/40224008/%08X\n", (*(0x40224008))
+# SBR @0xC
+printf "V/4022400C/%08X\n", (*(0x4022400C))
+# PRI @0x10
+printf "V/40224010/%08X\n", (*(0x40224010))
+# SADDR @0x20
+printf "V/40224020/%08X\n", (*(0x40224020))
+# SOFF @0x24
+printf "V/40224024/%08X\n", (*(0x40224024) >> 0) & 0xFFFF
+# ATTR @0x26
+printf "V/40224026/%08X\n", (*(0x40224024) >> 16) & 0xFFFF
+# NBYTES_MLOFFNO @0x28
+printf "V/40224028/%08X\n", (*(0x40224028))
+# NBYTES_MLOFFYES @0x28
+printf "V/40224028/%08X\n", (*(0x40224028))
+# SLAST_SDA @0x2C
+printf "V/4022402C/%08X\n", (*(0x4022402C))
+# DADDR @0x30
+printf "V/40224030/%08X\n", (*(0x40224030))
+# DOFF @0x34
+printf "V/40224034/%08X\n", (*(0x40224034) >> 0) & 0xFFFF
+# CITER_ELINKNO @0x36
+printf "V/40224036/%08X\n", (*(0x40224034) >> 16) & 0xFFFF
+# CITER_ELINKYES @0x36
+printf "V/40224036/%08X\n", (*(0x40224034) >> 16) & 0xFFFF
+# DLAST_SGA @0x38
+printf "V/40224038/%08X\n", (*(0x40224038))
+# CSR @0x3C
+printf "V/4022403C/%08X\n", (*(0x4022403C) >> 0) & 0xFFFF
+# BITER_ELINKNO @0x3E
+printf "V/4022403E/%08X\n", (*(0x4022403C) >> 16) & 0xFFFF
+# BITER_ELINKYES @0x3E
+printf "V/4022403E/%08X\n", (*(0x4022403C) >> 16) & 0xFFFF
+end
+
+# TCD0_CH6 @0x40228000
+if ($PRTN1_COFB0_STAT & ( 1 << 10 ))
+# CSR @0
+printf "V/40228000/%08X\n", (*(0x40228000))
+# ES @0x4
+printf "V/40228004/%08X\n", (*(0x40228004))
+# INT @0x8
+printf "V/40228008/%08X\n", (*(0x40228008))
+# SBR @0xC
+printf "V/4022800C/%08X\n", (*(0x4022800C))
+# PRI @0x10
+printf "V/40228010/%08X\n", (*(0x40228010))
+# SADDR @0x20
+printf "V/40228020/%08X\n", (*(0x40228020))
+# SOFF @0x24
+printf "V/40228024/%08X\n", (*(0x40228024) >> 0) & 0xFFFF
+# ATTR @0x26
+printf "V/40228026/%08X\n", (*(0x40228024) >> 16) & 0xFFFF
+# NBYTES_MLOFFNO @0x28
+printf "V/40228028/%08X\n", (*(0x40228028))
+# NBYTES_MLOFFYES @0x28
+printf "V/40228028/%08X\n", (*(0x40228028))
+# SLAST_SDA @0x2C
+printf "V/4022802C/%08X\n", (*(0x4022802C))
+# DADDR @0x30
+printf "V/40228030/%08X\n", (*(0x40228030))
+# DOFF @0x34
+printf "V/40228034/%08X\n", (*(0x40228034) >> 0) & 0xFFFF
+# CITER_ELINKNO @0x36
+printf "V/40228036/%08X\n", (*(0x40228034) >> 16) & 0xFFFF
+# CITER_ELINKYES @0x36
+printf "V/40228036/%08X\n", (*(0x40228034) >> 16) & 0xFFFF
+# DLAST_SGA @0x38
+printf "V/40228038/%08X\n", (*(0x40228038))
+# CSR @0x3C
+printf "V/4022803C/%08X\n", (*(0x4022803C) >> 0) & 0xFFFF
+# BITER_ELINKNO @0x3E
+printf "V/4022803E/%08X\n", (*(0x4022803C) >> 16) & 0xFFFF
+# BITER_ELINKYES @0x3E
+printf "V/4022803E/%08X\n", (*(0x4022803C) >> 16) & 0xFFFF
+end
+
+# TCD0_CH7 @0x4022C000
+if ($PRTN1_COFB0_STAT & ( 1 << 11 ))
+# CSR @0
+printf "V/4022C000/%08X\n", (*(0x4022C000))
+# ES @0x4
+printf "V/4022C004/%08X\n", (*(0x4022C004))
+# INT @0x8
+printf "V/4022C008/%08X\n", (*(0x4022C008))
+# SBR @0xC
+printf "V/4022C00C/%08X\n", (*(0x4022C00C))
+# PRI @0x10
+printf "V/4022C010/%08X\n", (*(0x4022C010))
+# SADDR @0x20
+printf "V/4022C020/%08X\n", (*(0x4022C020))
+# SOFF @0x24
+printf "V/4022C024/%08X\n", (*(0x4022C024) >> 0) & 0xFFFF
+# ATTR @0x26
+printf "V/4022C026/%08X\n", (*(0x4022C024) >> 16) & 0xFFFF
+# NBYTES_MLOFFNO @0x28
+printf "V/4022C028/%08X\n", (*(0x4022C028))
+# NBYTES_MLOFFYES @0x28
+printf "V/4022C028/%08X\n", (*(0x4022C028))
+# SLAST_SDA @0x2C
+printf "V/4022C02C/%08X\n", (*(0x4022C02C))
+# DADDR @0x30
+printf "V/4022C030/%08X\n", (*(0x4022C030))
+# DOFF @0x34
+printf "V/4022C034/%08X\n", (*(0x4022C034) >> 0) & 0xFFFF
+# CITER_ELINKNO @0x36
+printf "V/4022C036/%08X\n", (*(0x4022C034) >> 16) & 0xFFFF
+# CITER_ELINKYES @0x36
+printf "V/4022C036/%08X\n", (*(0x4022C034) >> 16) & 0xFFFF
+# DLAST_SGA @0x38
+printf "V/4022C038/%08X\n", (*(0x4022C038))
+# CSR @0x3C
+printf "V/4022C03C/%08X\n", (*(0x4022C03C) >> 0) & 0xFFFF
+# BITER_ELINKNO @0x3E
+printf "V/4022C03E/%08X\n", (*(0x4022C03C) >> 16) & 0xFFFF
+# BITER_ELINKYES @0x3E
+printf "V/4022C03E/%08X\n", (*(0x4022C03C) >> 16) & 0xFFFF
+end
+
+# TCD0_CH8 @0x40230000
+if ($PRTN1_COFB0_STAT & ( 1 << 12 ))
+# CSR @0
+printf "V/40230000/%08X\n", (*(0x40230000))
+# ES @0x4
+printf "V/40230004/%08X\n", (*(0x40230004))
+# INT @0x8
+printf "V/40230008/%08X\n", (*(0x40230008))
+# SBR @0xC
+printf "V/4023000C/%08X\n", (*(0x4023000C))
+# PRI @0x10
+printf "V/40230010/%08X\n", (*(0x40230010))
+# SADDR @0x20
+printf "V/40230020/%08X\n", (*(0x40230020))
+# SOFF @0x24
+printf "V/40230024/%08X\n", (*(0x40230024) >> 0) & 0xFFFF
+# ATTR @0x26
+printf "V/40230026/%08X\n", (*(0x40230024) >> 16) & 0xFFFF
+# NBYTES_MLOFFNO @0x28
+printf "V/40230028/%08X\n", (*(0x40230028))
+# NBYTES_MLOFFYES @0x28
+printf "V/40230028/%08X\n", (*(0x40230028))
+# SLAST_SDA @0x2C
+printf "V/4023002C/%08X\n", (*(0x4023002C))
+# DADDR @0x30
+printf "V/40230030/%08X\n", (*(0x40230030))
+# DOFF @0x34
+printf "V/40230034/%08X\n", (*(0x40230034) >> 0) & 0xFFFF
+# CITER_ELINKNO @0x36
+printf "V/40230036/%08X\n", (*(0x40230034) >> 16) & 0xFFFF
+# CITER_ELINKYES @0x36
+printf "V/40230036/%08X\n", (*(0x40230034) >> 16) & 0xFFFF
+# DLAST_SGA @0x38
+printf "V/40230038/%08X\n", (*(0x40230038))
+# CSR @0x3C
+printf "V/4023003C/%08X\n", (*(0x4023003C) >> 0) & 0xFFFF
+# BITER_ELINKNO @0x3E
+printf "V/4023003E/%08X\n", (*(0x4023003C) >> 16) & 0xFFFF
+# BITER_ELINKYES @0x3E
+printf "V/4023003E/%08X\n", (*(0x4023003C) >> 16) & 0xFFFF
+end
+
+# TCD0_CH9 @0x40234000
+if ($PRTN1_COFB0_STAT & ( 1 << 13 ))
+# CSR @0
+printf "V/40234000/%08X\n", (*(0x40234000))
+# ES @0x4
+printf "V/40234004/%08X\n", (*(0x40234004))
+# INT @0x8
+printf "V/40234008/%08X\n", (*(0x40234008))
+# SBR @0xC
+printf "V/4023400C/%08X\n", (*(0x4023400C))
+# PRI @0x10
+printf "V/40234010/%08X\n", (*(0x40234010))
+# SADDR @0x20
+printf "V/40234020/%08X\n", (*(0x40234020))
+# SOFF @0x24
+printf "V/40234024/%08X\n", (*(0x40234024) >> 0) & 0xFFFF
+# ATTR @0x26
+printf "V/40234026/%08X\n", (*(0x40234024) >> 16) & 0xFFFF
+# NBYTES_MLOFFNO @0x28
+printf "V/40234028/%08X\n", (*(0x40234028))
+# NBYTES_MLOFFYES @0x28
+printf "V/40234028/%08X\n", (*(0x40234028))
+# SLAST_SDA @0x2C
+printf "V/4023402C/%08X\n", (*(0x4023402C))
+# DADDR @0x30
+printf "V/40234030/%08X\n", (*(0x40234030))
+# DOFF @0x34
+printf "V/40234034/%08X\n", (*(0x40234034) >> 0) & 0xFFFF
+# CITER_ELINKNO @0x36
+printf "V/40234036/%08X\n", (*(0x40234034) >> 16) & 0xFFFF
+# CITER_ELINKYES @0x36
+printf "V/40234036/%08X\n", (*(0x40234034) >> 16) & 0xFFFF
+# DLAST_SGA @0x38
+printf "V/40234038/%08X\n", (*(0x40234038))
+# CSR @0x3C
+printf "V/4023403C/%08X\n", (*(0x4023403C) >> 0) & 0xFFFF
+# BITER_ELINKNO @0x3E
+printf "V/4023403E/%08X\n", (*(0x4023403C) >> 16) & 0xFFFF
+# BITER_ELINKYES @0x3E
+printf "V/4023403E/%08X\n", (*(0x4023403C) >> 16) & 0xFFFF
+end
 
 # TEMPSENSE @0x4037C000
+if ($PRTN1_COFB2_STAT & ( 1 << 31 ))
 # ETSCTL @0
 printf "V/4037C000/%08X\n", (*(0x4037C000))
 # TCA0 @0x8
@@ -10316,8 +10487,10 @@ printf "V/4037C008/%08X\n", (*(0x4037C008))
 printf "V/4037C00C/%08X\n", (*(0x4037C00C))
 # TCA2 @0x10
 printf "V/4037C010/%08X\n", (*(0x4037C010))
+end
 
 # TRGMUX @0x40080000
+if ($PRTN0_COFB1_STAT & ( 1 << 0 ))
 # ADC12_0 @0
 printf "V/40080000/%08X\n", (*(0x40080000))
 # ADC12_1 @0x4
@@ -10388,8 +10561,10 @@ printf "V/40080094/%08X\n", (*(0x40080094))
 printf "V/40080098/%08X\n", (*(0x40080098))
 # CM7_RXEV @0x9C
 printf "V/4008009C/%08X\n", (*(0x4008009C))
+end
 
 # TSPC @0x402C4000
+if ($PRTN1_COFB1_STAT & ( 1 << 17 ))
 # GRP_EN @0
 printf "V/402C4000/%08X\n", (*(0x402C4000))
 # GRP1_OBE1 @0x50
@@ -10400,8 +10575,10 @@ printf "V/402C4054/%08X\n", (*(0x402C4054))
 printf "V/402C40A0/%08X\n", (*(0x402C40A0))
 # GRP2_OBE2 @0xA4
 printf "V/402C40A4/%08X\n", (*(0x402C40A4))
+end
 
 # VIRT_WRAPPER @0x402A8000
+# 0x402A8000 not found in map.
 # REG_A0 @0
 printf "V/402A8000/%08X\n", (*(0x402A8000))
 # REG_A1 @0x4
@@ -10462,6 +10639,7 @@ printf "V/402A8100/%08X\n", (*(0x402A8100))
 printf "V/402A8104/%08X\n", (*(0x402A8104))
 
 # WKPU @0x402B4000
+if ($PRTN1_COFB1_STAT & ( 1 << 13 ))
 # NSR @0
 printf "V/402B4000/%08X\n", (*(0x402B4000))
 # NCR @0x8
@@ -10490,8 +10668,10 @@ printf "V/402B4068/%08X\n", (*(0x402B4068))
 printf "V/402B406C/%08X\n", (*(0x402B406C))
 # WIFER_64 @0x70
 printf "V/402B4070/%08X\n", (*(0x402B4070))
+end
 
 # XBIC_AXBS @0x40204000
+if ($PRTN1_COFB0_STAT & ( 1 << 1 ))
 # MCR @0
 printf "V/40204000/%08X\n", (*(0x40204000))
 # EIR @0x4
@@ -10500,8 +10680,10 @@ printf "V/40204004/%08X\n", (*(0x40204004))
 printf "V/40204008/%08X\n", (*(0x40204008))
 # EAR @0xC
 printf "V/4020400C/%08X\n", (*(0x4020400C))
+end
 
 # XRDC @0x40278000
+if ($PRTN1_COFB0_STAT & ( 1 << 30 ))
 # CR @0
 printf "V/40278000/%08X\n", (*(0x40278000))
 # HWCFG0 @0xF0
@@ -11054,5 +11236,6 @@ printf "V/4027A2E4/%08X\n", (*(0x4027A2E4))
 printf "V/4027A2E8/%08X\n", (*(0x4027A2E8))
 # MRGD_W3_23 @0x22EC
 printf "V/4027A2EC/%08X\n", (*(0x4027A2EC))
+end
 
 set logging off

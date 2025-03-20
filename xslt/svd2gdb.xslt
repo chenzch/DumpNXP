@@ -42,7 +42,6 @@
         <xsl:text> @</xsl:text>
         <xsl:value-of select="baseAddress" />
         <xsl:text>&#10;</xsl:text>
-        <xsl:variable name="baseAddrText" select="baseAddress" />
         <xsl:variable name="baseAddr" select="fn:HexToDec(baseAddress)" />
 
         <xsl:variable name="reqmap">
@@ -85,6 +84,9 @@
             <map><baseaddr>0x400C8000</baseaddr><stat>PRTN0_COFB1_STAT</stat><offset>18</offset></map>
             <map><baseaddr>0x400CC000</baseaddr><stat>PRTN0_COFB1_STAT</stat><offset>19</offset></map>
             <map><baseaddr>0x400D0000</baseaddr><stat>PRTN0_COFB1_STAT</stat><offset>20</offset></map>
+            <map><baseaddr>0x40200000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>0</offset></map>
+            <map><baseaddr>0x40204000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>1</offset></map>
+            <map><baseaddr>0x40208000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>2</offset></map>
             <map><baseaddr>0x4020C000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>3</offset></map>
             <map><baseaddr>0x4020C000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>3</offset></map>
             <map><baseaddr>0x40210000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>4</offset></map>
@@ -104,13 +106,17 @@
             <map><baseaddr>0x4025C000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>23</offset></map>
             <map><baseaddr>0x4025C000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>23</offset></map>
             <map><baseaddr>0x40260000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>24</offset></map>
+            <map><baseaddr>0x40264000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>25</offset></map>
+            <map><baseaddr>0x40268000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>26</offset></map>
+            <map><baseaddr>0x4026C000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>27</offset></map>
             <map><baseaddr>0x40270000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>28</offset></map>
             <map><baseaddr>0x40274000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>29</offset></map>
+            <map><baseaddr>0x40278000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>30</offset></map>
             <map><baseaddr>0x4027C000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>31</offset></map>
             <map><baseaddr>0x40280000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>0</offset></map>
             <map><baseaddr>0x40284000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>1</offset></map>
             <map><baseaddr>0x40288000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>2</offset></map>
-            <map><baseaddr>0x402A8000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>10</offset></map>
+            <map><baseaddr>0x40290000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>10</offset></map>
             <map><baseaddr>0x402B4000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>13</offset></map>
             <map><baseaddr>0x402BC000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>15</offset></map>
             <map><baseaddr>0x402BC020</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>15</offset></map>
@@ -124,6 +130,8 @@
             <map><baseaddr>0x402D4000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>21</offset></map>
             <map><baseaddr>0x402E0000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>24</offset></map>
             <map><baseaddr>0x402E4000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>25</offset></map>
+            <map><baseaddr>0x402EC000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>27</offset></map>
+            <map><baseaddr>0x402F0000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>28</offset></map>
             <map><baseaddr>0x402FC000</baseaddr><stat>PRTN1_COFB1_STAT</stat><offset>31</offset></map>
             <map><baseaddr>0x40300000</baseaddr><stat>PRTN1_COFB2_STAT</stat><offset>0</offset></map>
             <map><baseaddr>0x40304000</baseaddr><stat>PRTN1_COFB2_STAT</stat><offset>1</offset></map>
@@ -154,6 +162,10 @@
             <map><baseaddr>0x40374000</baseaddr><stat>PRTN1_COFB2_STAT</stat><offset>29</offset></map>
             <map><baseaddr>0x4037C000</baseaddr><stat>PRTN1_COFB2_STAT</stat><offset>31</offset></map>
             <map><baseaddr>0x40380000</baseaddr><stat>PRTN1_COFB3_STAT</stat><offset>0</offset></map>
+            <map><baseaddr>0x40384000</baseaddr><stat>PRTN1_COFB3_STAT</stat><offset>1</offset></map>
+            <map><baseaddr>0x4038C000</baseaddr><stat>PRTN1_COFB3_STAT</stat><offset>3</offset></map>
+            <map><baseaddr>0x40390000</baseaddr><stat>PRTN1_COFB3_STAT</stat><offset>4</offset></map>
+            <map><baseaddr>0x40394000</baseaddr><stat>PRTN1_COFB3_STAT</stat><offset>5</offset></map>
             <map><baseaddr>0x403A0000</baseaddr><stat>PRTN1_COFB3_STAT</stat><offset>8</offset></map>
             <map><baseaddr>0x403D0000</baseaddr><stat>PRTN1_COFB3_STAT</stat><offset>16</offset></map>
             <map><baseaddr>0x40410000</baseaddr><stat>PRTN2_COFB0_STAT</stat><offset>4</offset></map>
@@ -201,13 +213,14 @@
             <map><baseaddr>0x404DC000</baseaddr><stat>PRTN2_COFB1_STAT</stat><offset>23</offset></map>
             <map><baseaddr>0x404E4000</baseaddr><stat>PRTN2_COFB1_STAT</stat><offset>25</offset></map>
             <map><baseaddr>0x404E8000</baseaddr><stat>PRTN2_COFB1_STAT</stat><offset>26</offset></map>
+            <map><baseaddr>0x404EC000</baseaddr><stat>PRTN2_COFB1_STAT</stat><offset>27</offset></map>
             <map><baseaddr>0x404F0000</baseaddr><stat>PRTN2_COFB1_STAT</stat><offset>28</offset></map>
             <map><baseaddr>0x40504000</baseaddr><stat>PRTN2_COFB2_STAT</stat><offset>1</offset></map>
             <map><baseaddr>0x40508000</baseaddr><stat>PRTN2_COFB2_STAT</stat><offset>2</offset></map>
-            <map><baseaddr>0x4050C000</baseaddr><stat>PRTN2_COFB1_STAT</stat><offset>30</offset></map>
-            <map><baseaddr>0x40510000</baseaddr><stat>PRTN2_COFB1_STAT</stat><offset>31</offset></map>
-            <map><baseaddr>0x40514000</baseaddr><stat>PRTN2_COFB2_STAT</stat><offset>3</offset></map>
-            <map><baseaddr>0x40518000</baseaddr><stat>PRTN2_COFB2_STAT</stat><offset>4</offset></map>
+            <map><baseaddr>0x4050C000</baseaddr><stat>PRTN2_COFB2_STAT</stat><offset>3</offset></map>
+            <map><baseaddr>0x40510000</baseaddr><stat>PRTN2_COFB2_STAT</stat><offset>4</offset></map>
+            <map><baseaddr>0x40514000</baseaddr><stat>PRTN2_COFB2_STAT</stat><offset>5</offset></map>
+            <map><baseaddr>0x40518000</baseaddr><stat>PRTN2_COFB2_STAT</stat><offset>6</offset></map>
             <map><baseaddr>0x40600000</baseaddr><stat>PRTN3_COFB0_STAT</stat><offset>0</offset></map>
             <map><baseaddr>0x40604000</baseaddr><stat>PRTN3_COFB0_STAT</stat><offset>1</offset></map>
             <map><baseaddr>0x40608000</baseaddr><stat>PRTN3_COFB0_STAT</stat><offset>2</offset></map>
@@ -231,6 +244,8 @@
             <map><baseaddr>0x406BC000</baseaddr><stat>PRTN3_COFB1_STAT</stat><offset>15</offset></map>
             <map><baseaddr>0x406C0000</baseaddr><stat>PRTN3_COFB1_STAT</stat><offset>16</offset></map>
             <map><baseaddr>0x406C4000</baseaddr><stat>PRTN3_COFB1_STAT</stat><offset>17</offset></map>
+            <map><baseaddr>0x406C8000</baseaddr><stat>PRTN3_COFB1_STAT</stat><offset>18</offset></map>
+            <map><baseaddr>0x406CC000</baseaddr><stat>PRTN3_COFB1_STAT</stat><offset>19</offset></map>
             <map><baseaddr>0x406D0000</baseaddr><stat>PRTN3_COFB1_STAT</stat><offset>20</offset></map>
             <map><baseaddr>0x406D4000</baseaddr><stat>PRTN3_COFB1_STAT</stat><offset>21</offset></map>
             <map><baseaddr>0x406D8000</baseaddr><stat>PRTN3_COFB1_STAT</stat><offset>22</offset></map>
@@ -241,12 +256,14 @@
             <map><baseaddr>0x40704000</baseaddr><stat>PRTN3_COFB2_STAT</stat><offset>1</offset></map>
         </xsl:variable>
 
+        <xsl:variable name="baseAddrText" select="baseAddress" />
+        <xsl:variable name="mapnode" select="$reqmap/map[baseaddr = $baseAddrText]" />
         <xsl:choose>
-            <xsl:when test="$reqmap/map[baseaddr = $baseAddrText]">
+            <xsl:when test="$mapnode">
                 <xsl:text>if ($</xsl:text>
-                <xsl:value-of select="$reqmap/map[baseaddr = $baseAddrText]/stat" />
+                <xsl:value-of select="$mapnode/stat" />
                 <xsl:text> &amp; ( 1 &lt;&lt; </xsl:text>
-                <xsl:value-of select="$reqmap/map[baseaddr = $baseAddrText]/offset" />
+                <xsl:value-of select="$mapnode/offset" />
                 <xsl:text> ))&#10;</xsl:text>
             </xsl:when>
             <xsl:otherwise>
@@ -255,7 +272,6 @@
                 <xsl:text> not found in map.&#10;</xsl:text>
             </xsl:otherwise>
         </xsl:choose>
-
         <xsl:choose>
             <xsl:when test="registers/register">
                 <xsl:for-each select="registers/register">
@@ -273,7 +289,7 @@
                 </xsl:for-each>
             </xsl:otherwise>
         </xsl:choose>
-        <xsl:if test="$reqmap/map[baseaddr = $baseAddrText]">
+        <xsl:if test="$mapnode">
         <xsl:text>end&#10;</xsl:text>
         </xsl:if>
         <xsl:text>&#10;</xsl:text>

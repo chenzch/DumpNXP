@@ -15,7 +15,22 @@ set pagination off
 set logging file S32K39_M7.dump
 set logging on
 
+$PRTN0_COFB0_STAT = *(0x402DC110)
+$PRTN0_COFB1_STAT = *(0x402DC114)
+$PRTN1_COFB0_STAT = *(0x402DC310)
+$PRTN1_COFB1_STAT = *(0x402DC314)
+$PRTN1_COFB2_STAT = *(0x402DC318)
+$PRTN1_COFB3_STAT = *(0x402DC31C)
+$PRTN2_COFB0_STAT = *(0x402DC510)
+$PRTN2_COFB1_STAT = *(0x402DC514)
+$PRTN2_COFB2_STAT = *(0x402DC518)
+$PRTN3_COFB0_STAT = *(0x402DC710)
+$PRTN3_COFB1_STAT = *(0x402DC714)
+$PRTN3_COFB2_STAT = *(0x402DC718)
+
+
 # ADC_0 @0x400A0000
+if ($PRTN0_COFB1_STAT & ( 1 << 8 ))
 # MCR @0
 printf "V/400A0000/%08X\n", (*(0x400A0000))
 # MSR @0x4
@@ -284,8 +299,10 @@ printf "V/400A03A0/%08X\n", (*(0x400A03A0))
 printf "V/400A03A8/%08X\n", (*(0x400A03A8))
 # CAL2 @0x3B4
 printf "V/400A03B4/%08X\n", (*(0x400A03B4))
+end
 
 # ADC_1 @0x400A4000
+if ($PRTN0_COFB1_STAT & ( 1 << 9 ))
 # MCR @0
 printf "V/400A4000/%08X\n", (*(0x400A4000))
 # MSR @0x4
@@ -554,8 +571,10 @@ printf "V/400A43A0/%08X\n", (*(0x400A43A0))
 printf "V/400A43A8/%08X\n", (*(0x400A43A8))
 # CAL2 @0x3B4
 printf "V/400A43B4/%08X\n", (*(0x400A43B4))
+end
 
 # ADC_2 @0x400A8000
+if ($PRTN0_COFB1_STAT & ( 1 << 10 ))
 # MCR @0
 printf "V/400A8000/%08X\n", (*(0x400A8000))
 # MSR @0x4
@@ -732,8 +751,10 @@ printf "V/400A83A0/%08X\n", (*(0x400A83A0))
 printf "V/400A83A8/%08X\n", (*(0x400A83A8))
 # CAL2 @0x3B4
 printf "V/400A83B4/%08X\n", (*(0x400A83B4))
+end
 
 # ADC_3 @0x400AC000
+if ($PRTN0_COFB1_STAT & ( 1 << 11 ))
 # MCR @0
 printf "V/400AC000/%08X\n", (*(0x400AC000))
 # MSR @0x4
@@ -910,8 +931,10 @@ printf "V/400AC3A0/%08X\n", (*(0x400AC3A0))
 printf "V/400AC3A8/%08X\n", (*(0x400AC3A8))
 # CAL2 @0x3B4
 printf "V/400AC3B4/%08X\n", (*(0x400AC3B4))
+end
 
 # ADC_4 @0x406D0000
+if ($PRTN3_COFB1_STAT & ( 1 << 20 ))
 # MCR @0
 printf "V/406D0000/%08X\n", (*(0x406D0000))
 # MSR @0x4
@@ -1088,8 +1111,10 @@ printf "V/406D03A0/%08X\n", (*(0x406D03A0))
 printf "V/406D03A8/%08X\n", (*(0x406D03A8))
 # CAL2 @0x3B4
 printf "V/406D03B4/%08X\n", (*(0x406D03B4))
+end
 
 # ADC_5 @0x406D4000
+if ($PRTN3_COFB1_STAT & ( 1 << 21 ))
 # MCR @0
 printf "V/406D4000/%08X\n", (*(0x406D4000))
 # MSR @0x4
@@ -1266,8 +1291,10 @@ printf "V/406D43A0/%08X\n", (*(0x406D43A0))
 printf "V/406D43A8/%08X\n", (*(0x406D43A8))
 # CAL2 @0x3B4
 printf "V/406D43B4/%08X\n", (*(0x406D43B4))
+end
 
 # ADC_6 @0x406D8000
+if ($PRTN3_COFB1_STAT & ( 1 << 22 ))
 # MCR @0
 printf "V/406D8000/%08X\n", (*(0x406D8000))
 # MSR @0x4
@@ -1444,8 +1471,10 @@ printf "V/406D83A0/%08X\n", (*(0x406D83A0))
 printf "V/406D83A8/%08X\n", (*(0x406D83A8))
 # CAL2 @0x3B4
 printf "V/406D83B4/%08X\n", (*(0x406D83B4))
+end
 
 # ADC_BIST @0x40704000
+if ($PRTN3_COFB2_STAT & ( 1 << 1 ))
 # VERID @0
 printf "V/40704000/%08X\n", (*(0x40704000))
 # BISTCFG @0x4
@@ -1460,8 +1489,10 @@ printf "V/40704200/%08X\n", (*(0x40704200))
 printf "V/40704204/%08X\n", (*(0x40704204))
 # FIRF @0x800
 printf "V/40704800/%08X\n", (*(0x40704800))
+end
 
 # ADC_BIST_FIR @0x40704800
+# 0x40704800 not found in map.
 # FIR_CNTRL @0
 printf "V/40704800/%08X\n", (*(0x40704800))
 # GEC_PRGRM_FACTOR @0x4
@@ -1478,6 +1509,7 @@ printf "V/40704848/%08X\n", (*(0x40704848))
 printf "V/4070484C/%08X\n", (*(0x4070484C))
 
 # AXBS_LITE @0x40200000
+if ($PRTN1_COFB0_STAT & ( 1 << 0 ))
 # PRS0 @0
 printf "V/40200000/%08X\n", (*(0x40200000))
 # CRS0 @0x10
@@ -1510,8 +1542,10 @@ printf "V/40200610/%08X\n", (*(0x40200610))
 printf "V/40200700/%08X\n", (*(0x40200700))
 # CRS7 @0x710
 printf "V/40200710/%08X\n", (*(0x40200710))
+end
 
 # BCTU @0x40084000
+if ($PRTN0_COFB1_STAT & ( 1 << 1 ))
 # MCR @0
 printf "V/40084000/%08X\n", (*(0x40084000))
 # MSR @0x8
@@ -1668,8 +1702,10 @@ printf "V/40084468/%08X\n", (*(0x40084468))
 printf "V/4008446C/%08X\n", (*(0x4008446C))
 # FIFOCNTR @0x470
 printf "V/40084470/%08X\n", (*(0x40084470))
+end
 
 # BCTU_1 @0x406C4000
+if ($PRTN3_COFB1_STAT & ( 1 << 17 ))
 # MCR @0
 printf "V/406C4000/%08X\n", (*(0x406C4000))
 # MSR @0x8
@@ -1828,8 +1864,10 @@ printf "V/406C4468/%08X\n", (*(0x406C4468))
 printf "V/406C446C/%08X\n", (*(0x406C446C))
 # FIFOCNTR @0x470
 printf "V/406C4470/%08X\n", (*(0x406C4470))
+end
 
 # CAN_0 @0x40304000
+if ($PRTN1_COFB2_STAT & ( 1 << 1 ))
 # MCR @0
 printf "V/40304000/%08X\n", (*(0x40304000))
 # CTRL1 @0x4
@@ -2546,8 +2584,10 @@ printf "V/403071F4/%08X\n", (*(0x403071F4))
 printf "V/403071F8/%08X\n", (*(0x403071F8))
 # ERFFEL[127] @0x3000 + 127 * 0x4
 printf "V/403071FC/%08X\n", (*(0x403071FC))
+end
 
 # CAN_1 @0x40308000
+if ($PRTN1_COFB2_STAT & ( 1 << 2 ))
 # MCR @0
 printf "V/40308000/%08X\n", (*(0x40308000))
 # CTRL1 @0x4
@@ -3264,8 +3304,10 @@ printf "V/4030B1F4/%08X\n", (*(0x4030B1F4))
 printf "V/4030B1F8/%08X\n", (*(0x4030B1F8))
 # ERFFEL[127] @0x3000 + 127 * 0x4
 printf "V/4030B1FC/%08X\n", (*(0x4030B1FC))
+end
 
 # CAN_2 @0x4030C000
+if ($PRTN1_COFB2_STAT & ( 1 << 3 ))
 # MCR @0
 printf "V/4030C000/%08X\n", (*(0x4030C000))
 # CTRL1 @0x4
@@ -3982,8 +4024,10 @@ printf "V/4030F1F4/%08X\n", (*(0x4030F1F4))
 printf "V/4030F1F8/%08X\n", (*(0x4030F1F8))
 # ERFFEL[127] @0x3000 + 127 * 0x4
 printf "V/4030F1FC/%08X\n", (*(0x4030F1FC))
+end
 
 # CAN_3 @0x40310000
+if ($PRTN1_COFB2_STAT & ( 1 << 4 ))
 # MCR @0
 printf "V/40310000/%08X\n", (*(0x40310000))
 # CTRL1 @0x4
@@ -4306,8 +4350,10 @@ printf "V/40310D24/%08X\n", (*(0x40310D24))
 printf "V/40310D28/%08X\n", (*(0x40310D28))
 # HR_TIME_STAMP[63] @0xC30 + 63 * 0x4
 printf "V/40310D2C/%08X\n", (*(0x40310D2C))
+end
 
 # CAN_4 @0x40314000
+if ($PRTN1_COFB2_STAT & ( 1 << 5 ))
 # MCR @0
 printf "V/40314000/%08X\n", (*(0x40314000))
 # CTRL1 @0x4
@@ -4630,8 +4676,10 @@ printf "V/40314D24/%08X\n", (*(0x40314D24))
 printf "V/40314D28/%08X\n", (*(0x40314D28))
 # HR_TIME_STAMP[63] @0xC30 + 63 * 0x4
 printf "V/40314D2C/%08X\n", (*(0x40314D2C))
+end
 
 # CAN_5 @0x40318000
+if ($PRTN1_COFB2_STAT & ( 1 << 6 ))
 # MCR @0
 printf "V/40318000/%08X\n", (*(0x40318000))
 # CTRL1 @0x4
@@ -4954,8 +5002,10 @@ printf "V/40318D24/%08X\n", (*(0x40318D24))
 printf "V/40318D28/%08X\n", (*(0x40318D28))
 # HR_TIME_STAMP[63] @0xC30 + 63 * 0x4
 printf "V/40318D2C/%08X\n", (*(0x40318D2C))
+end
 
 # CMU_0 @0x402BC000
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC000/%08X\n", (*(0x402BC000))
 # RCCR @0x4
@@ -4968,8 +5018,10 @@ printf "V/402BC00C/%08X\n", (*(0x402BC00C))
 printf "V/402BC010/%08X\n", (*(0x402BC010))
 # IER @0x14
 printf "V/402BC014/%08X\n", (*(0x402BC014))
+end
 
 # CMU_1 @0x402BC020
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC020/%08X\n", (*(0x402BC020))
 # RCCR @0x4
@@ -4978,8 +5030,10 @@ printf "V/402BC024/%08X\n", (*(0x402BC024))
 printf "V/402BC028/%08X\n", (*(0x402BC028))
 # IER @0xC
 printf "V/402BC02C/%08X\n", (*(0x402BC02C))
+end
 
 # CMU_2 @0x402BC040
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC040/%08X\n", (*(0x402BC040))
 # RCCR @0x4
@@ -4988,8 +5042,10 @@ printf "V/402BC044/%08X\n", (*(0x402BC044))
 printf "V/402BC048/%08X\n", (*(0x402BC048))
 # IER @0xC
 printf "V/402BC04C/%08X\n", (*(0x402BC04C))
+end
 
 # CMU_3 @0x402BC060
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC060/%08X\n", (*(0x402BC060))
 # RCCR @0x4
@@ -5002,8 +5058,10 @@ printf "V/402BC06C/%08X\n", (*(0x402BC06C))
 printf "V/402BC070/%08X\n", (*(0x402BC070))
 # IER @0x14
 printf "V/402BC074/%08X\n", (*(0x402BC074))
+end
 
 # CMU_4 @0x402BC080
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC080/%08X\n", (*(0x402BC080))
 # RCCR @0x4
@@ -5016,8 +5074,10 @@ printf "V/402BC08C/%08X\n", (*(0x402BC08C))
 printf "V/402BC090/%08X\n", (*(0x402BC090))
 # IER @0x14
 printf "V/402BC094/%08X\n", (*(0x402BC094))
+end
 
 # CMU_5 @0x402BC0A0
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC0A0/%08X\n", (*(0x402BC0A0))
 # RCCR @0x4
@@ -5030,8 +5090,10 @@ printf "V/402BC0AC/%08X\n", (*(0x402BC0AC))
 printf "V/402BC0B0/%08X\n", (*(0x402BC0B0))
 # IER @0x14
 printf "V/402BC0B4/%08X\n", (*(0x402BC0B4))
+end
 
 # CMU_6 @0x402BC0C0
+if ($PRTN1_COFB1_STAT & ( 1 << 15 ))
 # GCR @0
 printf "V/402BC0C0/%08X\n", (*(0x402BC0C0))
 # RCCR @0x4
@@ -5044,8 +5106,10 @@ printf "V/402BC0CC/%08X\n", (*(0x402BC0CC))
 printf "V/402BC0D0/%08X\n", (*(0x402BC0D0))
 # IER @0x14
 printf "V/402BC0D4/%08X\n", (*(0x402BC0D4))
+end
 
 # CONFIGURATION_GPR @0x4039C000
+# 0x4039C000 not found in map.
 # CONFIG_REG0 @0x1C
 printf "V/4039C01C/%08X\n", (*(0x4039C01C))
 # CONFIG_REG6 @0x34
@@ -5054,14 +5118,17 @@ printf "V/4039C034/%08X\n", (*(0x4039C034))
 printf "V/4039C064/%08X\n", (*(0x4039C064))
 
 # CRC @0x40380000
+if ($PRTN1_COFB3_STAT & ( 1 << 0 ))
 # DATA @0
 printf "V/40380000/%08X\n", (*(0x40380000))
 # GPOLY @0x4
 printf "V/40380004/%08X\n", (*(0x40380004))
 # CTRL @0x8
 printf "V/40380008/%08X\n", (*(0x40380008))
+end
 
 # DCM @0x402AC000
+# 0x402AC000 not found in map.
 # DCMSTAT @0
 printf "V/402AC000/%08X\n", (*(0x402AC000))
 # DCMLCC @0x4
@@ -5110,6 +5177,7 @@ printf "V/402AC06C/%08X\n", (*(0x402AC06C))
 printf "V/402AC080/%08X\n", (*(0x402AC080))
 
 # DCM_GPR @0x402AC000
+# 0x402AC000 not found in map.
 # DCMROD1 @0x200
 printf "V/402AC200/%08X\n", (*(0x402AC200))
 # DCMROD3 @0x208
@@ -5210,6 +5278,7 @@ printf "V/402AC708/%08X\n", (*(0x402AC708))
 printf "V/402AC70C/%08X\n", (*(0x402AC70C))
 
 # DIGRF_TOP @0x404F4000
+# 0x404F4000 not found in map.
 # MCR @0
 printf "V/404F4000/%08X\n", (*(0x404F4000))
 # SCR @0x4
@@ -5298,6 +5367,7 @@ printf "V/404F40D4/%08X\n", (*(0x404F40D4))
 printf "V/404F40D8/%08X\n", (*(0x404F40D8))
 
 # DMAMUX_0 @0x40280000
+if ($PRTN1_COFB1_STAT & ( 1 << 0 ))
 # CHCFG0 @0 + 0 * 0x1
 printf "V/40280000/%08X\n", (*(0x40280000) >> 0) & 0xFF
 # CHCFG1 @0 + 1 * 0x1
@@ -5330,8 +5400,10 @@ printf "V/4028000D/%08X\n", (*(0x4028000C) >> 8) & 0xFF
 printf "V/4028000E/%08X\n", (*(0x4028000C) >> 16) & 0xFF
 # CHCFG15 @0 + 15 * 0x1
 printf "V/4028000F/%08X\n", (*(0x4028000C) >> 24) & 0xFF
+end
 
 # DMAMUX_1 @0x40284000
+if ($PRTN1_COFB1_STAT & ( 1 << 1 ))
 # CHCFG0 @0 + 0 * 0x1
 printf "V/40284000/%08X\n", (*(0x40284000) >> 0) & 0xFF
 # CHCFG1 @0 + 1 * 0x1
@@ -5364,8 +5436,10 @@ printf "V/4028400D/%08X\n", (*(0x4028400C) >> 8) & 0xFF
 printf "V/4028400E/%08X\n", (*(0x4028400C) >> 16) & 0xFF
 # CHCFG15 @0 + 15 * 0x1
 printf "V/4028400F/%08X\n", (*(0x4028400C) >> 24) & 0xFF
+end
 
 # DMAMUX_2 @0x406A0000
+if ($PRTN3_COFB1_STAT & ( 1 << 8 ))
 # CHCFG0 @0 + 0 * 0x1
 printf "V/406A0000/%08X\n", (*(0x406A0000) >> 0) & 0xFF
 # CHCFG1 @0 + 1 * 0x1
@@ -5398,8 +5472,10 @@ printf "V/406A000D/%08X\n", (*(0x406A000C) >> 8) & 0xFF
 printf "V/406A000E/%08X\n", (*(0x406A000C) >> 16) & 0xFF
 # CHCFG15 @0 + 15 * 0x1
 printf "V/406A000F/%08X\n", (*(0x406A000C) >> 24) & 0xFF
+end
 
 # DMAMUX_3 @0x406A4000
+if ($PRTN3_COFB1_STAT & ( 1 << 9 ))
 # CHCFG0 @0 + 0 * 0x1
 printf "V/406A4000/%08X\n", (*(0x406A4000) >> 0) & 0xFF
 # CHCFG1 @0 + 1 * 0x1
@@ -5432,8 +5508,10 @@ printf "V/406A400D/%08X\n", (*(0x406A400C) >> 8) & 0xFF
 printf "V/406A400E/%08X\n", (*(0x406A400C) >> 16) & 0xFF
 # CHCFG15 @0 + 15 * 0x1
 printf "V/406A400F/%08X\n", (*(0x406A400C) >> 24) & 0xFF
+end
 
 # DSPI_MSC @0x40508000
+if ($PRTN2_COFB2_STAT & ( 1 << 2 ))
 # MCR @0
 printf "V/40508000/%08X\n", (*(0x40508000))
 # TCR @0x8
@@ -5572,8 +5650,10 @@ printf "V/4050813C/%08X\n", (*(0x4050813C))
 printf "V/40508150/%08X\n", (*(0x40508150))
 # TS_CONF @0x154
 printf "V/40508154/%08X\n", (*(0x40508154))
+end
 
 # DSPSS_0 @0x406DC000
+# 0x406DC000 not found in map.
 # DSPSS_SCHEDULER_XMEM_ADDR_TH0 @0
 printf "V/406DC000/%08X\n", (*(0x406DC000))
 # DSPSS_SCHEDULER_XMEM_TH0 @0x4
@@ -5821,209 +5901,211 @@ printf "V/406DCF90/%08X\n", (*(0x406DCF90))
 # HW_CTRL_DMA_REQ_RESPONSE5 @0xF94
 printf "V/406DCF94/%08X\n", (*(0x406DCF94))
 
-# DSPSS_1 @0x406D_C000
+# DSPSS_1 @0x406DC000
+# 0x406DC000 not found in map.
 # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH0 @0xC
-printf "V/06D0C00C/%08X\n", (*(0x6D0C00C))
+printf "V/406DC00C/%08X\n", (*(0x406DC00C))
 # DSP_SDADC_CURR_READ_PTR0 @0x14
-printf "V/06D0C014/%08X\n", (*(0x6D0C014))
+printf "V/406DC014/%08X\n", (*(0x406DC014))
 # DSP_CORE_BUF_ADDR0 @0x1C
-printf "V/06D0C01C/%08X\n", (*(0x6D0C01C))
+printf "V/406DC01C/%08X\n", (*(0x406DC01C))
 # DSP_CORE_CURR_RD_PTR0 @0x28
-printf "V/06D0C028/%08X\n", (*(0x6D0C028))
+printf "V/406DC028/%08X\n", (*(0x406DC028))
 # DSP_CORE_CURR_WR_PTR0 @0x2C
-printf "V/06D0C02C/%08X\n", (*(0x6D0C02C))
+printf "V/406DC02C/%08X\n", (*(0x406DC02C))
 # DMA_READ_ADDR0 @0x30
-printf "V/06D0C030/%08X\n", (*(0x6D0C030))
+printf "V/406DC030/%08X\n", (*(0x406DC030))
 # DMA_ERROR_STATUS0 @0x38
-printf "V/06D0C038/%08X\n", (*(0x6D0C038))
+printf "V/406DC038/%08X\n", (*(0x406DC038))
 # DMA_WRITE_ADDR0 @0x40
-printf "V/06D0C040/%08X\n", (*(0x6D0C040))
+printf "V/406DC040/%08X\n", (*(0x406DC040))
 # DMA_CURR_WR_PTR0 @0x44
-printf "V/06D0C044/%08X\n", (*(0x6D0C044))
+printf "V/406DC044/%08X\n", (*(0x406DC044))
 # DMA_CURR_RD_PTR0 @0x48
-printf "V/06D0C048/%08X\n", (*(0x6D0C048))
+printf "V/406DC048/%08X\n", (*(0x406DC048))
 # DSP_TO_DMA_REQUEST_STATUS0 @0x50
-printf "V/06D0C050/%08X\n", (*(0x6D0C050))
+printf "V/406DC050/%08X\n", (*(0x406DC050))
 # DSPSS_DSP_TH_STATUS0 @0x5C
-printf "V/06D0C05C/%08X\n", (*(0x6D0C05C))
+printf "V/406DC05C/%08X\n", (*(0x406DC05C))
 # DSP_CORE_BUFFER_STATUS0 @0x7C
-printf "V/06D0C07C/%08X\n", (*(0x6D0C07C))
+printf "V/406DC07C/%08X\n", (*(0x406DC07C))
 # DSP_TO_CORE_TRIG_ERR_STATUS0 @0x80
-printf "V/06D0C080/%08X\n", (*(0x6D0C080))
+printf "V/406DC080/%08X\n", (*(0x406DC080))
 # DS_GATE_STATUS_REGISTER0 @0x84
-printf "V/06D0C084/%08X\n", (*(0x6D0C084))
+printf "V/406DC084/%08X\n", (*(0x406DC084))
 # DS_GATE_TRIGMUX_REGISTER0 @0x88
-printf "V/06D0C088/%08X\n", (*(0x6D0C088))
+printf "V/406DC088/%08X\n", (*(0x406DC088))
 # HW_CTRL_DMA_REQ_STOP0 @0x8C
-printf "V/06D0C08C/%08X\n", (*(0x6D0C08C))
+printf "V/406DC08C/%08X\n", (*(0x406DC08C))
 # DMA_ERROR_CTRL0 @0x90
-printf "V/06D0C090/%08X\n", (*(0x6D0C090))
+printf "V/406DC090/%08X\n", (*(0x406DC090))
 # HW_CTRL_DMA_REQ_RESPONSE0 @0x94
-printf "V/06D0C094/%08X\n", (*(0x6D0C094))
+printf "V/406DC094/%08X\n", (*(0x406DC094))
 # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH1 @0x30C
-printf "V/06D0C30C/%08X\n", (*(0x6D0C30C))
+printf "V/406DC30C/%08X\n", (*(0x406DC30C))
 # DSP_SDADC_CURR_READ_PTR1 @0x314
-printf "V/06D0C314/%08X\n", (*(0x6D0C314))
+printf "V/406DC314/%08X\n", (*(0x406DC314))
 # DSP_CORE_BUF_ADDR1 @0x31C
-printf "V/06D0C31C/%08X\n", (*(0x6D0C31C))
+printf "V/406DC31C/%08X\n", (*(0x406DC31C))
 # DSP_CORE_CURR_RD_PTR1 @0x328
-printf "V/06D0C328/%08X\n", (*(0x6D0C328))
+printf "V/406DC328/%08X\n", (*(0x406DC328))
 # DSP_CORE_CURR_WR_PTR1 @0x32C
-printf "V/06D0C32C/%08X\n", (*(0x6D0C32C))
+printf "V/406DC32C/%08X\n", (*(0x406DC32C))
 # DMA_READ_ADDR1 @0x330
-printf "V/06D0C330/%08X\n", (*(0x6D0C330))
+printf "V/406DC330/%08X\n", (*(0x406DC330))
 # DMA_ERROR_STATUS1 @0x338
-printf "V/06D0C338/%08X\n", (*(0x6D0C338))
+printf "V/406DC338/%08X\n", (*(0x406DC338))
 # DMA_WRITE_ADDR1 @0x340
-printf "V/06D0C340/%08X\n", (*(0x6D0C340))
+printf "V/406DC340/%08X\n", (*(0x406DC340))
 # DMA_CURR_WR_PTR1 @0x344
-printf "V/06D0C344/%08X\n", (*(0x6D0C344))
+printf "V/406DC344/%08X\n", (*(0x406DC344))
 # DMA_CURR_RD_PTR1 @0x348
-printf "V/06D0C348/%08X\n", (*(0x6D0C348))
+printf "V/406DC348/%08X\n", (*(0x406DC348))
 # DSP_TO_DMA_REQUEST_STATUS1 @0x350
-printf "V/06D0C350/%08X\n", (*(0x6D0C350))
+printf "V/406DC350/%08X\n", (*(0x406DC350))
 # DSPSS_DSP_TH_STATUS1 @0x35C
-printf "V/06D0C35C/%08X\n", (*(0x6D0C35C))
+printf "V/406DC35C/%08X\n", (*(0x406DC35C))
 # DSP_CORE_BUFFER_STATUS1 @0x37C
-printf "V/06D0C37C/%08X\n", (*(0x6D0C37C))
+printf "V/406DC37C/%08X\n", (*(0x406DC37C))
 # DSP_TO_CORE_TRIG_ERR_STATUS1 @0x380
-printf "V/06D0C380/%08X\n", (*(0x6D0C380))
+printf "V/406DC380/%08X\n", (*(0x406DC380))
 # DS_GATE_STATUS_REGISTER1 @0x384
-printf "V/06D0C384/%08X\n", (*(0x6D0C384))
+printf "V/406DC384/%08X\n", (*(0x406DC384))
 # DS_GATE_TRIGMUX_REGISTER1 @0x388
-printf "V/06D0C388/%08X\n", (*(0x6D0C388))
+printf "V/406DC388/%08X\n", (*(0x406DC388))
 # HW_CTRL_DMA_REQ_STOP1 @0x38C
-printf "V/06D0C38C/%08X\n", (*(0x6D0C38C))
+printf "V/406DC38C/%08X\n", (*(0x406DC38C))
 # DMA_ERROR_CTRL1 @0x390
-printf "V/06D0C390/%08X\n", (*(0x6D0C390))
+printf "V/406DC390/%08X\n", (*(0x406DC390))
 # HW_CTRL_DMA_REQ_RESPONSE1 @0x394
-printf "V/06D0C394/%08X\n", (*(0x6D0C394))
+printf "V/406DC394/%08X\n", (*(0x406DC394))
 # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH2 @0x60C
-printf "V/06D0C60C/%08X\n", (*(0x6D0C60C))
+printf "V/406DC60C/%08X\n", (*(0x406DC60C))
 # DSP_SDADC_CURR_READ_PTR2 @0x614
-printf "V/06D0C614/%08X\n", (*(0x6D0C614))
+printf "V/406DC614/%08X\n", (*(0x406DC614))
 # DSP_CORE_BUF_ADDR2 @0x61C
-printf "V/06D0C61C/%08X\n", (*(0x6D0C61C))
+printf "V/406DC61C/%08X\n", (*(0x406DC61C))
 # DSP_CORE_CURR_RD_PTR2 @0x628
-printf "V/06D0C628/%08X\n", (*(0x6D0C628))
+printf "V/406DC628/%08X\n", (*(0x406DC628))
 # DSP_CORE_CURR_WR_PTR2 @0x62C
-printf "V/06D0C62C/%08X\n", (*(0x6D0C62C))
+printf "V/406DC62C/%08X\n", (*(0x406DC62C))
 # DMA_READ_ADDR2 @0x630
-printf "V/06D0C630/%08X\n", (*(0x6D0C630))
+printf "V/406DC630/%08X\n", (*(0x406DC630))
 # DMA_ERROR_STATUS2 @0x638
-printf "V/06D0C638/%08X\n", (*(0x6D0C638))
+printf "V/406DC638/%08X\n", (*(0x406DC638))
 # DMA_WRITE_ADDR2 @0x640
-printf "V/06D0C640/%08X\n", (*(0x6D0C640))
+printf "V/406DC640/%08X\n", (*(0x406DC640))
 # DMA_CURR_WR_PTR2 @0x644
-printf "V/06D0C644/%08X\n", (*(0x6D0C644))
+printf "V/406DC644/%08X\n", (*(0x406DC644))
 # DMA_CURR_RD_PTR2 @0x648
-printf "V/06D0C648/%08X\n", (*(0x6D0C648))
+printf "V/406DC648/%08X\n", (*(0x406DC648))
 # DSP_TO_DMA_REQUEST_STATUS2 @0x650
-printf "V/06D0C650/%08X\n", (*(0x6D0C650))
+printf "V/406DC650/%08X\n", (*(0x406DC650))
 # DSPSS_DSP_TH_STATUS2 @0x65C
-printf "V/06D0C65C/%08X\n", (*(0x6D0C65C))
+printf "V/406DC65C/%08X\n", (*(0x406DC65C))
 # DSP_CORE_BUFFER_STATUS2 @0x67C
-printf "V/06D0C67C/%08X\n", (*(0x6D0C67C))
+printf "V/406DC67C/%08X\n", (*(0x406DC67C))
 # DSP_TO_CORE_TRIG_ERR_STATUS2 @0x680
-printf "V/06D0C680/%08X\n", (*(0x6D0C680))
+printf "V/406DC680/%08X\n", (*(0x406DC680))
 # DS_GATE_STATUS_REGISTER2 @0x684
-printf "V/06D0C684/%08X\n", (*(0x6D0C684))
+printf "V/406DC684/%08X\n", (*(0x406DC684))
 # DS_GATE_TRIGMUX_REGISTER2 @0x688
-printf "V/06D0C688/%08X\n", (*(0x6D0C688))
+printf "V/406DC688/%08X\n", (*(0x406DC688))
 # HW_CTRL_DMA_REQ_STOP2 @0x68C
-printf "V/06D0C68C/%08X\n", (*(0x6D0C68C))
+printf "V/406DC68C/%08X\n", (*(0x406DC68C))
 # DMA_ERROR_CTRL2 @0x690
-printf "V/06D0C690/%08X\n", (*(0x6D0C690))
+printf "V/406DC690/%08X\n", (*(0x406DC690))
 # HW_CTRL_DMA_REQ_RESPONSE2 @0x694
-printf "V/06D0C694/%08X\n", (*(0x6D0C694))
+printf "V/406DC694/%08X\n", (*(0x406DC694))
 # DSPSS_SCHEDULER_CURR_XMEM_ADDR_TH3 @0x90C
-printf "V/06D0C90C/%08X\n", (*(0x6D0C90C))
+printf "V/406DC90C/%08X\n", (*(0x406DC90C))
 # DSP_SDADC_CURR_READ_PTR3 @0x914
-printf "V/06D0C914/%08X\n", (*(0x6D0C914))
+printf "V/406DC914/%08X\n", (*(0x406DC914))
 # DSP_CORE_BUF_ADDR3 @0x91C
-printf "V/06D0C91C/%08X\n", (*(0x6D0C91C))
+printf "V/406DC91C/%08X\n", (*(0x406DC91C))
 # DSP_CORE_CURR_RD_PTR3 @0x928
-printf "V/06D0C928/%08X\n", (*(0x6D0C928))
+printf "V/406DC928/%08X\n", (*(0x406DC928))
 # DSP_CORE_CURR_WR_PTR3 @0x92C
-printf "V/06D0C92C/%08X\n", (*(0x6D0C92C))
+printf "V/406DC92C/%08X\n", (*(0x406DC92C))
 # DMA_READ_ADDR3 @0x930
-printf "V/06D0C930/%08X\n", (*(0x6D0C930))
+printf "V/406DC930/%08X\n", (*(0x406DC930))
 # DMA_ERROR_STATUS3 @0x938
-printf "V/06D0C938/%08X\n", (*(0x6D0C938))
+printf "V/406DC938/%08X\n", (*(0x406DC938))
 # DMA_WRITE_ADDR3 @0x940
-printf "V/06D0C940/%08X\n", (*(0x6D0C940))
+printf "V/406DC940/%08X\n", (*(0x406DC940))
 # DMA_CURR_WR_PTR3 @0x944
-printf "V/06D0C944/%08X\n", (*(0x6D0C944))
+printf "V/406DC944/%08X\n", (*(0x406DC944))
 # DMA_CURR_RD_PTR3 @0x948
-printf "V/06D0C948/%08X\n", (*(0x6D0C948))
+printf "V/406DC948/%08X\n", (*(0x406DC948))
 # DSP_TO_DMA_REQUEST_STATUS3 @0x950
-printf "V/06D0C950/%08X\n", (*(0x6D0C950))
+printf "V/406DC950/%08X\n", (*(0x406DC950))
 # DSPSS_DSP_TH_STATUS3 @0x95C
-printf "V/06D0C95C/%08X\n", (*(0x6D0C95C))
+printf "V/406DC95C/%08X\n", (*(0x406DC95C))
 # DSP_CORE_BUFFER_STATUS3 @0x97C
-printf "V/06D0C97C/%08X\n", (*(0x6D0C97C))
+printf "V/406DC97C/%08X\n", (*(0x406DC97C))
 # DSP_TO_CORE_TRIG_ERR_STATUS3 @0x980
-printf "V/06D0C980/%08X\n", (*(0x6D0C980))
+printf "V/406DC980/%08X\n", (*(0x406DC980))
 # DS_GATE_STATUS_REGISTER3 @0x984
-printf "V/06D0C984/%08X\n", (*(0x6D0C984))
+printf "V/406DC984/%08X\n", (*(0x406DC984))
 # DS_GATE_TRIGMUX_REGISTER3 @0x988
-printf "V/06D0C988/%08X\n", (*(0x6D0C988))
+printf "V/406DC988/%08X\n", (*(0x406DC988))
 # HW_CTRL_DMA_REQ_STOP3 @0x98C
-printf "V/06D0C98C/%08X\n", (*(0x6D0C98C))
+printf "V/406DC98C/%08X\n", (*(0x406DC98C))
 # DMA_ERROR_CTRL3 @0x990
-printf "V/06D0C990/%08X\n", (*(0x6D0C990))
+printf "V/406DC990/%08X\n", (*(0x406DC990))
 # HW_CTRL_DMA_REQ_RESPONSE3 @0x994
-printf "V/06D0C994/%08X\n", (*(0x6D0C994))
+printf "V/406DC994/%08X\n", (*(0x406DC994))
 # DSPSS_DSP_IO_INTF0 @0xC14
-printf "V/06D0CC14/%08X\n", (*(0x6D0CC14))
+printf "V/406DCC14/%08X\n", (*(0x406DCC14))
 # DSPSS_DSP_CORE_TRIGGER_SAFETY @0xC24
-printf "V/06D0CC24/%08X\n", (*(0x6D0CC24))
+printf "V/406DCC24/%08X\n", (*(0x406DCC24))
 # DMA_READ_ADDR4 @0xC30
-printf "V/06D0CC30/%08X\n", (*(0x6D0CC30))
+printf "V/406DCC30/%08X\n", (*(0x406DCC30))
 # DMA_ERROR_STATUS4 @0xC38
-printf "V/06D0CC38/%08X\n", (*(0x6D0CC38))
+printf "V/406DCC38/%08X\n", (*(0x406DCC38))
 # DMA_WRITE_ADDR4 @0xC40
-printf "V/06D0CC40/%08X\n", (*(0x6D0CC40))
+printf "V/406DCC40/%08X\n", (*(0x406DCC40))
 # DMA_CURR_WR_PTR4 @0xC44
-printf "V/06D0CC44/%08X\n", (*(0x6D0CC44))
+printf "V/406DCC44/%08X\n", (*(0x406DCC44))
 # DMA_CURR_RD_PTR4 @0xC48
-printf "V/06D0CC48/%08X\n", (*(0x6D0CC48))
+printf "V/406DCC48/%08X\n", (*(0x406DCC48))
 # DSP_TO_DMA_REQUEST_STATUS4 @0xC50
-printf "V/06D0CC50/%08X\n", (*(0x6D0CC50))
+printf "V/406DCC50/%08X\n", (*(0x406DCC50))
 # HW_CTRL_DMA_REQ_STOP4 @0xC8C
-printf "V/06D0CC8C/%08X\n", (*(0x6D0CC8C))
+printf "V/406DCC8C/%08X\n", (*(0x406DCC8C))
 # DMA_ERROR_CTRL4 @0xC90
-printf "V/06D0CC90/%08X\n", (*(0x6D0CC90))
+printf "V/406DCC90/%08X\n", (*(0x406DCC90))
 # HW_CTRL_DMA_REQ_RESPONSE4 @0xC94
-printf "V/06D0CC94/%08X\n", (*(0x6D0CC94))
+printf "V/406DCC94/%08X\n", (*(0x406DCC94))
 # DMA_READ_ADDR5 @0xF30
-printf "V/06D0CF30/%08X\n", (*(0x6D0CF30))
+printf "V/406DCF30/%08X\n", (*(0x406DCF30))
 # DMA_ERROR_STATUS5 @0xF38
-printf "V/06D0CF38/%08X\n", (*(0x6D0CF38))
+printf "V/406DCF38/%08X\n", (*(0x406DCF38))
 # DMA_WRITE_ADDR5 @0xF40
-printf "V/06D0CF40/%08X\n", (*(0x6D0CF40))
+printf "V/406DCF40/%08X\n", (*(0x406DCF40))
 # DMA_CURR_WR_PTR5 @0xF44
-printf "V/06D0CF44/%08X\n", (*(0x6D0CF44))
+printf "V/406DCF44/%08X\n", (*(0x406DCF44))
 # DMA_CURR_RD_PTR5 @0xF48
-printf "V/06D0CF48/%08X\n", (*(0x6D0CF48))
+printf "V/406DCF48/%08X\n", (*(0x406DCF48))
 # DSP_TO_DMA_REQUEST_STATUS5 @0xF50
-printf "V/06D0CF50/%08X\n", (*(0x6D0CF50))
+printf "V/406DCF50/%08X\n", (*(0x406DCF50))
 # HW_CTRL_DMA_REQ_STOP5 @0xF8C
-printf "V/06D0CF8C/%08X\n", (*(0x6D0CF8C))
+printf "V/406DCF8C/%08X\n", (*(0x406DCF8C))
 # DMA_ERROR_CTRL5 @0xF90
-printf "V/06D0CF90/%08X\n", (*(0x6D0CF90))
+printf "V/406DCF90/%08X\n", (*(0x406DCF90))
 # HW_CTRL_DMA_REQ_RESPONSE5 @0xF94
-printf "V/06D0CF94/%08X\n", (*(0x6D0CF94))
+printf "V/406DCF94/%08X\n", (*(0x406DCF94))
 # DSPSS_DSP_THREAD_INFO[0] @0x1200 + 0 * 0x4
-printf "V/06D0D200/%08X\n", (*(0x6D0D200))
+printf "V/406DD200/%08X\n", (*(0x406DD200))
 # DSPSS_DSP_THREAD_INFO[1] @0x1200 + 1 * 0x4
-printf "V/06D0D204/%08X\n", (*(0x6D0D204))
+printf "V/406DD204/%08X\n", (*(0x406DD204))
 # DSPSS_DSP_THREAD_INFO[2] @0x1200 + 2 * 0x4
-printf "V/06D0D208/%08X\n", (*(0x6D0D208))
+printf "V/406DD208/%08X\n", (*(0x406DD208))
 # DSPSS_DSP_THREAD_INFO[3] @0x1200 + 3 * 0x4
-printf "V/06D0D20C/%08X\n", (*(0x6D0D20C))
+printf "V/406DD20C/%08X\n", (*(0x406DD20C))
 
 # EDMA1_XBIC @0x40674000
+# 0x40674000 not found in map.
 # MCR @0
 printf "V/40674000/%08X\n", (*(0x40674000))
 # EIR @0x4
@@ -6034,6 +6116,7 @@ printf "V/40674008/%08X\n", (*(0x40674008))
 printf "V/4067400C/%08X\n", (*(0x4067400C))
 
 # EDMA_0 @0x4020C000
+if ($PRTN1_COFB0_STAT PRTN1_COFB0_STAT & ( 1 << 3 3 ))
 # CSR @0
 printf "V/4020C000/%08X\n", (*(0x4020C000))
 # ES @0x4
@@ -6106,8 +6189,10 @@ printf "V/4020C174/%08X\n", (*(0x4020C174))
 printf "V/4020C178/%08X\n", (*(0x4020C178))
 # CH_GRPRI[31] @0x100 + 31 * 0x4
 printf "V/4020C17C/%08X\n", (*(0x4020C17C))
+end
 
 # EDMA_1 @0x40010000
+if ($PRTN0_COFB0_STAT & ( 1 << 4 ))
 # CSR @0
 printf "V/40010000/%08X\n", (*(0x40010000))
 # ES @0x4
@@ -6180,8 +6265,10 @@ printf "V/40010174/%08X\n", (*(0x40010174))
 printf "V/40010178/%08X\n", (*(0x40010178))
 # CH_GRPRI[31] @0x100 + 31 * 0x4
 printf "V/4001017C/%08X\n", (*(0x4001017C))
+end
 
 # EFLEXPWM_0 @0x406B8000
+if ($PRTN3_COFB1_STAT & ( 1 << 14 ))
 # SM0_CNT @0
 printf "V/406B8000/%08X\n", (*(0x406B8000) >> 0) & 0xFFFF
 # SM0_INIT @0x2
@@ -6588,8 +6675,10 @@ printf "V/406B81D2/%08X\n", (*(0x406B81D0) >> 16) & 0xFFFF
 printf "V/406B81D4/%08X\n", (*(0x406B81D4) >> 0) & 0xFFFF
 # SM3_BIST_STATUS1 @0x1D6
 printf "V/406B81D6/%08X\n", (*(0x406B81D4) >> 16) & 0xFFFF
+end
 
 # EFLEXPWM_1 @0x406BC000
+if ($PRTN3_COFB1_STAT & ( 1 << 15 ))
 # SM0_CNT @0
 printf "V/406BC000/%08X\n", (*(0x406BC000) >> 0) & 0xFFFF
 # SM0_INIT @0x2
@@ -6996,8 +7085,10 @@ printf "V/406BC1D2/%08X\n", (*(0x406BC1D0) >> 16) & 0xFFFF
 printf "V/406BC1D4/%08X\n", (*(0x406BC1D4) >> 0) & 0xFFFF
 # SM3_BIST_STATUS1 @0x1D6
 printf "V/406BC1D6/%08X\n", (*(0x406BC1D4) >> 16) & 0xFFFF
+end
 
 # EIM_0 @0x4050C000
+if ($PRTN2_COFB2_STAT & ( 1 << 3 ))
 # EIMCR @0
 printf "V/4050C000/%08X\n", (*(0x4050C000))
 # EICHEN @0x4
@@ -7132,8 +7223,10 @@ printf "V/4050C548/%08X\n", (*(0x4050C548))
 printf "V/4050C584/%08X\n", (*(0x4050C584))
 # EICHD18_WORD2 @0x588
 printf "V/4050C588/%08X\n", (*(0x4050C588))
+end
 
 # EIM_1 @0x40510000
+if ($PRTN2_COFB2_STAT & ( 1 << 4 ))
 # EIMCR @0
 printf "V/40510000/%08X\n", (*(0x40510000))
 # EICHEN @0x4
@@ -7204,8 +7297,10 @@ printf "V/40510504/%08X\n", (*(0x40510504))
 printf "V/40510544/%08X\n", (*(0x40510544))
 # EICHD17_WORD2 @0x548
 printf "V/40510548/%08X\n", (*(0x40510548))
+end
 
 # EIM_2 @0x40514000
+if ($PRTN2_COFB2_STAT & ( 1 << 5 ))
 # EIMCR @0
 printf "V/40514000/%08X\n", (*(0x40514000))
 # EICHEN @0x4
@@ -7344,8 +7439,10 @@ printf "V/40514844/%08X\n", (*(0x40514844))
 printf "V/40514884/%08X\n", (*(0x40514884))
 # EICHD31_WORD1 @0x8C4
 printf "V/405148C4/%08X\n", (*(0x405148C4))
+end
 
 # EMAC @0x40480000
+if ($PRTN2_COFB1_STAT & ( 1 << 0 ))
 # MAC_Configuration @0
 printf "V/40480000/%08X\n", (*(0x40480000))
 # MAC_Ext_Configuration @0x4
@@ -7912,8 +8009,10 @@ printf "V/404811E4/%08X\n", (*(0x404811E4))
 printf "V/404811E8/%08X\n", (*(0x404811E8))
 # DMA_CH1_RX_ERI_Cnt @0x11EC
 printf "V/404811EC/%08X\n", (*(0x404811EC))
+end
 
 # EMIOS_0 @0x40088000
+if ($PRTN0_COFB1_STAT & ( 1 << 2 ))
 # MCR @0
 printf "V/40088000/%08X\n", (*(0x40088000))
 # GFLAG @0x4
@@ -8258,8 +8357,10 @@ printf "V/40088310/%08X\n", (*(0x40088310))
 printf "V/40088314/%08X\n", (*(0x40088314))
 # C2_23 @0x318
 printf "V/40088318/%08X\n", (*(0x40088318))
+end
 
 # ERM_0 @0x4025C000
+if ($PRTN1_COFB0_STAT PRTN1_COFB0_STAT & ( 1 << 23 23 ))
 # CR0 @0
 printf "V/4025C000/%08X\n", (*(0x4025C000))
 # CR1 @0x4
@@ -8354,8 +8455,10 @@ printf "V/4025C228/%08X\n", (*(0x4025C228))
 printf "V/4025C230/%08X\n", (*(0x4025C230))
 # CORR_ERR_CNT19 @0x238
 printf "V/4025C238/%08X\n", (*(0x4025C238))
+end
 
 # ERM_1 @0x4000C000
+if ($PRTN0_COFB0_STAT & ( 1 << 3 ))
 # CR0 @0
 printf "V/4000C000/%08X\n", (*(0x4000C000))
 # CR1 @0x4
@@ -8440,10 +8543,13 @@ printf "V/4000C270/%08X\n", (*(0x4000C270))
 printf "V/4000C274/%08X\n", (*(0x4000C274))
 # CORR_ERR_CNT23 @0x278
 printf "V/4000C278/%08X\n", (*(0x4000C278))
+end
 
 # ETPU_0 @0x40680000
+# 0x40680000 not found in map.
 
 # ETPU_1 @0x40680000
+# 0x40680000 not found in map.
 # CISR_ENG1 @0x200
 printf "V/40680200/%08X\n", (*(0x40680200))
 # CISR_ENG2 @0x204
@@ -8482,6 +8588,7 @@ printf "V/40680290/%08X\n", (*(0x40680290))
 printf "V/40680294/%08X\n", (*(0x40680294))
 
 # ETPU_2 @0x40680000
+# 0x40680000 not found in map.
 # MECR @0x100
 printf "V/40680100/%08X\n", (*(0x40680100))
 # DEIAR @0x104
@@ -8514,6 +8621,7 @@ printf "V/40680138/%08X\n", (*(0x40680138))
 printf "V/4068013C/%08X\n", (*(0x4068013C))
 
 # ETPU_3 @0x40680000
+# 0x40680000 not found in map.
 # MCR @0
 printf "V/40680000/%08X\n", (*(0x40680000))
 # CDCR @0x4
@@ -8528,6 +8636,7 @@ printf "V/40680014/%08X\n", (*(0x40680014))
 printf "V/40680018/%08X\n", (*(0x40680018))
 
 # ETPU_4 @0x40680000
+# 0x40680000 not found in map.
 # WDTR_ENG1 @0x60
 printf "V/40680060/%08X\n", (*(0x40680060))
 # IDLER_ENG1 @0x68
@@ -8538,6 +8647,7 @@ printf "V/40680070/%08X\n", (*(0x40680070))
 printf "V/40680078/%08X\n", (*(0x40680078))
 
 # ETPU_6 @0x40680000
+# 0x40680000 not found in map.
 # TBCR_ENG1 @0x20
 printf "V/40680020/%08X\n", (*(0x40680020))
 # TB1R_ENG1 @0x24
@@ -8556,6 +8666,7 @@ printf "V/40680048/%08X\n", (*(0x40680048))
 printf "V/4068004C/%08X\n", (*(0x4068004C))
 
 # FCCU @0x40384000
+if ($PRTN1_COFB3_STAT & ( 1 << 1 ))
 # CTRL @0
 printf "V/40384000/%08X\n", (*(0x40384000))
 # CTRLK @0x4
@@ -8614,14 +8725,17 @@ printf "V/4038412C/%08X\n", (*(0x4038412C))
 printf "V/40384134/%08X\n", (*(0x40384134))
 # TMR_ETMR @0x138
 printf "V/40384138/%08X\n", (*(0x40384138))
+end
 
 # FIRC @0x402D0000
+# 0x402D0000 not found in map.
 # Status_Register @0x4
 printf "V/402D0004/%08X\n", (*(0x402D0004))
 # STDBY_ENABLE @0x8
 printf "V/402D0008/%08X\n", (*(0x402D0008))
 
 # FLASH @0x402EC000
+if ($PRTN1_COFB1_STAT & ( 1 << 27 ))
 # MCR @0
 printf "V/402EC000/%08X\n", (*(0x402EC000))
 # MCRS @0x4
@@ -8750,8 +8864,10 @@ printf "V/402EC174/%08X\n", (*(0x402EC174))
 printf "V/402EC178/%08X\n", (*(0x402EC178))
 # DATA[31] @0x100 + 31 * 0x4
 printf "V/402EC17C/%08X\n", (*(0x402EC17C))
+end
 
 # FLASH_ALT @0x402F0000
+if ($PRTN1_COFB1_STAT & ( 1 << 28 ))
 # MCR @0
 printf "V/402F0000/%08X\n", (*(0x402F0000))
 # MCRS @0x4
@@ -8880,8 +8996,10 @@ printf "V/402F0174/%08X\n", (*(0x402F0174))
 printf "V/402F0178/%08X\n", (*(0x402F0178))
 # DATA[31] @0x100 + 31 * 0x4
 printf "V/402F017C/%08X\n", (*(0x402F017C))
+end
 
 # FLEXIO @0x40324000
+if ($PRTN1_COFB2_STAT & ( 1 << 9 ))
 # VERID @0
 printf "V/40324000/%08X\n", (*(0x40324000))
 # PARAM @0x4
@@ -9172,14 +9290,18 @@ printf "V/40324914/%08X\n", (*(0x40324914))
 printf "V/40324918/%08X\n", (*(0x40324918))
 # SHIFTBUFHBS[7] @0x900 + 7 * 0x4
 printf "V/4032491C/%08X\n", (*(0x4032491C))
+end
 
 # FXOSC @0x402D4000
+if ($PRTN1_COFB1_STAT & ( 1 << 21 ))
 # CTRL @0
 printf "V/402D4000/%08X\n", (*(0x402D4000))
 # STAT @0x4
 printf "V/402D4004/%08X\n", (*(0x402D4004))
+end
 
 # IGF @0x406B0000
+if ($PRTN3_COFB1_STAT & ( 1 << 12 ))
 # MCR0 @0
 printf "V/406B0000/%08X\n", (*(0x406B0000))
 # MSR0 @0x4
@@ -9440,14 +9562,18 @@ printf "V/406B07C4/%08X\n", (*(0x406B07C4))
 printf "V/406B07DC/%08X\n", (*(0x406B07DC))
 # FTHR31 @0x7E0
 printf "V/406B07E0/%08X\n", (*(0x406B07E0))
+end
 
 # INTM @0x4027C000
+if ($PRTN1_COFB0_STAT & ( 1 << 31 ))
 # INTM_MM @0
 printf "V/4027C000/%08X\n", (*(0x4027C000))
 # INTM_IACK @0x4
 printf "V/4027C004/%08X\n", (*(0x4027C004))
+end
 
 # JDC @0x40394000
+if ($PRTN1_COFB3_STAT & ( 1 << 5 ))
 # MCR @0
 printf "V/40394000/%08X\n", (*(0x40394000))
 # MSR @0x4
@@ -9456,8 +9582,10 @@ printf "V/40394004/%08X\n", (*(0x40394004))
 printf "V/40394008/%08X\n", (*(0x40394008))
 # JIN_IPS @0xC
 printf "V/4039400C/%08X\n", (*(0x4039400C))
+end
 
 # LCU_0 @0x40098000
+if ($PRTN0_COFB1_STAT & ( 1 << 6 ))
 # MUXSEL[0] @0x200 + 0 * 0x4
 printf "V/40098200/%08X\n", (*(0x40098200))
 # MUXSEL[1] @0x200 + 1 * 0x4
@@ -9502,8 +9630,10 @@ printf "V/4009829C/%08X\n", (*(0x4009829C))
 printf "V/400982A0/%08X\n", (*(0x400982A0))
 # DBGEN @0x2A8
 printf "V/400982A8/%08X\n", (*(0x400982A8))
+end
 
 # LCU_1 @0x4009C000
+if ($PRTN0_COFB1_STAT & ( 1 << 7 ))
 # MUXSEL[0] @0x200 + 0 * 0x4
 printf "V/4009C200/%08X\n", (*(0x4009C200))
 # MUXSEL[1] @0x200 + 1 * 0x4
@@ -9548,8 +9678,10 @@ printf "V/4009C29C/%08X\n", (*(0x4009C29C))
 printf "V/4009C2A0/%08X\n", (*(0x4009C2A0))
 # DBGEN @0x2A8
 printf "V/4009C2A8/%08X\n", (*(0x4009C2A8))
+end
 
 # LPCMP_0 @0x40370000
+if ($PRTN1_COFB2_STAT & ( 1 << 28 ))
 # VERID @0
 printf "V/40370000/%08X\n", (*(0x40370000))
 # PARAM @0x4
@@ -9574,8 +9706,10 @@ printf "V/40370028/%08X\n", (*(0x40370028))
 printf "V/4037002C/%08X\n", (*(0x4037002C))
 # RRSR @0x30
 printf "V/40370030/%08X\n", (*(0x40370030))
+end
 
 # LPCMP_1 @0x40374000
+if ($PRTN1_COFB2_STAT & ( 1 << 29 ))
 # VERID @0
 printf "V/40374000/%08X\n", (*(0x40374000))
 # PARAM @0x4
@@ -9600,8 +9734,10 @@ printf "V/40374028/%08X\n", (*(0x40374028))
 printf "V/4037402C/%08X\n", (*(0x4037402C))
 # RRSR @0x30
 printf "V/40374030/%08X\n", (*(0x40374030))
+end
 
 # LPI2C_0 @0x40350000
+if ($PRTN1_COFB2_STAT & ( 1 << 20 ))
 # VERID @0
 printf "V/40350000/%08X\n", (*(0x40350000))
 # PARAM @0x4
@@ -9658,8 +9794,10 @@ printf "V/40350154/%08X\n", (*(0x40350154))
 printf "V/40350160/%08X\n", (*(0x40350160))
 # SRDR @0x170
 printf "V/40350170/%08X\n", (*(0x40350170))
+end
 
 # LPI2C_1 @0x40354000
+if ($PRTN1_COFB2_STAT & ( 1 << 21 ))
 # VERID @0
 printf "V/40354000/%08X\n", (*(0x40354000))
 # PARAM @0x4
@@ -9716,8 +9854,10 @@ printf "V/40354154/%08X\n", (*(0x40354154))
 printf "V/40354160/%08X\n", (*(0x40354160))
 # SRDR @0x170
 printf "V/40354170/%08X\n", (*(0x40354170))
+end
 
 # LPSPI_0 @0x40358000
+if ($PRTN1_COFB2_STAT & ( 1 << 22 ))
 # VERID @0
 printf "V/40358000/%08X\n", (*(0x40358000))
 # PARAM @0x4
@@ -10270,8 +10410,10 @@ printf "V/403587F4/%08X\n", (*(0x403587F4))
 printf "V/403587F8/%08X\n", (*(0x403587F8))
 # RDBR[127] @0x600 + 127 * 0x4
 printf "V/403587FC/%08X\n", (*(0x403587FC))
+end
 
 # LPSPI_1 @0x4035C000
+if ($PRTN1_COFB2_STAT & ( 1 << 23 ))
 # VERID @0
 printf "V/4035C000/%08X\n", (*(0x4035C000))
 # PARAM @0x4
@@ -10824,8 +10966,10 @@ printf "V/4035C7F4/%08X\n", (*(0x4035C7F4))
 printf "V/4035C7F8/%08X\n", (*(0x4035C7F8))
 # RDBR[127] @0x600 + 127 * 0x4
 printf "V/4035C7FC/%08X\n", (*(0x4035C7FC))
+end
 
 # LPSPI_2 @0x40360000
+if ($PRTN1_COFB2_STAT & ( 1 << 24 ))
 # VERID @0
 printf "V/40360000/%08X\n", (*(0x40360000))
 # PARAM @0x4
@@ -11378,8 +11522,10 @@ printf "V/403607F4/%08X\n", (*(0x403607F4))
 printf "V/403607F8/%08X\n", (*(0x403607F8))
 # RDBR[127] @0x600 + 127 * 0x4
 printf "V/403607FC/%08X\n", (*(0x403607FC))
+end
 
 # LPSPI_3 @0x40364000
+if ($PRTN1_COFB2_STAT & ( 1 << 25 ))
 # VERID @0
 printf "V/40364000/%08X\n", (*(0x40364000))
 # PARAM @0x4
@@ -11932,8 +12078,10 @@ printf "V/403647F4/%08X\n", (*(0x403647F4))
 printf "V/403647F8/%08X\n", (*(0x403647F8))
 # RDBR[127] @0x600 + 127 * 0x4
 printf "V/403647FC/%08X\n", (*(0x403647FC))
+end
 
 # LPSPI_4 @0x404BC000
+if ($PRTN2_COFB1_STAT & ( 1 << 15 ))
 # VERID @0
 printf "V/404BC000/%08X\n", (*(0x404BC000))
 # PARAM @0x4
@@ -12486,8 +12634,10 @@ printf "V/404BC7F4/%08X\n", (*(0x404BC7F4))
 printf "V/404BC7F8/%08X\n", (*(0x404BC7F8))
 # RDBR[127] @0x600 + 127 * 0x4
 printf "V/404BC7FC/%08X\n", (*(0x404BC7FC))
+end
 
 # LPSPI_5 @0x404C0000
+if ($PRTN2_COFB1_STAT & ( 1 << 16 ))
 # VERID @0
 printf "V/404C0000/%08X\n", (*(0x404C0000))
 # PARAM @0x4
@@ -13040,8 +13190,10 @@ printf "V/404C07F4/%08X\n", (*(0x404C07F4))
 printf "V/404C07F8/%08X\n", (*(0x404C07F8))
 # RDBR[127] @0x600 + 127 * 0x4
 printf "V/404C07FC/%08X\n", (*(0x404C07FC))
+end
 
 # LPUART_0 @0x40328000
+if ($PRTN1_COFB2_STAT & ( 1 << 10 ))
 # VERID @0
 printf "V/40328000/%08X\n", (*(0x40328000))
 # PARAM @0x4
@@ -13858,8 +14010,10 @@ printf "V/403287F4/%08X\n", (*(0x403287F4))
 printf "V/403287F8/%08X\n", (*(0x403287F8))
 # TDBR[255] @0x400 + 255 * 0x4
 printf "V/403287FC/%08X\n", (*(0x403287FC))
+end
 
 # LPUART_1 @0x4032C000
+if ($PRTN1_COFB2_STAT & ( 1 << 11 ))
 # VERID @0
 printf "V/4032C000/%08X\n", (*(0x4032C000))
 # PARAM @0x4
@@ -14676,8 +14830,10 @@ printf "V/4032C7F4/%08X\n", (*(0x4032C7F4))
 printf "V/4032C7F8/%08X\n", (*(0x4032C7F8))
 # TDBR[255] @0x400 + 255 * 0x4
 printf "V/4032C7FC/%08X\n", (*(0x4032C7FC))
+end
 
 # LPUART_2 @0x40330000
+if ($PRTN1_COFB2_STAT & ( 1 << 12 ))
 # VERID @0
 printf "V/40330000/%08X\n", (*(0x40330000))
 # PARAM @0x4
@@ -14704,8 +14860,10 @@ printf "V/40330028/%08X\n", (*(0x40330028))
 printf "V/4033002C/%08X\n", (*(0x4033002C))
 # DATARO @0x30
 printf "V/40330030/%08X\n", (*(0x40330030))
+end
 
 # LPUART_3 @0x40334000
+if ($PRTN1_COFB2_STAT & ( 1 << 13 ))
 # VERID @0
 printf "V/40334000/%08X\n", (*(0x40334000))
 # PARAM @0x4
@@ -14732,8 +14890,10 @@ printf "V/40334028/%08X\n", (*(0x40334028))
 printf "V/4033402C/%08X\n", (*(0x4033402C))
 # DATARO @0x30
 printf "V/40334030/%08X\n", (*(0x40334030))
+end
 
 # LPUART_MSC @0x40504000
+if ($PRTN2_COFB2_STAT & ( 1 << 1 ))
 # VERID @0
 printf "V/40504000/%08X\n", (*(0x40504000))
 # PARAM @0x4
@@ -14760,8 +14920,10 @@ printf "V/40504028/%08X\n", (*(0x40504028))
 printf "V/4050402C/%08X\n", (*(0x4050402C))
 # DATARO @0x30
 printf "V/40504030/%08X\n", (*(0x40504030))
+end
 
 # MCM_0_CM7 @0xE0080000
+# 0xE0080000 not found in map.
 # PLREV @0
 printf "V/E0080000/%08X\n", (*(0xE0080000) >> 0) & 0xFFFF
 # PCT @0x2
@@ -14782,6 +14944,7 @@ printf "V/E008040C/%08X\n", (*(0xE008040C))
 printf "V/E0080410/%08X\n", (*(0xE0080410))
 
 # MCM_1_CM7 @0xE0080000
+# 0xE0080000 not found in map.
 # PLREV @0
 printf "V/E0080000/%08X\n", (*(0xE0080000) >> 0) & 0xFFFF
 # PCT @0x2
@@ -14802,6 +14965,7 @@ printf "V/E008040C/%08X\n", (*(0xE008040C))
 printf "V/E0080410/%08X\n", (*(0xE0080410))
 
 # MCM_2_CM7 @0xE0080000
+# 0xE0080000 not found in map.
 # PLREV @0
 printf "V/E0080000/%08X\n", (*(0xE0080000) >> 0) & 0xFFFF
 # PCT @0x2
@@ -14822,6 +14986,7 @@ printf "V/E008040C/%08X\n", (*(0xE008040C))
 printf "V/E0080410/%08X\n", (*(0xE0080410))
 
 # MCM_3_CM7 @0xE0080000
+# 0xE0080000 not found in map.
 # PLREV @0
 printf "V/E0080000/%08X\n", (*(0xE0080000) >> 0) & 0xFFFF
 # PCT @0x2
@@ -14842,6 +15007,7 @@ printf "V/E008040C/%08X\n", (*(0xE008040C))
 printf "V/E0080410/%08X\n", (*(0xE0080410))
 
 # MC_CGM @0x402D8000
+# 0x402D8000 not found in map.
 # PCFS_SDUR @0
 printf "V/402D8000/%08X\n", (*(0x402D8000))
 # PCFS_DIVC8 @0x58
@@ -14998,6 +15164,7 @@ printf "V/402D8708/%08X\n", (*(0x402D8708))
 printf "V/402D873C/%08X\n", (*(0x402D873C))
 
 # MC_ME @0x402DC000
+# 0x402DC000 not found in map.
 # CTL_KEY @0
 printf "V/402DC000/%08X\n", (*(0x402DC000))
 # MODE_CONF @0x4
@@ -15116,6 +15283,7 @@ printf "V/402DC734/%08X\n", (*(0x402DC734))
 printf "V/402DC738/%08X\n", (*(0x402DC738))
 
 # MC_RGM @0x4028C000
+# 0x4028C000 not found in map.
 # DES @0
 printf "V/4028C000/%08X\n", (*(0x4028C000))
 # FES @0x8
@@ -15136,6 +15304,7 @@ printf "V/4028C020/%08X\n", (*(0x4028C020))
 printf "V/4028C024/%08X\n", (*(0x4028C024))
 
 # MDM_AP @0x40250600
+# 0x40250600 not found in map.
 # MDMAPSTTS @0
 printf "V/40250600/%08X\n", (*(0x40250600))
 # MDMAPCTL @0x4
@@ -15172,6 +15341,7 @@ printf "V/40250648/%08X\n", (*(0x40250648))
 printf "V/402506FC/%08X\n", (*(0x402506FC))
 
 # MSCM @0x40260000
+if ($PRTN1_COFB0_STAT & ( 1 << 24 ))
 # CPXTYPE @0
 printf "V/40260000/%08X\n", (*(0x40260000))
 # CPXNUM @0x4
@@ -15756,8 +15926,10 @@ printf "V/40260A5A/%08X\n", (*(0x40260A58) >> 16) & 0xFFFF
 printf "V/40260A5C/%08X\n", (*(0x40260A5C) >> 0) & 0xFFFF
 # IRSPRC[239] @0x880 + 239 * 0x2
 printf "V/40260A5E/%08X\n", (*(0x40260A5C) >> 16) & 0xFFFF
+end
 
 # MU_0__MUB @0x4038C000
+if ($PRTN1_COFB3_STAT & ( 1 << 3 ))
 # VER @0
 printf "V/4038C000/%08X\n", (*(0x4038C000))
 # PAR @0x4
@@ -15804,8 +15976,10 @@ printf "V/4038C284/%08X\n", (*(0x4038C284))
 printf "V/4038C288/%08X\n", (*(0x4038C288))
 # RR[3] @0x280 + 3 * 0x4
 printf "V/4038C28C/%08X\n", (*(0x4038C28C))
+end
 
 # MU_1__MUB @0x404EC000
+if ($PRTN2_COFB1_STAT & ( 1 << 27 ))
 # VER @0
 printf "V/404EC000/%08X\n", (*(0x404EC000))
 # PAR @0x4
@@ -15852,8 +16026,10 @@ printf "V/404EC284/%08X\n", (*(0x404EC284))
 printf "V/404EC288/%08X\n", (*(0x404EC288))
 # RR[3] @0x280 + 3 * 0x4
 printf "V/404EC28C/%08X\n", (*(0x404EC28C))
+end
 
 # MU_2__MUA @0x400B8000
+if ($PRTN0_COFB1_STAT & ( 1 << 14 ))
 # VER @0
 printf "V/400B8000/%08X\n", (*(0x400B8000))
 # PAR @0x4
@@ -15896,8 +16072,10 @@ printf "V/400B8284/%08X\n", (*(0x400B8284))
 printf "V/400B8288/%08X\n", (*(0x400B8288))
 # RR[3] @0x280 + 3 * 0x4
 printf "V/400B828C/%08X\n", (*(0x400B828C))
+end
 
 # MU_2__MUB @0x400BC000
+if ($PRTN0_COFB1_STAT & ( 1 << 15 ))
 # VER @0
 printf "V/400BC000/%08X\n", (*(0x400BC000))
 # PAR @0x4
@@ -15940,8 +16118,10 @@ printf "V/400BC284/%08X\n", (*(0x400BC284))
 printf "V/400BC288/%08X\n", (*(0x400BC288))
 # RR[3] @0x280 + 3 * 0x4
 printf "V/400BC28C/%08X\n", (*(0x400BC28C))
+end
 
 # OMU_CM7_0 @0x40518000
+if ($PRTN2_COFB2_STAT & ( 1 << 6 ))
 # OER @0x4000
 printf "V/4051C000/%08X\n", (*(0x4051C000))
 # ZRR @0x4004
@@ -15952,8 +16132,10 @@ printf "V/4051C008/%08X\n", (*(0x4051C008))
 printf "V/4051C012/%08X\n", (*(0x4051C010))
 # GZRUDR @0x4016
 printf "V/4051C016/%08X\n", (*(0x4051C014))
+end
 
 # OMU_CM7_1 @0x40520000
+# 0x40520000 not found in map.
 # OER @0x4000
 printf "V/40524000/%08X\n", (*(0x40524000))
 # ZRR @0x4004
@@ -15966,6 +16148,7 @@ printf "V/40524012/%08X\n", (*(0x40524010))
 printf "V/40524016/%08X\n", (*(0x40524014))
 
 # OMU_CM7_2 @0x40528000
+# 0x40528000 not found in map.
 # OER @0x4000
 printf "V/4052C000/%08X\n", (*(0x4052C000))
 # ZRR @0x4004
@@ -15978,6 +16161,7 @@ printf "V/4052C012/%08X\n", (*(0x4052C010))
 printf "V/4052C016/%08X\n", (*(0x4052C014))
 
 # PFLASH @0x40268000
+if ($PRTN1_COFB0_STAT & ( 1 << 26 ))
 # PFCR[0] @0 + 0 * 0x4
 printf "V/40268000/%08X\n", (*(0x40268000))
 # PFCR[1] @0 + 1 * 0x4
@@ -16032,8 +16216,10 @@ printf "V/402683A0/%08X\n", (*(0x402683A0))
 printf "V/402683A4/%08X\n", (*(0x402683A4))
 # PFCBLKU_LOCKMASTER_S @0x480
 printf "V/40268480/%08X\n", (*(0x40268480))
+end
 
 # PFLASH_ALT @0x4026C000
+if ($PRTN1_COFB0_STAT & ( 1 << 27 ))
 # PFCR[0] @0 + 0 * 0x4
 printf "V/4026C000/%08X\n", (*(0x4026C000))
 # PFCR[1] @0 + 1 * 0x4
@@ -16088,8 +16274,10 @@ printf "V/4026C3A0/%08X\n", (*(0x4026C3A0))
 printf "V/4026C3A4/%08X\n", (*(0x4026C3A4))
 # PFCBLKU_LOCKMASTER_S @0x480
 printf "V/4026C480/%08X\n", (*(0x4026C480))
+end
 
 # PIT_0 @0x400B0000
+if ($PRTN0_COFB1_STAT & ( 1 << 12 ))
 # MCR @0
 printf "V/400B0000/%08X\n", (*(0x400B0000))
 # LTMR64H @0xE0
@@ -16106,16 +16294,22 @@ printf "V/400B00F4/%08X\n", (*(0x400B00F4))
 printf "V/400B00F8/%08X\n", (*(0x400B00F8))
 # RTI_TFLG @0xFC
 printf "V/400B00FC/%08X\n", (*(0x400B00FC))
+end
 
 # PIT_1 @0x400B4000
+if ($PRTN0_COFB1_STAT & ( 1 << 13 ))
 # MCR @0
 printf "V/400B4000/%08X\n", (*(0x400B4000))
+end
 
 # PIT_2 @0x402FC000
+if ($PRTN1_COFB1_STAT & ( 1 << 31 ))
 # MCR @0
 printf "V/402FC000/%08X\n", (*(0x402FC000))
+end
 
 # PLL @0x402E0000
+if ($PRTN1_COFB1_STAT & ( 1 << 24 ))
 # PLLCR @0
 printf "V/402E0000/%08X\n", (*(0x402E0000))
 # PLLSR @0x4
@@ -16132,8 +16326,10 @@ printf "V/402E0018/%08X\n", (*(0x402E0018))
 printf "V/402E0080/%08X\n", (*(0x402E0080))
 # PLLODIV_[1] @0x80 + 1 * 0x4
 printf "V/402E0084/%08X\n", (*(0x402E0084))
+end
 
 # PMC @0x402E8000
+# 0x402E8000 not found in map.
 # LVSC @0
 printf "V/402E8000/%08X\n", (*(0x402E8000))
 # CONFIG @0x4
@@ -16144,14 +16340,19 @@ printf "V/402E8008/%08X\n", (*(0x402E8008))
 printf "V/402E800C/%08X\n", (*(0x402E800C))
 
 # PRAMC_0 @0x40264000
+if ($PRTN1_COFB0_STAT & ( 1 << 25 ))
 # PRCR1 @0
 printf "V/40264000/%08X\n", (*(0x40264000))
+end
 
 # PRAMC_1 @0x40464000
+if ($PRTN2_COFB0_STAT & ( 1 << 25 ))
 # PRCR1 @0
 printf "V/40464000/%08X\n", (*(0x40464000))
+end
 
 # QUADSPI @0x404CC000
+if ($PRTN2_COFB1_STAT & ( 1 << 19 ))
 # MCR @0
 printf "V/404CC000/%08X\n", (*(0x404CC000))
 # IPCR @0x8
@@ -16466,8 +16667,10 @@ printf "V/404CC934/%08X\n", (*(0x404CC934))
 printf "V/404CC938/%08X\n", (*(0x404CC938))
 # INT_EN @0x93C
 printf "V/404CC93C/%08X\n", (*(0x404CC93C))
+end
 
 # QUADSPI_ARDB @0x68000000
+# 0x68000000 not found in map.
 # ARDB[0] @0 + 0 * 0x4
 printf "V/68000000/%08X\n", (*(0x68000000))
 # ARDB[1] @0 + 1 * 0x4
@@ -16534,6 +16737,7 @@ printf "V/68000078/%08X\n", (*(0x68000078))
 printf "V/6800007C/%08X\n", (*(0x6800007C))
 
 # RTC @0x40288000
+if ($PRTN1_COFB1_STAT & ( 1 << 2 ))
 # RTCSUPV @0
 printf "V/40288000/%08X\n", (*(0x40288000))
 # RTCC @0x4
@@ -16546,8 +16750,10 @@ printf "V/4028800C/%08X\n", (*(0x4028800C))
 printf "V/40288010/%08X\n", (*(0x40288010))
 # RTCVAL @0x14
 printf "V/40288014/%08X\n", (*(0x40288014))
+end
 
 # SDADC_0 @0x406F4000
+if ($PRTN3_COFB1_STAT & ( 1 << 29 ))
 # MCR @0
 printf "V/406F4000/%08X\n", (*(0x406F4000))
 # CSR @0x4
@@ -16572,8 +16778,10 @@ printf "V/406F4024/%08X\n", (*(0x406F4024))
 printf "V/406F4028/%08X\n", (*(0x406F4028))
 # TCR @0x30
 printf "V/406F4030/%08X\n", (*(0x406F4030))
+end
 
 # SDADC_1 @0x406F8000
+if ($PRTN3_COFB1_STAT & ( 1 << 30 ))
 # MCR @0
 printf "V/406F8000/%08X\n", (*(0x406F8000))
 # CSR @0x4
@@ -16598,8 +16806,10 @@ printf "V/406F8024/%08X\n", (*(0x406F8024))
 printf "V/406F8028/%08X\n", (*(0x406F8028))
 # TCR @0x30
 printf "V/406F8030/%08X\n", (*(0x406F8030))
+end
 
 # SDADC_2 @0x406FC000
+if ($PRTN3_COFB1_STAT & ( 1 << 31 ))
 # MCR @0
 printf "V/406FC000/%08X\n", (*(0x406FC000))
 # CSR @0x4
@@ -16624,8 +16834,10 @@ printf "V/406FC024/%08X\n", (*(0x406FC024))
 printf "V/406FC028/%08X\n", (*(0x406FC028))
 # TCR @0x30
 printf "V/406FC030/%08X\n", (*(0x406FC030))
+end
 
 # SDADC_3 @0x40700000
+if ($PRTN3_COFB2_STAT & ( 1 << 0 ))
 # MCR @0
 printf "V/40700000/%08X\n", (*(0x40700000))
 # CSR @0x4
@@ -16650,8 +16862,10 @@ printf "V/40700024/%08X\n", (*(0x40700024))
 printf "V/40700028/%08X\n", (*(0x40700028))
 # TCR @0x30
 printf "V/40700030/%08X\n", (*(0x40700030))
+end
 
 # SDA_AP @0x40254700
+if ($PRTN1_COFB0_STAT & ( 1 << 21 ))
 # AUTHSTTS @0
 printf "V/40254700/%08X\n", (*(0x40254700))
 # AUTHCTL @0x4
@@ -16710,14 +16924,17 @@ printf "V/402547D0/%08X\n", (*(0x402547D0))
 printf "V/402547E0/%08X\n", (*(0x402547E0))
 # ID @0xFC
 printf "V/402547FC/%08X\n", (*(0x402547FC))
+end
 
 # SELFTEST_GPR @0x403B0000
+# 0x403B0000 not found in map.
 # CONFIG_REG @0
 printf "V/403B0000/%08X\n", (*(0x403B0000))
 # LBIST_PROG_REG @0x14
 printf "V/403B0014/%08X\n", (*(0x403B0014))
 
 # SEMA42 @0x40460000
+if ($PRTN2_COFB0_STAT & ( 1 << 24 ))
 # GATE3 @0
 printf "V/40460000/%08X\n", (*(0x40460000) >> 0) & 0xFF
 # GATE2 @0x1
@@ -16754,20 +16971,26 @@ printf "V/4046000F/%08X\n", (*(0x4046000C) >> 24) & 0xFF
 printf "V/40460042/%08X\n", (*(0x40460040) >> 16) & 0xFFFF
 # RSTGT_W @0x42
 printf "V/40460042/%08X\n", (*(0x40460040) >> 16) & 0xFFFF
+end
 
 # SGEN_0 @0x406C8000
+if ($PRTN3_COFB1_STAT & ( 1 << 18 ))
 # CTRL @0
 printf "V/406C8000/%08X\n", (*(0x406C8000))
 # STAT @0x4
 printf "V/406C8004/%08X\n", (*(0x406C8004))
+end
 
 # SGEN_1 @0x406CC000
+if ($PRTN3_COFB1_STAT & ( 1 << 19 ))
 # CTRL @0
 printf "V/406CC000/%08X\n", (*(0x406CC000))
 # STAT @0x4
 printf "V/406CC004/%08X\n", (*(0x406CC004))
+end
 
 # SIPI @0x404F0000
+if ($PRTN2_COFB1_STAT & ( 1 << 28 ))
 # CCR0 @0
 printf "V/404F0000/%08X\n", (*(0x404F0000))
 # CSR0 @0x4
@@ -16854,14 +17077,17 @@ printf "V/404F00B0/%08X\n", (*(0x404F00B0))
 printf "V/404F00B4/%08X\n", (*(0x404F00B4))
 # PMR @0xB8
 printf "V/404F00B8/%08X\n", (*(0x404F00B8))
+end
 
 # SIRC @0x402C8000
+# 0x402C8000 not found in map.
 # SR @0x4
 printf "V/402C8004/%08X\n", (*(0x402C8004))
 # MISCELLANEOUS_IN @0xC
 printf "V/402C800C/%08X\n", (*(0x402C800C))
 
 # SIUL2 @0x40290000
+if ($PRTN1_COFB1_STAT & ( 1 << 10 ))
 # MIDR1 @0x4
 printf "V/40290004/%08X\n", (*(0x40290004))
 # MIDR2 @0x8
@@ -19008,8 +19234,10 @@ printf "V/402917B0/%08X\n", (*(0x402917B0))
 printf "V/402917B4/%08X\n", (*(0x402917B4))
 # MPGPDO14 @0x17B8
 printf "V/402917B8/%08X\n", (*(0x402917B8))
+end
 
 # STCU @0x403A0000
+if ($PRTN1_COFB3_STAT & ( 1 << 8 ))
 # RUNSW @0x4
 printf "V/403A0004/%08X\n", (*(0x403A0004))
 # SKC @0x8
@@ -19078,26 +19306,34 @@ printf "V/403A2238/%08X\n", (*(0x403A2238))
 printf "V/403A223C/%08X\n", (*(0x403A223C))
 # MB_CTRL11 @0x2240
 printf "V/403A2240/%08X\n", (*(0x403A2240))
+end
 
 # STM_0 @0x40274000
+if ($PRTN1_COFB0_STAT & ( 1 << 29 ))
 # CR @0
 printf "V/40274000/%08X\n", (*(0x40274000))
 # CNT @0x4
 printf "V/40274004/%08X\n", (*(0x40274004))
+end
 
 # STM_1 @0x40474000
+if ($PRTN2_COFB0_STAT & ( 1 << 29 ))
 # CR @0
 printf "V/40474000/%08X\n", (*(0x40474000))
 # CNT @0x4
 printf "V/40474004/%08X\n", (*(0x40474004))
+end
 
 # STM_2 @0x40478000
+if ($PRTN2_COFB0_STAT & ( 1 << 30 ))
 # CR @0
 printf "V/40478000/%08X\n", (*(0x40478000))
 # CNT @0x4
 printf "V/40478004/%08X\n", (*(0x40478004))
+end
 
 # SWT_0 @0x40270000
+if ($PRTN1_COFB0_STAT & ( 1 << 28 ))
 # CR @0
 printf "V/40270000/%08X\n", (*(0x40270000))
 # IR @0x4
@@ -19114,8 +19350,10 @@ printf "V/40270014/%08X\n", (*(0x40270014))
 printf "V/40270018/%08X\n", (*(0x40270018))
 # RRR @0x1C
 printf "V/4027001C/%08X\n", (*(0x4027001C))
+end
 
 # SWT_1 @0x4046C000
+if ($PRTN2_COFB0_STAT & ( 1 << 27 ))
 # CR @0
 printf "V/4046C000/%08X\n", (*(0x4046C000))
 # IR @0x4
@@ -19132,8 +19370,10 @@ printf "V/4046C014/%08X\n", (*(0x4046C014))
 printf "V/4046C018/%08X\n", (*(0x4046C018))
 # RRR @0x1C
 printf "V/4046C01C/%08X\n", (*(0x4046C01C))
+end
 
 # SWT_2 @0x40470000
+if ($PRTN2_COFB0_STAT & ( 1 << 28 ))
 # CR @0
 printf "V/40470000/%08X\n", (*(0x40470000))
 # IR @0x4
@@ -19150,8 +19390,10 @@ printf "V/40470014/%08X\n", (*(0x40470014))
 printf "V/40470018/%08X\n", (*(0x40470018))
 # RRR @0x1C
 printf "V/4047001C/%08X\n", (*(0x4047001C))
+end
 
 # TCD_0 @0x40210000
+if ($PRTN1_COFB0_STAT & ( 1 << 4 ))
 # CH0_CSR @0
 printf "V/40210000/%08X\n", (*(0x40210000))
 # CH0_ES @0x4
@@ -20368,8 +20610,10 @@ printf "V/4045C03C/%08X\n", (*(0x4045C03C) >> 0) & 0xFFFF
 printf "V/4045C03E/%08X\n", (*(0x4045C03C) >> 16) & 0xFFFF
 # TCD31_BITER_ELINKYES @0x24C03E
 printf "V/4045C03E/%08X\n", (*(0x4045C03C) >> 16) & 0xFFFF
+end
 
 # TCD_1 @0x40014000
+if ($PRTN0_COFB0_STAT & ( 1 << 5 ))
 # CH0_CSR @0
 printf "V/40014000/%08X\n", (*(0x40014000))
 # CH0_ES @0x4
@@ -21586,8 +21830,10 @@ printf "V/4063C03C/%08X\n", (*(0x4063C03C) >> 0) & 0xFFFF
 printf "V/4063C03E/%08X\n", (*(0x4063C03C) >> 16) & 0xFFFF
 # TCD31_BITER_ELINKYES @0x62803E
 printf "V/4063C03E/%08X\n", (*(0x4063C03C) >> 16) & 0xFFFF
+end
 
 # TEMPSENSE @0x4037C000
+if ($PRTN1_COFB2_STAT & ( 1 << 31 ))
 # ETSCTL @0
 printf "V/4037C000/%08X\n", (*(0x4037C000))
 # TCA0 @0x8
@@ -21596,8 +21842,10 @@ printf "V/4037C008/%08X\n", (*(0x4037C008))
 printf "V/4037C00C/%08X\n", (*(0x4037C00C))
 # TCA2 @0x10
 printf "V/4037C010/%08X\n", (*(0x4037C010))
+end
 
-# TRGMUX_APP @0x40080000
+# TRGMUX @0x40080000
+if ($PRTN0_COFB1_STAT & ( 1 << 0 ))
 # ADC12_0 @0
 printf "V/40080000/%08X\n", (*(0x40080000))
 # ADC12_1 @0x4
@@ -21722,8 +21970,10 @@ printf "V/400800EC/%08X\n", (*(0x400800EC))
 printf "V/400800F0/%08X\n", (*(0x400800F0))
 # LPI2C_0_Triggered @0xF4
 printf "V/400800F4/%08X\n", (*(0x400800F4))
+end
 
 # TRGMUX_MSC @0x406C0000
+if ($PRTN3_COFB1_STAT & ( 1 << 16 ))
 # DSPI_MSC_Input_0 @0
 printf "V/406C0000/%08X\n", (*(0x406C0000))
 # DSPI_MSC_Input_1 @0x4
@@ -21762,8 +22012,10 @@ printf "V/406C0040/%08X\n", (*(0x406C0040))
 printf "V/406C0044/%08X\n", (*(0x406C0044))
 # TRGMUX_APP_TRGMUX_OUT_2 @0x48
 printf "V/406C0048/%08X\n", (*(0x406C0048))
+end
 
 # VIRT_WRAPPER @0x402A8000
+# 0x402A8000 not found in map.
 # REG_A0 @0 + 0 * 0x4
 printf "V/402A8000/%08X\n", (*(0x402A8000))
 # REG_A1 @0 + 1 * 0x4
@@ -21898,6 +22150,7 @@ printf "V/402A8100/%08X\n", (*(0x402A8100))
 printf "V/402A8104/%08X\n", (*(0x402A8104))
 
 # WKPU @0x402B4000
+if ($PRTN1_COFB1_STAT & ( 1 << 13 ))
 # NSR @0
 printf "V/402B4000/%08X\n", (*(0x402B4000))
 # NCR @0x8
@@ -21926,8 +22179,10 @@ printf "V/402B4068/%08X\n", (*(0x402B4068))
 printf "V/402B406C/%08X\n", (*(0x402B406C))
 # WIFER_64 @0x70
 printf "V/402B4070/%08X\n", (*(0x402B4070))
+end
 
 # XBIC_AXBS @0x40204000
+if ($PRTN1_COFB0_STAT & ( 1 << 1 ))
 # MCR @0
 printf "V/40204000/%08X\n", (*(0x40204000))
 # EIR @0x4
@@ -21936,8 +22191,10 @@ printf "V/40204004/%08X\n", (*(0x40204004))
 printf "V/40204008/%08X\n", (*(0x40204008))
 # EAR @0xC
 printf "V/4020400C/%08X\n", (*(0x4020400C))
+end
 
 # XBIC_AXBS_EDMA @0x40404000
+# 0x40404000 not found in map.
 # MCR @0
 printf "V/40404000/%08X\n", (*(0x40404000))
 # EIR @0x4
@@ -21948,6 +22205,7 @@ printf "V/40404008/%08X\n", (*(0x40404008))
 printf "V/4040400C/%08X\n", (*(0x4040400C))
 
 # XBIC_AXBS_PERI @0x40208000
+if ($PRTN1_COFB0_STAT & ( 1 << 2 ))
 # MCR @0
 printf "V/40208000/%08X\n", (*(0x40208000))
 # EIR @0x4
@@ -21956,8 +22214,10 @@ printf "V/40208004/%08X\n", (*(0x40208004))
 printf "V/40208008/%08X\n", (*(0x40208008))
 # EAR @0xC
 printf "V/4020800C/%08X\n", (*(0x4020800C))
+end
 
 # XBIC_AXBS_TCM @0x40400000
+# 0x40400000 not found in map.
 # MCR @0
 printf "V/40400000/%08X\n", (*(0x40400000))
 # EIR @0x4
@@ -21968,6 +22228,7 @@ printf "V/40400008/%08X\n", (*(0x40400008))
 printf "V/4040000C/%08X\n", (*(0x4040000C))
 
 # XRDC @0x40278000
+if ($PRTN1_COFB0_STAT & ( 1 << 30 ))
 # CR @0
 printf "V/40278000/%08X\n", (*(0x40278000))
 # HWCFG0 @0xF0
@@ -23356,8 +23617,10 @@ printf "V/4027A7E4/%08X\n", (*(0x4027A7E4))
 printf "V/4027A7E8/%08X\n", (*(0x4027A7E8))
 # MRGD_W3_63 @0x27EC
 printf "V/4027A7EC/%08X\n", (*(0x4027A7EC))
+end
 
 # ZIPWIRE_XBIC @0x40678000
+# 0x40678000 not found in map.
 # MCR @0
 printf "V/40678000/%08X\n", (*(0x40678000))
 # EIR @0x4
