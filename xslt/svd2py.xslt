@@ -350,23 +350,4 @@ if __name__ == "__main__":
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-
-    <xsl:function name="fn:GenPattern">
-        <xsl:param name="prevPattern" />
-        <xsl:param name="nextPattern" />
-        <xsl:if test="string-length($nextPattern) = 0">
-            <xsl:sequence select="''" />
-        </xsl:if>
-        <xsl:variable name="currPattern" select="substring($nextPattern, 1, 1)" />
-        <xsl:variable name="nextPattern" select="substring($nextPattern, 2)" />
-        <xsl:choose>
-            <xsl:when test="string-length(substring-before('01', $currPattern)) > 0">
-                <xsl:sequence select="fn:GenPattern(concat($prevPattern, currPattern), $nextPattern)" />
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:sequence select="concat(fn:GenPattern(concat($prevPattern, '0'), $nextPattern), ',', fn:GenPattern(concat($prevPattern, '1'), $nextPattern))" />
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:function>
-
 </xsl:stylesheet>

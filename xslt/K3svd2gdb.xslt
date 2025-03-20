@@ -17,8 +17,6 @@
         <xsl:value-of select="device/name" />
         <xsl:text>.dump&#10;set logging on&#10;&#10;</xsl:text>
 
-        <!-- Prepare all mc_me clock status -->
-        <!-- Resource/Resource/*.properties MCU.MC_ME.Peripherals.Slots.List MCU.Peripherals.List: -->
         <xsl:variable name="MC_ME_BASE" select="fn:HexToDec(device/peripherals/peripheral[name='MC_ME']/baseAddress)" />
         <xsl:for-each select="device/peripherals/peripheral[name='MC_ME']/registers/register[matches(name, 'PRTN._COFB._STAT')]">
             <xsl:text>$</xsl:text>

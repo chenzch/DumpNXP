@@ -2,7 +2,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Build S32K312_M7.gdb",
+			"label": "Build S32K142_M4.gdb",
 			"type": "shell",
 			"command": ".\\jre\\bin\\java",
 			"args": [
@@ -10,9 +10,9 @@
 				"\"./bin/xmlresolver-5.2.2.jar;./bin/saxon-he-12.5.jar\"",
 				"net.sf.saxon.Transform",
 				"-t",
-				"-s:.\\svd\\S32K312_M7.svd",
-				"-xsl:.\\xslt\\svd2gdb.xslt",
-				"-o:.\\dump\\S32K312_M7.gdb"
+				"-s:.\\svd\\S32K148_M4.svd",
+				"-xsl:.\\xslt\\K1svd2gdb.xslt",
+				"-o:.\\dump\\S32K148_M4.gdb"
 			],
 			"group": {
 				"kind": "build",
