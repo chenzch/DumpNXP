@@ -18,13 +18,13 @@
         <xsl:text>.dump&#10;set logging on&#10;&#10;</xsl:text>
 
         <xsl:if test="device/peripherals/peripheral[name='SIM']/registers/register[name='PLATCGC']">
-            <xsl:text>$PLATCGC = *(</xsl:text>
+            <xsl:text>set $PLATCGC = *(</xsl:text>
             <xsl:value-of select="fn:FormatHex(fn:DecToHex(fn:HexToDec(device/peripherals/peripheral[name='SIM']/baseAddress) + fn:HexToDec(device/peripherals/peripheral[name='SIM']/registers/register[name='PLATCGC']/addressOffset)))" />
             <xsl:text>)&#10;</xsl:text>
         </xsl:if>
         <xsl:variable name="PCC_BASE" select="fn:HexToDec(device/peripherals/peripheral[name='PCC']/baseAddress)" />
         <xsl:for-each select="device/peripherals/peripheral[name='PCC']/registers/register">
-            <xsl:text>$</xsl:text>
+            <xsl:text>set $</xsl:text>
             <xsl:value-of select="name" />
             <xsl:text> = *(</xsl:text>
             <xsl:value-of select="fn:FormatHex(fn:DecToHex($PCC_BASE + fn:HexToDec(addressOffset)))" />
@@ -54,7 +54,6 @@
             <map><baseaddr>0x40018000</baseaddr><regname>PLATCGC</regname><offset>3</offset></map>
             <map><baseaddr>0x40019000</baseaddr><regname>PLATCGC</regname><offset>4</offset></map>
             <map><baseaddr>0x40020000</baseaddr><regname>PCC_FTFC</regname><offset>30</offset></map>
-            <map><baseaddr>0x40020000</baseaddr><regname>PCC_FTFM</regname><offset>30</offset></map>
             <map><baseaddr>0x40021000</baseaddr><regname>PCC_DMAMUX</regname><offset>30</offset></map>
             <map><baseaddr>0x40024000</baseaddr><regname>PCC_FlexCAN0</regname><offset>30</offset></map>
             <map><baseaddr>0x40025000</baseaddr><regname>PCC_FlexCAN1</regname><offset>30</offset></map>

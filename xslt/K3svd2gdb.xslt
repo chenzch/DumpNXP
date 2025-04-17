@@ -19,7 +19,7 @@
 
         <xsl:variable name="MC_ME_BASE" select="fn:HexToDec(device/peripherals/peripheral[name='MC_ME']/baseAddress)" />
         <xsl:for-each select="device/peripherals/peripheral[name='MC_ME']/registers/register[matches(name, 'PRTN._COFB._STAT')]">
-            <xsl:text>$</xsl:text>
+            <xsl:text>set $</xsl:text>
             <xsl:value-of select="name" />
             <xsl:text> = *(</xsl:text>
             <xsl:value-of select="fn:FormatHex(fn:DecToHex($MC_ME_BASE + fn:HexToDec(addressOffset)))" />
@@ -86,7 +86,6 @@
             <map><baseaddr>0x40204000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>1</offset></map>
             <map><baseaddr>0x40208000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>2</offset></map>
             <map><baseaddr>0x4020C000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>3</offset></map>
-            <map><baseaddr>0x4020C000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>3</offset></map>
             <map><baseaddr>0x40210000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>4</offset></map>
             <map><baseaddr>0x40214000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>5</offset></map>
             <map><baseaddr>0x40218000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>6</offset></map>
@@ -101,7 +100,6 @@
             <map><baseaddr>0x4023C000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>15</offset></map>
             <map><baseaddr>0x40254700</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>21</offset></map>
             <map><baseaddr>0x40258000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>22</offset></map>
-            <map><baseaddr>0x4025C000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>23</offset></map>
             <map><baseaddr>0x4025C000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>23</offset></map>
             <map><baseaddr>0x40260000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>24</offset></map>
             <map><baseaddr>0x40264000</baseaddr><stat>PRTN1_COFB0_STAT</stat><offset>25</offset></map>
